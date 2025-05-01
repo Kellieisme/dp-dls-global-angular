@@ -12,6 +12,10 @@ on:
       - develop
       - main
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-package:
     runs-on: ubuntu-latest
