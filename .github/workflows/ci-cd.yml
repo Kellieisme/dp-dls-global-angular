@@ -35,8 +35,8 @@ jobs:
 
       - name: Setup .npmrc
         run: |
-          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/api/v4/packages/npm/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/api/v4/packages/npm/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           cat .npmrc
 
       - name: Install dependencies
@@ -106,8 +106,8 @@ jobs:
 
       - name: Setup .npmrc
         run: |
-          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/api/v4/packages/npm/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/api/v4/packages/npm/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           cat .npmrc
 
       - name: Clear npm cache and install dependencies
@@ -140,7 +140,7 @@ jobs:
       - name: Setup .npmrc
         run: |
           cd dist/design/dls-global-angular
-          echo "@${{ github.repository_owner }}@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" > .npmrc
+          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
           echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
 
       - name: Publish NPM package
@@ -172,8 +172,8 @@ jobs:
 
       - name: Setup .npmrc
         run: |
-          echo "registry=https://${{ vars.NPM_REGISTRY_URL }}/api/v4/packages/npm/" > .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/api/v4/packages/npm/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           cat .npmrc
 
       - name: Install dependencies
