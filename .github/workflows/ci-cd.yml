@@ -5,10 +5,12 @@ on:
     branches:
       - angular-19
       - develop
+      - main
   pull_request:
     branches:
       - angular-19
       - develop
+      - main
 
 jobs:
   build-package:
@@ -116,7 +118,7 @@ jobs:
 
       - name: Build Storybook
         run: |
-          if [ "${{ github.ref }}" != "refs/heads/develop" ]; then
+          if [ "${{ github.ref }}" != "refs/heads/main" ]; then
             npm run build-storybook -- --output-dir storybook
           else
             npm run build-storybook -- --output-dir public
