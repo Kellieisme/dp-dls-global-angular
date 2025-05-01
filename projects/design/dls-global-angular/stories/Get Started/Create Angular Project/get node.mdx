@@ -1,0 +1,145 @@
+import { Meta } from "@storybook/blocks";
+import {
+  Highlight_yellow,
+  Blue_text,
+  Red_text,
+  Deprecated,
+  Inprogress,
+  Info_Blue_text,
+  Info_Section,
+} from "../../../mdx_styles.mdx";
+
+<Meta title="INSTALLATION/Get Node" />
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+
+# Get Node and Angular CLI
+
+Before You Start Make Sure that you have admin rights to your machine for installations.
+
+<div style={{background:"var(--color-ui-background-medium)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
+   <details>
+    <summary style={{fontSize:'17px',cursor: 'pointer'}}>
+     > ## For Mac OS
+    
+    </summary>
+        > Open Terminal
+        > Press `Cmd + Space`, type `Terminal`, and hit `Enter`.
+        > Check for Existing Node.js
+        > Run:
+        > ```bash
+        > node -v
+        > ```
+        > If Node.js is installed, you'll see the version. If not, proceed.
+
+        > #### Install Node.js via Homebrew (Recommended)
+        > If Homebrew is not installed, install it:
+        > ```bash
+        > /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        > ```
+        > After installation, ensure Homebrew is added to your PATH (the instructions will be provided in Terminal).
+
+        > #### Install Node.js using Homebrew:
+        > ```bash
+        > brew install node
+        > ```
+
+        > #### Verify installation:
+        > ```bash
+        > node -v
+        > npm -v
+        > ```
+
+        > #### Install Angular CLI
+        > Use npm to install Angular CLI globally:
+        > ```bash
+        > npm install -g @angular/cli
+        > ```
+
+        > #### Verify Angular CLI installation:
+        > ```bash
+        > ng version
+        > ```
+    </details>
+
+</div>
+
+<div style={{background:"var(--color-ui-background-medium)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
+    <details>
+        <summary style={{fontSize:'17px',cursor: 'pointer'}}>
+        > ## For Windows
+        </summary>
+
+        > #### Download Node.js
+        > Go to the official Node.js website.
+        > Download the [LTS (Long Term Support)]((https://nodejs.org/en)) version for stability.
+
+        > #### Install Node.js
+        > Run the downloaded .msi installer.
+        > During the installation:
+        > - Accept the license agreement.
+        > - Choose default settings.
+        > - Ensure the "Add to PATH" option is selected.
+
+        > #### Verify Node.js Installation
+        > Open Command Prompt (Press Win + R, type cmd, and hit Enter).
+        > Run:
+        > ```bash
+        > node -v
+        > npm -v
+        > ```
+
+        > #### Install Angular CLI
+        > Install globally using npm:
+        > ```bash
+        > npm install -g @angular/cli
+        > ```
+
+        > #### Verify installation:
+        > ```bash
+        > ng version
+        > ```
+
+    </details>
+
+</div>
+
+Common Troubleshooting
+Permissions Issues (macOS)
+
+If you face permission errors during npm install, use:
+bash
+Copy code
+sudo npm install -g @angular/cli
+Enter your password when prompted.
+PATH Issues
+
+Ensure Node.js is in your PATH environment variable:
+macOS: Add this to ~/.zshrc or ~/.bash_profile:
+bash
+Copy code
+export PATH=/usr/local/bin:$PATH
+Windows: Ensure
+
+```
+C:\Program Files\nodejs is in the PATH variable via System Properties > Environment Variables.
+```
+
+Update Node.js
+
+If Node.js is outdated, update it:
+macOS:
+
+```bash
+brew update
+brew upgrade node
+```
+
+Windows: Re-download and install the latest version from the Node.js website.
+
+<Info_Blue_text>With Node.js and Angular CLI installed, you’re ready to create Angular applications! 🎉</Info_Blue_text>
+
+> ## Next: Creating Your Angular Project
+>
+> - Learn to [install Angular](?path=/docs/get-started-set-up-your-angular-project-create-your-angular-project--docs)
+
+</div>

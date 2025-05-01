@@ -1,0 +1,54 @@
+<h5>Tabs</h5>
+
+<h6>Full-width Tabs</h6>
+<mat-tab-group>
+  <mat-tab label="First"></mat-tab>
+  <mat-tab label="Second"></mat-tab>
+  <mat-tab label="Third"></mat-tab>
+</mat-tab-group>
+
+<h6>Custom Labels with Icons Tabs</h6>
+
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon svgIcon="icon-grid-on-filled"></mat-icon>
+      First
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon svgIcon="icon-airplanemode-active"></mat-icon>
+      Second
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+        <mat-icon svgIcon="icon-group"></mat-icon>
+      Third
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+
+<h6>Left Tabs</h6>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+  <mat-tab label="First"></mat-tab>
+  <mat-tab label="Second"></mat-tab>
+  <mat-tab label="Third"></mat-tab>
+</mat-tab-group>
+
+<h6>Centered Tabs</h6>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+  <mat-tab label="First"></mat-tab>
+  <mat-tab label="Second"></mat-tab>
+  <mat-tab label="Third"></mat-tab>
+</mat-tab-group>
+
+<h6>Lots of tabs (for pagination)</h6>
+<mat-tab-group>
+  @for (tab of lotsOfTabs; track tab) {
+    <mat-tab [label]="tab"></mat-tab>
+  }
+</mat-tab-group>

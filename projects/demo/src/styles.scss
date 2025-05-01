@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '../../design/dls-global-angular/styles/material/core';
+
+body {
+  margin: 10px;
+  background-color: var(--color-ui-background-lowest);
+}
+
+h6, h5 {
+  color: var(--color-ui-textandicon-high);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}

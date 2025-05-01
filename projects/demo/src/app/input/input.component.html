@@ -1,0 +1,32 @@
+<h1>Input</h1>
+<p><code>matInput</code> is a directive that allows native <code>input</code> and <code>textarea</code> elements to work with <code>mat-form-field</code>.</p>
+
+<h2>Input: Text Field</h2>
+<h4>With Placeholder</h4>
+<form>
+  <mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi">
+  </mat-form-field>
+<br><Br>
+
+<h4>Without Placeholder</h4>
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <input matInput>
+</mat-form-field>
+<br><br>
+
+<h4>Disabled</h4>
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <input matInput disabled>
+</mat-form-field>
+<br><br>
+
+<h2>Input: Text Area</h2>
+<mat-form-field floatLabel="always">
+  <mat-label>Leave a comment</mat-label>
+  <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+</mat-form-field>
+</form>

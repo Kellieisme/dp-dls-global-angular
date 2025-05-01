@@ -1,0 +1,23 @@
+@use "@angular/material" as mat;
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss";
+@import "../m3-theme";
+
+:root {
+  @include mat.sidenav-theme($dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.sidenav-color($light-theme);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mat-sidenav-container-background-color: var(--color-ui-glass-surface-thinnest);
+  --mat-sidenav-scrim-color: var(--color-ui-background-low);
+  --mat-sidenav-container-text-color: var(--color-ui-textandicon-high);
+  --mat-sidenav-container-divider-color: var(--color-ui-divider-flat-high);
+  --mat-sidenav-content-background-color: var(--color-ui-background-medium);
+}

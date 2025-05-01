@@ -1,0 +1,15 @@
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+
+h6 {
+  color: var(--color-ui-textandicon-high);
+  margin-bottom: 1rem;
+}
+
+::ng-deep {
+  .table-container {
+    padding: 30px;
+    background-color: var(--color-ui-glass-surface-thick);
+  }
+}
+
+

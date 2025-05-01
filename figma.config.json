@@ -1,0 +1,7 @@
+{
+    "codeConnect": {
+      "include": [],
+      "exclude": ["test/**", "docs/**", "build/**"],
+      "parser": "html"
+    }
+  }

@@ -1,0 +1,142 @@
+@use '@angular/material' as mat;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
+@import '../m3-theme.scss';
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.menu-theme($dark-theme);
+
+  // If needed use the single dimension mixins to override particular aspects
+  // @include mat.menu-base($dark-theme);
+  // @include mat.menu-color($dark-theme);
+  @include mat.menu-typography($dark-theme);
+  // @include mat.menu-density($dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+  // @include mat.button-base($dark-theme);
+  // @include mat.button-color($dark-theme);
+  // @include mat.button-typography($dark-theme);
+  // @include mat.button-density($dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.menu-color($light-theme);
+}
+
+// TODO: Temporary specular border values until we can fix the mixin
+// The mixin uses border-image-source to create a gradient border but
+// this does not seem to work as intended, needs more investigation
+$composition-light-ui-glass-border-specular-temp: rgba(255, 255, 255, 0.40);
+$composition-dark-ui-glass-border-specular-temp: rgba(255, 255, 255, 0.17);
+
+.mat-mdc-menu-panel {
+  max-width: 280px;
+  min-width: 112px;
+  @include composition-dark-ui-glass-background-blur;
+  background: var(--color-ui-glass-surface-thick);
+  // @include composition-dark-interactive-primary-border-hovered-specular;
+  border: 1px solid $composition-dark-ui-glass-border-specular-temp;
+
+  .theme-light & {
+    @include composition-light-ui-glass-background-blur;
+    // @include composition-light-interactive-primary-border-hovered-specular;
+    border-color: $composition-light-ui-glass-border-specular-temp;
+  }
+
+  box-shadow: none !important;
+}
+
+[mat-menu-item] {
+  &.mat-mdc-menu-item {
+    min-height: 36px;
+
+    &:hover:not(:disabled) {
+      .mat-mdc-menu-item-text {
+        text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
+      }
+    }
+  }
+
+  &.user-info-menu-item {
+    pointer-events: none !important;
+    cursor: default;
+
+    .mat-mdc-menu-item-text {
+      justify-content: flex-start !important;
+    }
+
+    display: flex;
+    align-items: center;
+    padding-top: var(--size-spacing-xs);
+    padding-bottom: var(--size-spacing-xs);
+    padding-left: var(--size-spacing-s);
+    padding-right: var(--size-spacing-s);
+
+    ba-user-profile {
+      flex-shrink: 0;
+      margin-right: var(--size-spacing-s);
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .user-name {
+        font-size: $size-base-font-size-18px;
+        font-weight: $content-base-font-weight-medium;
+      }
+
+      .additional-info {
+        font-size: $size-base-font-size-12px;
+        font-weight: $content-base-font-weight-regular;
+        color: var(--color-interactive-primary-textandicon-secondary-default);
+      }
+    }
+  }
+}
+
+.mat-mdc-menu-content {
+  .mat-mdc-menu-item {
+    .mat-mdc-menu-item-text {
+      display: inline-flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.mat-menu-item__shortcut {
+  padding-left: var(--size-spacing-l);
+}
+
+html,
+html .theme-condensed {
+  --mat-menu-container-shape: var(--size-radius-m);
+  //     --mat-menu-divider-bottom-spacing: 0;
+  //     --mat-menu-divider-top-spacing: 0;
+  //     --mat-menu-item-spacing: 16px;
+  --mat-menu-item-icon-size: var(--size-sizing-l);
+  --mat-menu-item-leading-spacing: var(--size-spacing-m);
+  --mat-menu-item-trailing-spacing: var(--size-spacing-m);
+  //     --mat-menu-item-with-icon-leading-spacing: 16px;
+  //     --mat-menu-item-with-icon-trailing-spacing: 16px
+}
+
+html,
+html .theme-light,html .theme-dark {
+  --mat-menu-item-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  //     --mat-menu-item-icon-color: rgba(0, 0, 0, 0.87);
+  --mat-menu-item-hover-state-layer-color: var(--color-interactive-primary-background-hovered);
+  --mat-menu-item-focus-state-layer-color: var(--color-interactive-primary-background-selected);
+  --mat-menu-container-color: var(--color-ui-glass-surface-regular);
+  //     --mat-menu-divider-color: rgba(0, 0, 0, 0.12)
+}
+
+// html {
+//     --mat-menu-item-label-text-font: Roboto, sans-serif;
+//     --mat-menu-item-label-text-size: 16px;
+//     --mat-menu-item-label-text-tracking: 0.03125em;
+//     --mat-menu-item-label-text-line-height: 24px;
+//     --mat-menu-item-label-text-weight: 400
+// }

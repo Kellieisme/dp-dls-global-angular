@@ -1,0 +1,8 @@
+<ba-breadcrumb [breadcrumbs]="crumbs.slice(0, breadcrumbData)" (selectedLink)="onBreadcrumbSelected($event)"></ba-breadcrumb>
+
+<div class="content">
+  <h1>{{ crumbs[breadcrumbData - 1].label }}</h1>
+  <p>Welcome to {{ crumbs[breadcrumbData - 1].label }}. Click the button below to go to the next level.</p>
+  <br>
+  <button mat-flat-button (click)="goToNextLevel()" [disabled]="breadcrumbData >= crumbs.length">Next Level</button>
+</div>

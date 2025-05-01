@@ -1,0 +1,52 @@
+<mat-toolbar class="top-app-bar">
+  <div class="top-app-bar__info">
+    <button
+      mat-icon-button
+      *ngIf="hamburgerMenuOnly"
+      class="top-app-bar__icon-menu-button"
+      [class.top-app-bar__icon-menu-button--hidden]="hamburgerMenuOnly"
+      matTooltip="Topbar"
+      color="primary"
+      aria-label="icon-button with a bookmark icon"
+    >
+      <mat-icon svgIcon="icon-menu"></mat-icon>
+    </button>
+    <div class="top-app-bar__logo-section">
+      <a [routerLink]="homeRoute">
+        <img
+          *ngIf="appLogo"
+          [src]="'./assets/' + appLogo + '_TopAppBar_dark.svg'"
+          class="top-app-bar__app-icon--dark"
+          alt="dark App Logo"
+        />
+        <img
+          *ngIf="appLogo"
+          [src]="'./assets/' + appLogo + '_TopAppBar_light.svg'"
+          class="top-app-bar__app-icon--light"
+          alt="light App Logo"
+        />
+        <h1 class="top-app-bar__title-low">{{ appName }}</h1>
+      </a>
+    </div>
+  </div>
+  <div
+    class="top-app-bar__tabs"
+    [class.top-app-bar__tabs--centered]="menuAlignCenter"
+  >
+    <ng-container *ngIf="!hamburgerMenuOnly" class="top-app-bar__tab-group">
+      <mat-tab-group class="top-app-bar__tab-group" mat-stretch-tabs>
+        <ng-container *ngFor="let tab of topAppBarMenu; let i = index">
+          <mat-tab *ngIf="i < 6" [label]="tab.label"></mat-tab>
+        </ng-container>
+      </mat-tab-group>
+    </ng-container>
+  </div>
+  <div
+    class="top-app-bar__spacer"
+    [class.top-app-bar__spacer--centered]="menuAlignCenter"
+  ></div>
+
+  <div class="top-app-bar__actions">
+    <ng-content></ng-content>
+  </div>
+</mat-toolbar>

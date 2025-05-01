@@ -1,0 +1,22 @@
+<ba-navigation-drawer
+      minifyOnCollapse
+      navDrawerPresentation = "standalone"
+      [navBarBottomComponent1] = "sideNavNotificationsButton"
+      [navBarBottomComponent2] = "sideNavProfileButton"
+      [appName]="'Boeing App'"
+      [appLogo]="'boeing'"
+      opened
+     ></ba-navigation-drawer>
+
+    <ng-template #sideNavNotificationsButton let-data="data">
+      <button 
+        mat-icon-button 
+        [class.mat-mdc-icon-button--toggle-on]="toggled"
+      >
+        <mat-icon [svgIcon]="toggled ? 'icon-notifications-filled' : 'icon-notifications'"></mat-icon>
+      </button>
+    </ng-template>
+
+    <ng-template #sideNavProfileButton let-data="data">
+      <ba-user-profile clickable userFirstName="William"></ba-user-profile>
+    </ng-template>

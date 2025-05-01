@@ -1,0 +1,145 @@
+import { Canvas, Meta, Markdown } from "@storybook/blocks";
+import * as BreadcrumbStories from "./breadcrumb.stories";
+import {
+  Blue_text,
+  Red_text,
+  Info_Blue_text,
+} from "../../../../mdx_styles.mdx";
+
+<Meta of={BreadcrumbStories} />
+
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+# Breadcrumb
+
+The Atmosphere breadcrumb component provides for an actionable/navigable
+path history when viewing deeply nested pages.
+
+If a breadcrumb trail has more than 4 steps, then all steps other than the
+first and the last two will be pulled into a menu so that overall footprint
+of the breadcrumb trail can be maintained as consistent.
+
+## API References
+
+### Selectors
+
+`ba-breadcrumb`
+
+### Properties
+
+<Markdown>
+{`
+| Name                                                       | Description                                                                                  |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| @Input() breadcrumbs: AtmosphereBreadcrumbLinkArray = []   | breadcrumb Input is a Array of AtmosphereBreadcrumbLink which is an object of {  label: string,  path: string}.|
+| @Output() selectedLink : event:{ label: selected.label, path: selected.path} |  The breadcrumb component supports dynamic navigation via router.navigation(). Additionally, this event emitter can be leveraged to trigger any supplementary logic as needed.|
+`}
+
+</Markdown>
+
+### Usage
+
+html: breadcrumbPageComponent.component.html
+
+```html
+<ba-breadcrumb [breadcrumbs]="crumbs.slice(0, breadcrumbData)" (selectedLink)="onBreadcrumbSelected($event)"></ba-breadcrumb>
+
+<div class="content">
+  <h1>{{ crumbs[breadcrumbData - 1].label }}</h1>
+  <p>Welcome to {{ crumbs[breadcrumbData - 1].label }}. Click the button below to go to the next level.</p>
+  <br>
+  <button mat-flat-button (click)="goToNextLevel()" [disabled]="breadcrumbData >= crumbs.length">Next Level</button>
+</div>
+```
+
+typescript: breadcrumbPageComponent.component.ts
+
+```typescript
+import { Component } from '@angular/core';
+import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+
+@Component({
+  selector: 'breadcrumb-page',
+  standalone: true,
+  imports: [BreadcrumbComponent,MatButtonModule],
+  templateUrl: './breadcrumb.component.html',
+  styleUrl: './breadcrumb.component.scss'
+})
+export class BreadcrumbPageComponent {
+  title = 'Breadcrumb';
+
+  breadcrumbData: number = 1; // Start from Home (index 1 for `slice`)
+  crumbs = [
+    { label: 'Home', path: '/breadcrumb' },
+    { label: 'Level 1', path: '/breadcrumb/level-1' },
+    { label: 'Level 2', path: '/breadcrumb/level-1/level-2' },
+    { label: 'Level 3', path: '/breadcrumb/level-1/level-2/level-3' },
+    { label: 'Level 4', path: '/breadcrumb/level-1/level-2/level-3/level-4' },
+    { label: 'Level 5', path: '/breadcrumb/level-1/level-2/level-3/level-4/level-5' }
+  ];
+
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.url.subscribe(urlSegments => {
+      const currentPath = '/' + urlSegments.map(seg => seg.path).join('/');
+      this.breadcrumbData = this.getBreadcrumbIndex(currentPath);
+    });
+  }
+
+  getBreadcrumbIndex(currentPath: string): number {
+    const index = this.crumbs.findIndex(crumb => crumb.path === currentPath);
+    return index >= 0 ? index + 1 : 1; // Ensure at least Home is shown
+  }
+
+  onBreadcrumbSelected(event: { label: string; path: string; level: number }) {
+  console.log('Breadcrumb selected:', event);
+  // Example: Send analytics event
+  // analyticsService.track('Breadcrumb Clicked', event);
+ }
+
+  goToNextLevel() {
+    console.log('Go to next level');
+    if (this.breadcrumbData < this.crumbs.length) {
+      const nextPath = this.crumbs[this.breadcrumbData].path;
+      console.log('Navigating to:', nextPath);
+      this.router.navigate([nextPath]).then(() => {
+        this.breadcrumbData++; // Update breadcrumb index after successful navigation
+      });
+    }
+  }
+}
+
+```
+
+scss: breadcrumbComponent.component.scss
+
+```scss
+// Style for the breadcrumb page
+
+.content {
+    color: var(--color-interactive-primary-textandicon-primary-default);
+}
+```
+
+
+app.routes.ts
+
+```typescript
+import { Routes } from "@angular/router";
+import { BreadcrumbPageComponent } from './breadcrumb/breadcrumb.component';
+
+export const routes: Routes = [
+  { path: 'breadcrumb', redirectTo: '/level-1', pathMatch: 'full' },
+  { path: 'breadcrumb/level-1', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 1' } },
+  { path: 'breadcrumb/level-1/level-2', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 2' } },
+  { path: 'breadcrumb/level-1/level-2/level-3', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 3' } },
+  { path: 'breadcrumb/level-1/level-2/level-3/level-4', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 4' } },
+  { path: 'breadcrumb/level-1/level-2/level-3/level-4/level-5', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 5' } },
+];
+```
+
+### Examples
+
+<Canvas of={BreadcrumbStories.FiveLevels} />
+
+</div>

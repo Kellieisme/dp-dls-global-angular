@@ -1,0 +1,30 @@
+{
+  "name": "@dasdigitalplatform/dls-global-angular",
+  "version": "2.5.9",
+  "peerDependencies": {
+    "@angular/animations": "^18.2.13",
+    "@angular/cdk": "^18.2.14",
+    "@angular/common": "^18.2.13",
+    "@angular/compiler": "^18.2.13",
+    "@angular/core": "^18.2.13",
+    "@angular/forms": "^18.2.13",
+    "@angular/material": "^18.2.14",
+    "@angular/platform-browser": "^18.2.13",
+    "@angular/platform-server": "^18.2.13",
+    "@dasdigitalplatform/dls-global-assets": "2.0.0",
+    "zone.js": "~0.14.10"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.83.0",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@dasdigitalplatform/dls-global-angular": {
+      "projectType": "library",
+      "root": "projects/design/dls-global-angular",
+      "sourceRoot": "projects/design/dls-global-angular",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/design/dls-global-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/design/dls-global-angular/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/design/dls-global-angular/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/design/dls-global-angular/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/design/dls-global-angular/.storybook",
+            "browserTarget": "@dasdigitalplatform/dls-global-angular:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/design/dls-global-angular",
+              "--disablePrivate"
+            ],
+            "assets": [
+              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./storybookassets" },
+              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./storybookassets" },
+              { "glob": "**/*", "input": "projects/design/dls-global-angular/stories/assets", "output": "./storybookassets" }
+            ],
+            "styles": [
+              "projects/design/dls-global-angular/stories/fonts.scss",
+              "projects/design/dls-global-angular/styles/global.scss",
+              "projects/design/dls-global-angular/styles/material.scss",
+              "projects/design/dls-global-angular/stories/styles.scss"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/design/dls-global-angular/.storybook",
+            "browserTarget": "@dasdigitalplatform/dls-global-angular:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/design/dls-global-angular",
+              "--disablePrivate"
+            ],
+            "assets": [
+              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./storybookassets" },
+              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./storybookassets" },
+              { "glob": "**/*", "input": "projects/design/dls-global-angular/stories/assets", "output": "./storybookassets" }
+            ],
+            "styles": [
+              "projects/design/dls-global-angular/stories/fonts.scss",
+              "projects/design/dls-global-angular/styles/global.scss",
+              "projects/design/dls-global-angular/styles/material.scss",
+              "projects/design/dls-global-angular/stories/styles.scss"
+            ],
+            "outputDir": "public"
+          }
+        }
+      }
+    },
+    "demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/demo",
+      "sourceRoot": "projects/demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/demo",
+            "index": "projects/demo/src/index.html",
+            "browser": "projects/demo/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/demo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/demo/src/favicon.ico",
+              "projects/demo/src/assets",
+              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./assets" }
+            ],
+            "styles": [
+              "projects/design/dls-global-angular/styles/fonts.scss",
+              "projects/design/dls-global-angular/styles/global.scss",
+              "projects/design/dls-global-angular/styles/material.scss",
+              "projects/demo/src/styles.scss"
+            ],
+            "scripts": [],
+            "server": "projects/demo/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/demo/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "2mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "demo:build:production"
+            },
+            "development": {
+              "buildTarget": "demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/demo/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/demo/src/favicon.ico",
+              "projects/demo/src/assets",
+              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./assets" }
+            ],
+            "styles": [
+              "projects/design/dls-global-angular/styles/fonts.scss",
+              "projects/design/dls-global-angular/styles/global.scss",
+              "projects/design/dls-global-angular/styles/material.scss",
+              "projects/demo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

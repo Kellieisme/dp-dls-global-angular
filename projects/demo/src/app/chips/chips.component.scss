@@ -1,0 +1,31 @@
+
+h4 { 
+  color: var(--color-ui-textandicon-high);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h5 { 
+  color: var(--color-ui-textandicon-high);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+h6 { 
+  color: var(--color-ui-textandicon-high);
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+
+}
+
+.example-box.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-chip .cdk-drop-list-dragging {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-chip-list {
+  width: 100%;
+}
