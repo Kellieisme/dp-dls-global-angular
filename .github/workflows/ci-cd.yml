@@ -40,7 +40,7 @@ jobs:
       - name: Setup .npmrc
         run: |
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
           cat .npmrc
 
       - name: Install dependencies
@@ -111,7 +111,7 @@ jobs:
       - name: Setup .npmrc
         run: |
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
           cat .npmrc
 
       - name: Clear npm cache and install dependencies
@@ -145,7 +145,7 @@ jobs:
         run: |
           cd dist/design/dls-global-angular
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
 
       - name: Publish NPM package
         run: |
@@ -177,7 +177,7 @@ jobs:
       - name: Setup .npmrc
         run: |
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
           cat .npmrc
 
       - name: Install dependencies
