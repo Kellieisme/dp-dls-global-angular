@@ -49,13 +49,14 @@ jobs:
       - name: Check commit message for version bump
         id: version_check
         run: |
-          if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
+          if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE|chore)"; then
             echo "Version bump needed. Running version-release."
             npm run version-release
             NEW_VERSION=$(node -p "require('./package.json').version")
             echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
           else
             echo "No version bump needed. Keeping the same version."
+            echo "NEW_VERSION=" >> $GITHUB_ENV  # Set to empty
           fi
 
       - name: Update subfolder package.json
@@ -74,10 +75,15 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          # Check if there are changes to commit
+          if [[ -n $(git status --porcelain) ]]; then
           git add projects/design/dls-global-angular/package.json
           git commit -m "[skip ci] Sync version to ${{ env.NEW_VERSION }}"
           git remote set-url origin "https://oauth2:${{ secrets.PROJECT_ACCESS_TOKEN }}@git.web.boeing.com/design/design-system/dls-global-angular.git"
           git push --follow-tags origin HEAD:${{ github.ref }}
+          else
+          echo "No changes to commit."
+          fi
 
       - name: Build the library
         run: npm run release
