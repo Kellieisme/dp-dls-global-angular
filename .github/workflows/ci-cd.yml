@@ -53,7 +53,7 @@ jobs:
             echo "Version bump needed. Running version-release."
             npm run version-release
             NEW_VERSION=$(node -p "require('./package.json').version")
-            echo "New version $NEW_VERSION" >> $GITHUB_ENV
+            echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
           else
             echo "No version bump needed. Keeping the same version." >> $GITHUB_ENV
           fi
