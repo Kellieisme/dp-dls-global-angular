@@ -37,15 +37,15 @@ jobs:
             exit 0
           fi
 
-      - name: Setup NPM_AUTH_TOKEN
-        run: |
-          export NPM_AUTH_TOKEN="${{ secrets.GN_GITHUB_TOKEN }}"
-          echo "NPM_AUTH_TOKEN has been set."
-
       - name: Setup .npmrc
         run: |
-          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=$NPM_AUTH_TOKEN" >> .npmrc
+          export NPM_AUTH_TOKEN="${{ secrets.GN_GITHUB_TOKEN }}"
+          if [ -z "$NPM_AUTH_TOKEN" ]; then
+            echo "ERROR: NPM_AUTH_TOKEN is not set."
+            exit 1
+          fi
+          echo "@dasdigitalplatform:registry=https://npm.pkg.github.com/" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=$NPM_AUTH_TOKEN" >> .npmrc
           cat .npmrc
 
       - name: Install dependencies
