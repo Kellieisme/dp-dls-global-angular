@@ -43,7 +43,6 @@ jobs:
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
 #          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ NPM_AUTH_TOKEN }}" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${NPM_AUTH_TOKEN}" >> .npmrc
-          //npm.pkg.github.com/:_authToken=YOUR_PERSONAL_ACCESS_TOKEN
           cat .npmrc
 
       - name: Install dependencies
