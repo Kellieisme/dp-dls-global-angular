@@ -39,8 +39,11 @@ jobs:
 
       - name: Setup .npmrc
         run: |
+          export NPM_AUTH_TOKEN=${{ secrets.GN_GITHUB_TOKEN }}
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
+#          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ NPM_AUTH_TOKEN }}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NPM_AUTH_TOKEN}" >> .npmrc
+          //npm.pkg.github.com/:_authToken=YOUR_PERSONAL_ACCESS_TOKEN
           cat .npmrc
 
       - name: Install dependencies
@@ -77,12 +80,12 @@ jobs:
         run: |
           # Check if there are changes to commit
           if [[ -n $(git status --porcelain) ]]; then
-          git add projects/design/dls-global-angular/package.json
-          git commit -m "[skip ci] Sync version to ${{ env.NEW_VERSION }}"
-          git remote set-url origin "https://oauth2:${{ secrets.UPDATE_VERSION_BUILD_TOKEN }}@github.com/dasdigitalplatform/dls-global-angular.git"
-          git push --follow-tags origin HEAD:refs/heads/main
+            git add projects/design/dls-global-angular/package.json
+            git commit -m "[skip ci] Sync version to ${{ env.NEW_VERSION }}"
+            git remote set-url origin "https://oauth2:${{ secrets.UPDATE_VERSION_BUILD_TOKEN }}@github.com/dasdigitalplatform/dls-global-angular.git"
+            git push --follow-tags origin HEAD:refs/heads/main
           else
-          echo "No changes to commit."
+            echo "No changes to commit."
           fi
 
 
