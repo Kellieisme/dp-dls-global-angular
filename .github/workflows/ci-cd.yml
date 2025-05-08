@@ -157,7 +157,7 @@ jobs:
 
       - name: Publish NPM package
         run: |
-          ls ./
+          cd dist/design/dls-global-angular
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
           echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
           NPM_PACKAGE_NAME=$(node -p "require('./package.json').name")
