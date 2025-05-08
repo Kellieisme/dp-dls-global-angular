@@ -53,7 +53,7 @@ jobs:
       - name: Check commit message for version bump
         id: version_check
         run: |
-          if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE|chore)"; then
+          if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
             echo "Version bump needed. Running version-release."
             npm run version-release
             NEW_VERSION=$(node -p "require('./package.json').version")
@@ -83,7 +83,7 @@ jobs:
           if [[ -n $(git status --porcelain) ]]; then
             git add projects/design/dls-global-angular/package.json
             git commit -m "[skip ci] Sync version to ${{ env.NEW_VERSION }}"
-            git remote set-url origin "https://oauth2:${{ secrets.UPDATE_VERSION_BUILD_TOKEN }}@github.com/dasdigitalplatform/dls-global-angular.git"
+            git remote set-url origin "https://oauth2:${{ secrets.GN_GITHUB_TOKEN }}@github.com/dasdigitalplatform/dls-global-angular.git"
             git push --follow-tags origin HEAD:refs/heads/main
           else
             echo "No changes to commit."
