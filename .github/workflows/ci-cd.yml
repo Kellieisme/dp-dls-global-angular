@@ -152,14 +152,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup .npmrc
-        run: |
-          echo "ls ./"
-          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
-
       - name: Publish NPM package
         run: |
+          ls ./
+          echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
+          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
           NPM_PACKAGE_NAME=$(node -p "require('./package.json').name")
           NPM_PACKAGE_VERSION=$(node -p "require('./package.json').version")
           if [[ "$(npm view ${NPM_PACKAGE_NAME} versions)" != *"'${NPM_PACKAGE_VERSION}'"* ]]; then
