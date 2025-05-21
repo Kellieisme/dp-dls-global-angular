@@ -13,21 +13,107 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
   packages: write
+
+#jobs:
+#  build-package:
+#    runs-on: ubuntu-latest
+#    if: github.event_name != 'pull_request' || github.event.action != 'synchronize'
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Set up Git
+#        run: |
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git config --global user.name "github-actions[bot]"
+#          git checkout ${{ github.ref }}
+#
+#      - name: Check for automated release commit
+#        run: |
+#          if git log -2 --pretty=%B | grep -q "chore(release):"; then
+#            echo "Skipping pipeline for automated release commit."
+#            exit 0
+#          fi
+#
+#      - name: Setup .npmrc
+#        run: |
+#          if [ -z "${{ secrets.GN_GITHUB_TOKEN }}" ]; then
+#            echo "ERROR: GN_GITHUB_TOKEN is not set."
+#            exit 1
+#          fi
+#          echo "@dasdigitalplatform:registry=https://npm.pkg.github.com/" >> .npmrc
+#          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
+#          cat .npmrc
+#
+#      - name: Install dependencies
+#        run: npm install
+#
+#      - name: Check commit message for version bump
+#        id: version_check
+#        run: |
+#          if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
+#            echo "Version bump needed. Running version-release."
+#            npm run version-release
+#            NEW_VERSION=$(node -p "require('./package.json').version")
+#            echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+#          else
+#            echo "No version bump needed. Keeping the same version."
+#            echo "NEW_VERSION=" >> $GITHUB_ENV  # Set to empty
+#          fi
+#
+#      - name: Update subfolder package.json
+#        run: |
+#          if [ "${{ env.NEW_VERSION }}" ]; then
+#            cd projects/design/dls-global-angular/
+#            CURRENT_VERSION=$(node -p "require('./package.json').version")
+#            if [ "$CURRENT_VERSION" != "${{ env.NEW_VERSION }}" ]; then
+#              echo "Updating subfolder package.json version to ${{ env.NEW_VERSION }}..."
+#              npm version ${{ env.NEW_VERSION }} --no-git-tag-version
+#            else
+#              echo "Subfolder package.json is already up to date. No changes needed."
+#            fi
+#            cd ../../..
+#          fi
+#
+#      - name: Commit and push changes
+#        run: |
+#          # Check if there are changes to commit
+#          if [[ -n $(git status --porcelain) ]]; then
+#            git add projects/design/dls-global-angular/package.json
+#            git commit -m "[skip ci] Sync version to ${{ env.NEW_VERSION }}"
+#            git remote set-url origin "https://oauth2:${{ secrets.GN_GITHUB_TOKEN }}@github.com/dasdigitalplatform/dls-global-angular.git"
+#            git push --follow-tags origin HEAD:refs/heads/main
+#          else
+#            echo "No changes to commit."
+#          fi
+#
+#
+#      - name: Build the library
+#        run: npm run release
+#
+#      - name: Upload artifacts
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: dist
+#          path: dist
 
 jobs:
   build-package:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.action != 'synchronize'
+    permissions:
+      contents: write # <--- Add this line to grant write permission for this job
+      packages: write # Keep this for package publishing
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Git
         run: |
-          git config --global user.email "dasdesignsystem@boeing.com"
-          git config --global user.name "dasdesignsystem"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" # Best practice for automated commits
+          git config --global user.name "github-actions[bot]"                       # Best practice for automated commits
           git checkout ${{ github.ref }}
 
       - name: Check for automated release commit
@@ -50,45 +136,37 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check commit message for version bump
-        id: version_check
+      - name: Determine if version bump is needed and run release
+        id: version_logic
         run: |
           if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
-            echo "Version bump needed. Running version-release."
-            npm run version-release
-            NEW_VERSION=$(node -p "require('./package.json').version")
-            echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "Version bump needed. Running version-release."
+          npm run version-release
+
+          # Get the new version from the root package.json after standard-version has run
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "::set-output name=version_bumped::true"
           else
-            echo "No version bump needed. Keeping the same version."
-            echo "NEW_VERSION=" >> $GITHUB_ENV  # Set to empty
+          echo "No version bump needed. Keeping the same version."
+          echo "NEW_VERSION=" >> $GITHUB_ENV
+          echo "::set-output name=version_bumped::false"
           fi
 
-      - name: Update subfolder package.json
+      - name: Commit and push version changes (if any)
+        if: steps.version_logic.outputs.version_bumped == 'true'
         run: |
-          if [ "${{ env.NEW_VERSION }}" ]; then
-            cd projects/design/dls-global-angular/
-            CURRENT_VERSION=$(node -p "require('./package.json').version")
-            if [ "$CURRENT_VERSION" != "${{ env.NEW_VERSION }}" ]; then
-              echo "Updating subfolder package.json version to ${{ env.NEW_VERSION }}..."
-              npm version ${{ env.NEW_VERSION }} --no-git-tag-version
-            else
-              echo "Subfolder package.json is already up to date. No changes needed."
-            fi
-            cd ../../..
-          fi
-
-      - name: Commit and push changes
-        run: |
-          # Check if there are changes to commit
-          if [[ -n $(git status --porcelain) ]]; then
+          if git diff --exit-code projects/design/dls-global-angular/package.json &>/dev/null; then
+            echo "Subfolder package.json is already committed or no changes."
+          else
+            echo "Committing subfolder package.json changes."
             git add projects/design/dls-global-angular/package.json
-            git commit -m "[skip ci] Sync version to ${{ env.NEW_VERSION }}"
-            git remote set-url origin "https://oauth2:${{ secrets.GN_GITHUB_TOKEN }}@github.com/dasdigitalplatform/dls-global-angular.git"
-            git push --follow-tags origin HEAD:refs/heads/main
-          else
-            echo "No changes to commit."
+            # || true to prevent failure if nothing to commit (unlikely here)
+            git commit -m "[skip ci] Sync subfolder version to ${{ env.NEW_VERSION }}" || true
           fi
 
+          echo "Pushing all committed changes and tags..."
+          git push --follow-tags origin HEAD:${{ github.ref }}
 
       - name: Build the library
         run: npm run release
