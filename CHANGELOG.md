@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.5.11 (2025-05-21)
+
+
+### Bug Fixes
+
+* Rev push may not work on main branch, so working with develop branch ([b5fdbd5](https://github.com/dasdigitalplatform/dls-global-angular/commit/b5fdbd5c6108c4002012a73ed59fb4cf0137fca2))
+
 ### [2.5.9](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v2.5.8...v2.5.9) (2025-04-22)
 
 
