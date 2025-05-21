@@ -146,11 +146,11 @@ jobs:
           # Get the new version from the root package.json after standard-version has run
           NEW_VERSION=$(node -p "require('./package.json').version")
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-          echo "::set-output name=version_bumped::true"
+          echo "version_bumped=true" >> $GITHUB_OUTPUT
           else
           echo "No version bump needed. Keeping the same version."
           echo "NEW_VERSION=" >> $GITHUB_ENV
-          echo "::set-output name=version_bumped::false"
+          echo "version_bumped=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Commit and push version changes (if any)
