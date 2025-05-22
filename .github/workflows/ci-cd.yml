@@ -284,8 +284,8 @@ jobs:
         run: |
           echo "storybook"
           ls -la "storybook" || echo "Directory does not exist yet"
-          echo "public"
-          ls -la "public/" || echo "Directory does not exist yet"
+          echo "storybook/storybook"
+          ls -la "storybook/storybook" || echo "Directory does not exist yet"
           echo "storybook/$BRANCH_NAME"
           ls -la "storybook/$BRANCH_NAME" || echo "Directory does not exist yet"
           echo "public/$BRANCH_NAME"
