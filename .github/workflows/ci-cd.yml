@@ -261,7 +261,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: storybook
+          path: ./storybook
 
       - name: Extract artifact
         run: |
