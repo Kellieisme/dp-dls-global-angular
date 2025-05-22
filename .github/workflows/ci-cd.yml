@@ -256,7 +256,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: storybook
+          path: public
 
       - name: Deploy Storybook
         uses: actions/deploy-pages@v4
