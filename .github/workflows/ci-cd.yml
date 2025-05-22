@@ -265,15 +265,9 @@ jobs:
           name: github-pages
           path: ./storybook
 
-      - name: Extract artifact
+      - name: Move Storybook files to the correct location
         run: |
-          if [ -f "storybook/storybook/artifact.tar" ]; then
-            echo "Extracting artifact.tar..."
-            mkdir -p storybook/$BRANCH_NAME
-            tar -xf storybook/storybook/artifact.tar -C storybook/$BRANCH_NAME
-          else
-            echo "No artifact.tar found to extract."
-          fi
+          mv ./storybook/storybook/* ./storybook/ || echo "No files to move."
 
       - name: List Storybook artifacts
         run: |
