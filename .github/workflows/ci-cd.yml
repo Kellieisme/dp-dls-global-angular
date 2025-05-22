@@ -273,6 +273,17 @@ jobs:
             echo "No artifact.tar found to extract."
           fi
 
+      - name: Check size of Storybook artifacts
+        run: |
+          SIZE=$(du -sh ./storybook | cut -f1)
+            echo "Size of Storybook artifacts: $SIZE"
+          TOTAL_SIZE=$(du -sb ./storybook | cut -f1)
+          echo "Total size in bytes: $TOTAL_SIZE"
+          if [ "$TOTAL_SIZE" -gt $((10 * 1024 * 1024 * 1024)) ]; then
+            echo "Error: The total size of the Storybook artifacts exceeds 10GB."
+            exit 1
+          fi
+
       - name: List directories
         run: |
           echo "storybook"
