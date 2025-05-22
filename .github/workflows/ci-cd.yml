@@ -220,7 +220,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: storybook
-          path: public
+          path: storybook
 
   publish-npm:
     runs-on: ubuntu-latest
@@ -256,7 +256,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: public
+          path: storybook
 
       - name: Deploy Storybook
         uses: actions/deploy-pages@v4
