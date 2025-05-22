@@ -251,6 +251,9 @@ jobs:
   deploy-storybook:
     runs-on: ubuntu-latest
     needs: build-storybook
+    environment:
+      name: github-pages
+      url: ${{ github.pages_url }}
     steps:
       - name: Download develop artifact
         uses: actions/download-artifact@v4
