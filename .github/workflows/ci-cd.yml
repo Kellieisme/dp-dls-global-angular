@@ -220,7 +220,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: storybook
+          path: |
+            storybook
+            public
 
   publish-npm:
     runs-on: ubuntu-latest
@@ -260,6 +262,27 @@ jobs:
         with:
           name: github-pages
           path: storybook
+
+      - name: Extract artifact
+        run: |
+          if [ -f "storybook/artifact.tar" ]; then
+            echo "Extracting artifact.tar..."
+            mkdir -p storybook/$BRANCH_NAME
+            tar -xf storybook/artifact.tar -C storybook/$BRANCH_NAME
+          else
+            echo "No artifact.tar found to extract."
+          fi
+
+      - name: List directories
+        run: |
+          echo "storybook"
+          ls -la "storybook" || echo "Directory does not exist yet"
+          echo "public"
+          ls -la "public/" || echo "Directory does not exist yet"
+          echo "storybook/$BRANCH_NAME"
+          ls -la "storybook/$BRANCH_NAME" || echo "Directory does not exist yet"
+          echo "public/$BRANCH_NAME"
+          ls -la "public/$BRANCH_NAME" || echo "Directory does not exist yet"
 
       - name: Deploy Storybook
         uses: actions/deploy-pages@v4
