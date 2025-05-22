@@ -219,7 +219,7 @@ jobs:
       - name: Upload Storybook artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: storybook
+          name: github-pages
           path: storybook
 
   publish-npm:
