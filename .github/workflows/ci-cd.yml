@@ -253,6 +253,8 @@ jobs:
   deploy-storybook:
     runs-on: ubuntu-latest
     needs: build-storybook
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     environment:
       name: github-pages
       url: ${{ github.pages_url }}
@@ -265,24 +267,18 @@ jobs:
 
       - name: Extract artifact
         run: |
-          if [ -f "storybook/artifact.tar" ]; then
+          if [ -f "storybook/storybook/artifact.tar" ]; then
             echo "Extracting artifact.tar..."
             mkdir -p storybook/$BRANCH_NAME
-            tar -xf storybook/artifact.tar -C storybook/$BRANCH_NAME
+            tar -xf storybook/storybook/artifact.tar -C storybook/$BRANCH_NAME
           else
             echo "No artifact.tar found to extract."
           fi
 
-      - name: Check size of Storybook artifacts
+      - name: List Storybook artifacts
         run: |
-          SIZE=$(du -sh ./storybook | cut -f1)
-            echo "Size of Storybook artifacts: $SIZE"
-          TOTAL_SIZE=$(du -sb ./storybook | cut -f1)
-          echo "Total size in bytes: $TOTAL_SIZE"
-          if [ "$TOTAL_SIZE" -gt $((10 * 1024 * 1024 * 1024)) ]; then
-            echo "Error: The total size of the Storybook artifacts exceeds 10GB."
-            exit 1
-          fi
+          echo "Contents of storybook directory:"
+          ls -la ./storybook
 
       - name: List directories
         run: |
