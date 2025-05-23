@@ -221,7 +221,7 @@ jobs:
         with:
           name: github-pages
           path: |
-            storybook
+            ./storybook/*
             public
 
   publish-npm:
