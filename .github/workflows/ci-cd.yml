@@ -273,17 +273,8 @@ jobs:
         run: |
           echo "Contents of storybook directory:"
           ls -la ./storybook
-
-      - name: List directories
-        run: |
-          echo "storybook"
-          ls -la "storybook" || echo "Directory does not exist yet"
-          echo "storybook/storybook"
-          ls -la "storybook/storybook" || echo "Directory does not exist yet"
-          echo "storybook/$BRANCH_NAME"
-          ls -la "storybook/$BRANCH_NAME" || echo "Directory does not exist yet"
-          echo "public/$BRANCH_NAME"
-          ls -la "public/$BRANCH_NAME" || echo "Directory does not exist yet"
+          echo "Find sym links: "
+          find ./storybook -type l
 
       - name: Deploy Storybook
         uses: actions/deploy-pages@v4
