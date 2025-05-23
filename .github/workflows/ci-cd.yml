@@ -282,9 +282,9 @@ jobs:
       - name: List Storybook artifacts
         run: |
           echo "Contents of storybook directory:"
-          ls -la ./storybook
+          ls -la ./storybook  || echo "No files in storybook."
           echo "Contents of public directory:"
-          ls -la ./public
+          ls -la ./public  || echo "No files in public folder."
 
       - name: Deploy Storybook
         uses: actions/deploy-pages@v4
