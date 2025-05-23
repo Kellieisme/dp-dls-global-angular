@@ -286,7 +286,6 @@ jobs:
         with:
           path: storybook # default: dist/storybook
           checkout: false # default: true
-  ℹ️
 
 
   pr-develop:
