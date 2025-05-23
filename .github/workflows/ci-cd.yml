@@ -221,7 +221,7 @@ jobs:
         with:
           name: github-pages
           path: |
-            ./storybook/*
+            storybook
             public
 
   publish-npm:
@@ -273,23 +273,21 @@ jobs:
       name: github-pages
       url: ${{ github.pages_url }}
     steps:
-      - name: Download develop artifact
-        uses: actions/download-artifact@v4
+      # Manual Checkout
+      - uses: actions/checkout@v4
         with:
-          name: github-pages
-          path: public
-
-      - name: List Storybook artifacts
-        run: |
-          echo "Contents of storybook directory:"
-          ls -la ./storybook  || echo "No files in storybook."
-          echo "Contents of public directory:"
-          ls -la ./public  || echo "No files in public folder."
-
-      - name: Deploy Storybook
-        uses: actions/deploy-pages@v4
+          fetch-depth: 0
+      # Set up Node
+      - uses: actions/setup-node@v4
         with:
-          artifact_name: github-pages
+          node-version: '20'
+      #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        with:
+          path: storybook # default: dist/storybook
+          checkout: false # default: true
+  ℹ️
+
 
   pr-develop:
     runs-on: ubuntu-latest
