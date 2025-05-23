@@ -221,7 +221,7 @@ jobs:
         with:
           name: github-pages
           path: |
-            storybook
+            ./storybook/*
             public
 
   publish-npm:
@@ -284,7 +284,23 @@ jobs:
       #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:
-          path: storybook # default: dist/storybook
+          install_command: |
+            echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
+            echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
+            cat .npmrc
+            npm i
+          build_command: |
+            if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+              npm run build-storybook -- --output-dir storybook
+            else
+              npm run build-storybook -- --output-dir public
+            fi
+          path: |
+            if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+              storybook
+            else
+              public
+            fi
           checkout: false # default: true
 
 
