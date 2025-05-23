@@ -263,18 +263,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: ./storybook
-
-      - name: Move Storybook files to the correct location
-        run: |
-          mv ./storybook/storybook/* ./storybook/ || echo "No files to move."
 
       - name: List Storybook artifacts
         run: |
           echo "Contents of storybook directory:"
           ls -la ./storybook
-          echo "Find sym links: "
-          find ./storybook -type l
 
       - name: Deploy Storybook
         uses: actions/deploy-pages@v4
