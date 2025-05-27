@@ -289,10 +289,8 @@ jobs:
             echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
             cat .npmrc
             npm i
-          build_command: |
-              npm run build-storybook -- --output-dir public
-          path: |
-              public
+          build_command: npm run build-storybook -- --output-dir public
+          path: public
           checkout: false
 
 
