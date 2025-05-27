@@ -290,18 +290,10 @@ jobs:
             cat .npmrc
             npm i
           build_command: |
-            if [ "${{ github.ref }}" != "refs/heads/main" ]; then
-              npm run build-storybook -- --output-dir storybook
-            else
               npm run build-storybook -- --output-dir public
-            fi
           path: |
-            if [ "${{ github.ref }}" != "refs/heads/main" ]; then
-              storybook
-            else
               public
-            fi
-          checkout: false # default: true
+          checkout: false
 
 
   pr-develop:
