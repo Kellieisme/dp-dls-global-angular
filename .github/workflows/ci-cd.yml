@@ -272,7 +272,7 @@ jobs:
           cat .npmrc
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --loglevel verbose
 
       - name: Run build and test scripts
         run: |
