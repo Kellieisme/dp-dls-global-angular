@@ -6,11 +6,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @Component({
-  selector: 'app-select',
-  standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
-  templateUrl: './select.component.html',
-  styleUrl: './select.component.scss'
+    selector: 'app-select',
+    imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
+    templateUrl: './select.component.html',
+    styleUrl: './select.component.scss'
 })
 export class SelectComponent {
 

@@ -5,11 +5,10 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'tooltip',
-  standalone: true,
-  imports: [MatTooltipModule, MatButtonModule, MatIconModule, IconRegistryModule],
-  templateUrl: './tooltip.component.html',
-  styleUrl: './tooltip.component.scss'
+    selector: 'tooltip',
+    imports: [MatTooltipModule, MatButtonModule, MatIconModule, IconRegistryModule],
+    templateUrl: './tooltip.component.html',
+    styleUrl: './tooltip.component.scss'
 })
 
 export class TooltipPageComponent {

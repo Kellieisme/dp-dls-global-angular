@@ -14,7 +14,6 @@
 projects/design/dls-global-angular/node_modules/
 npm-debug.log
 yarn-error.log
-package-lock.json
 dls-global-angular.iml
 dls-global-docs.code-workspace
 
@@ -50,4 +49,5 @@ Thumbs.db
 
 *storybook.log
 projects/design/dls-global-angular/node_modules
-projects/design/dls-global-angular/documentation.json
+documentation.json
+

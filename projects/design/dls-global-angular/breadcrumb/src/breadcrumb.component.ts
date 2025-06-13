@@ -6,29 +6,28 @@ import { RouterLink } from '@angular/router';
 import { AtmosphereBreadcrumbLinkArray } from './breadcrumb.types';
 
 /**
- * The Atmosphere breadcrumb component provides for an actionable/navigable 
+ * The Atmosphere breadcrumb component provides for an actionable/navigable
  * path history when viewing deeply nested pages.
- * 
- * If a breadcrumb trail has more than 4 steps, then all steps other than the 
+ *
+ * If a breadcrumb trail has more than 4 steps, then all steps other than the
  * first and the last two will be pulled into a menu so that overall footprint
  * of the breadcrumb trail can be maintained as consistent.
  */
 @Component({
-  selector: 'ba-breadcrumb',
-  standalone: true,
-  imports: [CommonModule, MatButtonModule, MatMenuModule, RouterLink],
-  templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'ba-breadcrumb',
+    imports: [CommonModule, MatButtonModule, MatMenuModule, RouterLink],
+    templateUrl: './breadcrumb.component.html',
+    styleUrls: ['./breadcrumb.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class BreadcrumbComponent {
   /**
    * An array of the various pages in the navigation history. Each member of the
-   * array should be an object containing both `label` (the page name as 
-   * displayed on-screen) and `path` (the path to the page in question, for 
+   * array should be an object containing both `label` (the page name as
+   * displayed on-screen) and `path` (the path to the page in question, for
    * navigational purposes.)
-   * 
+   *
    * Example:
    * ```
    * {label: 'Home', path: './'}

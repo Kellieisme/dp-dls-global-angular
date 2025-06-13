@@ -5,7 +5,7 @@
     [opened]="opened"
     [style.width]="sidesheetWidth"
     [position]="sidesheetPosition"
-  >
+    >
     <mat-toolbar>
       <span>Sheet title</span>
       <button mat-icon-button (click)="sidenav.close()">
@@ -18,31 +18,36 @@
 
     <mat-divider></mat-divider>
     <div class="sidesheet-footer">
-      <div class="footer-actions" *ngIf="showFooter">
-        <ng-container *ngFor="let button of buttons">
-          <button
-            mat-button
-            *ngIf="button.buttonType === 'text'"
-            (click)="button.onClick()"
-          >
-            {{ button.text }}
-          </button>
-          <button
-            mat-stroked-button
-            *ngIf="button.buttonType === 'stroked'"
-            (click)="button.onClick()"
-          >
-            {{ button.text }}
-          </button>
-          <button
-            mat-flat-button
-            *ngIf="button.buttonType === 'flat'"
-            (click)="button.onClick()"
-          >
-            {{ button.text }}
-          </button>
-        </ng-container>
-      </div>
+      @if (showFooter) {
+        <div class="footer-actions">
+          @for (button of buttons; track button) {
+            @if (button.buttonType === 'text') {
+              <button
+                mat-button
+                (click)="button.onClick()"
+                >
+                {{ button.text }}
+              </button>
+            }
+            @if (button.buttonType === 'stroked') {
+              <button
+                mat-stroked-button
+                (click)="button.onClick()"
+                >
+                {{ button.text }}
+              </button>
+            }
+            @if (button.buttonType === 'flat') {
+              <button
+                mat-flat-button
+                (click)="button.onClick()"
+                >
+                {{ button.text }}
+              </button>
+            }
+          }
+        </div>
+      }
     </div>
   </mat-sidenav>
   <mat-sidenav-content>

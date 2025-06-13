@@ -29,26 +29,26 @@ import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/use
  * labels can be hidden by using the `hideLabels` flag.
  */
 @Component({
-  selector: 'ba-navigation-rail',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterOutlet,
-    RouterModule,
-    MatListModule,
-    MatNavList,
-    MatDividerModule,
-    IconRegistryModule,
-    MatMenuModule
-],
-  templateUrl: './navigation-rail.component.html',
-  styleUrls: ['./navigation-rail.component.scss']
+    selector: 'ba-navigation-rail',
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterOutlet,
+        RouterModule,
+        MatListModule,
+        MatNavList,
+        MatDividerModule,
+        IconRegistryModule,
+        MatMenuModule
+    ],
+    templateUrl: './navigation-rail.component.html',
+    styleUrls: ['./navigation-rail.component.scss']
 })
 export class NavigationRailComponent {
+  constructor(private cdr: ChangeDetectorRef) { }
 
   /**
    * Application logo
@@ -77,11 +77,11 @@ export class NavigationRailComponent {
    */
   @Input({ transform: coerceBooleanProperty }) wide: boolean = false;
 
-    /**
-   * A flag telling the component to not render a mat-sidenav-content with a router-outlet
-   * Set to true when using the Navigation Rail alongside a mat-sidenav for multi-level navigation
-   */
-    @Input({ transform: coerceBooleanProperty }) disableSidenavContent: boolean = false;
+  /**
+ * A flag telling the component to not render a mat-sidenav-content with a router-outlet
+ * Set to true when using the Navigation Rail alongside a mat-sidenav for multi-level navigation
+ */
+  @Input({ transform: coerceBooleanProperty }) disableSidenavContent: boolean = false;
 
   /**
    * The Navigation Rail component supports up to four functional components
@@ -141,7 +141,6 @@ export class NavigationRailComponent {
 
   @Output() itemClick = new EventEmitter<any>();
 
-  constructor(private cdr: ChangeDetectorRef) {};
 
   ngOnInit() {
     this.setFirstItemActive();
@@ -170,6 +169,9 @@ export class NavigationRailComponent {
     });
     item.toggled = true;
     this.itemClick.emit(item);
+
+    // Manually trigger change detection
+    this.cdr.detectChanges();
   }
 
 }

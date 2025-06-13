@@ -11,18 +11,17 @@ import { MatIconButton } from '@angular/material/button';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
-  selector: 'autocomplete-example',
-  standalone: true,
-  imports: [
-    MatInputModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatAutocompleteModule,
-    CommonModule,
-    MatIconModule,
-    MatIconButton
-  ],
-  template: `
+    selector: 'autocomplete-example',
+    imports: [
+        MatInputModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatAutocompleteModule,
+        CommonModule,
+        MatIconModule,
+        MatIconButton
+    ],
+    template: `
     <form>
       <mat-form-field style="width: 250px" [ngClass]="{'mat-form-field-invalid': invalid()}">
         <mat-label>Selected Option</mat-label>

@@ -8,11 +8,10 @@ import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/use
 import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
-  selector: 'user-profile',
-  standalone: true,
-  imports: [UserProfileComponent, MatButtonModule, MatIconModule, IconRegistryModule, MatMenuModule, MatDividerModule],
-  templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss'
+    selector: 'user-profile',
+    imports: [UserProfileComponent, MatButtonModule, MatIconModule, IconRegistryModule, MatMenuModule, MatDividerModule],
+    templateUrl: './user-profile.component.html',
+    styleUrl: './user-profile.component.scss'
 })
 
 export class UserProfilePageComponent {

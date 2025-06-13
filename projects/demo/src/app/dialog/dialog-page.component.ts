@@ -6,17 +6,16 @@ import { BasicDialogComponent } from './dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-  selector: "dialog-page",
-  standalone: true,
-  imports: [MatButton, MatTooltipModule],
-  template: `
+    selector: "dialog-page",
+    imports: [MatButton, MatTooltipModule],
+    template: `
   <h6>Dialogs</h6>
   <div>
     <button mat-stroked-button color="primary" (click)="openBasicDialog()">Open This Dialog</button>
     <button mat-stroked-button color="primary" (click)="openScrollableDialog()">Open Scrollable Dialog</button>
   </div>
   `,
-  styleUrl: './dialog-page.component.scss'
+    styleUrl: './dialog-page.component.scss'
 })
 
 export class DialogPageComponent {

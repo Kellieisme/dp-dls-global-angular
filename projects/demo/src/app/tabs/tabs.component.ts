@@ -5,11 +5,10 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
 import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
-  selector: 'tabs',
-  standalone: true,
-  imports: [MatTabsModule, MatButtonModule, MatIconModule, IconRegistryModule],
-  templateUrl: './tabs.component.html',
-  styleUrl: './tabs.component.scss'
+    selector: 'tabs',
+    imports: [MatTabsModule, MatButtonModule, MatIconModule, IconRegistryModule],
+    templateUrl: './tabs.component.html',
+    styleUrl: './tabs.component.scss'
 })
 
 export class TabsPageComponent {

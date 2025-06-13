@@ -2,7 +2,7 @@
 @import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss";
 
 // Constants
-$section-label-max-width: 132px;
+$section-label-max-width: 82%;
 $side-nav-width: 360px;
 
 mat-sidenav-container {
@@ -13,14 +13,32 @@ mat-sidenav-container {
 // Override the hiding of the drawer when !open if we have applied the
 // "collapse-to-rail" class
 .collapse-to-rail {
-  .mat-drawer[style*="visibility: hidden"] {
-    display: block;
+
+  //New style compatible with angular 19
+  .mat-drawer {
+    visibility: visible !important;
   }
+
+  .mat-drawer[style*="visibility: hidden"] {
+    display: block !important;
+    visibility: visible !important;
+  }
+
   mat-sidenav:not(.mat-drawer-opened) {
     transform: translate3d(0, 0, 0) !important;
     visibility: visible !important;
     width: $size-relaxed-spacing-8xl !important;
     overflow: hidden;
+  }
+
+  // Override Angular Material 19 default styles
+  .mat-drawer:not(.mat-drawer-opened):not(.mat-drawer-animating) {
+    visibility: visible !important;
+    box-shadow: none !important;
+  }
+
+  .mat-drawer:not(.mat-drawer-opened):not(.mat-drawer-animating) .mat-drawer-inner-container {
+    display: block !important;
   }
 }
 
@@ -31,6 +49,10 @@ mat-sidenav {
   width: $side-nav-width;
   backdrop-filter: blur($size-base-shadow-blur-100);
   padding: $size-relaxed-spacing-l $size-relaxed-spacing-s;
+  box-shadow: none;
+  border-right-color: var(--mat-sidenav-container-divider-color, transparent);
+  border-right-width: 1px;
+  border-right-style: solid;
 
   mat-list-item {
     &.mat-mdc-list-item {
@@ -126,10 +148,16 @@ html {
 
 .navigation__app-icon--dark {
   display: block;
+  &.letter-mark {
+    padding: 0 $size-relaxed-sizing-m;
+  }
 }
 
 .theme-light .navigation__app-icon--light {
   display: block;
+  &.letter-mark {
+    padding: 0 $size-relaxed-sizing-m;
+  }
 }
 
 .theme-light .navigation__app-icon--dark {
@@ -156,6 +184,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  padding: 0 $size-relaxed-spacing-xs !important;
 }
 
 .dropdown-icon {

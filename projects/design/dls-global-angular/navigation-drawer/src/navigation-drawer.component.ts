@@ -7,6 +7,8 @@ import {
   ViewChild,
   TemplateRef,
   ViewEncapsulation,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
@@ -90,26 +92,26 @@ type SideNavigationModeType = `${SideNavMode}`;
  *
  */
 @Component({
-  selector: 'ba-navigation-drawer',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterOutlet,
-    RouterModule,
-    MatListModule,
-    RouterModule,
-    MatNavList,
-    MatDividerModule,
-    MatMenuModule,
-    IconRegistryModule,
-  ],
-  templateUrl: './navigation-drawer.component.html',
-  styleUrls: ['./navigation-drawer.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'ba-navigation-drawer',
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterOutlet,
+        RouterModule,
+        MatListModule,
+        RouterModule,
+        MatNavList,
+        MatDividerModule,
+        MatMenuModule,
+        MatSidenavModule,
+        IconRegistryModule
+    ],
+    templateUrl: './navigation-drawer.component.html',
+    styleUrls: ['./navigation-drawer.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class NavigationDrawerComponent implements OnDestroy {
 
@@ -122,9 +124,12 @@ export class NavigationDrawerComponent implements OnDestroy {
       const firstItem = this.navDrawerMenuItems[0];
       if (firstItem.sectionMenuItems && firstItem.sectionMenuItems.length > 0) {
         this.onMenuItemClick(firstItem.sectionMenuItems[0]);
-        if(this.sidenavMode !== 'over') {
-        this.opened = false;
-        }
+        // The following check for sidenavMode is commented out because we have decided
+        // to enable backdrop clicks for both modal and standalone presentations.
+        // As a result, the distinction between 'over' and other modes is no longer necessary.
+        // if(this.sidenavMode !== 'over') { //Commented
+        // this.opened = false;
+        // }
       }
     }
   }
@@ -138,6 +143,11 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   @ViewChild('sidenav', { read: ElementRef }) sidenavElement!: ElementRef;
 
+
+  private boundDrag: (event: MouseEvent | TouchEvent) => void;
+
+  private boundStopDrag: () => void;
+
   /*****************************************************************************
                                  CONSTRUCTOR
   *****************************************************************************/
@@ -146,6 +156,8 @@ export class NavigationDrawerComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.boundDrag = this.drag.bind(this);
+    this.boundStopDrag = this.stopDragging.bind(this);
   }
 
   /*****************************************************************************
@@ -349,6 +361,8 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   @Input({ transform: coerceBooleanProperty }) opened: boolean = true;
 
+  @Output() openedChange = new EventEmitter<boolean>(); // Notifies parent of changes
+
   /*****************************************************************************
                                      METHODS
   *****************************************************************************/
@@ -358,15 +372,29 @@ export class NavigationDrawerComponent implements OnDestroy {
    * the relevant flags.
    */
   startDragging(event: MouseEvent | TouchEvent) {
+    // Ensure only the left mouse button starts the drag
+    if (event instanceof MouseEvent) {
+      if (event.buttons !== 1) {
+        console.log("Dragging only allowed with left mouse button.");
+        return;
+      }
+      event.preventDefault(); // Prevents accidental text selection
+    }
+
+    if (this.#isDragging) return; // Prevent multiple registrations
+
     this.#isDragging = true;
     this.#startX =
       event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
     this.#startWidth = this.sidenavElement.nativeElement.offsetWidth;
 
-    document.addEventListener('mousemove', this.drag.bind(this));
-    document.addEventListener('touchmove', this.drag.bind(this));
-    document.addEventListener('mouseup', this.stopDragging.bind(this));
-    document.addEventListener('touchend', this.stopDragging.bind(this));
+    document.addEventListener("mousemove", this.boundDrag);
+    document.addEventListener("touchmove", this.boundDrag);
+    document.addEventListener("mouseup", this.boundStopDrag);
+    document.addEventListener("mouseleave", this.boundStopDrag);
+    document.addEventListener("touchend", this.boundStopDrag);
+
+
   }
 
   /**
@@ -376,9 +404,18 @@ export class NavigationDrawerComponent implements OnDestroy {
    * @todo This could probably be looked at a bit more closely and maybe cleaned up a bit.
    */
   drag(event: MouseEvent | TouchEvent) {
+
     if (!this.#isDragging) return;
+
+    // Fix: If mouse button is released but `mouseup` didn’t trigger, stop dragging
+    if (event instanceof MouseEvent && event.buttons === 0) {
+      this.stopDragging();
+      return;
+    }
+
     const currentX =
       event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+
     if (currentX <= parseInt(this.expandedWidth) - 100) {
       this.opened = false;
       this.isMenuItemClicked = false;
@@ -392,13 +429,15 @@ export class NavigationDrawerComponent implements OnDestroy {
    * the relevant flags.
    */
   stopDragging() {
-    //
+    if (!this.#isDragging) return;
+
     this.#isDragging = false;
 
-    document.removeEventListener('mousemove', this.drag.bind(this));
-    document.removeEventListener('touchmove', this.drag.bind(this));
-    document.removeEventListener('mouseup', this.stopDragging.bind(this));
-    document.removeEventListener('touchend', this.stopDragging.bind(this));
+    document.removeEventListener("mousemove", this.boundDrag);
+    document.removeEventListener("touchmove", this.boundDrag);
+    document.removeEventListener("mouseup", this.boundStopDrag);
+    document.removeEventListener("mouseleave", this.boundStopDrag);
+    document.removeEventListener("touchend", this.boundStopDrag);
 
     const currentWidth = this.sidenavElement.nativeElement.offsetWidth;
     const collapsedWidth = parseInt(this.collapsedWidth);
@@ -496,6 +535,12 @@ export class NavigationDrawerComponent implements OnDestroy {
       this.navDrawerPresentation !== NavDrawerPresentationEnum.MODAL &&
       !this.fixedOpen
     );
+  }
+
+  onBackdropClick(): void {
+    this.opened = false; // Close the drawer
+    this.openedChange.emit(this.opened); // Notify parent about the state change
+
   }
 
   // CLASS END

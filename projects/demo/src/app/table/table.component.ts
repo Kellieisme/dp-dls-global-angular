@@ -22,11 +22,10 @@ const ELEMENT_DATA: ScreenSize[] = [
 ];
 
 @Component({
-  selector: 'table-page',
-  standalone: true,
-  imports: [MatTableModule, MatButtonModule, RouterLink],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+    selector: 'table-page',
+    imports: [MatTableModule, MatButtonModule, RouterLink],
+    templateUrl: './table.component.html',
+    styleUrl: './table.component.scss'
 }) 
 
 export class TablePageComponent {

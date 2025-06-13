@@ -8,10 +8,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
 
 @Component({
-  selector: 'top-app-bar',
-  standalone: true,
-  imports: [TopAppBarComponent, MatButtonModule, MatIconModule, IconRegistryModule, MatMenuModule, MatDividerModule, UserProfileComponent],
-  templateUrl: './top-app-bar.component.html'
+    selector: 'top-app-bar',
+    imports: [TopAppBarComponent, MatButtonModule, MatIconModule, IconRegistryModule, MatMenuModule, MatDividerModule, UserProfileComponent],
+    templateUrl: './top-app-bar.component.html',
+    styleUrl: './top-app-bar.component.scss'
 })
 
 export class TopAppBarPageComponent {

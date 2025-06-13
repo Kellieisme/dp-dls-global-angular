@@ -1,11 +1,11 @@
 import { MatIconModule } from '@angular/material/icon';
-import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
-import { MatChipEditedEvent, MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
+import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { MatChipEditedEvent, MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
 
 export interface LabelExample {
@@ -13,21 +13,20 @@ export interface LabelExample {
 }
 
 @Component({
-  selector: 'chips-page',
-  standalone: true,
-  imports: [MatChipsModule, MatIconModule, IconRegistryModule, CdkDropList, CdkDrag, MatFormFieldModule, UserProfileComponent],
-  templateUrl: './chips.component.html',
-  styleUrl: './chips.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'chips-page',
+    imports: [MatChipsModule, MatIconModule, IconRegistryModule, CdkDropList, CdkDrag, MatFormFieldModule, UserProfileComponent],
+    templateUrl: './chips.component.html',
+    styleUrl: './chips.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ChipsPageComponent {
   title = 'Menu';
   readonly labelExamples = signal<LabelExample[]>([
-    {name: 'Aircraft'},
-    {name: 'Parts'},
-    {name: 'Companies'},
-    {name: 'Concept'},
+    { name: 'Aircraft' },
+    { name: 'Parts' },
+    { name: 'Companies' },
+    { name: 'Concept' },
   ]);
   readonly addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
@@ -45,7 +44,7 @@ export class ChipsPageComponent {
     const value = (event.value || '').trim();
 
     if (value) {
-      this.labelExamples.update(labelExamples => [...labelExamples, {name: value}]);
+      this.labelExamples.update(labelExamples => [...labelExamples, { name: value }]);
     }
 
     // Clear the input value

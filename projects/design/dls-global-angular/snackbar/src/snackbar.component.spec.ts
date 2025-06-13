@@ -1,9 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SnackbarComponent } from './snackbar.component';
 import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
 
 describe('SnackbarComponent', () => {
   let component: SnackbarComponent;
@@ -13,9 +10,6 @@ describe('SnackbarComponent', () => {
     TestBed.configureTestingModule({
       imports: [SnackbarComponent],
       providers: [
-        provideAnimations(),
-        provideHttpClient(),
-        provideRouter([]),
         { 
           // Provide a mock value for MAT_SNACK_BAR_DATA
           provide: MAT_SNACK_BAR_DATA, 

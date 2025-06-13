@@ -27,8 +27,8 @@ const ELEMENT_DATA: ScreenSize[] = [
 //const COLUMNS: string[] = ['select', 'size', 'columns', 'margin', 'gutterRelaxed', 'gutterCondensed'];
 
 @Component({
-  selector: 'table-selection-pattern',
-  template: `
+    selector: 'table-selection-pattern',
+    template: `
     <div class="table-container">
       <table mat-table [dataSource]="dataSource" matSort>
         <!-- Checkbox Column -->
@@ -85,7 +85,9 @@ const ELEMENT_DATA: ScreenSize[] = [
         </tr>
       </table>
     </div>
-  `})
+  `,
+    standalone: false
+})
 
 export class TableSelectionComponent implements AfterViewInit {
   displayedColumns: string[] = ['select', 'size', 'columns', 'margin', 'gutterRelaxed', 'gutterCondensed'];

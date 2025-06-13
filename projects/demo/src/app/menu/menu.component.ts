@@ -6,11 +6,10 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'menu-page',
-  standalone: true,
-  imports: [MatMenuModule, MatDividerModule, MatButtonModule, MatIconModule, IconRegistryModule],
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+    selector: 'menu-page',
+    imports: [MatMenuModule, MatDividerModule, MatButtonModule, MatIconModule, IconRegistryModule],
+    templateUrl: './menu.component.html',
+    styleUrl: './menu.component.scss'
 })
 
 export class MenuPageComponent {

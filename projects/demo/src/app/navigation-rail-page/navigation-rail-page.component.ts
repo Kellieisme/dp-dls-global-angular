@@ -7,11 +7,10 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'navigation-rail-page',
-  standalone: true,
-  imports: [NavigationRailComponent, UserProfileComponent, MatMenuModule, MatDividerModule, IconRegistryModule, MatIconModule],
-  templateUrl: './navigation-rail-page.component.html',
-  styleUrl: './navigation-rail-page.component.scss'
+    selector: 'navigation-rail-page',
+    imports: [NavigationRailComponent, UserProfileComponent, MatMenuModule, MatDividerModule, IconRegistryModule, MatIconModule],
+    templateUrl: './navigation-rail-page.component.html',
+    styleUrl: './navigation-rail-page.component.scss'
 })
 export class NavigationRailPageComponent {
 

@@ -4,11 +4,10 @@ import {MatCardModule} from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'card-page',
-  standalone: true,
-  imports: [MatCardModule, MatButtonModule, RouterLink],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+    selector: 'card-page',
+    imports: [MatCardModule, MatButtonModule, RouterLink],
+    templateUrl: './card.component.html',
+    styleUrl: './card.component.scss'
 }) 
 
 export class CardPageComponent {
