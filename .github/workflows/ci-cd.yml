@@ -3,14 +3,18 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - angular-19
-      - develop
-      - main
+      - 'main'
+      - 'develop'
+      - 'angular-*'
+    tags:
+      - '2.*'
+      - '3.*'
+      - '4.*'
   pull_request:
     branches:
-      - angular-19
-      - develop
-      - main
+      - 'main'
+      - 'develop'
+      - 'angular-*'
 
 permissions:
   contents: write
@@ -226,6 +230,7 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     needs: build-package
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/angular-18'
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
@@ -233,7 +238,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - name: Publish NPM package
+      - name: Publish NPM package with dist-tag
         run: |
           cd dist/design/dls-global-angular
           echo "@dasdigitalplatform:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
@@ -242,12 +247,22 @@ jobs:
           NPM_PACKAGE_VERSION=$(node -p "require('./package.json').version")
           echo "NPM_PACKAGE_NAME=$NPM_PACKAGE_NAME" >> $GITHUB_ENV
           echo "NPM_PACKAGE_VERSION=$NPM_PACKAGE_VERSION" >> $GITHUB_ENV
-          if [[ "$(npm view ${NPM_PACKAGE_NAME} versions)" != *"'${NPM_PACKAGE_VERSION}'"* ]]; then
-            npm publish
-            echo "Successfully published version ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME}."
+          TAG_NAME="${NPM_PACKAGE_VERSION}"
+
+          # Determine dist-tag based on tag pattern
+          if [[ "$TAG_NAME" == 2.* ]]; then
+            DIST_TAG="v2"
+          elif [[ "$TAG_NAME" == 3.* ]]; then
+            DIST_TAG="latest"
+          elif [[ "$TAG_NAME" == 4.* ]]; then
+            DIST_TAG="v4"
           else
-            echo "Version ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME} has already been published."
+            DIST_TAG="next"
           fi
+
+          echo "Publishing ${NPM_PACKAGE_NAME}@${NPM_PACKAGE_VERSION} with dist-tag '$DIST_TAG'..."
+          npm publish --tag $DIST_TAG
+
 
   deploy-storybook:
     runs-on: ubuntu-latest
