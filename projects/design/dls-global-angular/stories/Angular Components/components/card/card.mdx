@@ -1,9 +1,8 @@
 import { Meta, Markdown, Canvas } from '@storybook/blocks';
-import * as CardInteractiveStories from './card-interactive.stories';
-import * as CardStories from './card-non-interactive.stories';
+import * as CardStories from './card-stories.stories';
 import { Alert } from '@storybook/blocks';
 
-<Meta title="COMPONENTS/Card" />
+<Meta of={CardStories}/>
 
 
 <div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
@@ -53,8 +52,8 @@ export class CardOverviewExample {}
   </div>
 </Markdown> */}
 
-> ### **Important Note:**
-> 
+### **Important Note:**
+ 
 > The 'mat-card', 'mat-card-header', 'mat-card-footer' components support **light and dark modes** only when used with components provided by the **Atmosphere Library**. If you integrate **third-party components** or use **Angular Material Components** that are **not explicitly supported** by Atmosphere, we **cannot guarantee** proper compatibility with the Atmosphere Design System, including theming, styling & responsiveness.
 > 
 > Before using any additional component, please verify their compatibility with the Atmosphere Library to ensure a seamless user experience.
@@ -178,40 +177,29 @@ Setting `appearance="outlined"` produces the "glass" style card.
 
 ## Examples
 
-### Card Non-Interactive
+### Basic Card
+<Canvas of={CardStories.SimpleCards}/>
 
-#### Non Interactive: Two columns
-<Canvas of={CardStories.NonInteractiveStoryOne}/>
+#### Cards with Action Buttons
+<Canvas of={CardStories.CardWithActionButtons}/>
 
-#### Non-Interactive: 8/4 split columns
-<Canvas of={CardStories.NonInteractiveStoryTwo}/>
+#### Cards with Customizable Column Size
+<Canvas of={CardStories.CardWithCustomizableColumnSize}/>
 
-#### Non-Interactive: Card With Footer
-<Canvas of={CardStories.NonInteractiveCardWithFooterStory}/>
+#### Card With Footer & Chips
+<Canvas of={CardStories.CardWithFooterStory}/>
 
-#### Non-Interactive: Card With Image (Standard & Landscape)
+#### Cards(Interactive): clickable entire card
+<Canvas of={CardStories.InteractiveClickableCard}/>
+
+#### Card: Standard Layout with Image
 Standard Layout : This card displays a standard layout that includes an image, a title, and content text. It is designed for general use cases where a simple and straightforward presentation of information is required.
+<Canvas of={CardStories.CardWithStandardLayoutImage}/>
 
+#### Card(Interactive): Landscape Layoute with Image
 Landscape Layout : This card features a landscape orientation. The layout is enhanced by the custom class `mat-mdc-card--landscape`, which adjusts the card's styling to better fit landscape-oriented images.
-<Canvas of={CardStories.NonInteractiveCardWithImageStory}/>
+<Canvas of={CardStories.CardWithLandscapeLayout}/>
 
-
-
-
-
-### Card (Interactive)
-
-#### Interactive: Three Columns, one action
-
-<Canvas of={CardInteractiveStories.InteractiveStoryOne}/>
-
-#### Interactive: Four columns, one action
-
-<Canvas of={CardInteractiveStories.InteractiveStoryTwo}/>
-
-#### Interactive: Card with Images
-
-<Canvas of={CardInteractiveStories.InteractiveCardWithImageStory}/>
 
 ## Additional Resources
 

@@ -1,6 +1,6 @@
 {
   "name": "@dasdigitalplatform/dls-global-angular",
-  "version": "2.5.10",
+  "version": "2.5.9",
   "main": "dist/design/dls-global-angular/index.d.ts",
   "files": [
     "dist/design/dls-global-angular"
@@ -9,6 +9,7 @@
     "start": "npm-run-all clean --parallel lib:watch demo:start-waiton",
     "build": "run-s lib:build demo:build",
     "release": "run-s lib:build",
+    "publish": "lerna publish from-package",
     "test": "run-p lib:test demo:test",
     "lint:lib": "eslint ./projects/design",
     "lib:build": "ng build @dasdigitalplatform/dls-global-angular",
@@ -25,9 +26,8 @@
     "clean": "rimraf dist",
     "storybook": "ng run @dasdigitalplatform/dls-global-angular:storybook",
     "build-storybook": "ng run @dasdigitalplatform/dls-global-angular:build-storybook",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "version-release": "standard-version && npm run changelog && npm run update-subfolder-version",
-    "update-subfolder-version": "cd projects/design/dls-global-angular && npm version $(node -p \"require('../../../package.json').version\") --no-git-tag-version"
+    "changelog": "lerna-changelog",
+    "version-release": "lerna version --conventional-commits"
   },
   "dependencies": {
     "@angular-devkit/core": "^18.2.14",
@@ -43,8 +43,11 @@
     "@angular/platform-server": "^18.2.13",
     "@angular/router": "^18.2.13",
     "@angular/ssr": "~18.2.14",
-    "@dasdigitalplatform/dls-global-assets": "^2.0.0",
+    "@dasdigitalplatform/dls-global-assets": "~2.0.0",
     "express": "^4.18.2",
+    "lerna": "^8.2.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "rxjs": "~7.8.1",
     "standard-version": "^9.5.0",
     "tslib": "^2.8.1",
@@ -58,8 +61,6 @@
     "@chromatic-com/storybook": "^3.2.6",
     "@compodoc/compodoc": "^1.1.26",
     "@eslint/js": "^9.23.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
     "@storybook/addon-a11y": "^8.6.9",
     "@storybook/addon-controls": "^8.6.9",
     "@storybook/addon-docs": "^8.6.9",
@@ -91,7 +92,6 @@
     "ng-packagr": "^18.2.1",
     "npm-run-all": "^4.1.5",
     "rimraf": "^6.0.1",
-    "semantic-release": "^24.2.3",
     "storybook": "^8.6.2",
     "storybook-addon-compodoc": "^1.0.2",
     "storybook-dark-mode": "^4.0.2",

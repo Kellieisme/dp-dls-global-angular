@@ -1,8 +1,6 @@
 {
   "name": "@dasdigitalplatform/dls-global-angular",
-  "version": "2.5.10",
-  "license": "MIT",
-  "private": false,
+  "version": "2.6.1",
   "peerDependencies": {
     "@angular/animations": "^18.2.13",
     "@angular/cdk": "^18.2.14",
@@ -22,14 +20,11 @@
   "sideEffects": false,
   "devDependencies": {
     "css-loader": "^7.1.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
     "webpack": "^5.97.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }

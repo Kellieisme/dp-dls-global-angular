@@ -1,3 +1,49 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.6.1](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v2.6.0...v2.6.1) (2025-05-19)
+
+
+### Bug Fixes
+
+* **navigation-drawer:** resolve UI inconsistencies and enhacne functionality for angualr 18 ([92934f2](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/92934f282dc6689993ea7175ed6f4eceac7a85e2))
+
+
+
+
+
+# [2.6.0](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v2.5.10...v2.6.0) (2025-05-15)
+
+
+### Bug Fixes
+
+* icon alignment ([052ade8](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/052ade81a6cd28d7dbb8b5f59b68d84b4cb3c577))
+
+
+### Features
+
+* add tooltip for navigation rail ([2254cc1](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/2254cc13ac85ed63a4e3aa536ee6360570291299))
+
+
+
+
+
+## [2.5.10](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v2.5.9...v2.5.10) (2025-05-09)
+
+
+### Bug Fixes
+
+* Automate conventional commit ([40ac1ca](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/40ac1ca1afc5d5313b36bae9cac2d63642455e49))
+* Automate conventional commit and ignore all the .gitignore stuff ([836fc36](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/836fc360449ba070952599413949fa5c1916fe15))
+* update .gitignore ([d18613b](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/d18613ba2601c19592772054dd4ef059a20c3fff))
+* Updating where the build token is set ([bdab391](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/bdab3917845c0703ff702c22f8319b5a988a9899))
+
+
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

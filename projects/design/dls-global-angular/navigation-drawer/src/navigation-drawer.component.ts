@@ -7,6 +7,8 @@ import {
   ViewChild,
   TemplateRef,
   ViewEncapsulation,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
@@ -349,6 +351,8 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   @Input({ transform: coerceBooleanProperty }) opened: boolean = true;
 
+  @Output() openedChange = new EventEmitter<boolean>(); // Notifies parent of changes
+
   /*****************************************************************************
                                      METHODS
   *****************************************************************************/
@@ -496,6 +500,12 @@ export class NavigationDrawerComponent implements OnDestroy {
       this.navDrawerPresentation !== NavDrawerPresentationEnum.MODAL &&
       !this.fixedOpen
     );
+  }
+
+  onBackdropClick(): void {
+    this.opened = false; // Close the drawer
+    this.openedChange.emit(this.opened); // Notify parent about the state change
+
   }
 
   // CLASS END

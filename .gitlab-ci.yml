@@ -2,7 +2,6 @@ image: registry.web.boeing.com/container/images/stack/ubi9minimal-node20:9.4-949
 
 stages:
   - build      # Stage for building applications
-  #- release    # Stage for versioning and tagging
   - deploy     # Stage for deploying applications
   - test       # Stage for PR testing
   - deploy-pages     # Publish the pages out
@@ -19,6 +18,8 @@ build-package:
     - git config --global user.email "dasdesignsystem@boeing.com"
     - git config --global user.name "dasdesignsystem"
     - git config --global --add safe.directory /builds/design/design-system/dls-global-angular
+    # git remote set-url origin "https://gitlab-ci-token:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
+    - git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
     - git checkout ${CI_COMMIT_REF_NAME}
     - git pull origin ${CI_COMMIT_REF_NAME}
     - echo "Current branch:"
@@ -42,44 +43,12 @@ build-package:
     # Check commit message for conventional commit triggers
     - |
       if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
-        echo "Version bump needed. Running version-release."
-        npm run version-release
-
-        # Capture the new version from package.json
-        NEW_VERSION=$(node -p "require('./package.json').version")
-        echo "New version ${NEW_VERSION}"
-
-        # Ensure subfolder package.json is updated if needed
-        # Change directory to the subfolder containing the package.json
-        cd projects/design/dls-global-angular/
-
-        # Get the current version from the subfolder's package.json
-        CURRENT_VERSION=$(node -p "require('./package.json').version")
-
-        # Check if the current version is different from the new version
-        if [ "$CURRENT_VERSION" != "$NEW_VERSION" ]; then
-          # Update the subfolder's package.json version without creating a Git tag
-          echo "Updating subfolder package.json version to ${NEW_VERSION}..."
-          npm version ${NEW_VERSION} --no-git-tag-version
-        else
-          echo "Subfolder package.json is already up to date. No changes needed."
-        fi
-
-        # Return to the root directory
-        echo "returning to the root directory"
-        cd ../../..
+        echo "Version bump needed. Running lerna version."
+        npx lerna version --conventional-commits --yes
 
         # Push changes only if a new version was created
-
-        # Stage the updated subfolder's package.json for commit
-        echo "staging & commiting the updated subfolder's package.json"
-        git add projects/design/dls-global-angular/package.json
-        # Commit the changes with a message indicating the version sync
-        git commit -m "[skip ci] Sync version to ${NEW_VERSION}"
-
-
-        git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
-        # Push the changes to the current branch, including tags
+        echo "Pushing changes to the remote repository."
+      # git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
         git push --follow-tags origin HEAD:${CI_COMMIT_REF_NAME}  # Push changes to the current branch
         echo "Pushed changes and tags to the remote repository. Now build the library"
 
@@ -101,7 +70,6 @@ build-storybook:
     - build-package
   only:
     - angular-19
-#    - develop
   script:
     - |
       if git log -1 --pretty=%B | grep -q "chore(release):"; then
@@ -133,33 +101,23 @@ build-storybook:
     paths:
       - public                               # Store the 'public' directory as an artifact
 
-# Release stage to handle versioning and tagging
-# release:
-#   stage: release
-#   only:
-#     - angular-18
-#     - angular-19
-#   before_script:
-#   # Set Git user name and email
-#   - git config --global user.email "dasdesignsystem@boeing.com"
-#   - git config --global user.name "dasdesignsystem"
-#   - git config --global --add safe.directory /builds/design/design-system/dls-global-angular
-#   script:
-#    - echo "Running version-release script to bump version and generate changelog.."
-#    - export PREVIOUS_VERSION=$(node -p "require('./package.json').version")
-#    - echo "Previous version $PREVIOUS_VERSION"
-#    - npm install
-
-
 # Publish Angular component library NPM package
 publish-npm:
   stage: deploy
   only:
     - angular-19
     - develop
+  before_script:
+    # Set Git user name and email
+    - git config --global user.email "dasdesignsystem@boeing.com"
+    - git config --global user.name "dasdesignsystem"
+    - git config --global --add safe.directory /builds/design/design-system/dls-global-angular
+    # git remote set-url origin "https://gitlab-ci-token:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
+    - git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
   script:
     - |
-      if git log -1 --pretty=%B | grep -q "chore(release):"; then
+      git log -1 --pretty=%B
+      if git log -1 --pretty=%B | grep -q "chore"; then
         echo "Skipping pipeline for automated release commit."
         exit 0  # Exit with success to skip the pipeline
       fi
@@ -192,8 +150,6 @@ publish-npm:
         echo "Version ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME} has already been published, so no new version has been published."
       fi
 
-
-
 storybook:
   stage: build
   artifacts:
@@ -204,10 +160,10 @@ storybook:
       - public/
   script:
     - |
-    - if git log -1 --pretty=%B | grep -q "chore(release):"; then
-    - echo "Skipping pipeline for automated release commit."
-    - exit 0  # Exit with success to skip the pipeline
-    - fi
+      if git log -1 --pretty=%B | grep -q "chore(release):"; then
+        echo "Skipping pipeline for automated release commit."
+        exit 0  # Exit with success to skip the pipeline
+      fi
 
     # Ensure we have the latest package.json
     - git config --global user.email "dasdesignsystem@boeing.com"
@@ -216,6 +172,7 @@ storybook:
     - git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
     - git pull origin ${CI_COMMIT_REF_NAME}  # Pull the latest package.json
 
+    # Setup .npmrc file
     - echo "registry=https://${JFROG_URL}/${JFROG_REPO}/" > .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:_authToken=${JFROG_AUTHTOKEN}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:username=${JFROG_USER}" >> .npmrc
@@ -223,9 +180,13 @@ storybook:
     - echo "@dasdigitalplatform:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - echo "Created the following .npmrc:"; cat .npmrc
+
+    # Clear npm cache and force install latest dependencies
     - npm cache clean --force
     - rm -rf node_modules package-lock.json  # Remove existing dependencies
     - npm install --loglevel verbose             # Install latest dependencies
+
+    # Build Storybook
     - |
       if [ "$CI_COMMIT_REF_NAME" != "develop" ]; then
         echo "Build storybook for branch."
@@ -235,15 +196,14 @@ storybook:
         npm run build-storybook -- --output-dir public
       fi
 
+# Build and deploy Storybook
 deploy-storybook:
   stage: deploy
   script:
-    - echo "Let's try this"
+    - echo "Deploying Storybook"
   environment:
     name: storybook/$CI_COMMIT_REF_SLUG
     url: https://design.pages.boeing.com/design-system/dls-global-angular/$CI_COMMIT_REF_SLUG/storybook/
-  #    on_stop: remove STORYBOOK
-  #    on_stop: pages-clean-preview
   except:
     - develop
     - release
@@ -257,8 +217,7 @@ pages:
     paths:
       - public
   script:
-    - echo "mv storybook public/$CI_COMMIT_REF_SLUG"
-    - echo "mv storybook $CI_COMMIT_REF_NAME"
+    - echo "Moving Storybook to public directory"
     - |
       if [ "$CI_COMMIT_REF_NAME" != "develop" ]; then
         echo "ls public/"
@@ -273,26 +232,7 @@ pages:
     paths:
       - public
 
-
-# Publish Storybook
-#pages:
-#  stage: deploy
-#  only:
-#    - angular-19
-#    - develop
-#  script:
-#    - |
-#      if git log -1 --pretty=%B | grep -q "chore(release):"; then
-#        echo "Skipping pipeline for automated release commit."
-#        exit 0  # Exit with success to skip the pipeline
-#      fi
-#    - echo "Publishing Storybook..."      # Placeholder for publishing logic
-#  artifacts:
-#    paths:
-#      - public
-
-############################################################################################################
-
+# PR testing
 pr-develop:
   stage: test
   only:
@@ -305,7 +245,7 @@ pr-develop:
 
     # Setup .npmrc for npm install
     - echo "registry=https://${JFROG_URL}/${JFROG_REPO}/" > .npmrc
-    - echo "//${JFROG_URL}/${JFROG_REPO}/:_password=${JFROG_PASSWORD}" >> .npmrc
+    - echo "//${JFROG_URL}/${JFROG_REPO}/:_authToken=${JFROG_AUTHTOKEN}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:username=${JFROG_USER}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:always-auth=true" >> .npmrc
     - echo "@dasdigitalplatform:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc

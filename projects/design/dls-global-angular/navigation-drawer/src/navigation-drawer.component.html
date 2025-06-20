@@ -1,8 +1,9 @@
 <mat-sidenav-container
   autosize="true"
   color="primary"
-  [hasBackdrop]="navDrawerPresentation === NavDrawerPresentationEnum.MODAL"
+  [hasBackdrop]="!fixedOpen"
   [class.collapse-to-rail] = "minifyOnCollapse"
+  (backdropClick)="onBackdropClick()"
 >
   <mat-sidenav
     #sidenav
@@ -12,12 +13,11 @@
     [autoFocus]="true"
   >
     <!-- OPTIONAL BRANDING HEADER -->
-    <ng-container *ngIf="navDrawerPresentation === NavDrawerPresentationEnum.STANDALONE">
+    <ng-container>
       <div class="sidenav-header">
-
         <a class="app-home-link" [routerLink]="homeRoute">
-          <img *ngIf="appLogo && opened" [src]="'./assets/' + appLogo + '-lettermark_Navigation_dark.svg'" class="navigation__app-icon--dark" alt="dark App Logo">
-          <img *ngIf="appLogo && opened" [src]="'./assets/' + appLogo + '-lettermark_Navigation_light.svg'" class="navigation__app-icon--light" alt="light App Logo">
+          <img *ngIf="appLogo && opened" [src]="'./assets/' + appLogo + '-lettermark_Navigation_dark.svg'" class="navigation__app-icon--dark letter-mark" alt="dark App Logo">
+          <img *ngIf="appLogo && opened" [src]="'./assets/' + appLogo + '-lettermark_Navigation_light.svg'" class="navigation__app-icon--light letter-mark" alt="light App Logo">
           <img *ngIf="appLogo && !opened" [src]="'./assets/' + appLogo + '-logomark_Navigation_dark.svg'" class="navigation__app-icon--dark" alt="dark App Logo">
           <img *ngIf="appLogo && !opened" [src]="'./assets/' + appLogo + '-logomark_Navigation_light.svg'" class="navigation__app-icon--light" alt="light App Logo">
 
@@ -45,7 +45,7 @@
           color="primary"
         ></mat-icon>
         <!-- If expanded, show the section header text... -->
-        <h6 class="section-header-label" *ngIf="opened || navDrawerPresentation === NavDrawerPresentationEnum.MODAL">
+        <h6 class="section-header-label" *ngIf="opened">
           {{ section.sectionHeader }}
         </h6>
       </div>
@@ -106,13 +106,13 @@
     </mat-nav-list>  
 
     <!-- Drag bar -->
-    <mat-divider
+    <!-- Removed Mat-divider as backdrop-click is not active for all type of navigation-drawer. 
+      Kept the html code here for later improvements required in future-->
+    <!-- <mat-divider
       vertical
       class="sidenav-drag-handle"
-      [class.enabled] = "isDraggable"
-      (mousedown)="isDraggable && startDragging($event)"
-      (touchstart)="isDraggable && startDragging($event)">
-    </mat-divider>
+      [class.enabled] = "isDraggable">
+    </mat-divider> -->
   </mat-sidenav>
   <mat-sidenav-content #sidenavContent class="content">
     <router-outlet></router-outlet>

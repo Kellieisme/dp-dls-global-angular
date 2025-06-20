@@ -36,6 +36,8 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
       <!-- 6px 24px 13px -->
       <h2 mat-dialog-title style="padding-top: 0px; margin-top: 0px;">Dialog Title</h2>
       <mat-dialog-content>
+
+      <mat-flat-button color="accent">Flat button</mat-flat-button>
         <p>
           A dialog is a type of modal window that appears in front of app
           content to provide critical information, or prompt for a decision to

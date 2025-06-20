@@ -2,7 +2,7 @@
 @import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss";
 
 // Constants
-$section-label-max-width: 132px;
+$section-label-max-width: 82%;
 $side-nav-width: 360px;
 
 mat-sidenav-container {
@@ -126,10 +126,16 @@ html {
 
 .navigation__app-icon--dark {
   display: block;
+  &.letter-mark {
+    padding: 0 $size-relaxed-sizing-m;
+  }
 }
 
 .theme-light .navigation__app-icon--light {
   display: block;
+  &.letter-mark {
+    padding: 0 $size-relaxed-sizing-m;
+  }
 }
 
 .theme-light .navigation__app-icon--dark {
@@ -156,6 +162,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  padding: 0 $size-relaxed-spacing-xs !important;
 }
 
 .dropdown-icon {
