@@ -251,11 +251,11 @@ jobs:
 
           # Determine dist-tag based on tag pattern
           if [[ "$TAG_NAME" == 2.* ]]; then
-            DIST_TAG="v2.x"
+            DIST_TAG="angular-18"
           elif [[ "$TAG_NAME" == 3.* ]]; then
             DIST_TAG="latest"
           elif [[ "$TAG_NAME" == 4.* ]]; then
-            DIST_TAG="v4.x"
+            DIST_TAG="angular-20"
           else
             DIST_TAG="next"
           fi
