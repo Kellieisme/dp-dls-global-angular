@@ -1,0 +1,11 @@
+{
+  "packages": [
+    "projects/design/*"
+  ],
+  "version": "2.6.1",
+  "command": {
+    "version": {
+      "conventionalCommits": true
+    }
+  }
+}
