@@ -27,7 +27,7 @@
     "storybook": "ng run @dasdigitalplatform/dls-global-angular:storybook",
     "build-storybook": "ng run @dasdigitalplatform/dls-global-angular:build-storybook",
     "changelog": "lerna-changelog",
-    "version-release": "lerna version --conventional-commits"
+    "version-release": "lerna version --conventional-commits --yes"
   },
   "dependencies": {
     "@angular-devkit/core": "^18.2.14",
