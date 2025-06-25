@@ -5,9 +5,10 @@
     [opened]="opened"
     [style.width]="sidesheetWidth"
     [position]="sidesheetPosition"
+    [title]="title"
   >
     <mat-toolbar>
-      <span>Sheet title</span>
+      <span>{{ title }}</span>
       <button mat-icon-button (click)="sidenav.close()">
         <mat-icon svgIcon="icon-close"></mat-icon>
       </button>
