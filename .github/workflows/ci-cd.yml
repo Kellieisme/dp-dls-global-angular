@@ -44,7 +44,7 @@ jobs:
 
       - name: Check for automated release commit
         run: |
-          if git log -2 --pretty=%B | grep -q "chore(release):"; then
+          if git log -1 --pretty=%B | grep -Eq "(chore\(release\):|^\[skip ci\]|\[skip ci\]$)"; then
             echo "Skipping pipeline for automated release commit."
             exit 0
           fi
@@ -117,7 +117,7 @@ jobs:
 
       - name: Check for automated release commit
         run: |
-          if git log -1 --pretty=%B | grep -q "chore(release):"; then
+          if git log -1 --pretty=%B | grep -Eq "(chore\(release\):|^\[skip ci\]|\[skip ci\]$)"; then
             echo "Skipping pipeline for automated release commit."
             exit 0
           fi
