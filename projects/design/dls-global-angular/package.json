@@ -1,6 +1,6 @@
 {
   "name": "@dasdigitalplatform/dls-global-angular",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "peerDependencies": {
     "@angular/animations": "^18.2.13",
     "@angular/cdk": "^18.2.14",

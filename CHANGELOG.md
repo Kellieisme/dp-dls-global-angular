@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.6.2 (2025-06-25)
+
+
+### Bug Fixes
+
+* Add lerna.json ([e4c45aa](https://github.com/dasdigitalplatform/dls-global-angular/commit/e4c45aa5cb343f09aa1de254fc8b5b565a717423))
+* auto-confirm lerna version bump ([a3f56bb](https://github.com/dasdigitalplatform/dls-global-angular/commit/a3f56bb03fa45220ab1e7c22332ee73b841915f9))
+* Build on main branch ([b17b14d](https://github.com/dasdigitalplatform/dls-global-angular/commit/b17b14d6d7a69ef67f1ff4d373a34b0fa892ce69))
+* Deprecated version fix ([355be17](https://github.com/dasdigitalplatform/dls-global-angular/commit/355be1783cdc16ad635938205458776241c65017))
+* Fix rev update ([1c4a259](https://github.com/dasdigitalplatform/dls-global-angular/commit/1c4a259b858118c31f0ccd29e42dca72fc647218))
+* Initial commit ([e200985](https://github.com/dasdigitalplatform/dls-global-angular/commit/e20098548748d6b2e3fa3212d393f72bf303ef8d))
+* Initial pipeline commit ([ccec8dc](https://github.com/dasdigitalplatform/dls-global-angular/commit/ccec8dc9f2f6d597fe58be0724827229cac085a5))
+* Reformat ci-cd.yml to actually rev the version ([ea1581c](https://github.com/dasdigitalplatform/dls-global-angular/commit/ea1581cc4fe50c4f9e12815338ed1013b9c44444))
+* Reformat library ([152daef](https://github.com/dasdigitalplatform/dls-global-angular/commit/152daefec67e2a0114d0a2cb05029b904d755a5b))
+* Test permissions changes ([f35a09c](https://github.com/dasdigitalplatform/dls-global-angular/commit/f35a09c057913b23c134f88c1897a19f864d35a8))
+* Update lerna ([82c0791](https://github.com/dasdigitalplatform/dls-global-angular/commit/82c07917cfac3ec05cff72f67434bff07d635c10))
+* Update npmrc build ([003fb32](https://github.com/dasdigitalplatform/dls-global-angular/commit/003fb32b5164e6f6ef7ada93541e59a80cc5e9c6))
+* Update permissions ([610d0b0](https://github.com/dasdigitalplatform/dls-global-angular/commit/610d0b0a38da7ebc04ae125b907b479f63d71e58))
+* Update to latest version of the pipeline and add in title to sidesheet ([d3648e0](https://github.com/dasdigitalplatform/dls-global-angular/commit/d3648e018b361a68b714a6b25db68786401e5cc5))
+
+
+
+
+
 ## [2.6.1](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v2.6.0...v2.6.1) (2025-05-19)
 
 
