@@ -1,0 +1,86 @@
+name: "CodeQL Security Analysis"
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+      - 'angular-*'
+  pull_request:
+    branches: 
+      - main
+      - develop
+      - 'angular-*'
+  schedule:
+    # Run CodeQL analysis on a schedule (weekly on Mondays at 6:00 AM UTC)
+    - cron: '0 6 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      # Required for all workflows
+      security-events: write
+      # Required to fetch internal or private CodeQL packs
+      packages: read
+      # Required for workflows in private repositories
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # Learn more about CodeQL language support at:
+        # https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#changing-the-languages-that-are-analyzed
+        language: ['javascript-typescript']
+        # CodeQL supports the following values keywords for 'language':
+        # 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
+        # For more details, see https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#changing-the-languages-that-are-analyzed
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup .npmrc for private packages
+        run: |
+          if [ -n "${{ secrets.GN_GITHUB_TOKEN }}" ]; then
+            echo "@dasdigitalplatform:registry=https://npm.pkg.github.com/" >> .npmrc
+            echo "//npm.pkg.github.com/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
+          else
+            echo "GN_GITHUB_TOKEN not available, skipping private registry setup"
+          fi
+
+      # Initialize CodeQL tools for scanning
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          config-file: ./.github/codeql/codeql-config.yml
+          # To learn more about CodeQL's query packs, see:
+          # https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
+
+      # Install dependencies to ensure CodeQL can analyze the full codebase
+      - name: Install dependencies
+        run: npm ci
+        continue-on-error: true
+
+      # Build the project so CodeQL can analyze compiled code
+      - name: Build project
+        run: |
+          npm run lib:build
+          npm run demo:build
+        continue-on-error: true
+
+      # Perform CodeQL Analysis
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"

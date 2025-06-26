@@ -1,0 +1,31 @@
+name: "CodeQL Configuration for Angular Project"
+
+# Disable the default setup for these languages if they are not relevant
+disable-default-path-filters: false
+
+# Paths to include in the analysis
+paths:
+  - "projects/"
+  - "src/"
+
+# Paths to exclude from the analysis
+paths-ignore:
+  - "**/*.spec.ts"
+  - "**/*.test.ts"
+  - "**/node_modules/**"
+  - "**/dist/**"
+  - "**/coverage/**"
+  - "**/*.stories.ts"
+  - "**/*.config.ts"
+  - "**/*.config.js"
+  - "**/public/**"
+
+# Query suites to run
+queries:
+  - uses: security-and-quality
+  - uses: security-extended
+
+# Pack filters (optional)
+packs:
+  javascript:
+    - microsoft/codeql-javascript-queries

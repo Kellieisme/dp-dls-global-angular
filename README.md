@@ -71,3 +71,13 @@ Run `npm run storybook` to start Storybook. Navigate to `http://localhost:6006/`
 ## Build
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Security Analysis
+
+This project uses GitHub CodeQL for automated security vulnerability detection and code quality analysis. CodeQL runs automatically on pushes, pull requests, and on a weekly schedule.
+
+For detailed information about the CodeQL setup, configuration, and how to interpret results, see the [CodeQL Setup Documentation](./docs/CODEQL_SETUP.md).
+
+To view security scan results:
+1. Go to the **Security** tab in the GitHub repository
+2. Click on **Code scanning** to see any detected issues
