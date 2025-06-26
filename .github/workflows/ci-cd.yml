@@ -27,12 +27,14 @@ jobs:
   build-package:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' || github.event.action != 'synchronize'
+    outputs:
+      version_bumped: ${{ steps.version_logic.outputs.version_bumped }}
     permissions:
       contents: write # Allow the workflow to write to the repository
       packages: write # Allow the workflow to publish packages
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GN_GITHUB_TOKEN }}
@@ -108,7 +110,7 @@ jobs:
     needs: build-package
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Git
         run: |
@@ -158,7 +160,7 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     needs: build-package
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/angular-18'
+    if: needs.build-package.outputs.version_bumped == 'true'
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
@@ -199,7 +201,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Download Storybook artifacts
         uses: actions/download-artifact@v4
@@ -219,7 +221,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup .npmrc
         run: |
