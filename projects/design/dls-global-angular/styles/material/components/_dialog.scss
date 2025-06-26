@@ -4,7 +4,7 @@
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
   @include mat.dialog-theme($dark-theme);
-  @include mat.button-theme($dark-theme);
+  //@include mat.button-theme($dark-theme);
 
   // If needed use the single dimension mixins to override particular aspects
   // @include mat.dialog-base($dark-theme);
@@ -16,7 +16,7 @@
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
   @include mat.dialog-color($light-theme);
-  @include mat.button-color($light-theme);
+  //@include mat.button-color($light-theme);
 }
 
 html,
