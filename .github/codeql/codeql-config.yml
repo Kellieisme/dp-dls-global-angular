@@ -28,4 +28,4 @@ queries:
 # Pack filters (optional)
 packs:
   javascript:
-    - microsoft/codeql-javascript-queries
+    - codeql/javascript-queries

@@ -43,6 +43,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check Advanced Security Status
+        run: |
+          echo "ℹ️ CodeQL requires GitHub Advanced Security to be enabled for this repository."
+          echo "📋 If you see warnings about 'Advanced Security must be enabled', please:"
+          echo "   1. Go to Repository Settings → Code security and analysis"
+          echo "   2. Enable GitHub Advanced Security"
+          echo "   3. Or contact your organization admin if you don't have permissions"
+          echo ""
+          echo "🔗 More info: https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
