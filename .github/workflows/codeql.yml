@@ -46,8 +46,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: '22'
 
       - name: Setup .npmrc for private packages
         run: |
@@ -69,7 +68,7 @@ jobs:
 
       # Install dependencies to ensure CodeQL can analyze the full codebase
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         continue-on-error: true
 
       # Build the project so CodeQL can analyze compiled code
