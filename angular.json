@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@dasdigitalplatform/dls-global-angular": {
+    "@design/dls-global-angular": {
       "projectType": "library",
       "root": "projects/design/dls-global-angular",
       "sourceRoot": "projects/design/dls-global-angular",
@@ -38,7 +38,7 @@
           "builder": "@storybook/angular:start-storybook",
           "options": {
             "configDir": "projects/design/dls-global-angular/.storybook",
-            "browserTarget": "@dasdigitalplatform/dls-global-angular:build",
+            "browserTarget": "@design/dls-global-angular:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -48,8 +48,8 @@
               "--disablePrivate"
             ],
             "assets": [
-              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./storybookassets" },
-              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./storybookassets" },
+              { "glob": "svgSet.svg", "input": "./node_modules/@design/dls-global-assets/dist/images/icons/", "output": "./storybookassets" },
+              { "glob": "**/*", "input": "./node_modules/@design/dls-global-assets/dist/images/content", "output": "./storybookassets" },
               { "glob": "**/*", "input": "projects/design/dls-global-angular/stories/assets", "output": "./storybookassets" }
             ],
             "styles": [
@@ -65,7 +65,7 @@
           "builder": "@storybook/angular:build-storybook",
           "options": {
             "configDir": "projects/design/dls-global-angular/.storybook",
-            "browserTarget": "@dasdigitalplatform/dls-global-angular:build",
+            "browserTarget": "@design/dls-global-angular:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -75,8 +75,8 @@
               "--disablePrivate"
             ],
             "assets": [
-              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./storybookassets" },
-              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./storybookassets" },
+              { "glob": "svgSet.svg", "input": "./node_modules/@design/dls-global-assets/dist/images/icons/", "output": "./storybookassets" },
+              { "glob": "**/*", "input": "./node_modules/@design/dls-global-assets/dist/images/content", "output": "./storybookassets" },
               { "glob": "**/*", "input": "projects/design/dls-global-angular/stories/assets", "output": "./storybookassets" }
             ],
             "styles": [
@@ -115,8 +115,8 @@
             "assets": [
               "projects/demo/src/favicon.ico",
               "projects/demo/src/assets",
-              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./assets" },
-              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./assets" }
+              { "glob": "svgSet.svg", "input": "./node_modules/@design/dls-global-assets/dist/images/icons/", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@design/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
               "projects/design/dls-global-angular/styles/fonts.scss",
@@ -185,8 +185,8 @@
             "assets": [
               "projects/demo/src/favicon.ico",
               "projects/demo/src/assets",
-              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./assets" },
-              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./assets" }
+              { "glob": "svgSet.svg", "input": "./node_modules/@design/dls-global-assets/dist/images/icons/", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@design/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
               "projects/design/dls-global-angular/styles/fonts.scss",

@@ -1,1 +1,0 @@
-export * from "./src/top-app-bar.component";

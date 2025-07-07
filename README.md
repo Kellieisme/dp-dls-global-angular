@@ -20,7 +20,7 @@ npm install -g @angular/cli
 
 ### Create an .npmrc
 
-Public NPM packages will be installed from the Boeing SRES package repository (Jfrog Artifactory) and private NPM packages (`@dasdigitalplatform/dls-global-assets`) will be downloaded from the Boeing GitLab package registry. To enable this, create a new filed named `.npmrc` in the project root. The content should be:
+Public NPM packages will be installed from the Boeing SRES package repository (Jfrog Artifactory) and private NPM packages (`@design/dls-global-assets`) will be downloaded from the Boeing GitLab package registry. To enable this, create a new filed named `.npmrc` in the project root. The content should be:
 
 ```
 registry=https://sres.web.boeing.com/artifactory/api/npm/npm-remote/
@@ -28,7 +28,7 @@ registry=https://sres.web.boeing.com/artifactory/api/npm/npm-remote/
 //sres.web.boeing.com/artifactory/api/npm/npm-remote/:username=JFROG_USERNAME
 //sres.web.boeing.com/artifactory/api/npm/npm-remote/:email=EMAIL
 //sres.web.boeing.com/artifactory/api/npm/npm-remote/:always-auth=true
-@dasdigitalplatform:registry=https://git.web.boeing.com/api/v4/packages/npm/
+@design:registry=https://git.web.boeing.com/api/v4/packages/npm/
 //git.web.boeing.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
 ```
 
@@ -48,21 +48,21 @@ $ npm install
 
 ## Local development
 
-The Boeing DLS Global Angular Component Library has a dependency on the Boeing DLS Global Assets Library (`@dasdigitalplatform/dls-global-assets`). 
+The Boeing DLS Global Angular Component Library has a dependency on the Boeing DLS Global Assets Library (`@design/dls-global-assets`). 
 
-The package `@dasdigitalplatform/dls-global-assets` will be downloaded from the GitLab package registry, as long as the `.npmrc` file is present, as described above.
+The package `@design/dls-global-assets` will be downloaded from the GitLab package registry, as long as the `.npmrc` file is present, as described above.
 
-During ongoing development, it may be useful to have local changes made to the `@dasdigitalplatform/dls-global-assets` package reflect immediately in the `dls-global-angular`project. To enable this, create a NPM symlink.
+During ongoing development, it may be useful to have local changes made to the `@design/dls-global-assets` package reflect immediately in the `dls-global-angular`project. To enable this, create a NPM symlink.
 
 1. In the `dls-global-assets` directory, run `npm link`. This command creates a global symlink to the package.
 
-2. In the `dls-global-angular` directory, run `npm link @dasdigitalplatform/dls-global-assets` to link the local version of `@dasdigitalplatform/dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immeidately without publishing a new version to the NPM registry.
+2. In the `dls-global-angular` directory, run `npm link @design/dls-global-assets` to link the local version of `@design/dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immeidately without publishing a new version to the NPM registry.
 
 *Note:* If you run `npm install` after creating the symlink, you need to recreate it by doing step 2 above.
 
 ## Development server
 
-Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The @dasdigitalplatform/dls-global-angular library will rebuild and the demo application will automatically reload if you change any of the source files.
+Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The @design/dls-global-angular library will rebuild and the demo application will automatically reload if you change any of the source files.
 
 ## Storybook server
 
@@ -71,13 +71,3 @@ Run `npm run storybook` to start Storybook. Navigate to `http://localhost:6006/`
 ## Build
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Security Analysis
-
-This project uses GitHub CodeQL for automated security vulnerability detection and code quality analysis. CodeQL runs automatically on pushes, pull requests, and on a weekly schedule.
-
-For detailed information about the CodeQL setup, configuration, and how to interpret results, see the [CodeQL Setup Documentation](./docs/CODEQL_SETUP.md).
-
-To view security scan results:
-1. Go to the **Security** tab in the GitHub repository
-2. Click on **Code scanning** to see any detected issues

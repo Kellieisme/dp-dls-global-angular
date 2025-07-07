@@ -1,8 +1,0 @@
-<ng-container>
-  <div class="user-profile" [ngClass]="getProfileClass()">
-    <div class="user-profile__content" [ngSwitch]="hasValidImageSource()">
-      <img *ngSwitchCase="true" [src]="userAvatarSource" alt="User profile image" class="user-profile__image" />
-      <div *ngSwitchCase="false" class="user-profile__letter">{{ getMonogram() }}</div>
-    </div>
-  </div>
-</ng-container>
