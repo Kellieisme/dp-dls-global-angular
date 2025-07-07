@@ -1,4 +1,8 @@
 {
+  "name": "@dasdigitalplatform/dls-global-angular",
+  "version": "2.5.11",
+  "license": "MIT",
+  "private": false,
   "name": "@design/dls-global-angular",
   "version": "3.2.2",
   "peerDependencies": {
