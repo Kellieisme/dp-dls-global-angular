@@ -17,8 +17,8 @@ export interface LabelExample {
 }
 
 @Component({
-  selector: 'storybook-chips-page',
-  template: `
+    selector: 'storybook-chips-page',
+    template: `
     <ng-container *ngIf="variant === 'InputChips'">
         <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGrid aria-label="Enter labels">
@@ -113,11 +113,12 @@ export interface LabelExample {
         </mat-chip-listbox>
     </ng-container>
     `,
-  styles: [`
+    styles: [`
     .example-chip-list {
       width: 100%;
     }
-  `]
+  `],
+    standalone: false
 })
 class StorybookChipsPageComponent {
   @Input() variant: 'InputChips' | 'AvatarInputChips' | 'AssistiveChips' | 'FilterAndSuggestionChips' = 'InputChips';

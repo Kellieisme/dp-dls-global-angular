@@ -14,12 +14,11 @@ import { AtmosphereBreadcrumbLinkArray } from './breadcrumb.types';
  * of the breadcrumb trail can be maintained as consistent.
  */
 @Component({
-  selector: 'ba-breadcrumb',
-  standalone: true,
-  imports: [CommonModule, MatButtonModule, MatMenuModule, RouterLink],
-  templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'ba-breadcrumb',
+    imports: [CommonModule, MatButtonModule, MatMenuModule, RouterLink],
+    templateUrl: './breadcrumb.component.html',
+    styleUrls: ['./breadcrumb.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class BreadcrumbComponent {

@@ -8,10 +8,11 @@ import { IconRegistryStorybookModule } from '../../../../icon-registry';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'snackbar-trigger',
-  template: `<button mat-button (click)="openSnackBar()">
+    selector: 'snackbar-trigger',
+    template: `<button mat-button (click)="openSnackBar()">
     {{ buttonText }}
   </button>`,
+    standalone: false
 })
 class SnackBarTriggerComponent {
   @Input() message = 'Snackbar message';

@@ -8,8 +8,8 @@ import { Component, Input, inject, TemplateRef, ViewChild } from '@angular/core'
 import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
-  selector: 'storybook-dialog-page',
-  template: `
+    selector: 'storybook-dialog-page',
+    template: `
     <div>
       <button mat-stroked-button color="primary" (click)="openBasicDialog()">
         Open Dialog
@@ -92,6 +92,7 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
 
     </ng-template>
   `,
+    standalone: false
 })
 class DialogPageComponent {
   @Input() args: any;

@@ -90,26 +90,25 @@ type SideNavigationModeType = `${SideNavMode}`;
  *
  */
 @Component({
-  selector: 'ba-navigation-drawer',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterOutlet,
-    RouterModule,
-    MatListModule,
-    RouterModule,
-    MatNavList,
-    MatDividerModule,
-    MatMenuModule,
-    IconRegistryModule,
-  ],
-  templateUrl: './navigation-drawer.component.html',
-  styleUrls: ['./navigation-drawer.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'ba-navigation-drawer',
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterOutlet,
+        RouterModule,
+        MatListModule,
+        RouterModule,
+        MatNavList,
+        MatDividerModule,
+        MatMenuModule,
+        IconRegistryModule,
+    ],
+    templateUrl: './navigation-drawer.component.html',
+    styleUrls: ['./navigation-drawer.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class NavigationDrawerComponent implements OnDestroy {
 

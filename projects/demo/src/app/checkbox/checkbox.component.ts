@@ -9,12 +9,11 @@ export interface Task {
   subtasks?: Task[];
 }
 @Component({
-  selector: 'app-checkbox',
-  imports: [FormsModule, MatCheckboxModule, MatDividerModule ],
-  templateUrl: './checkbox.component.html',
-  styleUrl: './checkbox.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-checkbox',
+    imports: [FormsModule, MatCheckboxModule, MatDividerModule],
+    templateUrl: './checkbox.component.html',
+    styleUrl: './checkbox.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckboxComponent {
   readonly task = signal<Task>({

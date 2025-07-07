@@ -33,19 +33,18 @@ export enum SidesheetContentMode {
  * options or context.
  */
 @Component({
-  selector: 'ba-sidesheet',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    IconRegistryModule,
-  ],
-  templateUrl: './sidesheet.component.html',
-  styleUrls: ['./sidesheet.component.scss'],
+    selector: 'ba-sidesheet',
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        IconRegistryModule,
+    ],
+    templateUrl: './sidesheet.component.html',
+    styleUrls: ['./sidesheet.component.scss']
 })
 export class SideSheetComponent {
 

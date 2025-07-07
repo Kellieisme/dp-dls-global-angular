@@ -29,24 +29,23 @@ import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/use
  * labels can be hidden by using the `hideLabels` flag.
  */
 @Component({
-  selector: 'ba-navigation-rail',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterOutlet,
-    RouterModule,
-    MatListModule,
-    MatNavList,
-    MatDividerModule,
-    IconRegistryModule,
-    MatMenuModule
-],
-  templateUrl: './navigation-rail.component.html',
-  styleUrls: ['./navigation-rail.component.scss']
+    selector: 'ba-navigation-rail',
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterOutlet,
+        RouterModule,
+        MatListModule,
+        MatNavList,
+        MatDividerModule,
+        IconRegistryModule,
+        MatMenuModule
+    ],
+    templateUrl: './navigation-rail.component.html',
+    styleUrls: ['./navigation-rail.component.scss']
 })
 export class NavigationRailComponent {
 

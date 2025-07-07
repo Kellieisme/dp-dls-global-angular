@@ -5,19 +5,18 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-basic-dialog',
-  standalone: true,
-  imports: [
-    MatDialogModule,
-    MatDialogActions,
-    MatIconModule,
-    MatDialogContent,
-    MatButtonModule,
-    MatDialogClose,
-    MatDialogTitle,
-    IconRegistryModule,
-  ],
-  template: `
+    selector: 'app-basic-dialog',
+    imports: [
+        MatDialogModule,
+        MatDialogActions,
+        MatIconModule,
+        MatDialogContent,
+        MatButtonModule,
+        MatDialogClose,
+        MatDialogTitle,
+        IconRegistryModule,
+    ],
+    template: `
     <div class="d-flex align-items-end pt-3" style="padding-left: 24px;">
       <div>
         <mat-icon svgIcon="icon-warning"></mat-icon>
@@ -43,6 +42,6 @@ import { MatButtonModule } from '@angular/material/button';
       <button mat-flat-button color="primary" cdkFocusInitial mat-dialog-close>Accept</button>
     </mat-dialog-actions>
   `,
-  styleUrl: './dialog-page.component.scss',
+    styleUrl: './dialog-page.component.scss'
 })
 export class BasicDialogComponent {}

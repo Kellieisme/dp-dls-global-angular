@@ -12,10 +12,9 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
  * Snackbar is a service for displaying snack-bar notifications.
  */
 @Component({
-  selector: 'ba-snackbar',
-  standalone: true,
-  imports: [MatButtonModule, MatIconModule, IconRegistryModule, CommonModule],
-  template: `
+    selector: 'ba-snackbar',
+    imports: [MatButtonModule, MatIconModule, IconRegistryModule, CommonModule],
+    template: `
     <div class="ba-snackbar__content">
       <span class="ba-snackbar__message">{{ data.message }}</span>
       <div class="ba-snackbar__actions">
@@ -33,8 +32,8 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
       </div>
     </div>
   `,
-  styles: [
-    `
+    styles: [
+        `
       .ba-snackbar__content {
         display: flex;
         justify-content: space-between;
@@ -50,7 +49,7 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
         flex-shrink: 0;
       }
     `,
-  ],
+    ]
 })
 export class SnackbarComponent {
 

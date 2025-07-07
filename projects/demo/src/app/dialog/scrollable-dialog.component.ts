@@ -9,17 +9,16 @@ import {
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
-  selector: 'app-scrollable-dialog',
-  standalone: true,
-  imports: [
-    MatDialogContent,
-    MatDialogTitle,
-    MatDialogClose,
-    MatDialogActions,
-    MatButton,
-    IconRegistryModule,
-  ],
-  template: `
+    selector: 'app-scrollable-dialog',
+    imports: [
+        MatDialogContent,
+        MatDialogTitle,
+        MatDialogClose,
+        MatDialogActions,
+        MatButton,
+        IconRegistryModule,
+    ],
+    template: `
     <h2 mat-dialog-title>Update Angular</h2>
     <mat-dialog-content>
       <p>
@@ -74,6 +73,6 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
       <button mat-flat-button color="primary" mat-dialog-close cdkFocusInitial>Install</button>
     </mat-dialog-actions>
   `,
-  styleUrl: './dialog-page.component.scss',
+    styleUrl: './dialog-page.component.scss'
 })
 export class ScrollableDialogComponent {}

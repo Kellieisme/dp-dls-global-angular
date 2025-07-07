@@ -10,9 +10,10 @@ import { ThemeToggleService } from "./theme-toggle.service";
  * ```
  */
 @Component({
-  selector: "ba-theme-toggle",
-  templateUrl: "theme-toggle.component.html",
-  styleUrls: ["theme-toggle.component.scss"]
+    selector: "ba-theme-toggle",
+    templateUrl: "theme-toggle.component.html",
+    styleUrls: ["theme-toggle.component.scss"],
+    standalone: false
 })
 export class ThemeToggleComponent {
   constructor(private themeToggleService: ThemeToggleService) {}

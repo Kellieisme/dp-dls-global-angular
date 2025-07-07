@@ -11,20 +11,20 @@ export interface Task {
  * @title Basic checkboxes
  */
 @Component({
-  selector: 'checkbox-overview-example',
-  standalone: true,
-  imports: [MatCheckboxModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [
-    `
+    selector: 'checkbox-overview-example',
+    imports: [MatCheckboxModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: [
+        `
       .example {
         background: var(--color-ui-background-low);
       }
       .example-list-section ul {
         padding-left: 20px; /* Apply left padding */
       }
-    `],
-  template: `
+    `
+    ],
+    template: `
     <div class="example">
     <mat-checkbox
       [checked]="task().completed"

@@ -13,12 +13,11 @@ export interface LabelExample {
 }
 
 @Component({
-  selector: 'chips-page',
-  standalone: true,
-  imports: [MatChipsModule, MatIconModule, IconRegistryModule, CdkDropList, CdkDrag, MatFormFieldModule, UserProfileComponent],
-  templateUrl: './chips.component.html',
-  styleUrl: './chips.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'chips-page',
+    imports: [MatChipsModule, MatIconModule, IconRegistryModule, CdkDropList, CdkDrag, MatFormFieldModule, UserProfileComponent],
+    templateUrl: './chips.component.html',
+    styleUrl: './chips.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ChipsPageComponent {

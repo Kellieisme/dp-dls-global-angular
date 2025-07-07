@@ -21,18 +21,17 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
  * single user object which could be used consistently between components.
  */
 @Component({
-  selector: 'ba-user-profile',
-  standalone: true,
-  imports: [
-    MatTabsModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatButtonModule,
-    CommonModule,
-    IconRegistryModule
-  ],
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+    selector: 'ba-user-profile',
+    imports: [
+        MatTabsModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatButtonModule,
+        CommonModule,
+        IconRegistryModule
+    ],
+    templateUrl: './user-profile.component.html',
+    styleUrls: ['./user-profile.component.scss']
 })
 
 export class UserProfileComponent {

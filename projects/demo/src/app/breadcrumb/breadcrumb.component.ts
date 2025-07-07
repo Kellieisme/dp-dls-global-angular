@@ -4,11 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'breadcrumb-page',
-  standalone: true,
-  imports: [BreadcrumbComponent,MatButtonModule],
-  templateUrl: './breadcrumb.component.html',
-  styleUrl: './breadcrumb.component.scss'
+    selector: 'breadcrumb-page',
+    imports: [BreadcrumbComponent, MatButtonModule],
+    templateUrl: './breadcrumb.component.html',
+    styleUrl: './breadcrumb.component.scss'
 })
 export class BreadcrumbPageComponent {
   title = 'Breadcrumb';
