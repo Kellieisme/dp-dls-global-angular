@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@design/dls-global-assets/dist/scss/base/_variablesBase.scss';
+@import '../m3-theme.scss';
+
+:root {
+	// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+	@include mat.toolbar-theme($dark-theme);
+	// If needed use the single dimension mixins to override particular aspects
+	// @include mat.button-base($dark-theme);
+	// @include mat.button-color($dark-theme);
+	// @include mat.button-typography($dark-theme);
+	// @include mat.button-density($dark-theme);
+}
+
+
+.theme-light {
+	@include mat.toolbar-color($light-theme);
+}
+
+html,
+html .theme-light,html .theme-dark {
+	--mat-toolbar-container-background-color: var(--color-ui-glass-surface-thinnest);
+	--mat-toolbar-container-text-color: var(--color-ui-textandicon-high);
+}
+
+// .mat-toolbar.mat-primary {
+// 	--mat-toolbar-container-background-color: #f5f5f5;
+// 	--mat-toolbar-container-text-color: white
+// }
+
+// .mat-toolbar.mat-accent {
+// 	--mat-toolbar-container-background-color: #ff4081;
+// 	--mat-toolbar-container-text-color: white
+// }
+
+// .mat-toolbar.mat-warn {
+// 	--mat-toolbar-container-background-color: #f44336;
+// 	--mat-toolbar-container-text-color: white
+// }
+
+html {
+	--mat-toolbar-standard-height: $size-base-sizing-64px;
+	--mat-toolbar-mobile-height: $size-base-sizing-48px;
+}
+
+html {
+	// --mat-toolbar-title-text-font: inherit;
+	--mat-toolbar-title-text-line-height: inherit;
+	--mat-toolbar-title-text-size: inherit;
+	--mat-toolbar-title-text-tracking: inherit;
+	--mat-toolbar-title-text-weight: inherit
+}

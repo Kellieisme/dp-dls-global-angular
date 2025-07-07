@@ -1,0 +1,36 @@
+// Style for the home page
+@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss';
+
+:host {
+  @include typography-xl-body-low-default;
+}
+
+h1 { 
+  margin-bottom: 1rem;
+  color: var(--color-ui-textandicon-medium);
+}
+
+p {
+  color: var(--color-ui-textandicon-medium);
+}
+
+a {
+  color: var(--color-ui-textandicon-high);
+} 
+
+b {
+  font-weight: 700;
+  color: var(--color-ui-textandicon-high);
+}
+
+p {
+  margin: 1rem;
+  max-width: 500px;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: $size-relaxed-spacing-l;
+  color: var(--color-ui-textandicon-high);
+}

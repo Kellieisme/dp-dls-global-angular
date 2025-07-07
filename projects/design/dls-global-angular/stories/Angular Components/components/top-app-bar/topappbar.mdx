@@ -1,0 +1,34 @@
+import { Meta, Canvas, Markdown } from '@storybook/addon-docs/blocks';
+import * as TopAppBarStories from './topappbar.stories';
+
+<Meta of={TopAppBarStories} />
+
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+
+### Properties
+
+<Markdown>
+{`
+| Name                                                        | Description                                                                   |
+| ------------------------------------------------------------| ----------------------------------------------------------------------------- |
+| @Input() appName: string                                    | The name displayed in the top app bar. Defaults to 'App Name'. |
+| @Input() appLogo: string                                    | Logo file name (excluding path & extension). Defaults to ''. |
+| @Input() homeRoute: string                                  | Route linked to the logo. Defaults to '/'. |
+| @Input() menuAlignCenter: boolean                           | Obsolete - This is obsolete and needs to be updated. Defaults to false. |
+| @Input() hamburgerMenuOnly: boolean                         | Broken - Forces the menu to use a hamburger icon at all breakpoints. Defaults to false. |
+| @Input() topAppBarMenu: AtmosphereTopBarNavigationLinkArray | Clarification needed if this is for the old tabs or automatically creates the hamburger's links now? List of menu items for navigation. Defaults to []. |
+
+`}
+</Markdown>
+
+## Examples
+
+### Standard
+
+<Canvas of={TopAppBarStories.Default} />
+
+### With Hamburger Menu Only - VARIANT: Hamburger menu
+
+<Canvas of={TopAppBarStories.HamburgerOnly} />
+
+</div>

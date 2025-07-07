@@ -1,0 +1,16 @@
+h4 { 
+  color: var(--color-ui-textandicon-high); // High-emphasis color for primary heading
+  margin-bottom: 1rem; // Adds spacing below for separation
+}
+
+h5 { 
+  color: var(--color-ui-textandicon-high); // High-emphasis color for subsection heading
+  margin-bottom: 1rem; // Adds space below to separate from next elements
+  margin-top: 1rem; // Adds space above to separate from previous elements
+}
+
+h6 { 
+  color: var(--color-ui-textandicon-high); // High-emphasis color for minor subsection heading
+  margin-bottom: 0.5rem; // Smaller space below for closer grouping
+  margin-top: 0.5rem; // Smaller space above for tighter layout
+}

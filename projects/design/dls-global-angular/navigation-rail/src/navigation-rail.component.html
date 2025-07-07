@@ -1,0 +1,71 @@
+<mat-sidenav-container
+  autosize="true"
+  color="primary"
+  [class.labels-visible]="!hideLabels"
+  [class.wide]="wide"
+  >
+  <mat-sidenav
+    #sidenav
+    [opened]="true"
+    mode="side"
+    disableClose
+    [autoFocus]="true"
+    >
+    <div class="sidenav-header">
+      <a class="app-home-link" [routerLink]="homeRoute">
+        @if (appLogo) {
+          <img
+            [src]="'./assets/' + appLogo + '-logomark_Navigation_dark.svg'"
+            class="navigation__app-icon--dark"
+            alt="dark App Logo"
+            />
+        }
+        @if (appLogo) {
+          <img
+            [src]="'./assets/' + appLogo + '-logomark_Navigation_light.svg'"
+            class="navigation__app-icon--light"
+            alt="light App Logo"
+            />
+        }
+      </a>
+    </div>
+
+    <!-- navigation list -->
+    <mat-nav-list class="menu-items">
+      @for (item of menuItems; track item) {
+        <mat-list-item
+          disableRipple
+          (click)="onMenuItemClick(item)"
+          [ngClass]="{ 'narrow': !wide && hideLabels, 'mat-list-item--toggle-on': item.toggled }"
+          [routerLink]="item.route"
+          >
+          @if (item.icon) {
+            <mat-icon matListItemIcon [svgIcon]="item.toggled ? 'icon-'+item.icon+'-filled' : 'icon-'+item.icon"></mat-icon>
+          }
+          @if (!hideLabels) {
+            <div matListItemTitle class="label">
+              {{ item.label }}
+            </div>
+          }
+        </mat-list-item>
+      }
+    </mat-nav-list>
+
+    <!-- BOTTOM BUTTONS (max: 4) -->
+    <!-- list for notification and profile (and up to two more)-->
+    <mat-nav-list class="bottom-icons">
+      <ng-template *ngTemplateOutlet="navRailBottomComponent1" />
+      <ng-template *ngTemplateOutlet="navRailBottomComponent2" />
+      <ng-template *ngTemplateOutlet="navRailBottomComponent3" />
+      <ng-template *ngTemplateOutlet="navRailBottomComponent4" />
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  @if (!disableSidenavContent) {
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  }
+
+</mat-sidenav-container>

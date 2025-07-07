@@ -1,0 +1,29 @@
+<h6>Checkbox</h6>
+
+<section>
+    <mat-checkbox>Check me!</mat-checkbox>
+    <mat-checkbox [disabled]="true">Disabled</mat-checkbox>
+  </section>
+
+<mat-divider />
+
+<section>
+    <mat-checkbox [checked]="task().completed"
+      [indeterminate]="partiallyComplete()"
+      (change)="update($event.checked)"
+    >
+      {{task().name}}
+    </mat-checkbox>
+    <span>
+    <ul>
+      @for (subtask of task().subtasks; track subtask; let i = $index) {
+        <li>
+          <mat-checkbox [checked]="subtask.completed" (change)="update($event.checked, i)">
+            {{subtask.name}}
+          </mat-checkbox>
+        </li>
+      }
+    </ul>
+  </span>
+
+</section>

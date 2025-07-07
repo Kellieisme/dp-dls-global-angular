@@ -1,0 +1,29 @@
+import { Meta, Canvas, Markdown } from '@storybook/addon-docs/blocks';
+import * as UserProfileStories from './user-profile.stories';
+
+<Meta of={UserProfileStories} />
+
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+
+# UserProfile
+
+
+## Examples
+
+### ClickableImage
+
+<Canvas of={UserProfileStories.ClickableImage} />
+
+### DisplayOnlyImage
+
+<Canvas of={UserProfileStories.DisplayOnlyImage} />
+
+### ClickableLetter
+
+<Canvas of={UserProfileStories.ClickableLetter} />
+
+### DisplayOnlyLetter
+
+<Canvas of={UserProfileStories.DisplayOnlyLetter} />
+
+</div>

@@ -1,0 +1,156 @@
+import { Story, Canvas, Meta, Markdown } from "@storybook/blocks";
+import { NoData, Red_text, Info_Blue_text } from "../../../mdx_styles.mdx";
+
+<Meta title="FOUNDATION/Color System" />
+
+
+
+
+export const TokenTable = () => {
+  const tokenData = [
+    { cssVar: "--color-ui-textandicon-high", figmaVar: "foundation.ui.textandicon.high" },
+    { cssVar: "--color-ui-textandicon-medium", figmaVar: "foundation.ui.textandicon.medium" },
+    { cssVar: "--color-ui-textandicon-low", figmaVar: "foundation.ui.textandicon.low" },
+    { cssVar: "--color-ui-textandicon-inverse", figmaVar: "foundation.ui.textandicon.inverse" },
+    { cssVar: "--color-ui-background-high", figmaVar: "foundation.ui.background.high" },
+    { cssVar: "--color-ui-background-medium", figmaVar: "foundation.ui.background.medium" },
+    { cssVar: "--color-ui-background-low", figmaVar: "foundation.ui.background.low" },
+    { cssVar: "--color-ui-background-lowest", figmaVar: "foundation.ui.background.lowest" },
+    { cssVar: "--color-ui-glass-surface-thickest", figmaVar: "foundation.ui.glass.surface.thickest" },
+    { cssVar: "--color-ui-glass-surface-thick", figmaVar: "foundation.ui.glass.surface.thick" },
+    { cssVar: "--color-ui-glass-surface-regular", figmaVar: "foundation.ui.glass.surface.regular" },
+    { cssVar: "--color-ui-glass-surface-thin", figmaVar: "foundation.ui.glass.surface.thin" },
+    { cssVar: "--color-ui-glass-surface-thinnest", figmaVar: "foundation.ui.glass.surface.thinnest" },
+    { cssVar: "--color-ui-glass-surface-specular-0", figmaVar: "foundation.ui.glass.surface.specular.0" },
+    { cssVar: "--color-ui-glass-surface-specular-100", figmaVar: "foundation.ui.glass.surface.specular.100" },
+    { cssVar: "--color-ui-glass-border-specular-11", figmaVar: "foundation.ui.glass.border.specular.11" },
+    { cssVar: "--color-ui-glass-border-specular-45", figmaVar: "foundation.ui.glass.border.specular.45" },
+    { cssVar: "--color-ui-glass-border-specular-60", figmaVar: "foundation.ui.glass.border.specular.60" },
+    { cssVar: "--color-ui-glass-border-specular-89", figmaVar: "foundation.ui.glass.border.specular.89" },
+    { cssVar: "--color-ui-glass-divider-specular-0", figmaVar: "foundation.ui.glass.divider.specular.0" },
+    { cssVar: "--color-ui-glass-divider-specular-10", figmaVar: "foundation.ui.glass.divider.specular.10" },
+    { cssVar: "--color-ui-glass-divider-specular-44", figmaVar: "foundation.ui.glass.divider.specular.44" },
+    { cssVar: "--color-ui-glass-divider-specular-100", figmaVar: "foundation.ui.glass.divider.specular.100" },
+     { cssVar: "--color-semantic-textandicon-error", figmaVar: "foundation.semantic.textandicon.error" },
+    { cssVar: "--color-semantic-background-error-filled", figmaVar: "foundation.semantic.background.error.filled" },
+    { cssVar: "--color-semantic-border-error", figmaVar: "foundation.semantic.border.error" },
+    { cssVar: "--color-semantic-background-error-tonal", figmaVar: "foundation.semantic.background.error.tonal" },
+    { cssVar: "--color-semantic-textandicon-warning", figmaVar: "foundation.semantic.textandicon.warning" },
+    { cssVar: "--color-semantic-background-warning-filled", figmaVar: "foundation.semantic.background.warning.filled" },
+    { cssVar: "--color-semantic-border-warning", figmaVar: "foundation.semantic.border.warning" },
+    { cssVar: "--color-semantic-background-warning-tonal", figmaVar: "foundation.semantic.background.warning.tonal" },
+    { cssVar: "--color-semantic-textandicon-success", figmaVar: "foundation.semantic.textandicon.success" },
+    { cssVar: "--color-semantic-background-success-tonal", figmaVar: "foundation.semantic.background.success.tonal" },
+    { cssVar: "--color-semantic-background-success-filled", figmaVar: "foundation.semantic.background.success.filled" },
+    { cssVar: "--color-semantic-border-success", figmaVar: "foundation.semantic.border.success" },
+    { cssVar: "--color-semantic-textandicon-info", figmaVar: "foundation.semantic.textandicon.info" },
+    { cssVar: "--color-semantic-border-info", figmaVar: "foundation.semantic.border.info" },
+    { cssVar: "--color-semantic-background-info-tonal", figmaVar: "foundation.semantic.background.info.tonal" },
+    { cssVar: "--color-semantic-background-info-filled", figmaVar: "foundation.semantic.background.info.filled" },
+    { cssVar: "--color-static-white", figmaVar: "foundation.static.white" },
+    { cssVar: "--color-static-black", figmaVar: "foundation.static.black" },
+    { cssVar: "--color-static-gray", figmaVar: "foundation.static.gray" },
+    { cssVar: "--color-ui-divider-flat-high", figmaVar: "foundation.ui.divider.flat.high" },
+    { cssVar: "--color-ui-divider-flat-low", figmaVar: "foundation.ui.divider.flat.low" },
+    { cssVar: "--color-ui-embellishment", figmaVar: "foundation.ui.embellishment" },
+    { cssVar: "--color-interactive-accent-textandicon-visited", figmaVar: "foundation.interactive.accent.textandicon.visited" },
+    { cssVar: "--color-interactive-primary-textandicon-selected", figmaVar: "foundation.interactive.primary.textandicon.selected" },
+    { cssVar: "--color-interactive-primary-textandicon-primary-default", figmaVar: "foundation.interactive.primary.textandicon.primary.default" },
+    { cssVar: "--color-interactive-primary-textandicon-secondary-default", figmaVar: "foundation.interactive.primary.textandicon.secondary.default" },
+    { cssVar: "--color-interactive-primary-textandicon-disabled", figmaVar: "foundation.interactive.primary.textandicon.disabled" },
+    { cssVar: "--color-interactive-primary-textandicon-inverse", figmaVar: "foundation.interactive.primary.textandicon.inverse" },
+    { cssVar: "--color-interactive-primary-background-enabled-filled", figmaVar: "foundation.interactive.primary.background.enabled.filled" },
+    { cssVar: "--color-interactive-primary-background-enabled-tonal", figmaVar: "foundation.interactive.primary.background.enabled.tonal" },
+    { cssVar: "--color-interactive-primary-background-hovered", figmaVar: "foundation.interactive.primary.background.hovered" },
+    { cssVar: "--color-interactive-primary-background-selected", figmaVar: "foundation.interactive.primary.background.selected" },
+    { cssVar: "--color-interactive-primary-background-disabled", figmaVar: "foundation.interactive.primary.background.disabled" },
+    { cssVar: "--color-interactive-primary-background-ripple", figmaVar: "foundation.interactive.primary.background.ripple" },
+    { cssVar: "--color-interactive-primary-border-enabled", figmaVar: "foundation.interactive.primary.border.enabled" },
+    { cssVar: "--color-interactive-primary-border-hovered-flat", figmaVar: "foundation.interactive.primary.border.hovered.flat" },
+    { cssVar: "--color-interactive-primary-border-selected", figmaVar: "foundation.interactive.primary.border.selected" },
+    { cssVar: "--color-interactive-primary-border-focused", figmaVar: "foundation.interactive.primary.border.focused" },
+    { cssVar: "--color-interactive-primary-border-disabled", figmaVar: "foundation.interactive.primary.border.disabled" },
+    { cssVar: "--color-interactive-accent-textandicon-default", figmaVar: "foundation.interactive.accent.textandicon.default" },
+    { cssVar: "--color-interactive-accent-textandicon-selected", figmaVar: "foundation.interactive.accent.textandicon.selected" },
+    { cssVar: "--color-interactive-accent-textandicon-disabled", figmaVar: "foundation.interactive.accent.textandicon.disabled" },
+    { cssVar: "--color-interactive-accent-textandicon-inverse", figmaVar: "foundation.interactive.accent.textandicon.inverse" },
+    { cssVar: "--color-interactive-accent-background-enabled-filled", figmaVar: "foundation.interactive.accent.background.enabled.filled" },
+    { cssVar: "--color-interactive-accent-background-enabled-tonal", figmaVar: "foundation.interactive.accent.background.enabled.tonal" },
+    { cssVar: "--color-interactive-accent-background-hovered", figmaVar: "foundation.interactive.accent.background.hovered" },
+    { cssVar: "--color-interactive-accent-background-selected", figmaVar: "foundation.interactive.accent.background.selected" },
+  ];
+
+  return (
+    <div style={{ width: "100%", fontFamily: "Arial, sans-serif" }}>
+      <div style={{
+        display: "flex", fontWeight: "bold", borderBottom: "1px solid var(--color-ui-divider-flat-low)",
+        padding: "8px", alignItems: "center"
+      }}>
+        <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>Example</span>
+        <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>UI Variable</span>
+        <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>Figma Variables</span>
+      </div>
+      {tokenData.map(({ cssVar, figmaVar }) => (
+        <div key={cssVar} style={{
+          borderBottom: "1px solid var(--color-ui-divider-flat-low)",
+          padding: "8px", display: "flex", alignItems: "center"
+        }}>
+          <span style={{
+            background: `var(${cssVar})`, height: "40px", width: "40px",
+            display: "inline-block", marginRight: "45px"
+          }}></span>
+          <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)", textAlign: "center" }}>{cssVar}</span>
+          <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)", textAlign: "center" }}>{figmaVar}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
+<div style={{color: "var(--color-interactive-primary-textandicon-primary-default)",padding: "8px 15px",borderRadius: "8px",}}>
+
+   # Color Tokens for light and dark mode
+
+    <Info_Blue_text> Attention! The New Light Mode is now available on Angular 18 🎉</Info_Blue_text>
+
+     Upgrade to ```@design/dls-global-angular@2.5.1``` which is based on ```@design/dls-global-assets ^2.0.0```
+
+
+
+  The atmosphere theme is controlled by the assets library. This library exposes some variables that you can use so that you can adhere to the theme and seamlessly maintain it in both light and dark mode.   Use these variables in your scss to maintain light and dark mode in code that is not part of the atmosphere library but needs atmosphere theme-ing
+
+    See below a example of how your scss/sass code would look.
+    ```scss
+    div {
+        background:var(--color-ui-background-lowest)
+    }
+    ```
+
+  The library is by default in dark mode , however if you wish to hard set it to light you can add `theme-light` to the `body` tag.
+
+  In index.html
+  ``` html
+  <body class="theme-light">
+    <app-root></app-root>
+  </body>
+  ```
+  
+
+    Below are the list of tokens that are available for use and how/when to use them.
+
+    Your Designer may use the corresponding variable in Figma. The variables in figma start with the prefix `foundation`.
+    The corresponding sass/scss variable can be found in the documentation below.
+  
+  <Red_text>Note: Your page background must always have a variable to ensure that toggling between light and dark does not break the visual appearance of your UI.The recommended variable is  `--color-ui-background-lowest`</Red_text>
+
+
+    # Color Tokens and Figma Variables
+
+    <TokenTable />
+
+
+
+</div>
+
+

@@ -1,0 +1,41 @@
+<!-- Main heading for the Progress Indicators demo section -->
+<h4>Progress Indicators</h4>
+
+<!-- Subsection for Progress Bar examples -->
+<h5>Progress Bar</h5>
+
+<!-- Determinate Progress Bar Example -->
+<h6>Determinate</h6>
+<!-- 
+  This is a determinate progress bar, meaning the progress level is set by the `value` attribute. 
+  The `value` of 40 indicates 40% progress, shown by a partially filled bar.
+-->
+<mat-progress-bar mode="determinate" [value]="determinateBarValue"></mat-progress-bar><br>
+
+<!-- Indeterminate Progress Bar Example -->
+<h6>Indeterminate</h6>
+<!-- 
+  This is an indeterminate progress bar, meaning the progress level is undefined. 
+  The progress bar animates continuously, indicating that a task is in progress without a specific completion percentage.
+-->
+<mat-progress-bar mode="indeterminate"></mat-progress-bar><br>
+
+
+<!-- Subsection for Progress Spinner examples -->
+<h5>Progress Spinner</h5>
+
+<!-- Determinate Progress Spinner Example -->
+<h6>Determinate</h6>
+<!-- 
+  This is a determinate progress spinner, meaning the spinner fills up to the specified `value` (40 here). 
+  It displays a circular spinner partially filled to 40% to indicate progress.
+-->
+<mat-spinner mode="determinate" [value]="determinateSpinnerValue"></mat-spinner><br>
+
+<!-- Indeterminate Progress Spinner Example -->
+<h6>Indeterminate</h6>
+<!-- 
+  This is an indeterminate progress spinner, where progress is continuous and undefined. 
+  The spinner animates continuously to show ongoing activity without a specified completion percentage.
+-->
+<mat-spinner mode="indeterminate"></mat-spinner>

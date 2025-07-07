@@ -1,0 +1,65 @@
+<h5>User Profile</h5>
+
+<h6>Clickable Image</h6>
+<ba-user-profile clickable userFirstName="William" source="./assets/card-img-1.png" [matMenuTriggerFor]="menuUserImage"></ba-user-profile>
+<mat-menu #menuUserImage="matMenu">
+  <button mat-menu-item class="user-info-menu-item">
+    <ba-user-profile variant="display-only" userFirstName="William" source="./assets/card-img-1.png"></ba-user-profile>
+    <div class="user-info">
+      <span class="user-name">Name</span>
+      <span class="additional-info">Additional info</span>
+    </div>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <span>Profile</span>
+  </button>
+  <button mat-menu-item>
+    <span>Preferences</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon svgIcon="icon-question-mark">question-mark</mat-icon>
+    <span>Help and tutorials</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon svgIcon="icon-power-settings-new">power-settings-new</mat-icon>
+    <span>Sign out</span>
+  </button>
+</mat-menu>
+<h6>Display-only Image</h6>
+
+<ba-user-profile variant="display-only" userFirstName="William" source="./assets/card-img-1.png"></ba-user-profile>
+<h6>Clickable Letter</h6>
+
+<ba-user-profile clickable userFirstName="William" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
+<mat-menu #menuUserLetter="matMenu">
+  <button mat-menu-item class="user-info-menu-item">
+    <ba-user-profile variant="display-only" userFirstName="William"></ba-user-profile>
+    <div class="user-info">
+      <span class="user-name">Name</span>
+      <span class="additional-info">Additional info</span>
+    </div>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <span>Profile</span>
+  </button>
+  <button mat-menu-item>
+    <span>Preferences</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon svgIcon="icon-question-mark">question-mark</mat-icon>
+    <span>Help and tutorials</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon svgIcon="icon-power-settings-new">power-settings-new</mat-icon>
+    <span>Sign out</span>
+  </button>
+</mat-menu>
+<h6>Display-only Letter</h6>
+
+<ba-user-profile variant="display-only" userFirstName="William"></ba-user-profile>

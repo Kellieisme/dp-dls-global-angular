@@ -1,0 +1,72 @@
+<h1>Form Field</h1>
+<p>&lt;mat-form-field&gt; is a component used to wrap several Angular Material components and apply common Text field styles such as the underline, floating label, and hint messages.</p>
+
+<p>In this document, "form field" refers to the wrapper component &lt;mat-form-field&gt; and "form field control" refers to the component that the &lt;mat-form-field&gt; is wrapping (e.g. the input, textarea, select, etc.)</p>
+  
+<p>The following Angular Material components are designed to work inside a &lt;mat-form-field&gt;:</p>
+  
+<ul>
+  <li>Input (text field, text area)</li>
+  <li>Select</li>
+  <li>Chip List</li>
+</ul>
+
+<br><br>
+<hr>
+<br><br>
+<form class="example-form">
+<h2>Text Field</h2>
+
+  <h4>With left and right hint text</h4>
+  <mat-form-field class="example-full-width">
+    <mat-label>Least Favorite food</mat-label>
+    <input matInput disabled>
+    <mat-hint>Supporting text</mat-hint>
+    <mat-hint align="end">hint 2</mat-hint>
+  </mat-form-field>
+  <br><br>
+
+  <h4>With icon suffix</h4>
+  <mat-form-field class="example-full-width" class="mat-form-field-invalid">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi">
+    <!-- <mat-icon svgIcon="icon-cancel" matPrefix></mat-icon> -->
+    <mat-icon svgIcon="icon-cancel" matSuffix></mat-icon>
+  </mat-form-field>
+  <br><Br>
+  <mat-form-field>
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide() ? 'password' : 'text'" />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon svgIcon='icon-visibility-filled'></mat-icon>
+    </button>
+  </mat-form-field>
+  <br><Br>
+
+<h4>With text prefix and suffix (e.g. currency)</h4>
+  <mat-form-field floatLabel="always">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" class="justify-right" placeholder="00" />
+    <span matTextPrefix>$&nbsp;</span>
+    <!-- <span matTextSuffix>.00</span> -->
+  </mat-form-field>
+  <br><br>
+
+  <h4>With text suffix only (e.g. weight)</h4>
+  <mat-form-field floatLabel="always">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" placeholder="0" />
+    <span matTextSuffix>lbs</span>
+  </mat-form-field>
+  <br><br>
+
+
+</form>
+
+<h6>Input: Text Area</h6>

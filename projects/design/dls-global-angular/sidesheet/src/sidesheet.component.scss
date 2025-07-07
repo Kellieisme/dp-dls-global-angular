@@ -1,0 +1,47 @@
+@import "@design/dls-global-assets/dist/scss/base/_variables.scss";
+
+:host {
+  mat-sidenav-container {
+    height: 100vh;
+  }
+  mat-sidenav {
+    background-color: var(--color-ui-background-lowest);
+    display: flex;
+    flex-direction: column;
+
+    mat-toolbar {
+      justify-content: space-between;
+      background-color: var(--color-ui-background-lowest);
+      padding-top: var(--size-spacing-s);
+      padding-right: var(--size-spacing-s);
+      padding-bottom: $size-relaxed-spacing-s;
+      padding-left: $size-relaxed-spacing-xl;
+    }
+
+    .sidesheet-content {
+      flex-grow: 1;
+    }
+
+    &.mat-drawer-over {
+      background-color: var(--color-ui-glass-surface-thick);
+      mat-toolbar {
+        background-color: var(--color-ui-glass-surface-thick);
+      }
+    }
+  }
+
+  .sidesheet-footer {
+    position: absolute;
+    padding: $size-relaxed-spacing-m $size-relaxed-spacing-xl;
+    bottom: $size-relaxed-spacing-none;
+    right: $size-relaxed-spacing-none;
+    width: 100%;
+
+    .footer-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: $size-relaxed-spacing-xs;
+    }
+  }
+}

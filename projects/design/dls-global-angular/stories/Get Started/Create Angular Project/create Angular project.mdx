@@ -1,0 +1,163 @@
+import { Meta } from "@storybook/blocks";
+import {
+  Highlight_yellow,
+  Blue_text,
+  Red_text,
+  Deprecated,
+  Inprogress,
+  Info_Blue_text,
+  Info_Section,
+} from "../../../mdx_styles.mdx";
+
+<Meta title="INSTALLATION/Create an Angular Project" />
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+
+# Create Your Angular Project
+
+Requirements for Angular Project:
+
+- Node
+- Angular CLI
+
+You can find the steps to install [Node and Angular CLI is here.](?path=/docs/get-started-set-up-your-angular-project-get-node--docs)
+
+> <Red_text>Note: Atmosphere library only works for Angular versions 17 and above. Please ensure that you are on Angular 17 or higher.</Red_text>
+
+## Step 1: Check Angular Version
+
+> Before starting, ensure you have Angular installed on your system. To check the installed Angular CLI version, open your terminal and run:
+
+```cmd
+ng version
+```
+
+> This will show the Angular version installed.
+> If you get an error and don't have Angular CLI installed, run:
+
+```cmd
+npm install -g @angular/cli
+```
+
+## Step 2: Create Your First Angular Project
+
+> To create a new Angular project, use the following command in your terminal:
+
+Note : You can open your terminal from VS CODE task bar at the top. Terminal> New Terminal
+
+```cmd
+
+ng new my-atmosphere-angular-app
+
+```
+
+> ### What happens here?
+>
+> `ng new` initializes a new Angular project.
+> You’ll be prompted to choose additional options like routing and stylesheet format (CSS, SCSS, etc.). Please Choose SCSS for easy compatibility with Atmophere Library
+
+## After creating your project:
+
+Navigate into the project directory:
+
+```cmd
+cd my-atmosphere-angular-app
+
+```
+
+To run the development server and view your app, use:
+
+```cmd
+ng serve -o
+```
+
+> Open [http://localhost:4200](http://localhost:4200) in your browser. You’ll see the default Angular starter page!
+
+## Step 3: Understanding package.json
+
+In your folder structure in VS Code you will find a json file called package.json.
+The package.json file is the heart of your project dependencies. Here’s an overview:
+
+```json
+{
+  "name": "my-first-angular-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "dependencies": {
+    "@angular/core": "^15.0.0" // Your Angular version
+    // Other Angular dependencies
+  },
+  "devDependencies": {
+    "@angular/cli": "^15.0.0" // Angular CLI version
+    // Other dev tools
+  }
+}
+```
+
+- Dependencies: Libraries your app needs to run.
+- DevDependencies: Tools for development and testing.
+
+## Step 4: Create Your First Component
+
+Angular applications are made up of components. Let's create a new component called hello-world.
+
+Run the command in your terminal:
+
+```cmd
+ng generate component hello-world
+
+```
+
+> This will create:
+>
+> - A component TypeScript file: `hello-world.component.ts`
+> - A template file: `hello-world.component.html`
+> - A stylesheet file: `hello-world.component.scss`
+> - A test file: `hello-world.component.spec.ts`
+
+## Step 5: Display the Component in the Browser
+
+Update the app.component.html
+By default, Angular displays the content of `app.component.html`. To show your new component, update the file like this:
+
+```html
+<app-hello-world></app-hello-world>
+```
+
+## Edit hello-world.component.html
+
+Add a message to your new component:
+
+```html
+<h1>Hello, Angular World! 🎉</h1>
+<p>I am yet to set up Atmophere</p>
+```
+
+## Step 6: Run the Application
+
+Run the app from your terminal again using:
+
+```cmd
+ng serve -o
+```
+
+<Info_Blue_text>Congratulations! 🎉</Info_Blue_text>
+You’ve successfully:
+
+- Set up your first Angular project.
+- Created and displayed your first component.
+  For more details, check the Angular Official Documentation.
+
+> we recommend you [configure your angular project](?path=/docs/get-started-set-up-your-angular-project-configure-your-angular-project--docs) with our eslint
+
+> ## Next: Adding Atmophere to your Angular Project
+>
+> - Learn to [install atmosphere](?path=/docs/get-started-install-configure-atmosphere-install-atmosphere--docs)
+
+</div>

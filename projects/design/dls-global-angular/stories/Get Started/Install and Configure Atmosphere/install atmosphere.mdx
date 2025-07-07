@@ -1,0 +1,171 @@
+import { Meta, Markdown } from "@storybook/blocks";
+import {
+  Highlight_yellow,
+  Blue_text,
+  Red_text,
+  Deprecated,
+  Inprogress,
+  Info_Blue_text,
+  Info_Section,
+} from "../../../mdx_styles.mdx";
+
+<Meta title="INSTALLATION/Install Atmosphere" />
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+
+# Install Atmosphere Packages
+
+Atmosphere has two main NPM packages that contain the Atmophere tokens and the standard and custom Angular components.
+
+> <Red_text> **Note**: Atmosphere supports Angular 17 and 18, with separate global Angular packages for each version. If you use an earlier version of Angular, it might not be supported.</Red_text>
+
+## Before you start
+
+- If you don't have an Angular project, [set one up](?path=/docs/get-started-set-up-your-angular-project-create-your-angular-project--docs)
+- If you have a Angular project , make sure it is 17 or above to ensure compatiblility with Atmophere.
+
+## Setting Up .npmrc file
+
+You can access the Atmosphere libraries either through <Info_Blue_text>Boeing GitLab package registry</Info_Blue_text> or <Info_Blue_text>Boeing-EXT GitLab package registry</Info_Blue_text>
+but you must set up your .npmrc files to allow npm to access the package registry.
+
+Please be connected to your Boeing VPN.
+
+  <div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px', margin:'8px'}}>
+  <details>
+    <summary style={{fontSize:'17px',cursor: 'pointer'}}>
+    > #### For Boeing GitLab package registry
+    </summary>
+
+     <p>
+    If you don't already have a .npmrc file , create one in the root of your angular project ( same level as package.json ).
+    The contents of the .npmrc should include:
+    </p>
+
+    ```json
+    registry=https://sres.web.boeing.com/artifactory/api/npm/npm-remote/
+    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:_password=JFROG_PASSWORD
+    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:username=JFROG_USERNAME
+    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:email=EMAIL
+    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:always-auth=true
+    @design:registry=https://git.web.boeing.com/api/v4/packages/npm/
+    //git.web.boeing.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
+
+    ```
+
+### Replace the following values:
+
+<Markdown>
+  {`
+| Value             | Description                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------- |
+| JFROG_PASSWORD    | Login to [Artifactory](https://sres.web.boeing.com/ui/admin/artifactory/user_profile) using your Boeing email and Windows password. Go to User Profile and create a new Identity Token. Save in a safe place. Encode the Identity Token in [Base64](https://www.base64encode.org/) and use that string as the JFROG_PASSWORD. |
+| JFROG_USERNAME    |On [Artifactory](https://sres.web.boeing.com/ui/packages) in the top right you will see your username, a 7-digit number (your BEMS ID).|
+| EMAIL             | Your Boeing email id.|
+| GITLAB_AUTH_TOKEN |Create a [GitLab Personal Access Token](https://git.web.boeing.com/-/user_settings/personal_access_tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.|
+`}
+</Markdown>
+
+  </details>
+
+  </div>
+
+  <div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
+  <details>
+   <summary style={{fontSize:'17px',cursor: 'pointer'}}>
+   > #### For Boeing-EXT GitLab package registry
+
+   </summary>
+
+     <p>
+    If you don't already have a .npmrc file , create one in the root of your angular project ( same level as package.json ).
+    The contents of the .npmrc should include:
+    </p>
+
+    ```json
+    @dips:registry=https://gitlab-ext.digitalaviationservices.com/api/v4/packages/npm/
+    //gitlab-ext.digitalaviationservices.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
+    ```
+
+### Replace the following values:
+
+   <Markdown>
+  {`
+| Value             | Description                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------- |
+| GITLAB_AUTH_TOKEN |Create a [GitLab Personal Access Token](https://gitlab-ext.digitalaviationservices.com/-/user_settings/personal_access_tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.|
+`}
+</Markdown>
+
+</details>
+</div>
+
+## Install your packages
+
+<Blue_text> After you set up your .npmrc file, you can install the Atmosphere packages.</Blue_text>
+
+Find the packages below:
+
+<div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
+<details>
+
+  <summary style={{ fontSize: "17px", cursor: "pointer" }}>
+    > #### Packages for Angular 17
+  </summary>
+  To install the packages for Angular 17, run the following command:
+
+  ```cmd
+  npm install @design/dls-global-angular@1.0.1 --legacy-peer-deps
+  npm install @design/dls-global-assets@1.0.0 --legacy-peer-deps
+  ```
+
+</details>
+</div>
+
+<div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
+<details>
+
+  <summary style={{ fontSize: "17px", cursor: "pointer" }}>
+    > #### Packages for Angular 18
+  </summary>
+
+  To install the packages for Angular 18, run the following command:
+
+  ```cmd
+  npm install @design/dls-global-angular@2.5.5 --legacy-peer-deps
+  npm install @design/dls-global-assets@2.0.0 --legacy-peer-deps
+  ```
+
+</details>
+</div>
+<div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
+<details>
+    <summary style={{ fontSize: "17px", cursor: "pointer" }}>
+      > #### Packages for Angular 19
+    </summary>
+
+    To install the packages for Angular 19, run the following command:
+
+    ```cmd
+    npm install @design/dls-global-angular@3.0.9 --legacy-peer-deps
+    npm install @design/dls-global-assets@2.0.0 --legacy-peer-deps
+    ```
+</details>
+</div>
+
+> **Note**: If NPM can't connect to Artifactory and the install fails, try the following command:
+>
+> ```cmd
+> npm config set strict-ssl false
+> ```
+
+<Info_Blue_text>
+After the installation you should find a `@design` folder in your `node_modules` folder with both `dls-global-angular` and `dls-global-assets`
+</Info_Blue_text>
+
+Almost done just a few more steps ...
+
+> ## Up Next: Configurations for Atmosphere
+>
+> Now we need to [Set Global Styles and Fonts](?path=/docs/get-started-install-configure-atmosphere-setting-global-styles-and-fonts--docs)
+
+</div>
