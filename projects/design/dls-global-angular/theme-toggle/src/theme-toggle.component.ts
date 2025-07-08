@@ -13,14 +13,13 @@ import { MatIcon } from '@angular/material/icon';
  * ```
  */
 @Component({
-    selector: "ba-theme-toggle",
-    imports: [MatIconButton, MatTooltip, MatIcon],
+  selector: "ba-theme-toggle",
+  imports: [MatIconButton, MatTooltip, MatIcon],
   templateUrl: "theme-toggle.component.html",
-    styleUrls: ["theme-toggle.component.scss"],
-    standalone: false
+  styleUrls: ["theme-toggle.component.scss"]
 })
 export class ThemeToggleComponent {
-  constructor(private themeToggleService: ThemeToggleService) {}
+  constructor(private themeToggleService: ThemeToggleService) { }
 
   toggle() {
     this.themeToggleService.toggleTheme();

@@ -1,6 +1,6 @@
 {
   "name": "@dasdigitalplatform/dls-global-angular",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "main": "dist/design/dls-global-angular/index.d.ts",
   "files": [
     "dist/design/dls-global-angular"

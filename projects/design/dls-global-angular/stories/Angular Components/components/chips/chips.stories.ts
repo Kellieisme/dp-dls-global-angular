@@ -31,7 +31,7 @@ export interface LabelExample {
               >
               @if (withIcon) {
                 <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-              }
+              },
               @if (withIcon && iconType === 'favicon') {
                 <mat-icon svgIcon="icon-favorite" matChipAvatar></mat-icon>
               }
@@ -126,12 +126,9 @@ export interface LabelExample {
     }
     `,
     styles: [`
-    styles: [`
     .example-chip-list {
       width: 100%;
     }
-  `],
-    standalone: false
   `],
     standalone: false
 })

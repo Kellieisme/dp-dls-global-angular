@@ -1,9 +1,8 @@
 import { Component, Input } from '@angular/core';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
-import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
-import {MatButton, MatButtonModule, MatIconButton} from '@angular/material/button';
-import {MatSidenav, MatSidenavContainer} from '@angular/material/sidenav';
-import {MatDivider, MatDividerModule} from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {
   AtmosphereSidesheetVariant,
@@ -11,7 +10,7 @@ import {
   AtmosphereSidesheetButtonsArray
 } from './sidesheet.types';
 
-import {IconRegistryModule} from "@design/dls-global-angular/icon-registry";
+import { IconRegistryModule } from "@design/dls-global-angular/icon-registry";
 
 export enum SidesheetVariant {
   STANDARD = 'standard',
@@ -34,17 +33,17 @@ export enum SidesheetContentMode {
  * options or context.
  */
 @Component({
-    selector: 'ba-sidesheet',
-    imports: [
-        MatToolbarModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatIconModule,
-        MatDividerModule,
-        IconRegistryModule
-    ],
-    templateUrl: './sidesheet.component.html',
-    styleUrls: ['./sidesheet.component.scss']
+  selector: 'ba-sidesheet',
+  imports: [
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    IconRegistryModule
+  ],
+  templateUrl: './sidesheet.component.html',
+  styleUrls: ['./sidesheet.component.scss']
 })
 export class SideSheetComponent {
 
