@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AtmosphereTopBarNavigationLinkArray } from './top-app-bar.types';
 import { RouterModule } from '@angular/router';
@@ -33,7 +33,7 @@ export class TopAppBarComponent {
   /* THIS INPUT IS NOW OBSOLETE */
 
   @Input({ transform: coerceBooleanProperty }) menuAlignCenter: boolean = true;
-  
+
   /* When `hamburgerMenuOnly` is present, the hamburger icon displays at all sizes.
    * If the flag is not present, the navigation will present a hamburger icon at smaller sizes. */
 
@@ -52,7 +52,7 @@ export class TopAppBarComponent {
   @Input() homeRoute: string = '/';
 
   /* To use the hamburger menu at all breakpoints, use the `hamburgerMenuOnly` flag. */
-  
+
   @Input() topAppBarMenu: AtmosphereTopBarNavigationLinkArray = [];
 
 }

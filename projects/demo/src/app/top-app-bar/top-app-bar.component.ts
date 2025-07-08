@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { TopAppBarComponent } from '@design/dls-global-angular/top-app-bar';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { TopAppBarComponent } from '@dasdigitalplatform/dls-global-angular/top-app-bar';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatDividerModule } from '@angular/material/divider';
-import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
+import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
 
 @Component({
     selector: 'top-app-bar',

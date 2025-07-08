@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import '@design/dls-global-assets/dist/scss/base/_themeMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_themeMixins.scss';
 @import './m3-theme.scss';
 
 
@@ -9,7 +9,7 @@
 @include mat.app-background();
 
 // Apply the dark theme by default
-// The core-theme Sass mixin emits prerequisite styles for common features used by multiple components, such as ripples. 
+// The core-theme Sass mixin emits prerequisite styles for common features used by multiple components, such as ripples.
 // This mixin must be included once per theme.
 @include mat.elevation-classes();
 @include mat.app-background();

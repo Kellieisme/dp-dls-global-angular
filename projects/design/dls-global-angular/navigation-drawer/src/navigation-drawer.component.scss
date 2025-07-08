@@ -1,5 +1,5 @@
-@import "@design/dls-global-assets/dist/scss/base/_variables.scss";
-@import "@design/dls-global-assets/dist/scss/base/_variablesBase.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss";
 
 // Constants
 $section-label-max-width: 82%;
@@ -18,7 +18,7 @@ mat-sidenav-container {
   .mat-drawer {
     visibility: visible !important;
   }
-  
+
   .mat-drawer[style*="visibility: hidden"] {
     display: block !important;
     visibility: visible !important;
@@ -36,7 +36,7 @@ mat-sidenav-container {
     visibility: visible !important;
     box-shadow: none !important;
   }
-  
+
   .mat-drawer:not(.mat-drawer-opened):not(.mat-drawer-animating) .mat-drawer-inner-container {
     display: block !important;
   }
@@ -101,7 +101,7 @@ html {
     .mdc-list-item--with-leading-icon.mdc-list-item {
       padding-left: $size-relaxed-spacing-none;
       padding-right: $size-relaxed-spacing-none;
-    }   
+    }
 .level2-nav,
 .level3-nav {
   .mat-list-item.mat-mdc-list-item,

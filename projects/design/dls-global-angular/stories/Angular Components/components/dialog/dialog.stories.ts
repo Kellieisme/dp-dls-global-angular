@@ -5,7 +5,7 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, inject, TemplateRef, ViewChild } from '@angular/core';
-import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
     selector: 'storybook-dialog-page',

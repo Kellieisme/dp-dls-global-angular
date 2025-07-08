@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
-@import "@design/dls-global-assets/dist/scss/base/_variables.scss";
-@import "@design/dls-global-assets/dist/scss/base/_compositionMixins.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss";
 @import "../m3-theme";
 
 :root {
@@ -41,7 +41,7 @@
 html .theme-condensed {
   .mat-mdc-radio-touch-target {
 
-    // height: 40px; 
+    // height: 40px;
     // width: 40px;
     height: var(--size-sizing-4xl);
     width: var(--size-sizing-4xl);

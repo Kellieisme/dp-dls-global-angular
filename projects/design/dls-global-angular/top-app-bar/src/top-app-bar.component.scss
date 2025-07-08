@@ -1,6 +1,6 @@
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@design/dls-global-assets/dist/scss/base/_variablesBase.scss';
-@import '@design/dls-global-assets/dist/scss/base/_bootstrapMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_bootstrapMixins.scss';
 
 .top-app-bar {
   align-items: center;
@@ -89,8 +89,8 @@
 //   left: 0;
 //   right: 0;
 //   display: flex;
-//   justify-content: center; 
-//   align-items: center; 
+//   justify-content: center;
+//   align-items: center;
 // }
 
 /* SPACER (only needed for centered variant) */

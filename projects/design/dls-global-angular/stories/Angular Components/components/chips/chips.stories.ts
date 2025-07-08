@@ -7,8 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-registry';
-import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
+import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
 import { Component, Input, inject, signal } from '@angular/core';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BreadcrumbComponent } from '@design/dls-global-angular/breadcrumb';
+import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 

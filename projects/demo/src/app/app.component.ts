@@ -1,6 +1,6 @@
 import { RouterOutlet } from '@angular/router';
 import { Component } from '@angular/core';
-import { ThemeToggleModule } from '@design/dls-global-angular/theme-toggle';
+import { ThemeToggleModule } from '@dasdigitalplatform/dls-global-angular/theme-toggle';
 
 @Component({
     selector: 'app-root',

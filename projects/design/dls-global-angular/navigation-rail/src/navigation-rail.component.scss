@@ -1,5 +1,5 @@
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@design/dls-global-assets/dist/scss/base/_variablesBase.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
 
 mat-sidenav-container {
   .app-home-link {
@@ -54,7 +54,7 @@ mat-sidenav {
     }
     &.mat-mdc-list-item {
       background-color: transparent;
-      &:focus { 
+      &:focus {
         background-color: var(--color-interactive-primary-background-enabled-tonal);
       }
       &:active {
@@ -63,7 +63,7 @@ mat-sidenav {
       &:hover:not(:disabled), &.mat-list-item--toggle-on {
         background-color: var(--color-interactive-primary-background-hovered);
         .mat-icon {
-          overflow: visible; 
+          overflow: visible;
           svg {
             filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
           }
@@ -104,8 +104,8 @@ mat-sidenav {
 }
 
 mat-list-item.narrow {
-  display: flex; 
-  .mat-mdc-list-item-icon { 
+  display: flex;
+  .mat-mdc-list-item-icon {
     margin-left: $size-relaxed-sizing-m;
     margin-right: $size-relaxed-sizing-m;
   }

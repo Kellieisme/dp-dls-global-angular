@@ -69,13 +69,13 @@ To include the global styles, fonts, icons, and Angular Material theme, add the 
             {...},
             "assets": [
               {...},
-              { "glob": "svgSet.svg", "input": "./node_modules/@design/dls-global-assets/dist/images/icons/", "output": "./assets" },
-              { "glob": "**/*", "input": "./node_modules/@design/dls-global-assets/dist/images/content", "output": "./assets" }
+              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
-              "./node_modules/@design/dls-global-angular/styles/fonts.scss",
-              "./node_modules/@design/dls-global-angular/styles/global.scss",
-              "./node_modules/@design/dls-global-angular/styles/material.scss",
+              "./node_modules/@dasdigitalplatform/dls-global-angular/styles/fonts.scss",
+              "./node_modules/@dasdigitalplatform/dls-global-angular/styles/global.scss",
+              "./node_modules/@dasdigitalplatform/dls-global-angular/styles/material.scss",
               "src/styles.scss"
             ],
             {...}
@@ -93,7 +93,7 @@ To register the custom SvgIconSet edit the `app.component.ts` and add the `IconR
 
 ```
 import { Component } from '@angular/core';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
   selector: 'app-root',
@@ -130,7 +130,7 @@ Import the component as needed:
 
 ```
 import { Component } from '@angular/core';
-import { BreadcrumbComponent } from '@design/dls-global-angular/breadcrumb';
+import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
 
 @Component({
   selector: 'app-root',
@@ -164,8 +164,8 @@ The first step in customizing an Angular Material component is initializing its 
 
 ```
 @use '@angular/material' as mat;
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
 @import '../themes';
 ```
 
@@ -252,7 +252,7 @@ Follow the pattern of an existing custom component (such as `breadcrumb`) to do 
 2. Move the generated component files into the `src` folder.
 3. Create or copy the `index.ts`, `ng-package.json`, and `public-api.ts` files and update the paths inside to match the new component name.
 
-The above structure enables components to be packaged with each component having its own entry point. The consuming application can import individual components as needed using the syntax `import { ComponentName } from '@design/dls-global-angular/component-name';`.
+The above structure enables components to be packaged with each component having its own entry point. The consuming application can import individual components as needed using the syntax `import { ComponentName } from '@dasdigitalplatform/dls-global-angular/component-name';`.
 
 ## Using the demo application for development
 

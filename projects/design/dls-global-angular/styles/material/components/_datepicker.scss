@@ -1,11 +1,11 @@
 @use '@angular/material' as mat;
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss';
-@import '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss';
 @import '../m3-theme.scss';
 
 :root {
-  // The `-theme` mixin can be used to include the component's styles for all 
+  // The `-theme` mixin can be used to include the component's styles for all
   //theme dimensions at once
   @include mat.datepicker-theme($dark-theme);
   // If needed use the single dimension mixins to override particular aspects

@@ -4,8 +4,8 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@design/dls-global-assets/dist/scss/base/_variablesBase.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
 @import './typography';
 
 // Note: Color palettes are generated from primary: #2B3D4C, secondary: #009CEB, tertiary: #AE44E0, neutral: #E3E2E4
@@ -153,9 +153,9 @@ $light-theme: mat.define-theme((
     bold-weight:$content-base-font-weight-bold,
     medium-weight:$content-base-font-weight-medium,
     regular-weight:$content-base-font-weight-regular,
-    use-system-variables:false)  
- 
-  
+    use-system-variables:false)
+
+
 ));
 $dark-theme: mat.define-theme((
   color: (
@@ -171,7 +171,7 @@ $dark-theme: mat.define-theme((
     bold-weight:$content-base-font-weight-bold,
     medium-weight:$content-base-font-weight-medium,
     regular-weight:$content-base-font-weight-regular,
-    use-system-variables:false    
+    use-system-variables:false
   )
 
 ));

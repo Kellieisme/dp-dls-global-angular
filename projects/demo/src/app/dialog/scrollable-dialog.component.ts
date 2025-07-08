@@ -6,7 +6,7 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
     selector: 'app-scrollable-dialog',
@@ -20,7 +20,7 @@ import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
     ],
     template: `
     <h2 mat-dialog-title>Update Angular</h2>
-    <mat-dialog-content>   
+    <mat-dialog-content>
       <p>
         Learn one way to build applications with Angular and reuse your code and
         abilities to build apps for any deployment target. For web, mobile web,

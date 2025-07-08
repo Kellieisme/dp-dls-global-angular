@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
 
 // Mapping of DLS typography composites to Material typography levels
 // display-high
@@ -17,9 +17,9 @@
 // body-low-highlight
 // body-low-default       > body-1, subtitle-2
 // body-lowest-default    > body-2
-// label-high 
+// label-high
 // label-medium           > button
-// label-low 
+// label-low
 // label-lowest           > caption
 // label-lowest2
 
@@ -115,7 +115,7 @@ $dls-caption: mat.m2-define-typography-level(
 $dls-button: mat.m2-define-typography-level(
   $font-size: $responsive-type-label-medium-size-xl,
   $line-height: $responsive-type-label-medium-height-xl,
-  $font-weight: $content-base-font-weight-medium, 
+  $font-weight: $content-base-font-weight-medium,
   $letter-spacing: $responsive-type-label-medium-letter-xl,
 );
 

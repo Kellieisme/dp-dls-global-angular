@@ -3,7 +3,7 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { renderModule } from '@angular/platform-server';
-import { ThemeToggleModule } from '@design/dls-global-angular/theme-toggle';
+import { ThemeToggleModule } from '@dasdigitalplatform/dls-global-angular/theme-toggle';
 
 
 

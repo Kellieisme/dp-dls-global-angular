@@ -1,12 +1,12 @@
 // Style for the home page
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss';
 
 :host {
   @include typography-xl-body-low-default;
 }
 
-h1 { 
+h1 {
   margin-bottom: 1rem;
   color: var(--color-ui-textandicon-medium);
 }
@@ -17,7 +17,7 @@ p {
 
 a {
   color: var(--color-ui-textandicon-high);
-} 
+}
 
 b {
   font-weight: 700;

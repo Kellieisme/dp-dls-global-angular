@@ -2,8 +2,8 @@
 @use '@angular/material' as mat;
 
 // Import custom design system variables and mixins for styling consistency
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss'; // Custom global variables
-@import '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss'; // Custom mixins for layout and style composition
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss'; // Custom global variables
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss'; // Custom mixins for layout and style composition
 
 // Import theme configurations for the application
 @import '../m3-theme.scss'; // Imports user-defined themes, e.g., light and dark theme settings

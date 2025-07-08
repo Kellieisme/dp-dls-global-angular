@@ -7,7 +7,7 @@ import { ThemeToggleComponent } from "./theme-toggle.component";
 import { ThemeToggleService } from "./theme-toggle.service";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-import { IconRegistryModule } from "@design/dls-global-angular/icon-registry";
+import { IconRegistryModule } from "@dasdigitalplatform/dls-global-angular/icon-registry";
 
 /**
  * Angular module for mode toggling feature

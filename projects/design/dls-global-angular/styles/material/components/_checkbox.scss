@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
-@import "@design/dls-global-assets/dist/scss/base/_variables.scss";
-@import "@design/dls-global-assets/dist/scss/base/_compositionMixins.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss";
 @import "../m3-theme.scss";
 
 // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
@@ -106,7 +106,7 @@ html .theme-light,html .theme-dark {
   // --mdc-checkbox-unselected-focus-state-layer-color: var(--color-semantic-background-error-filled);
   // --mdc-checkbox-unselected-hover-state-layer-color: black;
   --mdc-checkbox-unselected-pressed-state-layer-color: var(--color-semantic-background-error-filled);
-  
+
   }
 
 }

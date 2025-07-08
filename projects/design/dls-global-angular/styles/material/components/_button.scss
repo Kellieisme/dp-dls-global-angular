@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import '@design/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
 @import '../m3-theme.scss';
 
 :root {
@@ -29,10 +29,10 @@ html {
 }
 
 // Add glow effects to hovered and pressed buttons
-.mat-mdc-button, 
-.mat-mdc-outlined-button, 
+.mat-mdc-button,
+.mat-mdc-outlined-button,
 .mat-mdc-icon-button {
-  &:hover, 
+  &:hover,
   &:focus {
     --mdc-text-button-label-text-color: var(--color-interactive-primary-textandicon-selected);
     --mdc-outlined-button-label-text-color: var(--color-interactive-primary-textandicon-selected);
@@ -70,7 +70,7 @@ html {
           filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
         }
       }
-    }    
+    }
   }
   // Turn off text shadow on pressed button
   &:active {
@@ -95,13 +95,13 @@ html {
           text-shadow: inherit;
         }
       }
-    }    
+    }
   }
 }
 
 // Border color customizations for outlined button
 .mat-mdc-outlined-button {
-  &:hover, 
+  &:hover,
   &:focus {
     border-color: var(--color-interactive-primary-border-hovered-flat);
     &.mat-primary {
@@ -137,15 +137,15 @@ html {
 }
 
 
-.mat-mdc-button>.mat-icon, 
-.mat-mdc-unelevated-button>.mat-icon, 
-.mat-mdc-raised-button>.mat-icon, 
+.mat-mdc-button>.mat-icon,
+.mat-mdc-unelevated-button>.mat-icon,
+.mat-mdc-raised-button>.mat-icon,
 .mat-mdc-outlined-button>.mat-icon {
   font-size: inherit !important;
 }
 
 
-// The CSS custom properties emitted by the theme mixins are derived from M3's design tokens. 
+// The CSS custom properties emitted by the theme mixins are derived from M3's design tokens.
 // To further customize your UI beyond the define-theme API, you can manually set these custom properties in your styles.
 
 html,
@@ -174,7 +174,7 @@ html .theme-condensed {
 //   --mat-outlined-button-icon-offset: -4px
 }
 
-html, 
+html,
 html .theme-light,html .theme-dark {
   --mdc-text-button-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
   --mdc-text-button-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
@@ -198,11 +198,11 @@ html .theme-light,html .theme-dark {
 //   --mdc-protected-button-label-text-color: black;
 //   --mdc-protected-button-disabled-container-color: rgba(0, 0, 0, 0.12);
 //   --mdc-protected-button-disabled-label-text-color: rgba(0, 0, 0, 0.38);
-//   --mdc-protected-button-container-elevation-shadow: 
-//   --mdc-protected-button-disabled-container-elevation-shadow: 
-//   --mdc-protected-button-focus-container-elevation-shadow: 
-//   --mdc-protected-button-hover-container-elevation-shadow: 
-//   --mdc-protected-button-pressed-container-elevation-shadow: 
+//   --mdc-protected-button-container-elevation-shadow:
+//   --mdc-protected-button-disabled-container-elevation-shadow:
+//   --mdc-protected-button-focus-container-elevation-shadow:
+//   --mdc-protected-button-hover-container-elevation-shadow:
+//   --mdc-protected-button-pressed-container-elevation-shadow:
 //   --mdc-protected-button-container-shadow-color: #000;
 //   --mat-protected-button-state-layer-color: black;
 //   --mat-protected-button-disabled-state-layer-color: black;
@@ -222,14 +222,14 @@ html .theme-light,html .theme-dark {
 //   --mat-outlined-button-pressed-state-layer-opacity: 0.12
 }
 
-.mat-mdc-button.mat-primary, 
+.mat-mdc-button.mat-primary,
 .theme-light .mat-mdc-button.mat-primary {
   --mdc-text-button-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
   --mat-text-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
 //   --mat-text-button-ripple-color: rgba(63, 81, 181, 0.1)
 }
 
-.mat-mdc-button.mat-accent, 
+.mat-mdc-button.mat-accent,
 .theme-light .mat-mdc-button.mat-accent {
   --mdc-text-button-label-text-color: var(--color-interactive-accent-textandicon-default);
   --mat-text-button-state-layer-color: var(--color-interactive-accent-background-hovered);
@@ -242,7 +242,7 @@ html .theme-light,html .theme-dark {
   --mat-text-button-ripple-color: var(--color-semantic-background-error-tonal);
 }
 
-.mat-mdc-unelevated-button.mat-primary, 
+.mat-mdc-unelevated-button.mat-primary,
 .theme-light .mat-mdc-unelevated-button.mat-primary {
   --mdc-filled-button-container-color: var(--color-interactive-primary-background-enabled-filled);
   --mdc-filled-button-label-text-color: var(--color-interactive-primary-textandicon-inverse);
@@ -250,7 +250,7 @@ html .theme-light,html .theme-dark {
 //   --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.1)
 }
 
-.mat-mdc-unelevated-button.mat-accent, 
+.mat-mdc-unelevated-button.mat-accent,
 .theme-light .mat-mdc-unelevated-button.mat-accent {
   --mdc-filled-button-container-color: var(--color-interactive-accent-background-enabled-filled);
   --mdc-filled-button-label-text-color: var(--color-interactive-accent-textandicon-inverse);
@@ -286,7 +286,7 @@ html .theme-light,html .theme-dark {
   --mat-protected-button-ripple-color: var(--color-semantic-background-error-tonal);
 }
 
-.mat-mdc-outlined-button.mat-primary, 
+.mat-mdc-outlined-button.mat-primary,
 .theme-light .mat-mdc-outlined-button.mat-primary {
   --mdc-outlined-button-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
   --mdc-outlined-button-outline-color: var(--color-interactive-primary-border-enabled);
@@ -294,10 +294,10 @@ html .theme-light,html .theme-dark {
 //   --mat-outlined-button-ripple-color: rgba(63, 81, 181, 0.1)
 }
 
-.mat-mdc-outlined-button.mat-accent, 
+.mat-mdc-outlined-button.mat-accent,
 .theme-light .mat-mdc-outlined-button.mat-accent {
   --mdc-outlined-button-label-text-color: var(--color-interactive-accent-textandicon-default);
-  --mdc-outlined-button-outline-color: var(--color-interactive-accent-border-enabled);  
+  --mdc-outlined-button-outline-color: var(--color-interactive-accent-border-enabled);
   --mat-outlined-button-state-layer-color: var(--color-interactive-accent-background-hovered);
 //   --mat-outlined-button-ripple-color: rgba(255, 64, 129, 0.1)
 }
@@ -309,7 +309,7 @@ html .theme-light,html .theme-dark {
   --mat-outlined-button-ripple-color: var(--color-semantic-background-error-tonal)
 }
 
-html, 
+html,
 html .theme-condensed {
   --mdc-text-button-container-height: var(--size-sizing-3xl);
   --mdc-filled-button-container-height: var(--size-sizing-3xl);
@@ -348,7 +348,7 @@ html .theme-condensed {
 //   --mdc-icon-button-icon-size: 24px
 // }
 
-html, 
+html,
 html .theme-light,html .theme-dark {
 //   --mdc-icon-button-icon-color: inherit;
   --mdc-icon-button-disabled-icon-color: var(--color-interactive-primary-textandicon-disabled);
@@ -359,33 +359,33 @@ html .theme-light,html .theme-dark {
 //   --mat-icon-button-pressed-state-layer-opacity: 0.12
 }
 
-html .mat-mdc-icon-button.mat-primary, 
+html .mat-mdc-icon-button.mat-primary,
 html .theme-light .mat-mdc-icon-button.mat-primary {
   --mdc-icon-button-icon-color: var(--color-interactive-primary-textandicon-primary-default);
   --mat-icon-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
   --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
   &.filled-primary {
-    background-color: var(--color-interactive-primary-background-enabled-filled); 
+    background-color: var(--color-interactive-primary-background-enabled-filled);
     color: var(--color-interactive-primary-textandicon-inverse);
     --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
     &.mat-mdc-icon-button.mat-mdc-button-disabled {
-      background-color: var(--color-interactive-primary-background-disabled); 
+      background-color: var(--color-interactive-primary-background-disabled);
       color: var(--color-interactive-primary-textandicon-disabled);
     }
   }
 }
 
-html .mat-mdc-icon-button.mat-accent, 
+html .mat-mdc-icon-button.mat-accent,
 html .theme-light .mat-mdc-icon-button.mat-accent {
   --mdc-icon-button-icon-color: var(--color-interactive-accent-textandicon-default);
   --mat-icon-button-state-layer-color: var(--color-interactive-accent-background-hovered);
 //   --mat-icon-button-ripple-color: rgba(255, 64, 129, 0.1)
   &.filled-accent {
-  background-color: var(--color-interactive-accent-background-enabled-filled); 
+  background-color: var(--color-interactive-accent-background-enabled-filled);
   color: var(--color-interactive-accent-textandicon-inverse);
   --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
   &.mat-mdc-icon-button.mat-mdc-button-disabled {
-    background-color: var(--color-interactive-primary-background-disabled); 
+    background-color: var(--color-interactive-primary-background-disabled);
     color: var(--color-interactive-primary-textandicon-disabled);
   }
   }
@@ -399,7 +399,7 @@ html .mat-mdc-icon-button.mat-warn {
       background-color: var(--color-semantic-background-error-filled);
       color: var(--color-interactive-primary-textandicon-inverse);
       &.mat-mdc-icon-button.mat-mdc-button-disabled {
-        background-color: var(--color-interactive-primary-background-disabled); 
+        background-color: var(--color-interactive-primary-background-disabled);
         color: var(--color-interactive-primary-textandicon-disabled);
       }
   }

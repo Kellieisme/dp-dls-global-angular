@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogModule, MatDialogActions,  MatDialogClose,  MatDialogContent,  MatDialogTitle} from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
