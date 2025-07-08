@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-// import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
@@ -22,17 +22,16 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
  */
 @Component({
     selector: 'ba-user-profile',
-    standalone: true,
     imports: [
         MatTabsModule,
         MatIconModule,
         MatToolbarModule,
         MatButtonModule,
-        CommonModule
+        CommonModule,
+        IconRegistryModule
     ],
     templateUrl: './user-profile.component.html',
-    styleUrls: ['./user-profile.component.scss'],
-
+    styleUrls: ['./user-profile.component.scss']
 })
 
 export class UserProfileComponent {

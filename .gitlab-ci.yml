@@ -49,6 +49,8 @@ build-package:
         # Push changes only if a new version was created
         echo "Pushing changes to the remote repository."
       # git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
+        echo "Pushing changes to the remote repository."
+      # git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
         git push --follow-tags origin HEAD:${CI_COMMIT_REF_NAME}  # Push changes to the current branch
         echo "Pushed changes and tags to the remote repository. Now build the library"
 

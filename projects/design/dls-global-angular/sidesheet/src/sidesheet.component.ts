@@ -10,6 +10,8 @@ import {
   AtmosphereSidesheetButtonsArray
 } from './sidesheet.types';
 
+import {IconRegistryModule} from "@dasdigitalplatform/dls-global-angular/icon-registry";
+
 export enum SidesheetVariant {
   STANDARD = 'standard',
   MODAL = 'modal',
@@ -31,16 +33,17 @@ export enum SidesheetContentMode {
  * options or context.
  */
 @Component({
-  selector: 'ba-sidesheet',
-  imports: [
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-  ],
-  templateUrl: './sidesheet.component.html',
-  styleUrls: ['./sidesheet.component.scss']
+    selector: 'ba-sidesheet',
+    imports: [
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        IconRegistryModule
+    ],
+    templateUrl: './sidesheet.component.html',
+    styleUrls: ['./sidesheet.component.scss']
 })
 export class SideSheetComponent {
 

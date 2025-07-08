@@ -18,6 +18,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AtmosphereNavRailMenuItem } from './navigation-rail.types';
 import { MockSideRailMenuData } from './navigation-rail.mock-data';
 import { MatMenuModule } from '@angular/material/menu';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 /**
  * A slim navigation rail for use on the left-hand side of an application. As
@@ -39,6 +40,7 @@ import { MatMenuModule } from '@angular/material/menu';
         MatListModule,
         MatNavList,
         MatDividerModule,
+        IconRegistryModule,
         MatMenuModule
     ],
     templateUrl: './navigation-rail.component.html',
