@@ -1,9 +1,8 @@
 import { Component, Input } from '@angular/core';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
-import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
-import {MatButton, MatButtonModule, MatIconButton} from '@angular/material/button';
-import {MatSidenav, MatSidenavContainer} from '@angular/material/sidenav';
-import {MatDivider, MatDividerModule} from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {
   AtmosphereSidesheetVariant,

@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -92,26 +92,23 @@ type SideNavigationModeType = `${SideNavMode}`;
  *
  */
 @Component({
-    selector: 'ba-navigation-drawer',
-    imports: [
-        CommonModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatIconModule,
-        RouterOutlet,
-        RouterModule,
-        MatListModule,
-        RouterModule,
-        MatNavList,
-        MatDividerModule,
-        MatMenuModule,
-        MatSidenavModule,
-        IconRegistryModule
-    ],
-    templateUrl: './navigation-drawer.component.html',
-    styleUrls: ['./navigation-drawer.component.scss'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'ba-navigation-drawer',
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterOutlet,
+    RouterModule,
+    MatListModule,
+    MatNavList,
+    MatDividerModule,
+    MatMenuModule
+  ],
+  templateUrl: './navigation-drawer.component.html',
+  styleUrls: ['./navigation-drawer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NavigationDrawerComponent implements OnDestroy {
 
@@ -124,6 +121,12 @@ export class NavigationDrawerComponent implements OnDestroy {
       const firstItem = this.navDrawerMenuItems[0];
       if (firstItem.sectionMenuItems && firstItem.sectionMenuItems.length > 0) {
         this.onMenuItemClick(firstItem.sectionMenuItems[0]);
+        // The following check for sidenavMode is commented out because we have decided
+        // to enable backdrop clicks for both modal and standalone presentations.
+        // As a result, the distinction between 'over' and other modes is no longer necessary.
+        // if(this.sidenavMode !== 'over') { //Commented
+        // this.opened = false;
+        // }
         // The following check for sidenavMode is commented out because we have decided
         // to enable backdrop clicks for both modal and standalone presentations.
         // As a result, the distinction between 'over' and other modes is no longer necessary.
@@ -143,9 +146,7 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   @ViewChild('sidenav', { read: ElementRef }) sidenavElement!: ElementRef;
 
-
   private boundDrag: (event: MouseEvent | TouchEvent) => void;
-
   private boundStopDrag: () => void;
 
   /*****************************************************************************
@@ -363,6 +364,7 @@ export class NavigationDrawerComponent implements OnDestroy {
 
   @Output() openedChange = new EventEmitter<boolean>(); // Notifies parent of changes
 
+
   /*****************************************************************************
                                      METHODS
   *****************************************************************************/
@@ -372,6 +374,7 @@ export class NavigationDrawerComponent implements OnDestroy {
    * the relevant flags.
    */
   startDragging(event: MouseEvent | TouchEvent) {
+
     // Ensure only the left mouse button starts the drag
     if (event instanceof MouseEvent) {
       if (event.buttons !== 1) {
@@ -393,8 +396,6 @@ export class NavigationDrawerComponent implements OnDestroy {
     document.addEventListener("mouseup", this.boundStopDrag);
     document.addEventListener("mouseleave", this.boundStopDrag);
     document.addEventListener("touchend", this.boundStopDrag);
-
-
   }
 
   /**
@@ -405,7 +406,15 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   drag(event: MouseEvent | TouchEvent) {
 
+
     if (!this.#isDragging) return;
+
+    // Fix: If mouse button is released but `mouseup` didn’t trigger, stop dragging
+    if (event instanceof MouseEvent && event.buttons === 0) {
+      this.stopDragging();
+      return;
+    }
+
 
     // Fix: If mouse button is released but `mouseup` didn’t trigger, stop dragging
     if (event instanceof MouseEvent && event.buttons === 0) {
@@ -415,6 +424,7 @@ export class NavigationDrawerComponent implements OnDestroy {
 
     const currentX =
       event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+
 
     if (currentX <= parseInt(this.expandedWidth) - 100) {
       this.opened = false;
@@ -542,6 +552,4 @@ export class NavigationDrawerComponent implements OnDestroy {
     this.openedChange.emit(this.opened); // Notify parent about the state change
 
   }
-
-  // CLASS END
 }

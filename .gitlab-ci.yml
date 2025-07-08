@@ -42,20 +42,13 @@ build-package:
 
     # Check commit message for conventional commit triggers
     - |
-      if git log -2 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
-
-        # Check for uncommitted changes in package-lock.json
-        if ! git diff --quiet package-lock.json; then
-          echo "Uncommitted changes detected in package-lock.json. Committing changes."
-          git add package-lock.json
-          git commit -m "Update package-lock.json" || echo "No changes to commit"
-        else
-          echo "No uncommitted changes in package-lock.json. Proceeding with Lerna version."
-        fi
+      if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
         echo "Version bump needed. Running lerna version."
         npx lerna version --conventional-commits --yes
 
         # Push changes only if a new version was created
+        echo "Pushing changes to the remote repository."
+      # git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
         echo "Pushing changes to the remote repository."
       # git remote set-url origin "https://oauth2:${PROJECT_ACCESS_TOKEN}@git.web.boeing.com/design/design-system/dls-global-angular.git"
         git push --follow-tags origin HEAD:${CI_COMMIT_REF_NAME}  # Push changes to the current branch
