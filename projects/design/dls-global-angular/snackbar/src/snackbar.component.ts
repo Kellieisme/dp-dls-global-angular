@@ -6,14 +6,14 @@ import {
   MAT_SNACK_BAR_DATA,
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+
 
 /**
  * Snackbar is a service for displaying snack-bar notifications.
  */
 @Component({
     selector: 'ba-snackbar',
-    imports: [MatButtonModule, MatIconModule, IconRegistryModule],
+    imports: [MatButtonModule, MatIconModule],
     template: `
     <div class="ba-snackbar__content">
       <span class="ba-snackbar__message">{{ data.message }}</span>

@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -92,26 +92,25 @@ type SideNavigationModeType = `${SideNavMode}`;
  *
  */
 @Component({
-    selector: 'ba-navigation-drawer',
-    imports: [
-        CommonModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatIconModule,
-        RouterOutlet,
-        RouterModule,
-        MatListModule,
-        RouterModule,
-        MatNavList,
-        MatDividerModule,
-        MatMenuModule,
-        MatSidenavModule,
-        IconRegistryModule
-    ],
-    templateUrl: './navigation-drawer.component.html',
-    styleUrls: ['./navigation-drawer.component.scss'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'ba-navigation-drawer',
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterOutlet,
+    RouterModule,
+    MatListModule,
+    RouterModule,
+    MatNavList,
+    MatDividerModule,
+    MatMenuModule,
+    MatSidenavModule,
+  ],
+  templateUrl: './navigation-drawer.component.html',
+  styleUrls: ['./navigation-drawer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NavigationDrawerComponent implements OnDestroy {
 
@@ -542,6 +541,4 @@ export class NavigationDrawerComponent implements OnDestroy {
     this.openedChange.emit(this.opened); // Notify parent about the state change
 
   }
-
-  // CLASS END
 }

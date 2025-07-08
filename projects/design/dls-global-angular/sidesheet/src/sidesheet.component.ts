@@ -10,8 +10,6 @@ import {
   AtmosphereSidesheetButtonsArray
 } from './sidesheet.types';
 
-import { IconRegistryModule } from "@dasdigitalplatform/dls-global-angular/icon-registry";
-
 export enum SidesheetVariant {
   STANDARD = 'standard',
   MODAL = 'modal',
@@ -40,7 +38,6 @@ export enum SidesheetContentMode {
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    IconRegistryModule
   ],
   templateUrl: './sidesheet.component.html',
   styleUrls: ['./sidesheet.component.scss']

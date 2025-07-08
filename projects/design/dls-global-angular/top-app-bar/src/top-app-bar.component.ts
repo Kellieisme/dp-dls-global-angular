@@ -4,7 +4,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AtmosphereTopBarNavigationLinkArray } from './top-app-bar.types';
 import { RouterModule } from '@angular/router';
@@ -21,7 +20,6 @@ import { MatDividerModule } from '@angular/material/divider';
         MatToolbarModule,
         MatButtonModule,
         CommonModule,
-        IconRegistryModule,
         RouterModule,
         MatDividerModule
     ],

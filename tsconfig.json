@@ -3,10 +3,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@design/dls-global-angular/*": [
+      "@dasdigitalplatform/dls-global-angular/*": [
         "./projects/design/dls-global-angular/*",
       ],
-      "@design/dls-global-angular": [
+      "@dasdigitalplatform/dls-global-angular": [
         "./projects/design/dls-global-angular",
       ],
     },
