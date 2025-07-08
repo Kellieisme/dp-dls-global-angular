@@ -9,7 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     imports: [MatTabsModule, MatButtonModule, MatIconModule, IconRegistryModule],
     templateUrl: './tabs.component.html',
     styleUrl: './tabs.component.scss'
-}) 
+})
 
 export class TabsPageComponent {
   title = 'Tabs';

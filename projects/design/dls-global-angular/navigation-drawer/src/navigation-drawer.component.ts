@@ -118,7 +118,7 @@ export class NavigationDrawerComponent implements OnDestroy {
   ngOnInit() {
     this.setFirstItemActive();
   }
-  
+
   setFirstItemActive() {
     if (this.navDrawerMenuItems && this.navDrawerMenuItems.length > 0) {
       const firstItem = this.navDrawerMenuItems[0];
@@ -145,7 +145,7 @@ export class NavigationDrawerComponent implements OnDestroy {
 
 
   private boundDrag: (event: MouseEvent | TouchEvent) => void;
-  
+
   private boundStopDrag: () => void;
 
   /*****************************************************************************
@@ -540,7 +540,7 @@ export class NavigationDrawerComponent implements OnDestroy {
   onBackdropClick(): void {
     this.opened = false; // Close the drawer
     this.openedChange.emit(this.opened); // Notify parent about the state change
-    
+
   }
 
   // CLASS END

@@ -12,7 +12,7 @@ import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
     imports: [TopAppBarComponent, MatButtonModule, MatIconModule, IconRegistryModule, MatMenuModule, MatDividerModule, UserProfileComponent],
     templateUrl: './top-app-bar.component.html',
     styleUrl: './top-app-bar.component.scss'
-}) 
+})
 
 export class TopAppBarPageComponent {
   title = 'Top App Bar';

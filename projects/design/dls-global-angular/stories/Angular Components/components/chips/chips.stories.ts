@@ -17,8 +17,8 @@ export interface LabelExample {
 }
 
 @Component({
-    selector: 'storybook-chips-page',
-    template: `
+      selector: 'storybook-chips-page',
+      template: `
     @if (variant === 'InputChips') {
       <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGrid aria-label="Enter labels">
@@ -51,7 +51,7 @@ export interface LabelExample {
         </mat-chip-grid>
       </mat-form-field>
     }
-    
+
     @if (variant === 'AvatarInputChips') {
       <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGridAvatar aria-label="Enter chips">
@@ -80,7 +80,7 @@ export interface LabelExample {
         </mat-chip-grid>
       </mat-form-field>
     }
-    
+
     @if (variant === 'AssistiveChips') {
       <mat-chip-set
         class="example-chip"
@@ -108,7 +108,7 @@ export interface LabelExample {
         }
       </mat-chip-set>
     }
-    
+
     @if (variant === 'FilterAndSuggestionChips') {
       <mat-chip-listbox aria-label="Labels examples">
         @for (labelExample of labelExamples(); track labelExample.name) {
@@ -126,9 +126,12 @@ export interface LabelExample {
     }
     `,
     styles: [`
+    styles: [`
     .example-chip-list {
       width: 100%;
     }
+  `],
+    standalone: false
   `],
     standalone: false
 })

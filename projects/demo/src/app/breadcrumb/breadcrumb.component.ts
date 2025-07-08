@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
     imports: [BreadcrumbComponent, MatButtonModule],
     templateUrl: './breadcrumb.component.html',
     styleUrl: './breadcrumb.component.scss'
-}) 
+})
 export class BreadcrumbPageComponent {
   title = 'Breadcrumb';
 

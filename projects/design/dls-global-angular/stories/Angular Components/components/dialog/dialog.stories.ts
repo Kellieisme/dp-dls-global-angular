@@ -10,22 +10,24 @@ import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-reg
 @Component({
     selector: 'storybook-dialog-page',
     template: `
+    selector: 'storybook-dialog-page',
+    template: `
     <div>
       <button mat-stroked-button color="primary" (click)="openBasicDialog()">
         Open Dialog
       </button>
     </div>
-    
+
     <ng-template #basicDialog let-data="data">
-    
+
       <div class="d-flex">
-    
+
         @if (args.withIcon) {
           <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
             <mat-icon svgIcon="icon-warning"></mat-icon>
           </div>
         }
-    
+
         @if (args.closeButton) {
           <div class="ms-auto" style="padding: 4px 4px 0 0; margin-bottom: 0;">
             <button mat-icon-button mat-dialog-close="true">
@@ -33,10 +35,10 @@ import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-reg
             </button>
           </div>
         }
-    
+
       </div>
-    
-    
+
+
       <!-- 6px 24px 13px -->
       <h2 mat-dialog-title style="padding-top: 0px; margin-top: 0px;">Dialog Title</h2>
       <mat-dialog-content>
@@ -52,27 +54,27 @@ import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-reg
           you in control over scalability. Meet huge data requirements by
           building data models on RxJS, Immutable.js or another push-model.
         </p>
-    
+
         <h3 class="title-medium">Incredible tooling</h3>
         <p>
           Build features quickly with simple, declarative templates. Extend the
           template language with your own components and use a wide array of
           existing components.
         </p>
-    
+
         <p>
           Get immediate Angular-specific help and feedback with nearly every IDE
           and editor. All this comes together so you can focus on building
           amazing apps rather than trying to make the code work.
         </p>
-    
+
         <p>
           From prototype through global deployment, Angular delivers the
           productivity and scalable infrastructure that supports Google's
           largest applications.
         </p>
       </mat-dialog-content>
-    
+
       <mat-dialog-actions class="d-flex">
         @if (args.tertiaryButton) {
           <button
@@ -95,7 +97,7 @@ import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-reg
           Install
         </button>
       </mat-dialog-actions>
-    
+
     </ng-template>
     `,
     standalone: false

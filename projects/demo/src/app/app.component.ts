@@ -7,6 +7,6 @@ import { ThemeToggleModule } from '@design/dls-global-angular/theme-toggle';
     imports: [RouterOutlet, ThemeToggleModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
-}) 
+})
 
 export class AppComponent {}
