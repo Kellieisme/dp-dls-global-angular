@@ -1,8 +1,8 @@
-# Boeing DLS Global Angular Component Library
+#  Atmosphere Global Angular Component Library
 
 ## Introduction
 
-This README is for using the Angular libraries in your application. 
+This README needs updating according to GITHUB now. Do not follow these instructions yet!
 
 ### Using
 How to consume the library in your Angular application, please refer to the documentation [here](https://git.web.boeing.com/design/design-system/dls-global-angular/-/tree/develop/projects/design/dls-global-angular#using-the-global-angular-component-library-in-your-angular-project)
