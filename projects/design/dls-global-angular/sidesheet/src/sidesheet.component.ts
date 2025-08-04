@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import {
   AtmosphereSidesheetVariant,
   AtmosphereSidesheetContentMode,
   AtmosphereSidesheetButtonsArray
 } from './sidesheet.types';
+
+import {IconRegistryModule} from "@dasdigitalplatform/dls-global-angular/icon-registry";
 
 export enum SidesheetVariant {
   STANDARD = 'standard',
@@ -35,13 +35,12 @@ export enum SidesheetContentMode {
 @Component({
     selector: 'ba-sidesheet',
     imports: [
-        CommonModule,
         MatToolbarModule,
         MatSidenavModule,
         MatButtonModule,
         MatIconModule,
         MatDividerModule,
-        IconRegistryModule,
+        IconRegistryModule
     ],
     templateUrl: './sidesheet.component.html',
     styleUrls: ['./sidesheet.component.scss']

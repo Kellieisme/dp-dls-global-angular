@@ -1,11 +1,43 @@
-import { Meta, Markdown } from '@storybook/blocks';
+import { Meta, Markdown, Canvas } from '@storybook/blocks';
 import * as NavigationStories from './navigationDrawer.stories';
 
-<Meta title="Overview" of={NavigationStories} />
+<Meta of={NavigationStories} />
 
 # Navigation Drawer
 
-The `NavigationDrawerComponent` provides a side navigation experience with customizable branding, menu items, and collapsible behavior.
+The `NavigationDrawerComponent` is a versatile sidebar navigation component built using Angular Material. It provides a collapsible and expandable navigation drawer that can be presented in different styles, including default, standalone, and modal. The component supports dynamic menu items, allowing for a structured navigation experience within applications.
+
+### Selectors
+
+- `ba-navigation-drawer`: The main selector for the navigation drawer component.
+
+### Usage
+
+In your typescript file.
+
+The selector, templateUrl, styleUrls, and class name (NavigationDrawerPageComponent) can be different based on your project structure and naming conventions.
+
+```typescript
+import { Component } from '@angular/core';
+import { NavigationDrawerComponent } from '@dasdigitalplatform/dls-global-angular/navigation-drawer';
+import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
+@Component({
+  selector: 'navigation-drawer-page',
+  standalone: true,
+  imports: [NavigationDrawerComponent, UserProfileComponent, MatMenuModule, MatButtonModule, MatDividerModule, IconRegistryModule, MatIconModule],
+  templateUrl: './navigation-drawer-page.component.html',
+  styleUrl: './navigation-drawer-page.component.scss'
+})
+export class NavigationDrawerPageComponent {
+
+}
+```
 
 ## API reference
 
@@ -14,3 +46,60 @@ The `NavigationDrawerComponent` provides a side navigation experience with custo
 - Supports different presentation styles: `Default`, `Standalone`, and `Modal`
 - Configurable expansion and collapse behavior
 - Slot for user profile and notifications button
+
+Important Note on the opened Property
+The opened property of the NavigationDrawerComponent is used to control the visibility of the navigation drawer. To effectively manage this property, you should implement two-way data binding. This allows the parent component to update the opened state based on user interactions, including clicks on the backdrop.
+
+Two-Way Binding Example
+To enable two-way binding for the opened property, you can use the following syntax in your template:
+
+```html
+<ba-navigation-drawer
+  [appLogo]="'my-logo'"
+  [appName]="'My Application'"
+  [homeRoute]="'/'"
+  [navDrawerMenuItems]="myMenuItems"
+  [navDrawerPresentation]="'standalone'"
+  [(opened)]="opened"> <!-- Two-way binding for opened state -->
+</ba-navigation-drawer>
+```
+
+### Properties
+
+<Markdown>
+{`
+| Name                     | Description                                                                                                | Type                          | Default Value         |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------- |
+| appLogo                  | The application logo, used when the Nav Drawer is rendered in its STANDALONE configuration.                | string                        | ''                    |
+| appName                  | The application name, used when the Nav Drawer is rendered in its STANDALONE configuration.                | string                        | 'App name'            |
+| homeRoute                | Application home route, will be added as a routerLink when clicking the logo.                              | string                        | '/'                   |
+| collapsedWidth           | Sets the width for the drawer when in its collapsed state.                                                 | string                        | '80px'                |
+| expandedWidth            | Sets the width for the drawer when in its expanded state.                                                  | string                        | '360px'               |
+| fixedOpen                | An input flag denoting whether or not the Nav Drawer should never collapse down to a minified state.       | boolean                       | false                 |
+| minifyOnCollapse         | An input flag denoting whether or not the Nav Drawer should show a minified presentation when collapsed.   | boolean                       | false                 |
+| navBarBottomComponent1   | Template for the first functional component aligned to the bottom of the drawer.                           | TemplateRef<any>              | undefined             |
+| navBarBottomComponent2   | Template for the second functional component aligned to the bottom of the drawer.                          | TemplateRef<any>              | undefined             |
+| navBarBottomComponent3   | Template for the third functional component aligned to the bottom of the drawer.                           | TemplateRef<any>              | undefined             |
+| navBarBottomComponent4   | Template for the fourth functional component aligned to the bottom of the drawer.                          | TemplateRef<any>              | undefined             |
+| navDrawerMenuItems       | Menu items for the navdrawer.                                                                              | AtmosphereNavDrawerMenu       | MockSidebarMenuData   |
+| navDrawerPresentation    | An input flag denoting the presentation style of the Nav Drawer. Input must be one of these values: 'default', 'standalone' & 'modal'| AtmosphereNavDrawerVariant    | 'default' |
+| opened                   | A direct map to Angular Material's opened property of the Side Nav component.                              | boolean                       | true                  |
+`}
+</Markdown>
+
+### Examples
+You can see how the different inputs work in the individual component stories.
+
+#### Default NavigationDrawer Representation
+<Canvas of={NavigationStories.Default} />
+
+#### Standalone NavigationDrawer Representation
+<Canvas of={NavigationStories.Standalone}/>
+
+#### Modal NavigationDrawer Representation
+<Canvas of={NavigationStories.Modal}/>
+
+#### FixedOpen NavigationDrawer Representation
+<Canvas of={NavigationStories.FixedOpen}/>
+
+You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/design-system/dls-global-docs/components/navigation-drawer)

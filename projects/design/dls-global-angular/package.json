@@ -1,35 +1,32 @@
 {
   "name": "@dasdigitalplatform/dls-global-angular",
-  "version": "2.5.11",
+  "version": "3.2.2",
   "license": "MIT",
   "private": false,
   "peerDependencies": {
-    "@angular/animations": "^18.2.13",
-    "@angular/cdk": "^18.2.14",
-    "@angular/common": "^18.2.13",
-    "@angular/compiler": "^18.2.13",
-    "@angular/core": "^18.2.13",
-    "@angular/forms": "^18.2.13",
-    "@angular/material": "^18.2.14",
-    "@angular/platform-browser": "^18.2.13",
-    "@angular/platform-server": "^18.2.13",
-    "@dasdigitalplatform/dls-global-assets": "2.0.0",
-    "zone.js": "~0.14.10"
+    "@angular/animations": "^19.2.14",
+    "@angular/cdk": "^19.2.19",
+    "@angular/common": "^19.2.14",
+    "@angular/compiler": "^19.2.14",
+    "@angular/core": "^19.2.14",
+    "@angular/forms": "^19.2.14",
+    "@angular/material": "^19.2.19",
+    "@angular/platform-browser": "^19.2.14",
+    "@angular/platform-server": "^19.2.14",
+    "@dasdigitalplatform/dls-global-assets": "^2.0.0",
+    "zone.js": "^0.15.1"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.8.1"
   },
   "sideEffects": false,
   "devDependencies": {
     "css-loader": "^7.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sass": "^1.83.0",
-    "sass-loader": "^16.0.4",
+    "sass": "^1.85.1",
+    "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
-    "webpack": "^5.97.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "webpack": "^5.98.1"
   }
 }

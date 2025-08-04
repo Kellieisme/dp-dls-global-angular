@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { ThemeToggleService } from "./theme-toggle.service";
+import { MatIconButton } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
+import { MatIcon } from '@angular/material/icon';
 
 /**
  * Angular component to switch the Theme.
@@ -10,13 +13,13 @@ import { ThemeToggleService } from "./theme-toggle.service";
  * ```
  */
 @Component({
-    selector: "ba-theme-toggle",
-    templateUrl: "theme-toggle.component.html",
-    styleUrls: ["theme-toggle.component.scss"],
-    standalone: false
+  selector: "ba-theme-toggle",
+  imports: [MatIconButton, MatTooltip, MatIcon],
+  templateUrl: "theme-toggle.component.html",
+  styleUrls: ["theme-toggle.component.scss"]
 })
 export class ThemeToggleComponent {
-  constructor(private themeToggleService: ThemeToggleService) {}
+  constructor(private themeToggleService: ThemeToggleService) { }
 
   toggle() {
     this.themeToggleService.toggleTheme();

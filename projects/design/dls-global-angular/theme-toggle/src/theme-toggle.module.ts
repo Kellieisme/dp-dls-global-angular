@@ -16,8 +16,7 @@ import { IconRegistryModule } from "@dasdigitalplatform/dls-global-angular/icon-
  *  * ThemeToggleService
  */
 @NgModule({
-  declarations: [ThemeToggleComponent],
-  imports: [MatButtonModule, MatIconModule, IconRegistryModule],
+  imports: [MatButtonModule, MatIconModule, ThemeToggleComponent, IconRegistryModule],
   providers: [
     ThemeToggleService,
     {
@@ -25,6 +24,7 @@ import { IconRegistryModule } from "@dasdigitalplatform/dls-global-angular/icon-
       useClass: ThemeLocalStorageService,
     },
   ],
+  declarations: [],
   exports: [ThemeToggleComponent],
 })
 export class ThemeToggleModule {}

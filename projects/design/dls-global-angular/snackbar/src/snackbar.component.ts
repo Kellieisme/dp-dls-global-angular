@@ -1,4 +1,5 @@
-import { CommonModule } from '@angular/common';
+
+
 import { Component, Inject, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,32 +9,50 @@ import {
 } from '@angular/material/snack-bar';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
+
 /**
  * Snackbar is a service for displaying snack-bar notifications.
  */
 @Component({
-    selector: 'ba-snackbar',
-    imports: [MatButtonModule, MatIconModule, IconRegistryModule, CommonModule],
-    template: `
+  selector: 'ba-snackbar',
+  imports: [MatButtonModule, MatIconModule, IconRegistryModule],
+  template: `
     <div class="ba-snackbar__content">
       <span class="ba-snackbar__message">{{ data.message }}</span>
       <div class="ba-snackbar__actions">
-        <button
-          *ngIf="data.action"
-          color="accent"
-          mat-button
-          (click)="onAction()"
-        >
-          {{ data.action }}
-        </button>
-        <button *ngIf="data.showClose" mat-icon-button (click)="onClose()">
-          <mat-icon svgIcon="icon-close"></mat-icon>
-        </button>
+        @if (data.action) {
+          <button
+            color="accent"
+            mat-button
+            (click)="onAction()"
+            >
+            {{ data.action }}
+          </button>
+        }
+        @if (data.showClose) {
+          <button mat-icon-button (click)="onClose()">
+            <mat-icon svgIcon="icon-close"></mat-icon>
+          </button>
+        }
+        @if (data.action) {
+          <button
+            color="accent"
+            mat-button
+            (click)="onAction()"
+            >
+            {{ data.action }}
+          </button>
+        }
+        @if (data.showClose) {
+          <button mat-icon-button (click)="onClose()">
+            <mat-icon svgIcon="icon-close"></mat-icon>
+          </button>
+        }
       </div>
     </div>
-  `,
-    styles: [
-        `
+    `,
+  styles: [
+    `
       .ba-snackbar__content {
         display: flex;
         justify-content: space-between;
@@ -49,7 +68,7 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
         flex-shrink: 0;
       }
     `,
-    ]
+  ]
 })
 export class SnackbarComponent {
 
@@ -82,7 +101,7 @@ export class SnackbarComponent {
   constructor(
     @Inject(MAT_SNACK_BAR_DATA) public data: any,
     public snackBarRef: MatSnackBarRef<SnackbarComponent>,
-  ) {}
+  ) { }
 
   onAction() {
     this.snackBarRef.dismissWithAction();

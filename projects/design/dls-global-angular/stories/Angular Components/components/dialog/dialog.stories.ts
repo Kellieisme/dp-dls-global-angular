@@ -3,7 +3,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, inject, TemplateRef, ViewChild } from '@angular/core';
 import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
@@ -18,17 +17,33 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
 
     <ng-template #basicDialog let-data="data">
 
-    <div class="d-flex">
+      <div class="d-flex">
+      <div class="d-flex">
 
-       <div *ngIf="args.withIcon" style="padding: 24px 0 0 24px;margin-bottom: 0;">
+        @if (args.withIcon) {
+          <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
+        @if (args.withIcon) {
+          <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
             <mat-icon svgIcon="icon-warning"></mat-icon>
-      </div>
+          </div>
+        }
+          </div>
+        }
 
-      <div class="ms-auto" *ngIf="args.closeButton" style="padding: 4px 4px 0 0; margin-bottom: 0;">
-          <button mat-icon-button mat-dialog-close="true">
-            <mat-icon svgIcon="icon-close"></mat-icon>
-          </button>
-      </div>
+        @if (args.closeButton) {
+          <div class="ms-auto" style="padding: 4px 4px 0 0; margin-bottom: 0;">
+            <button mat-icon-button mat-dialog-close="true">
+              <mat-icon svgIcon="icon-close"></mat-icon>
+            </button>
+          </div>
+        }
+        @if (args.closeButton) {
+          <div class="ms-auto" style="padding: 4px 4px 0 0; margin-bottom: 0;">
+            <button mat-icon-button mat-dialog-close="true">
+              <mat-icon svgIcon="icon-close"></mat-icon>
+            </button>
+          </div>
+        }
 
       </div>
 
@@ -70,28 +85,30 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
       </mat-dialog-content>
 
       <mat-dialog-actions class="d-flex">
-        <button *ngIf="args.tertiaryButton"
-          [closeButton]="closeButton"
-          class="me-auto"
-          mat-button
-          color="primary"
-          mat-dialog-close="true"
-        >
-          Tertiary
-        </button>
+        @if (args.tertiaryButton) {
+          <button
+            [closeButton]="closeButton"
+            class="me-auto"
+            mat-button
+            color="primary"
+            mat-dialog-close="true"
+            >
+            Tertiary
+          </button>
+        }
         <button mat-stroked-button mat-dialog-close>Cancel</button>
         <button
           mat-flat-button
           color="primary"
           mat-dialog-close
           cdkFocusInitial
-        >
+          >
           Install
         </button>
       </mat-dialog-actions>
 
     </ng-template>
-  `,
+    `,
     standalone: false
 })
 class DialogPageComponent {
@@ -117,7 +134,6 @@ export default {
         MatButtonModule,
         MatIconModule,
         BrowserAnimationsModule,
-        HttpClientModule,
         IconRegistryStorybookModule,
       ],
     }),

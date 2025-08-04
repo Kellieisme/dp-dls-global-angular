@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
         IconRegistryModule,
     ],
     template: `
-    <div class="d-flex align-items-end pt-3" style="padding-left: 24px;">
+     <div class="d-flex align-items-end pt-3" style="padding-left: 24px;">
       <div>
         <mat-icon svgIcon="icon-warning"></mat-icon>
       </div>

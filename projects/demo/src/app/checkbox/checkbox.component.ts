@@ -10,7 +10,7 @@ export interface Task {
 }
 @Component({
     selector: 'app-checkbox',
-    imports: [FormsModule, MatCheckboxModule, MatDividerModule],
+    imports: [FormsModule, MatCheckboxModule, MatDividerModule, MatCheckboxModule],
     templateUrl: './checkbox.component.html',
     styleUrl: './checkbox.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

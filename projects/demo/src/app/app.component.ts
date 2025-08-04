@@ -4,7 +4,7 @@ import { ThemeToggleModule } from '@dasdigitalplatform/dls-global-angular/theme-
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, ThemeToggleModule],
+    imports: [RouterOutlet, ThemeToggleModule ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

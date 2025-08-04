@@ -28,12 +28,12 @@ const mockActivatedRoute = {
   },
 };
 
-const basicTemplate = () =>
+const basicTemplate = (type: string): string =>
   ` 
     <ba-navigation-drawer
       [fixedOpen]="fixedOpen"
       [minifyOnCollapse]="minifyOnCollapse"
-      [navDrawerPresentation]="navDrawerPresentation"
+      [navDrawerPresentation]="${type}"
       [navBarBottomComponent1] = "sideNavNotificationsButton"
       [navBarBottomComponent2] = "sideNavProfileButton"
       [appName]="'Boeing App'"
@@ -101,16 +101,15 @@ const baseArgs = {
 export const Default: Story = {
   args: {
     ...baseArgs,
-    opened: false,
+    opened: true,
     minifyOnCollapse: true,
-    navDrawerPresentation: NavDrawerPresentationEnum.DEFAULT,
   },
-  render: ({ navDrawerPresentation, opened, minifyOnCollapse, homeRoute }) => ({
+  render: ({ opened, minifyOnCollapse, homeRoute }) => ({
     props: {
-      navDrawerPresentation, opened,
+      opened,
       minifyOnCollapse, homeRoute
     },
-    template: basicTemplate()
+    template: basicTemplate('default')
   }),
   name: 'Standard Presentation'
 };
@@ -123,11 +122,10 @@ export const Standalone: Story = {
     ...baseArgs,
     opened: false,
     minifyOnCollapse: true,
-    navDrawerPresentation: NavDrawerPresentationEnum.STANDALONE,
   },
-  render: ({ navDrawerPresentation, opened, minifyOnCollapse, homeRoute }) => ({
-    props: { navDrawerPresentation, opened, minifyOnCollapse, homeRoute },
-    template: basicTemplate()
+  render: ({ opened, minifyOnCollapse, homeRoute }) => ({
+    props: { opened, minifyOnCollapse, homeRoute },
+    template: basicTemplate('standalone')
   }),
   name: 'Standalone Presentation (With Branding)'
 };
@@ -139,11 +137,12 @@ export const Modal: Story = {
   args: {
     ...baseArgs,
     opened: true,
-    navDrawerPresentation: NavDrawerPresentationEnum.MODAL,
+    minifyOnCollapse: true,
+    fixedOpen: false,
   },
-  render: ({ navDrawerPresentation, opened, homeRoute }) => ({
-    props: { navDrawerPresentation, opened, homeRoute },
-    template: basicTemplate()
+  render: ({ opened, fixedOpen, homeRoute, minifyOnCollapse }) => ({
+    props: { opened, fixedOpen, homeRoute, minifyOnCollapse },
+    template: basicTemplate('modal')
   }),
   name: 'Modal Presentation'
 };
@@ -151,16 +150,15 @@ export const Modal: Story = {
 /**
  * Shows the Nav Drawer in a locked-open state
  */
-export const Test: Story = {
+export const FixedOpen: Story = {
   args: {
     ...baseArgs,
     opened: true,
     fixedOpen: true,
-    navDrawerPresentation: NavDrawerPresentationEnum.DEFAULT,
   },
-  render: ({ navDrawerPresentation, opened, fixedOpen, homeRoute }) => ({
-    props: { navDrawerPresentation, opened, fixedOpen, homeRoute },
-    template: basicTemplate()
+  render: ({ opened, fixedOpen, homeRoute }) => ({
+    props: { opened, fixedOpen, homeRoute },
+    template: basicTemplate('default')
   }),
   name: 'Fixed Open'
 };
