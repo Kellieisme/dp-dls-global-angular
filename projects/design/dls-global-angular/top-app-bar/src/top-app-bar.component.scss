@@ -11,22 +11,7 @@
 }
 
 mat-toolbar h4 {
-  @extend .h1;
-  margin: 0;
-}
-
-mat-toolbar h4 {
-  @extend .h2;
-  margin: 0;
-}
-
-mat-toolbar h4 {
-  @extend .h3;
-  margin: 0;
-}
-
-mat-toolbar h4 {
-  @extend .h4;
+  @extend .h1, .h2, .h3, .h4;
   margin: 0;
 }
 
