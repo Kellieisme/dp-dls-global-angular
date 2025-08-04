@@ -3,10 +3,18 @@ import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatChipEditedEvent, MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+<<<<<<< Updated upstream
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
+=======
+import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
+
+>>>>>>> Stashed changes
 export interface LabelExample {
   name: string;
 }

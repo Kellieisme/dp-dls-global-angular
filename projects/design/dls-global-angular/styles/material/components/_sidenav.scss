@@ -1,15 +1,15 @@
 @use "@angular/material" as mat;
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss";
-@import "../m3-theme";
+@use "@design/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@design/dls-global-assets/dist/scss/base/_compositionMixins.scss";
+@use "../m3-theme" as m3;
 
 :root {
-  @include mat.sidenav-theme($dark-theme);
+  @include mat.sidenav-theme(m3.$dark-theme);
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.sidenav-color($light-theme);
+  @include mat.sidenav-color(m3.$light-theme);
 }
 
 html,

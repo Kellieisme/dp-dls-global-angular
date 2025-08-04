@@ -37,7 +37,11 @@ registry=<https://sres.web.boeing.com/artifactory/api/npm/npm-remote/>
 //sres.web.boeing.com/artifactory/api/npm/npm-remote/:username=JFROG_USERNAME
 //sres.web.boeing.com/artifactory/api/npm/npm-remote/:email=EMAIL
 //sres.web.boeing.com/artifactory/api/npm/npm-remote/:always-auth=true
+<<<<<<< Updated upstream
 @dasdigitalplatform:registry=<https://git.web.boeing.com/api/v4/packages/npm/>
+=======
+@design:registry=https://git.web.boeing.com/api/v4/packages/npm/
+>>>>>>> Stashed changes
 //git.web.boeing.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
 
 Replace the folowing values:
@@ -51,8 +55,13 @@ Replace the folowing values:
 
 Run the following command to install the package and save it as a dependency:
 
+<<<<<<< Updated upstream
 ```bash
 npm install @dasdigitalplatform/dls-global-angular
+=======
+```
+npm install @design/dls-global-angular
+>>>>>>> Stashed changes
 ```
 
 ### Update angular.json
@@ -68,13 +77,13 @@ To include the global styles, fonts, icons, and Angular Material theme, add the 
             {...},
             "assets": [
               {...},
-              { "glob": "svgSet.svg", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/icons/", "output": "./assets" },
-              { "glob": "**/*", "input": "./node_modules/@dasdigitalplatform/dls-global-assets/dist/images/content", "output": "./assets" }
+              { "glob": "svgSet.svg", "input": "./node_modules/@design/dls-global-assets/dist/images/icons/", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@design/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
-              "./node_modules/@dasdigitalplatform/dls-global-angular/styles/fonts.scss",
-              "./node_modules/@dasdigitalplatform/dls-global-angular/styles/global.scss",
-              "./node_modules/@dasdigitalplatform/dls-global-angular/styles/material.scss",
+              "./node_modules/@design/dls-global-angular/styles/fonts.scss",
+              "./node_modules/@design/dls-global-angular/styles/global.scss",
+              "./node_modules/@design/dls-global-angular/styles/material.scss",
               "src/styles.scss"
             ],
             {...}
@@ -88,11 +97,27 @@ To include the global styles, fonts, icons, and Angular Material theme, add the 
 
 > If your project's SASS compiler cannot resolve the aliased path to the fonts in the above `fonts.scss` and throws errors, the recommendation is to create your own `fonts.scss` and update the base path to a value your compiler can resolve.
 
+<<<<<<< Updated upstream
+=======
+For applications using `@angular-devkit/build-angular:application` create a file with:
+```typescript
+@import '@design/dls-global-assets/dist/scss/base/fonts';
+@include boeing-meso("@design/dls-global-assets/dist/fonts");
+```
+
+For applications using `@angular-builders/custom-webpack:browser` create a file with:
+```typescript
+@import '@design/dls-global-assets/dist/scss/base/fonts';
+@include boeing-meso("/fonts");
+```
+
+> 
+>>>>>>> Stashed changes
 To register the custom SvgIconSet edit the `app.component.ts` and add the `IconRegistryModule` as an import:
 
 ```bash
 import { Component } from '@angular/core';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
 
 @Component({
   selector: 'app-root',
@@ -129,7 +154,7 @@ Import the component as needed:
 
 ```bash
 import { Component } from '@angular/core';
-import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
+import { BreadcrumbComponent } from '@design/dls-global-angular/breadcrumb';
 
 @Component({
   selector: 'app-root',
@@ -163,9 +188,9 @@ The first step in customizing an Angular Material component is initializing its 
 
 ```bash
 @use '@angular/material' as mat;
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
-@import '../themes';
+@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '../m3-theme.scss' as m3;
 ```
 
 All design tokens used in the style customizations should be referenced from `_variables.scss`, `_compositionMixins.scss`, `_typographyMixins.scss`, or `_bootstrapMixins.scss`. Do not hard code CSS properties. This ensures that when tokens change in Tokens Studio, the values will be reflected downstream without the need for code updates.
@@ -238,6 +263,7 @@ Note the use of the element name in the selector to increase specificity so the 
 
 From the root of the repository, run the following command to scaffold a new component:
 
+<<<<<<< Updated upstream
 ```bash
 ng generate component component-name --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
 ```
@@ -246,6 +272,15 @@ You can also use:
 
 ```bash
 ng generate directive|pipe|service|class|guard|interface|enum|module --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
+=======
+```
+ng generate component component-name --project @design/dls-global-angular --path projects/design/dls-global-angular
+```
+
+You can also use:
+```
+ng generate directive|pipe|service|class|guard|interface|enum|module --project @design/dls-global-angular --path projects/design/dls-global-angular
+>>>>>>> Stashed changes
 ```
 
 Follow the pattern of an existing custom component (such as `breadcrumb`) to do the following steps:
@@ -254,7 +289,7 @@ Follow the pattern of an existing custom component (such as `breadcrumb`) to do 
 2. Move the generated component files into the `src` folder.
 3. Create or copy the `index.ts`, `ng-package.json`, and `public-api.ts` files and update the paths inside to match the new component name.
 
-The above structure enables components to be packaged with each component having its own entry point. The consuming application can import individual components as needed using the syntax `import { ComponentName } from '@dasdigitalplatform/dls-global-angular/component-name';`.
+The above structure enables components to be packaged with each component having its own entry point. The consuming application can import individual components as needed using the syntax `import { ComponentName } from '@design/dls-global-angular/component-name';`.
 
 ## Using the demo application for development
 

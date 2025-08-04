@@ -19,7 +19,7 @@ Requirements for Angular Project:
 - Node
 - Angular CLI
 
-You can find the steps to install [Node and Angular CLI is here.](?path=/docs/get-started-set-up-your-angular-project-get-node--docs)
+You can find the steps to install [Node here.](?path=/docs/installation-get-node--overview)
 
 > <Red_text>Note: Atmosphere library only works for Angular versions 17 and above. Please ensure that you are on Angular 17 or higher.</Red_text>
 
@@ -129,6 +129,47 @@ By default, Angular displays the content of `app.component.html`. To show your n
 ```html
 <app-hello-world></app-hello-world>
 ```
+In your `app.component.ts` , you will need to import the hello world component.
+
+```ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+// Import Hello World Component
+import { HelloWorldComponent } from './hello-world/hello-world.component';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, HelloWorldComponent], // Import Hello World Component
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  title = 'my-atmosphere-angular-app';
+}
+
+```
+
+In your `app.component.ts` , you will need to import the hello world component.
+
+```ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+// Import Hello World Component
+import { HelloWorldComponent } from './hello-world/hello-world.component';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, HelloWorldComponent], // Import Hello World Component
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  title = 'my-atmosphere-angular-app';
+}
+
+```
 
 ## Edit hello-world.component.html
 
@@ -154,10 +195,43 @@ You’ve successfully:
 - Created and displayed your first component.
   For more details, check the Angular Official Documentation.
 
-> we recommend you [configure your angular project](?path=/docs/get-started-set-up-your-angular-project-configure-your-angular-project--docs) with our eslint
+> we recommend you [configure your angular project](?path=/docs/installation-configure-an-angular-project--overview) with our eslint
 
 > ## Next: Adding Atmophere to your Angular Project
 >
-> - Learn to [install atmosphere](?path=/docs/get-started-install-configure-atmosphere-install-atmosphere--docs)
+> - Learn to [install atmosphere](?path=/docs/installation-install-atmosphere--overview)
 
 </div>
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+      
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>

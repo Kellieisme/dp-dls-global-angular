@@ -7,6 +7,10 @@ import {
   TemplateRef
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+<<<<<<< Updated upstream
+=======
+import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+>>>>>>> Stashed changes
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,7 +22,10 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AtmosphereNavRailMenuItem } from './navigation-rail.types';
 import { MockSideRailMenuData } from './navigation-rail.mock-data';
 import { MatMenuModule } from '@angular/material/menu';
+<<<<<<< Updated upstream
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+=======
+>>>>>>> Stashed changes
 
 /**
  * A slim navigation rail for use on the left-hand side of an application. As

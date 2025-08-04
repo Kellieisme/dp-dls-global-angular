@@ -6,6 +6,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+<<<<<<< Updated upstream
+=======
+import { By } from '@angular/platform-browser';
+>>>>>>> Stashed changes
 
 describe('TopAppBarComponent', () => {
   let component: TopAppBarComponent;
@@ -16,7 +20,11 @@ describe('TopAppBarComponent', () => {
       imports: [ TopAppBarComponent, MatTabsModule, MatIconModule, MatButtonModule, MatToolbarModule],
       providers: [
         provideAnimations(),
+<<<<<<< Updated upstream
         provideRouter([])
+=======
+        provideRouter([]),
+>>>>>>> Stashed changes
       ],  
     }).compileComponents();
   });

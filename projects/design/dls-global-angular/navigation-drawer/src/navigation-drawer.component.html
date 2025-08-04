@@ -1,19 +1,25 @@
 <mat-sidenav-container
   autosize="true"
   color="primary"
+<<<<<<< Updated upstream
   [hasBackdrop]="!fixedOpen"
+=======
+  [hasBackdrop]="navDrawerPresentation === 'modal'"
+>>>>>>> Stashed changes
   [class.collapse-to-rail] = "minifyOnCollapse"
   (backdropClick)="onBackdropClick()"
 >
   <mat-sidenav
     #sidenav
-    (mouseleave)="!fixedOpen && opened && !intentionalOpen ? opened = false : null"
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()"
     [mode]="sidenavMode"
     [opened]="fixedOpen ? true : opened"
     [autoFocus]="true"
   >
     <!-- OPTIONAL BRANDING HEADER -->
     <ng-container>
+<<<<<<< Updated upstream
       <div class="sidenav-header">
         <a class="app-home-link" [routerLink]="homeRoute">
           @if (appLogo && opened) {
@@ -39,6 +45,37 @@
           </h5>
         </a>
       </div>
+=======
+      @if (appLogo) {
+        <div class="sidenav-header">
+          <a class="app-home-link" (click)="routerClicked(homeRoute)">
+            @if (appLogo && opened) {
+              <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_dark.svg'" class="navigation__app-icon--dark letter-mark" alt="dark App Logo">
+            }
+            @if (appLogo && opened) {
+              <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_light.svg'" class="navigation__app-icon--light letter-mark" alt="light App Logo">
+            }
+            @if (appLogo && !opened) {
+              <img [src]="'./assets/' + appLogo + '-logomark_Navigation_dark.svg'" class="navigation__app-icon--dark" alt="dark App Logo">
+            }
+            @if (appLogo && !opened) {
+              <img [src]="'./assets/' + appLogo + '-logomark_Navigation_light.svg'" class="navigation__app-icon--light" alt="light App Logo">
+            }
+            @if (opened) {
+              <mat-divider
+                [vertical]="true"
+                class="divider"
+              ></mat-divider>
+            }
+            @if (appName) {
+              <h5 class="app-name" [class.hide-app-name]="!opened">
+                {{ appName }}
+              </h5>
+            }
+          </a>
+        </div>
+      }
+>>>>>>> Stashed changes
     </ng-container>
 
     <!-- DYNAMIC MENU -->
@@ -69,12 +106,20 @@
           @for (item of section.sectionMenuItems; track item) {
             <ng-container>
               <mat-list-item
+<<<<<<< Updated upstream
                 matListItemTitle 
                 [routerLink]="item.route"
                 (mouseenter)="opened = true"
                 (focus)="opened = true"
                 (click)="onMenuItemClick(item); 
                 toggleSubMenu(item)"
+=======
+                matListItemTitle
+                (mouseenter)="opened = true"
+                (focus)="opened = true"
+                (click)="onMenuItemClick(item); 
+                toggleSubMenu(item); routerClicked(item.route, item)"
+>>>>>>> Stashed changes
                 [ngClass]="{ 'mat-list-item--toggle-on': item.toggled }"
                 >
                 @if (item.icon) {
@@ -102,8 +147,12 @@
                   <mat-nav-list class="level2-nav">
                     @for (child of item.children; track child) {
                       <mat-list-item
+<<<<<<< Updated upstream
                         [routerLink]="child.route"
                         (click)="onMenuItemClick(child)"
+=======
+                        (click)="onMenuItemClick(child); routerClicked(child.route, child)"
+>>>>>>> Stashed changes
                         [ngClass]="{ 'mat-list-item--toggle-on': child.toggled }"
                         >
                         @if (child.icon) {
@@ -138,12 +187,23 @@
     <!-- Drag bar -->
     <!-- Removed Mat-divider as backdrop-click is not active for all type of navigation-drawer. 
     Kept the html code here for later improvements required in future-->
+<<<<<<< Updated upstream
     <!-- <mat-divider
       vertical
       class="sidenav-drag-handle"
       [class.enabled] = "isDraggable"
       >
     </mat-divider> -->
+=======
+    <mat-divider
+      vertical
+      class="sidenav-drag-handle"
+      [class.enabled] = "isDraggable"
+      (mousedown)="isDraggable && startDragging($event)"
+      (touchstart)="isDraggable && startDragging($event)"
+      >
+    </mat-divider>
+>>>>>>> Stashed changes
   </mat-sidenav>
   <mat-sidenav-content #sidenavContent class="content">
     <router-outlet></router-outlet>

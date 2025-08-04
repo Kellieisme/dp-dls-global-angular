@@ -1,0 +1,44 @@
+@use '@design/dls-global-assets/dist/scss/base/_bootstrapMixins' as bm;
+
+$raw: bm.$custom-grid-breakpoints;
+// Manually re-map into sorted order
+$grid-breakpoints: (
+  xs: map-get($raw, xs),
+  sm: map-get($raw, sm),
+  md: map-get($raw, md),
+  lg: map-get($raw, lg),
+  xl: map-get($raw, xl),
+  xxl: map-get($raw, xxl)
+);
+$container-max-widths : bm.$container-max-widths;
+
+$gutters: (
+  xs: bm.$spacer *.25,
+  sm: bm.$spacer * .5,
+  md: bm.$spacer,
+  lg: bm.$spacer * 1.25,
+  xl: bm.$spacer * 1.50,
+  xxl: bm.$spacer * 1.75,
+);
+
+@import 'bootstrap/scss/functions';
+
+@import 'bootstrap/scss/variables';
+
+@import 'bootstrap/scss/mixins';
+
+
+
+@mixin media-up($breakpoint) {
+  @include media-breakpoint-up($breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-down($breakpoint) {
+  @include media-breakpoint-down($breakpoint) {
+    @content;
+  }
+}
+
+$breakpoints: $grid-breakpoints;

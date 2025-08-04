@@ -1,5 +1,5 @@
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss";
+@use "@design/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@design/dls-global-assets/dist/scss/base/_variablesBase.scss" as varsbase;
 
 // Constants
 $section-label-max-width: 82%;
@@ -27,7 +27,7 @@ mat-sidenav-container {
   mat-sidenav:not(.mat-drawer-opened) {
     transform: translate3d(0, 0, 0) !important;
     visibility: visible !important;
-    width: $size-relaxed-spacing-8xl !important;
+    width: vars.$size-relaxed-spacing-8xl !important;
     overflow: hidden;
   }
 
@@ -47,42 +47,62 @@ mat-sidenav {
   flex-direction: column;
   height: 100%;
   width: $side-nav-width;
+<<<<<<< Updated upstream
   backdrop-filter: blur($size-base-shadow-blur-100);
   padding: $size-relaxed-spacing-l $size-relaxed-spacing-s;
+=======
+  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
+  padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-s;
+>>>>>>> Stashed changes
   box-shadow: none;
   border-right-color: var(--mat-sidenav-container-divider-color, transparent);
   border-right-width: 1px;
   border-right-style: solid;
+<<<<<<< Updated upstream
+=======
+  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
+  padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-s;
+>>>>>>> Stashed changes
 
   mat-list-item {
+    .mdc-list-item__content {
+      overflow: visible;
+    }
     &.mat-mdc-list-item {
       background-color: transparent;
+
       &:focus {
         background-color: var(--color-interactive-primary-background-enabled-tonal);
       }
+
       &:active {
         background-color: var(--color-interactive-primary-background-selected);
       }
+
       &:hover:not(:disabled), &.mat-list-item--toggle-on {
         background-color: var(--color-interactive-primary-background-hovered);
+
         .mdc-list-item__primary-text {
           text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
+          overflow: visible;
         }
+
         .mat-icon.mat-mdc-list-item-icon {
           overflow: visible;
-          filter: drop-shadow(
-            var(--box-shadow-interactive-primary-glow-backlit)
-          );
+          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
         }
       }
     }
+
     .mdc-list-item__primary-text {
-      font-weight: $content-base-font-weight-medium;
+      font-weight: vars.$content-base-font-weight-medium;
     }
   }
+
   .mat-mdc-nav-list {
-    padding: $size-relaxed-spacing-none;
+    padding: vars.$size-relaxed-spacing-none;
   }
+
   ba-user-profile {
     display: flex;
     justify-content: center;
@@ -92,23 +112,25 @@ mat-sidenav {
 
 html .theme-condensed {
     .mat-sidenav {
-      padding: $size-relaxed-spacing-m $size-relaxed-spacing-s;
+      padding: vars.$size-relaxed-spacing-m vars.$size-relaxed-spacing-s;
     }
 }
+
 html {
   .mat-sidenav {
     --mat-sidenav-container-width: #{$side-nav-width};
+
     .mdc-list-item--with-leading-icon.mdc-list-item {
-      padding-left: $size-relaxed-spacing-none;
-      padding-right: $size-relaxed-spacing-none;
-    }
-.level2-nav,
-.level3-nav {
-  .mat-list-item.mat-mdc-list-item,
-  .mdc-list-item--with-leading-icon.mdc-list-item {
-    padding-left: $size-relaxed-spacing-2xl;
-  }
-}
+      padding-left: vars.$size-relaxed-spacing-none;
+      padding-right: vars.$size-relaxed-spacing-none;
+    }   
+    .level2-nav,
+    .level3-nav {
+        .mat-list-item.mat-mdc-list-item,
+        .mdc-list-item--with-leading-icon.mdc-list-item {
+          padding-left: vars.$size-relaxed-spacing-2xl;
+        }
+      }
   }
 }
 
@@ -118,12 +140,14 @@ html {
 
   .divider {
     transform: rotate(36deg);
-    margin-left: $size-relaxed-sizing-m;
-    margin-right: $size-relaxed-sizing-m;
+    margin-left: vars.$size-relaxed-sizing-m;
+    margin-right: vars.$size-relaxed-sizing-m;
   }
+
   .app-home-link {
     justify-content: left;
     display: flex;
+
     &:focus {
       outline: none;
     }
@@ -137,8 +161,8 @@ html {
 }
 
 .hide-app-name {
-  opacity: $size-base-spacing-0px;
-  height: $size-base-spacing-0px;
+  opacity: vars.$size-base-spacing-0px;
+  height: vars.$size-base-spacing-0px;
   display: none;
 }
 
@@ -149,14 +173,22 @@ html {
 .navigation__app-icon--dark {
   display: block;
   &.letter-mark {
+<<<<<<< Updated upstream
     padding: 0 $size-relaxed-sizing-m;
+=======
+    padding-left: vars.$size-relaxed-sizing-m;
+>>>>>>> Stashed changes
   }
 }
 
 .theme-light .navigation__app-icon--light {
   display: block;
   &.letter-mark {
+<<<<<<< Updated upstream
     padding: 0 $size-relaxed-sizing-m;
+=======
+    padding-left: vars.$size-relaxed-sizing-m;
+>>>>>>> Stashed changes
   }
 }
 
@@ -168,9 +200,10 @@ html {
   justify-content: left;
   text-align: center;
   align-items: center;
+
   .section-header-label {
-    font-size: $responsive-type-label-medium-size-m;
-    padding-left: $size-relaxed-spacing-m;
+    font-size: vars.$responsive-type-label-medium-size-m;
+    padding-left: vars.$size-relaxed-spacing-m;
     color: var(--color-ui-textandicon-low);
     text-align: left;
   }
@@ -180,11 +213,15 @@ html {
   display: flex;
   flex-shrink: 0;
   position: absolute;
-  bottom: $size-relaxed-spacing-s;
+  bottom: vars.$size-relaxed-spacing-s;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+<<<<<<< Updated upstream
   padding: 0 $size-relaxed-spacing-xs !important;
+=======
+  padding: 0 vars.$size-relaxed-spacing-xs !important;
+>>>>>>> Stashed changes
 }
 
 .dropdown-icon {
@@ -209,8 +246,8 @@ mat-nav-list {
 }
 
 .mat-sidenav .mat-divider {
-  margin-top: $size-relaxed-spacing-s;
-  margin-bottom: $size-relaxed-spacing-s;
+  margin-top: vars.$size-relaxed-spacing-s;
+  margin-bottom: vars.$size-relaxed-spacing-s;
   &.sidenav-drag-handle {
     position: absolute;
     height: 100%;
@@ -218,7 +255,7 @@ mat-nav-list {
     right: 0;
     bottom: 0;
     margin: 0;
-    padding-left: $size-relaxed-sizing-s;
+    padding-left: vars.$size-relaxed-sizing-s;
 
     &.enabled {
       cursor: ew-resize;
@@ -226,14 +263,17 @@ mat-nav-list {
       &:hover,
       &:focus,
       &:active {
-        border-right-width: $size-relaxed-spacing-2xs;
+        border-right-width: vars.$size-relaxed-spacing-2xs;
       }
+
       &:hover {
         border-color: var(--color-interactive-accent-border-hovered);
       }
+
       &:focus {
         border-color: var(--color-interactive-accent-border-selected);
       }
+
       &:active {
         border-color: var(--color-interactive-accent-border-enabled);
       }

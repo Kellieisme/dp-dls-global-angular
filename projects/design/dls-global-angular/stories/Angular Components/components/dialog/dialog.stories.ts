@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Component, Input, inject, TemplateRef, ViewChild } from '@angular/core';
-import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-registry';
 
 @Component({
     selector: 'storybook-dialog-page',
@@ -14,22 +14,32 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
         Open Dialog
       </button>
     </div>
-
+    
     <ng-template #basicDialog let-data="data">
+<<<<<<< Updated upstream
 
       <div class="d-flex">
       <div class="d-flex">
 
         @if (args.withIcon) {
           <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
+=======
+    
+      <div class="d-flex">
+    
+>>>>>>> Stashed changes
         @if (args.withIcon) {
           <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
             <mat-icon svgIcon="icon-warning"></mat-icon>
           </div>
         }
+<<<<<<< Updated upstream
           </div>
         }
 
+=======
+    
+>>>>>>> Stashed changes
         @if (args.closeButton) {
           <div class="ms-auto" style="padding: 4px 4px 0 0; margin-bottom: 0;">
             <button mat-icon-button mat-dialog-close="true">
@@ -37,6 +47,7 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
             </button>
           </div>
         }
+<<<<<<< Updated upstream
         @if (args.closeButton) {
           <div class="ms-auto" style="padding: 4px 4px 0 0; margin-bottom: 0;">
             <button mat-icon-button mat-dialog-close="true">
@@ -48,9 +59,17 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
       </div>
 
 
+=======
+    
+      </div>
+    
+    
+>>>>>>> Stashed changes
       <!-- 6px 24px 13px -->
       <h2 mat-dialog-title style="padding-top: 0px; margin-top: 0px;">Dialog Title</h2>
       <mat-dialog-content>
+
+      <mat-flat-button color="accent">Flat button</mat-flat-button>
         <p>
           A dialog is a type of modal window that appears in front of app
           content to provide critical information, or prompt for a decision to
@@ -63,27 +82,27 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
           you in control over scalability. Meet huge data requirements by
           building data models on RxJS, Immutable.js or another push-model.
         </p>
-
+    
         <h3 class="title-medium">Incredible tooling</h3>
         <p>
           Build features quickly with simple, declarative templates. Extend the
           template language with your own components and use a wide array of
           existing components.
         </p>
-
+    
         <p>
           Get immediate Angular-specific help and feedback with nearly every IDE
           and editor. All this comes together so you can focus on building
           amazing apps rather than trying to make the code work.
         </p>
-
+    
         <p>
           From prototype through global deployment, Angular delivers the
           productivity and scalable infrastructure that supports Google's
           largest applications.
         </p>
       </mat-dialog-content>
-
+    
       <mat-dialog-actions class="d-flex">
         @if (args.tertiaryButton) {
           <button
@@ -106,7 +125,7 @@ import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angu
           Install
         </button>
       </mat-dialog-actions>
-
+    
     </ng-template>
     `,
     standalone: false

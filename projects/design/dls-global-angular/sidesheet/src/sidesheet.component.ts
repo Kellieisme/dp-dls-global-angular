@@ -10,7 +10,11 @@ import {
   AtmosphereSidesheetButtonsArray
 } from './sidesheet.types';
 
+<<<<<<< Updated upstream
 import {IconRegistryModule} from "@dasdigitalplatform/dls-global-angular/icon-registry";
+=======
+import { IconRegistryModule } from "@design/dls-global-angular/icon-registry";
+>>>>>>> Stashed changes
 
 export enum SidesheetVariant {
   STANDARD = 'standard',

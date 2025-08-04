@@ -1,9 +1,10 @@
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@use "@design/dls-global-assets/dist/scss/base/_variables.scss" as vars;
 
 :host {
   mat-sidenav-container {
     height: 100vh;
   }
+
   mat-sidenav {
     background-color: var(--color-ui-background-lowest);
     display: flex;
@@ -14,8 +15,8 @@
       background-color: var(--color-ui-background-lowest);
       padding-top: var(--size-spacing-s);
       padding-right: var(--size-spacing-s);
-      padding-bottom: $size-relaxed-spacing-s;
-      padding-left: $size-relaxed-spacing-xl;
+      padding-bottom: vars.$size-relaxed-spacing-s;
+      padding-left: vars.$size-relaxed-spacing-xl;
     }
 
     .sidesheet-content {
@@ -24,6 +25,7 @@
 
     &.mat-drawer-over {
       background-color: var(--color-ui-glass-surface-thick);
+
       mat-toolbar {
         background-color: var(--color-ui-glass-surface-thick);
       }
@@ -32,16 +34,16 @@
 
   .sidesheet-footer {
     position: absolute;
-    padding: $size-relaxed-spacing-m $size-relaxed-spacing-xl;
-    bottom: $size-relaxed-spacing-none;
-    right: $size-relaxed-spacing-none;
+    padding: vars.$size-relaxed-spacing-m vars.$size-relaxed-spacing-xl;
+    bottom: vars.$size-relaxed-spacing-none;
+    right: vars.$size-relaxed-spacing-none;
     width: 100%;
 
     .footer-actions {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: $size-relaxed-spacing-xs;
+      gap: vars.$size-relaxed-spacing-xs;
     }
   }
 }

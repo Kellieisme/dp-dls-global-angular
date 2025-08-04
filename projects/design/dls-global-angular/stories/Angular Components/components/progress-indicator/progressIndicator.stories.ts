@@ -17,7 +17,7 @@ export default {
     mode: {
       description: 'Mode', // Description shown in Storybook Docs
       control: 'select', // Control type 'select' allows choosing from predefined options
-      options: ['determinate', 'indeterminate', 'buffer', 'query'], // Available modes
+      options: ['determinate', 'indeterminate'], // Available modes
       defaultValue: 'determinate', // Default mode value
       table: {
         defaultValue: { summary: 'determinate' }, // Shown as the default value in Storybook’s table
@@ -33,6 +33,31 @@ export default {
       },
       if: { arg: 'mode', eq: 'determinate' }, // Control only appears if 'mode' is set to 'determinate'
     },
+    color: {
+      description: 'Color', // Description shown in Storybook Docs
+      control: 'select', // Control type 'select' allows choosing from predefined options
+      options: ['','progress-success', 'progress-warning', 'progress-error'], // Available modes
+      defaultValue: '', // Default mode value kept blank to get the default value
+      table: {
+        defaultValue: { summary: '' }, // Shown as the default value in Storybook’s table
+      },
+    },
+    strokeWidth: {
+      description: 'Stroke Width of the spinner-indicator',
+      control: {type: 'range', min: 1, max: 20, step: 1 },
+      defaultValue: 10,
+      table: {
+        defaultValue: { summary: '10' }
+      }
+    },
+    diameter: {
+      description: 'Diameter of the spinner-indicator',
+      control: {type: 'range', min: 50, max: 200, step: 1},
+      defaultValue: 100,
+      table: {
+        defaultValue: { summary: '100' }
+      }
+    }
   },
 } as Meta;
 
@@ -41,6 +66,7 @@ const ProgressBarTemplate: StoryObj = {
   args: {
     mode: 'determinate', // Default mode for the progress bar
     value: 50,           // Default progress value
+    color: '',           // Default is empty string which means the info color will be in effect by default
   },
 };
 
@@ -49,16 +75,23 @@ const ProgressSpinnerTemplate: StoryObj = {
   args: {
     mode: 'determinate', // Default mode for the progress spinner
     value: 50,           // Default progress value
+    color: '',           // Default is empty string which means the info color will be in effect by default,
+    strokeWidth: 10,
+    diameter: 100,
   },
 };
 
 // Story configuration for the Progress Bar component
 export const ProgressBar: StoryObj = {
   ...ProgressBarTemplate, // Reuses default args from ProgressBarTemplate
-  render: ({ mode, value }) => ({
-    props: { mode, value }, // Binds mode and value as properties for the component
+  argTypes: {
+    strokeWidth: { table: { disable: true } },
+    diameter: { table: { disable: true } },
+  },
+  render: ({ mode, value, color }) => ({
+    props: { mode, value, color }, // Binds mode and value as properties for the component
     template: `
-      <mat-progress-bar [mode]="mode" [value]="value"></mat-progress-bar>
+      <mat-progress-bar [mode]="mode" [value]="value" class='{{color}}'></mat-progress-bar>
       <!-- Angular Material Progress Bar component with mode and value bindings -->
     `,
   }),
@@ -68,10 +101,10 @@ export const ProgressBar: StoryObj = {
 // Story configuration for the Progress Spinner component
 export const ProgressSpinner: StoryObj = {
   ...ProgressSpinnerTemplate, // Reuses default args from ProgressSpinnerTemplate
-  render: ({ mode, value }) => ({
-    props: { mode, value }, // Binds mode and value as properties for the component
+  render: ({ mode, value, color, strokeWidth, diameter }) => ({
+    props: { mode, value, color, strokeWidth, diameter }, // Binds mode and value as properties for the component
     template: `
-    <mat-progress-spinner [mode]="mode" [value]="value"></mat-progress-spinner>
+    <mat-progress-spinner [mode]="mode" [value]="value" class='{{color}}' [strokeWidth]="strokeWidth" [diameter]="diameter"></mat-progress-spinner>
     <!-- Angular Material Progress Spinner component with mode and value bindings -->
     `,
   }),

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+<<<<<<< Updated upstream
+=======
+import { BreadcrumbComponent } from '@design/dls-global-angular/breadcrumb';
+>>>>>>> Stashed changes
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
@@ -9,7 +13,7 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
     imports: [MatButtonModule, BreadcrumbComponent, IconRegistryModule],
     templateUrl: './breadcrumb.component.html',
     styleUrl: './breadcrumb.component.scss'
-})
+}) 
 export class BreadcrumbPageComponent {
   title = 'Breadcrumb';
 

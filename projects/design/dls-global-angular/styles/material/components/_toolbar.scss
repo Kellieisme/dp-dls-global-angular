@@ -1,25 +1,21 @@
 @use '@angular/material' as mat;
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
-@import '../m3-theme.scss';
+@use '@design/dls-global-assets/dist/scss/base/_variables.scss';
+@use '@design/dls-global-assets/dist/scss/base/_variablesBase.scss';
+@use '../m3-theme.scss' as m3;
 
 :root {
 	// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-	@include mat.toolbar-theme($dark-theme);
-	// If needed use the single dimension mixins to override particular aspects
-	// @include mat.button-base($dark-theme);
-	// @include mat.button-color($dark-theme);
-	// @include mat.button-typography($dark-theme);
-	// @include mat.button-density($dark-theme);
+	@include mat.toolbar-theme(m3.$dark-theme);
 }
 
 
 .theme-light {
-	@include mat.toolbar-color($light-theme);
+	@include mat.toolbar-color(m3.$light-theme);
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
 	--mat-toolbar-container-background-color: var(--color-ui-glass-surface-thinnest);
 	--mat-toolbar-container-text-color: var(--color-ui-textandicon-high);
 }

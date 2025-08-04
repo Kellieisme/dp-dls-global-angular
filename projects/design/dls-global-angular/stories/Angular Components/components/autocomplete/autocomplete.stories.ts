@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
 
 @Component({
     selector: 'autocomplete-example',

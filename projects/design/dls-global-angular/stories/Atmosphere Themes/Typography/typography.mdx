@@ -5,10 +5,77 @@ import { NoData, Red_text } from "../../../mdx_styles.mdx";
 
 <div
   style={{
-    backgroundColor: "var(--color-ui-background-low)",
+    backgroundColor: "var(--color-ui-background-medium)",
     padding: "8px 15px",
     borderRadius: "8px",
   }}
 >
-<NoData></NoData>
+# Typography
+
+Typography classes provided by the Atmosphere library adhere to breakpoints. This means that if you use the typography classes then the texts will automatically resize according to screen size.
+All these classes use 'boeing-meso'.
+
+For these classes to work , angular.json should be properly configured.
+
+
+<Markdown>
+{`
+| Class                      | Usage in HTML                                                                                     |
+|----------------------------|---------------------------------------------------------------------------------------------------|
+|                            | <h1>[h1] Heading High - Lorem ipsum dolor amet, sed do dolore magna aliqua.</h1>               |
+|                            | <h2>[h2] Heading Medium - Lorem ipsum dolor amet, sed do dolore magna aliqua.</h2>             |
+|                            | <h3>[h3] Heading Low - Lorem ipsum dolor amet, sed do dolore magna aliqua.</h3>                |
+|                            | <h4>[h4] Title High - Lorem ipsum dolor amet, sed do dolore magna aliqua.</h4>                 |
+|                            | <h5>[h5] Title Medium - Lorem ipsum dolor amet, sed do dolore magna aliqua.</h5>               |
+|                            | <h6>[h6] Title Low - Lorem ipsum dolor amet, sed do dolore magna aliqua.</h6>                  |
+| display-high               | <div class="display-high">[h1.display-high] Display High - Lorem ipsum dolor amet, sed do dolore magna aliqua.</div> |
+| display-medium             | <div class="display-medium">[h1.display-medium] Display Medium - Lorem ipsum dolor amet, sed do dolore magna aliqua.</div> |
+| body-high-default          | <p class="body-high-default">[p.body-high-default] Body High Default - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| body-high-highlight        | <p class="body-high-highlight">[p.body-high-highlight] Body High Highlight - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+|                            | <p>[p] Body Medium Default - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p>           |
+| body-medium-highlight      | <p class="body-medium-highlight">[p.body-medium-highlight] Body Medium Highlight - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| body-low-default           | <p class="body-low-default">[p.body-low-default] Body Low Default - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| body-low-highlight         | <p class="body-low-highlight">[p.body-low-highlight] Body Low Highlight - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| body-lowest-default        | <p class="body-lowest-default">[p.body-lowest-default] Body Lowest Default - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| label-high                 | <p class="label-high">[p.label-high] Label High - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| label-medium               | <p class="label-medium">[p.label-medium] Label Medium - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| label-low                  | <p class="label-low">[p.label-low] Label Low - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| label-lowest               | <p class="label-lowest">[p.label-lowest] Label Lowest - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+| label-lowest2              | <p class="label-lowest2">[p.label-lowest-2] Label Lowest 2 - Lorem ipsum dolor amet, sed do dolore magna aliqua.</p> |
+`}
+</Markdown>
+
 </div>
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+      
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>

@@ -20,8 +20,18 @@ Atmosphere has two main NPM packages that contain the Atmophere tokens and the s
 
 ## Before you start
 
-- If you don't have an Angular project, [set one up](?path=/docs/get-started-set-up-your-angular-project-create-your-angular-project--docs)
+- If you don't have an Angular project, [set one up](?path=/docs/installation-create-an-angular-project--overview)
 - If you have a Angular project , make sure it is 17 or above to ensure compatiblility with Atmophere.
+
+## Get Angular Material
+
+Atmophere component library is based on Angular Material , therefore make sure that you have it added to your project before setting up Atmosphere.
+
+If you do not have angular material, run the below code in your terminal.
+
+```cmd
+ng add @angular/material
+```
 
 ## Setting Up .npmrc file
 
@@ -47,7 +57,7 @@ Please be connected to your Boeing VPN.
     //sres.web.boeing.com/artifactory/api/npm/npm-remote/:username=JFROG_USERNAME
     //sres.web.boeing.com/artifactory/api/npm/npm-remote/:email=EMAIL
     //sres.web.boeing.com/artifactory/api/npm/npm-remote/:always-auth=true
-    @dasdigitalplatform:registry=https://git.web.boeing.com/api/v4/packages/npm/
+    @design:registry=https://git.web.boeing.com/api/v4/packages/npm/
     //git.web.boeing.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
 
     ```
@@ -88,7 +98,7 @@ Please be connected to your Boeing VPN.
 
 ### Replace the following values:
 
-   <Markdown>
+<Markdown>
   {`
 | Value             | Description                                                                                  |
 | ----------------- | -------------------------------------------------------------------------------------------- |
@@ -108,15 +118,15 @@ Find the packages below:
 <div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
 <details>
 
-  <summary style={{ fontSize: "17px", cursor: "pointer" }}>
-    > #### Packages for Angular 17
-  </summary>
-  To install the packages for Angular 17, run the following command:
+<summary style={{ fontSize: "17px", cursor: "pointer" }}>
+  > #### Packages for Angular 17
+</summary>
+To install the packages for Angular 17, run the following command:
 
-  ```cmd
-  npm install @dasdigitalplatform/dls-global-angular@1.0.1 --legacy-peer-deps
-  npm install @dasdigitalplatform/dls-global-assets@1.0.0 --legacy-peer-deps
-  ```
+```cmd
+npm install @design/dls-global-angular@1.0.1 --legacy-peer-deps
+npm install @design/dls-global-assets@1.0.0 --legacy-peer-deps
+```
 
 </details>
 </div>
@@ -124,15 +134,15 @@ Find the packages below:
 <div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
 <details>
 
-  <summary style={{ fontSize: "17px", cursor: "pointer" }}>
-    > #### Packages for Angular 18
-  </summary>
+<summary style={{ fontSize: "17px", cursor: "pointer" }}>
+  > #### Packages for Angular 18
+</summary>
 
-  To install the packages for Angular 18, run the following command:
+To install the packages for Angular 18, run the following command:
 
   ```cmd
-  npm install @dasdigitalplatform/dls-global-angular@2.5.5 --legacy-peer-deps
-  npm install @dasdigitalplatform/dls-global-assets@2.0.0 --legacy-peer-deps
+  npm install @design/dls-global-angular@2.7.1 --legacy-peer-deps
+  npm install @design/dls-global-assets@2.1.2-beta --legacy-peer-deps
   ```
 
 </details>
@@ -146,9 +156,10 @@ Find the packages below:
     To install the packages for Angular 19, run the following command:
 
     ```cmd
-    npm install @dasdigitalplatform/dls-global-angular@3.0.9 --legacy-peer-deps
-    npm install @dasdigitalplatform/dls-global-assets@2.0.0 --legacy-peer-deps
+    npm install @design/dls-global-angular@3.2.3 --legacy-peer-deps
+    npm install @design/dls-global-assets@2.0.0 --legacy-peer-deps
     ```
+
 </details>
 </div>
 
@@ -159,13 +170,46 @@ Find the packages below:
 > ```
 
 <Info_Blue_text>
-After the installation you should find a `@dasdigitalplatform` folder in your `node_modules` folder with both `dls-global-angular` and `dls-global-assets`
+After the installation you should find a `@design` folder in your `node_modules` folder with both `dls-global-angular` and `dls-global-assets`
 </Info_Blue_text>
 
 Almost done just a few more steps ...
 
 > ## Up Next: Configurations for Atmosphere
 >
-> Now we need to [Set Global Styles and Fonts](?path=/docs/get-started-install-configure-atmosphere-setting-global-styles-and-fonts--docs)
+> Now we need to [Set Global Styles and Fonts](?path=/docs/installation-setting-global-styles-and-fonts--overview)
 
 </div>
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+      
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>

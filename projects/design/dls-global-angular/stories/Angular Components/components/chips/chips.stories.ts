@@ -7,8 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
-import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
+import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-registry';
+import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
 import { Component, Input, inject, signal } from '@angular/core';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 
@@ -17,13 +17,21 @@ export interface LabelExample {
 }
 
 @Component({
+<<<<<<< Updated upstream
       selector: 'storybook-chips-page',
       template: `
+=======
+    selector: 'storybook-chips-page',
+    template: `
+>>>>>>> Stashed changes
     @if (variant === 'InputChips') {
       <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGrid aria-label="Enter labels">
           @for (labelExample of labelExamples(); track labelExample) {
+<<<<<<< Updated upstream
           @for (labelExample of labelExamples(); track labelExample) {
+=======
+>>>>>>> Stashed changes
             <mat-chip-row
               (removed)="remove(labelExample)"
               [editable]="true"
@@ -32,7 +40,11 @@ export interface LabelExample {
               >
               @if (withIcon) {
                 <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
+<<<<<<< Updated upstream
               },
+=======
+              }
+>>>>>>> Stashed changes
               @if (withIcon && iconType === 'favicon') {
                 <mat-icon svgIcon="icon-favorite" matChipAvatar></mat-icon>
               }
@@ -40,12 +52,18 @@ export interface LabelExample {
               <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
                 <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
               </button>
+<<<<<<< Updated upstream
               </button>
             </mat-chip-row>
           }
           <input
           }
           <input
+=======
+            </mat-chip-row>
+          }
+          <input
+>>>>>>> Stashed changes
             placeholder="Add item ..."
             [matChipInputFor]="chipGrid"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -55,6 +73,7 @@ export interface LabelExample {
         </mat-chip-grid>
       </mat-form-field>
     }
+<<<<<<< Updated upstream
       </mat-form-field>
     }
 
@@ -62,6 +81,9 @@ export interface LabelExample {
       <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGridAvatar aria-label="Enter chips">
           @for (labelExample of labelExamples(); track labelExample.name) {
+=======
+    
+>>>>>>> Stashed changes
     @if (variant === 'AvatarInputChips') {
       <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGridAvatar aria-label="Enter chips">
@@ -78,6 +100,7 @@ export interface LabelExample {
               <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
                 <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
               </button>
+<<<<<<< Updated upstream
               (removed)="remove(labelExample)"
               [editable]="true"
               (edited)="edit(labelExample, $event)"
@@ -94,6 +117,11 @@ export interface LabelExample {
           <input
           }
           <input
+=======
+            </mat-chip-row>
+          }
+          <input
+>>>>>>> Stashed changes
             placeholder="New thing..."
             [matChipInputFor]="chipGridAvatar"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -103,6 +131,7 @@ export interface LabelExample {
         </mat-chip-grid>
       </mat-form-field>
     }
+<<<<<<< Updated upstream
             />
         </mat-chip-grid>
       </mat-form-field>
@@ -114,6 +143,9 @@ export interface LabelExample {
         cdkDropList
         cdkDropListOrientation="horizontal"
         (cdkDropListDropped)="drop($event)"
+=======
+    
+>>>>>>> Stashed changes
     @if (variant === 'AssistiveChips') {
       <mat-chip-set
         class="example-chip"
@@ -123,8 +155,11 @@ export interface LabelExample {
         >
         @for (labelExample of labelExamples(); track labelExample.name) {
           <mat-chip
+<<<<<<< Updated upstream
         @for (labelExample of labelExamples(); track labelExample.name) {
           <mat-chip
+=======
+>>>>>>> Stashed changes
             class="example-box assistive"
             [class.elevated]="style === 'elevated'"
             cdkDrag>
@@ -136,6 +171,7 @@ export interface LabelExample {
                 matChipAvatar
                 src="./assets/card-img-1.png"
                 alt="Example photo"
+<<<<<<< Updated upstream
             @if (withIcon && iconType === 'leading') {
               <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
             }
@@ -144,6 +180,8 @@ export interface LabelExample {
                 matChipAvatar
                 src="./assets/card-img-1.png"
                 alt="Example photo"
+=======
+>>>>>>> Stashed changes
                 />
             }
             {{labelExample.name}}
@@ -151,6 +189,7 @@ export interface LabelExample {
         }
       </mat-chip-set>
     }
+<<<<<<< Updated upstream
             }
             {{labelExample.name}}
           </mat-chip>
@@ -180,6 +219,17 @@ export interface LabelExample {
         }
       </mat-chip-listbox>
     }
+=======
+    
+    @if (variant === 'FilterAndSuggestionChips') {
+      <mat-chip-listbox aria-label="Labels examples">
+        @for (labelExample of labelExamples(); track labelExample.name) {
+          <mat-chip-option [class.elevated]="style === 'elevated'">
+            @if (withIcon) {
+              <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
+            }
+            {{labelExample.name}}
+>>>>>>> Stashed changes
             @if (withTrailingIcon) {
               <mat-icon svgIcon="icon-expand-more" MatChipTrailingIcon></mat-icon>
             }

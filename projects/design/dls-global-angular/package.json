@@ -1,8 +1,13 @@
 {
+<<<<<<< Updated upstream
   "name": "@dasdigitalplatform/dls-global-angular",
   "version": "3.2.2",
   "license": "MIT",
   "private": false,
+=======
+  "name": "@design/dls-global-angular",
+  "version": "3.4.0",
+>>>>>>> Stashed changes
   "peerDependencies": {
     "@angular/animations": "^19.2.14",
     "@angular/cdk": "^19.2.19",
@@ -13,7 +18,11 @@
     "@angular/material": "^19.2.19",
     "@angular/platform-browser": "^19.2.14",
     "@angular/platform-server": "^19.2.14",
+<<<<<<< Updated upstream
     "@dasdigitalplatform/dls-global-assets": "^2.0.0",
+=======
+    "@design/dls-global-assets": "^2.1.2",
+>>>>>>> Stashed changes
     "zone.js": "^0.15.1"
   },
   "dependencies": {
@@ -22,11 +31,20 @@
   "sideEffects": false,
   "devDependencies": {
     "css-loader": "^7.1.2",
+<<<<<<< Updated upstream
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
     "webpack": "^5.98.1"
+=======
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.100.0"
+>>>>>>> Stashed changes
   }
 }

@@ -1,11 +1,43 @@
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_bootstrapMixins.scss';
+@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+
+@use '../../styles/material/bootstrap' as bootstrap;
+@use '@design/dls-global-assets/dist/scss/global' as global;
+@use '@design/dls-global-assets/dist/scss/base/typography' as typography;
 
 .top-app-bar {
   align-items: center;
   border-bottom: 1px solid var(--color-ui-divider-flat-high);
   background: var(--color-ui-glass-surface-thin);
+}
+
+mat-toolbar h4 {
+  @extend .h1;
+  margin: 0;
+}
+
+mat-toolbar h4 {
+  @extend .h2;
+  margin: 0;
+}
+
+mat-toolbar h4 {
+  @extend .h3;
+  margin: 0;
+}
+
+mat-toolbar h4 {
+  @extend .h4;
+  margin: 0;
+}
+
+mat-toolbar h5 {
+  @extend .h5;
+  margin: 0;
+}
+
+mat-toolbar h6 {
+  @extend .h6;
+  margin: 0;
 }
 
 /* INFO SECTION */
@@ -14,7 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $size-relaxed-spacing-s;
+  gap: vars.$size-relaxed-spacing-s;
   position: relative;
   z-index: 1;
 }
@@ -24,7 +56,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: $size-relaxed-spacing-xs;
+    gap: vars.$size-relaxed-spacing-xs;
+    text-decoration: none;
 
     &:focus {
       outline: none;
@@ -35,9 +68,9 @@
 }
 
 .top-app-bar__app-icon {
-  margin-left: $size-relaxed-spacing-l;
-  height: $size-relaxed-sizing-xl;
-  width: $size-relaxed-sizing-2xl;
+  margin-left: vars.$size-relaxed-spacing-l;
+  height: vars.$size-relaxed-sizing-xl;
+  width: vars.$size-relaxed-sizing-2xl;
   color: white;
 }
 
@@ -47,6 +80,10 @@
 
 .top-app-bar__app-icon--dark {
   display: block;
+}
+
+.app-icon-padding-left{
+  padding-left: vars.$size-relaxed-spacing-s;
 }
 
 ::ng-deep .theme-light .top-app-bar__app-icon--light {
@@ -65,7 +102,7 @@
   display: inline-flex;
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap.media-down(md) {
   .top-app-bar__icon-menu-button {
     display: inline-flex;
   }
@@ -81,7 +118,7 @@
 //   flex-grow: 1;
 //   display: flex;
 //   justify-content: flex-start;
-//   margin-left: $size-relaxed-spacing-xl;
+//   margin-left: vars.$size-relaxed-spacing-xl;
 // }
 
 // .top-app-bar__tabs--centered {
@@ -89,8 +126,8 @@
 //   left: 0;
 //   right: 0;
 //   display: flex;
-//   justify-content: center;
-//   align-items: center;
+//   justify-content: center; 
+//   align-items: center; 
 // }
 
 /* SPACER (only needed for centered variant) */
@@ -108,9 +145,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $size-relaxed-spacing-s;
+  gap: vars.$size-relaxed-spacing-s;
   height: 100%;
-  padding-left: $size-relaxed-spacing-m;
+  padding-left: vars.$size-relaxed-spacing-m;
 }
 
 ::ng-deep .actions {
@@ -123,7 +160,7 @@
   display: none;
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap.media-down(md) {
   ::ng-deep .actions.large-screen {
     display: none;
   }
@@ -146,12 +183,12 @@
     right: var(--size-spacing-s);
     top: var(--size-spacing-s);
     bottom: var(--size-spacing-s);
-    border-left: $size-base-border-width-1 solid var(--color-ui-divider-flat-high);
+    border-left: vars.$size-base-border-width-1 solid var(--color-ui-divider-flat-high);
     height: 100%;
   }
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap.media-down(md) {
   ::ng-deep .divider-parent {
     display: none;
   }
@@ -161,10 +198,10 @@
   display: flex;
   align-items: center;
   z-index: 1;
-  padding: 0 $size-relaxed-spacing-xs;
+  padding: 0 vars.$size-relaxed-spacing-xs;
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap.media-down(md) {
   ::ng-deep .avatar {
     border-left: none;
   }

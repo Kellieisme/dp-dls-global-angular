@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavigationDrawerComponent } from '@dasdigitalplatform/dls-global-angular/navigation-drawer';
-import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
+import { NavigationDrawerComponent } from '@design/dls-global-angular/navigation-drawer';
+import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -15,4 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class NavigationDrawerPageComponent {
   toggled = false;
+
+  handleRouteRequest(event: { route?: string; item?: any}){
+    if(!event.route){
+      console.log('Custom routing for: ', event.item);
+    }
+  }
 }

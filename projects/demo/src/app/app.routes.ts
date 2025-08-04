@@ -20,6 +20,9 @@ import { SelectComponent } from './select/select.component';
 import { TooltipPageComponent } from './tooltip/tooltip.component';
 import { ChipsPageComponent } from './chips/chips.component';
 import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { TypographyComponent } from './typography/typography.component';
+import { GlassExamplesComponent } from './glass-examples/glass-examples.component';
 
 export const routes: Routes = [
   {
@@ -110,6 +113,18 @@ export const routes: Routes = [
   {
     path: 'progress-indicators',
     component: ProgressIndicatorComponent
+  },
+  { 
+    path: 'landing-page',
+    component: LandingPageComponent
+  },
+  {
+    path: 'typography',
+    component: TypographyComponent
+  },
+  {
+    path: 'glass',
+    component: GlassExamplesComponent
   },
   { path: 'breadcrumb', redirectTo: '/level-1', pathMatch: 'full' },
   { path: 'breadcrumb/level-1', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 1' } },

@@ -1,10 +1,12 @@
 @use '@angular/material' as mat;
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_themeMixins.scss';
-@import './m3-theme.scss';
+@use '@design/dls-global-assets/dist/scss/base/_themeMixins.scss' as theme;
+@use './m3-theme.scss' as m3;
+
 
 
 :root {
 
+<<<<<<< Updated upstream
 @include mat.elevation-classes();
 @include mat.app-background();
 
@@ -18,21 +20,45 @@
 // @include mat.core-color($dark-theme);
 // @include mat.core-typography($dark-theme);
 // @include mat.core-density($dark-theme);
+=======
+  @include mat.elevation-classes();
+  @include mat.app-background();
+
+  @include mat.core();
+
+  // Apply the dark theme by default
+  // The core-theme Sass mixin emits prerequisite styles for common features used by multiple components, such as ripples. 
+  // This mixin must be included once per theme.
+  @include mat.core-theme(m3.$dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+  // @include mat.core-base(m3.$dark-theme);
+  // @include mat.core-color(m3.$dark-theme);
+  // @include mat.core-typography(m3.$dark-theme);
+  // @include mat.core-density(m3.$dark-theme);
+>>>>>>> Stashed changes
 }
 
 html {
-  @include theme-dark-color(); // By default, define CSS custom property tokens to "dark" versions
-  @include theme-dark-box-shadow();
-  @include theme-relaxed-size(); // By default, define CSS custom property tokens to "relaxed" versions
+  @include theme.theme-dark-color(); // By default, define CSS custom property tokens to "dark" versions
+  @include theme.theme-dark-box-shadow();
+  @include theme.theme-relaxed-size(); // By default, define CSS custom property tokens to "relaxed" versions
 }
 
 .theme-light {
+<<<<<<< Updated upstream
   @include mat.elevation-classes();
   @include mat.app-background();
   @include theme-light-color(); // Define CSS custom property tokens to "light" versions
   @include theme-light-box-shadow();
+=======
+  @include mat.core-color(m3.$light-theme);
+  @include mat.elevation-classes();
+  @include mat.app-background();
+  @include theme.theme-light-color(); // Define CSS custom property tokens to "light" versions
+  @include theme.theme-light-box-shadow();
+>>>>>>> Stashed changes
 }
 
 .theme-condensed {
-  @include theme-condensed-size(); // Define CSS custom property tokens to "condensed" versions
+  @include theme.theme-condensed-size(); // Define CSS custom property tokens to "condensed" versions
 }

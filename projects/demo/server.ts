@@ -3,7 +3,11 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { renderModule } from '@angular/platform-server';
+<<<<<<< Updated upstream
 import { ThemeToggleModule } from '@dasdigitalplatform/dls-global-angular/theme-toggle';
+=======
+import { ThemeToggleModule } from '@design/dls-global-angular/theme-toggle';
+>>>>>>> Stashed changes
 
 
 
@@ -36,8 +40,13 @@ export function app(): express.Express {
       url: `${protocol}://${headers.host}${originalUrl}`,
       extraProviders: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
     })
+<<<<<<< Updated upstream
       .then((html) => res.send(html))
       .catch((err) => next(err));
+=======
+      .then((html: any) => res.send(html))
+      .catch((err: any) => next(err));
+>>>>>>> Stashed changes
   });
 
   return server;

@@ -1,44 +1,52 @@
 @use '@angular/material' as mat;
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_bootstrapMixins.scss';
-@import '../m3-theme.scss';
+@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '../m3-theme.scss' as m3;
+
+@use '@design/dls-global-assets/dist/scss/base/_bootstrapMixins' as bm;
+@use '../bootstrap' as bootstrap;
+
+$grid-breakpoints: bm.$custom-grid-breakpoints !default;
+$container-max-widths : bm.$container-max-widths !default;
+$grid-gutter-width:           1.5rem !default;
+$gutters: bootstrap.$gutters !default;
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/grid";
 
 :root {
 
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.card-theme($dark-theme);
-  // If needed use the single dimension mixins to override particular aspects
-  // @include mat.button-base($dark-theme);
-  // @include mat.button-color($dark-theme);
-  // @include mat.button-typography($dark-theme);
-  // @include mat.button-density($dark-theme);
+  @include mat.card-theme(m3.$dark-theme);
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.card-color($light-theme);
+  @include mat.card-color(m3.$light-theme);
 }
 
-// TODO: Temporary specular border values until we can fix the mixin
+// TODO: cardorary specular border values until we can fix the mixin
 // The mixin uses border-image-source to create a gradient border but
 // this does not seem to work as intended, needs more investigation
-$composition-light-ui-glass-border-specular-temp: rgba(255, 255, 255, 0.40);
-$composition-dark-ui-glass-border-specular-temp: rgba(255, 255, 255, 0.17);
+$composition-light-ui-glass-border-specular-card: rgba(255, 255, 255, 0.40);
+$composition-dark-ui-glass-border-specular-card: rgba(255, 255, 255, 0.17);
 
-// TODO: Temporary specular surface values until we can fix the token
+// TODO: cardorary specular surface values until we can fix the token
 // Currently the glass gradients are mixins, but we need them to be single-value variables
 // so they can be used in combination with solid colors to have multiple backgrounds
 // For example:
 // selector {
 //   background: linear-gradient(-156deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.02) 100%), #bdc7d00d);
 // }
-$composition-light-ui-glass-surface-specular-temp: linear-gradient(-156deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.16) 100%);
-$composition-dark-ui-glass-surface-specular-temp: linear-gradient(-156deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.02) 100%);
+$composition-light-ui-glass-surface-specular-card: linear-gradient(-156deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.16) 100%);
+$composition-dark-ui-glass-surface-specular-card: linear-gradient(-156deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.02) 100%);
 
 @mixin card-landscape {
   flex-direction: row;
+
   .mat-mdc-card-image {
     width: 33%;
     padding-bottom: var(--size-spacing-xs);
@@ -49,34 +57,40 @@ $composition-dark-ui-glass-surface-specular-temp: linear-gradient(-156deg, rgba(
   display: block;
   height: 100%;
   background-color: var(--color-ui-background-high);
+  text-decoration: none;
+
   &.mat-card-wrapper--outlined {
     background-color: var(--color-ui-glass-surface-thick);
-    @include composition-dark-ui-glass-background-blur;
+    @include composition.composition-dark-ui-glass-background-blur;
     .theme-light & {
-      @include composition-light-ui-glass-background-blur;
+      @include composition.composition-light-ui-glass-background-blur;
     }
+
     &:hover {
       .mat-mdc-card-outlined {
-        background: $composition-dark-ui-glass-surface-specular-temp, var(--color-interactive-primary-background-hovered);
+        background: $composition-dark-ui-glass-surface-specular-card, var(--color-interactive-primary-background-hovered);
         .theme-light & {
-          background: $composition-light-ui-glass-surface-specular-temp, var(--color-interactive-primary-background-hovered);
+          background: $composition-light-ui-glass-surface-specular-card, var(--color-interactive-primary-background-hovered);
         }
       }
     }
-    &:focus, &:active, &.mat-card-wrapper--dragged {
+
+    &:focus,
+    &:active,
+    &.mat-card-wrapper--dragged {
       .mat-mdc-card-outlined {
-        background: $composition-dark-ui-glass-surface-specular-temp, var(--color-interactive-primary-background-selected);
+        background: $composition-dark-ui-glass-surface-specular-card, var(--color-interactive-primary-background-selected);
         .theme-light & {
-          background: $composition-light-ui-glass-surface-specular-temp, var(--color-interactive-primary-background-selected);
+          background: $composition-light-ui-glass-surface-specular-card, var(--color-interactive-primary-background-selected);
         }
       }
     }
 
     &.mat-card-wrapper--disabled {
-      background: $composition-dark-ui-glass-surface-specular-temp, var(--color-interactive-primary-background-disabled);
+      background: $composition-dark-ui-glass-surface-specular-card, var(--color-interactive-primary-background-disabled);
 
       .theme-light & {
-        background: $composition-light-ui-glass-surface-specular-temp, var(--color-interactive-primary-background-disabled);
+        background: $composition-light-ui-glass-surface-specular-card, var(--color-interactive-primary-background-disabled);
       }
     }
   }
@@ -122,13 +136,12 @@ mat-card {
         padding-bottom: var(--size-spacing-xl);
       }
     }
-
     .row & {
       height: 100%;
     }
 
     .mdc-button {
-      @include media-breakpoint-down(md) {
+      @include bootstrap.media-breakpoint-down(md) {
         flex: 1
       }
     }
@@ -144,8 +157,10 @@ mat-card {
       padding-bottom: var(--size-spacing-xs);
     }
 
-    .mat-mdc-card-lg-image, .mat-mdc-card-sm-image,
-    .mat-mdc-card-md-image, .mat-mdc-card-xl-image {
+    .mat-mdc-card-lg-image,
+    .mat-mdc-card-sm-image,
+    .mat-mdc-card-md-image,
+    .mat-mdc-card-xl-image {
       padding-bottom: var(--size-spacing-xs);
     }
 
@@ -190,6 +205,7 @@ mat-card-header {
   &.mat-mdc-card-header {
     padding: var(--size-spacing-xl);
     padding-bottom: 0;
+
     .mat-mdc-card-header-text {
       display: flex;
       flex-direction: column;
@@ -215,11 +231,12 @@ mat-card-content {
     align-items: flex-start;
     gap: var(--size-spacing-s);
     align-self: stretch;
+
     &:last-child {
       padding-bottom: var(--size-spacing-xl);
     }
   p {
-    @include typography-xl-body-low-default;
+    @include typography.typography-xl-body-low-default; 
     color: var(--color-ui-textandicon-medium);
   }
   }
@@ -239,21 +256,26 @@ mat-card-actions {
 }
 
 .mat-mdc-card-subtitle {
-  text-transform: $content-base-text-transform-uppercase;
+  text-transform: vars.$content-base-text-transform-uppercase;
   color: var(--color-ui-textandicon-medium);
 }
 
-.mat-mdc-card-image, .mat-mdc-card-lg-image, .mat-mdc-card-sm-image,
-.mat-mdc-card-md-image, .mat-mdc-card-xl-image {
+.mat-mdc-card-image,
+.mat-mdc-card-lg-image,
+.mat-mdc-card-sm-image,
+.mat-mdc-card-md-image,
+.mat-mdc-card-xl-image {
   padding: var(--size-spacing-xs);
   padding-bottom: 0;
   border-radius: var(--size-radius-l);
-  max-height: 312px;;
+  max-height: 312px;
+  ;
 }
 
 a {
   .mat-mdc-card-content {
     color: var(--color-ui-textandicon-high);
+
     p {
       color: var(--color-ui-textandicon-medium);
     }
@@ -264,22 +286,23 @@ html,
 html .theme-condensed {
   --mdc-elevated-card-container-shape: var(--size-radius-l);
   --mdc-outlined-card-container-shape: var(--size-radius-l);
-//   --mdc-outlined-card-outline-width: 1px
+  //   --mdc-outlined-card-outline-width: 1px
 }
 
 html {
-  --mdc-outlined-card-outline-color: #{$composition-dark-ui-glass-border-specular-temp};
+  --mdc-outlined-card-outline-color: #{$composition-dark-ui-glass-border-specular-card};
   .theme-light {
-    --mdc-outlined-card-outline-color: #{$composition-light-ui-glass-border-specular-temp};
+    --mdc-outlined-card-outline-color: #{$composition-light-ui-glass-border-specular-card};
   }
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
   --mdc-elevated-card-container-color: var(--color-ui-background-high);
-//   --mdc-elevated-card-container-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  //   --mdc-elevated-card-container-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   --mdc-outlined-card-container-color: var(--color-ui-background-high);
-//   --mdc-outlined-card-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  //   --mdc-outlined-card-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   --mat-card-subtitle-text-color: var(--color-ui-textandicon-medium);
 }
 

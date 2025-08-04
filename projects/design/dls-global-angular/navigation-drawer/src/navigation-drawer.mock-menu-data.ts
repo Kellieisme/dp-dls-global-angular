@@ -7,12 +7,12 @@ export const MockSidebarMenuData = [
       {
         label: 'Level 1 destination',
         icon: 'book',
-        route: '/level1',
+        
         count: '99+',
         toggled: false,
         children: [
-          { label: 'Level 2 destination', icon: 'chat', route: '/level2', count: '99+', toggled: false },
-          { label: 'Level 2 destination', icon: 'download', route: '/level2', count: '99+', toggled: false },
+          { label: 'Level 2 destination', icon: 'chat',  count: '99+', toggled: false },
+          { label: 'Level 2 destination', icon: 'download',  count: '99+', toggled: false },
         ],
         expanded: false,
       },

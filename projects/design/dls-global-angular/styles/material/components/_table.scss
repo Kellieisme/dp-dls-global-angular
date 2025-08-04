@@ -1,51 +1,48 @@
 @use '@angular/material' as mat;
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '../typography';
-@import '../m3-theme.scss';
+@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '../typography' as typography;
+@use '../m3-theme.scss' as m3;
 
 // Map to: xl-body-low-highlight
-$table-subtitle-2: mat.m2-define-typography-level($font-size: $responsive-type-body-low-size-xl,
-    $line-height: $responsive-type-body-low-height-xl,
-    $font-weight: $content-base-font-weight-bold,
-    $letter-spacing: $responsive-type-body-low-letter-xl,
+$table-subtitle-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-body-low-size-xl,
+    $line-height: vars.$responsive-type-body-low-height-xl,
+    $font-weight: vars.$content-base-font-weight-bold,
+    $letter-spacing: vars.$responsive-type-body-low-letter-xl,
   );
 
 // Map to: xl-body-low-default
-$table-body-2: mat.m2-define-typography-level($font-size: $responsive-type-body-low-size-xl,
-    $line-height: $responsive-type-body-low-height-xl,
-    $font-weight: $content-base-font-weight-regular,
-    $letter-spacing: $responsive-type-body-low-letter-xl,
+$table-body-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-body-low-size-xl,
+    $line-height: vars.$responsive-type-body-low-height-xl,
+    $font-weight: vars.$content-base-font-weight-regular,
+    $letter-spacing: vars.$responsive-type-body-low-letter-xl,
   );
 
-$table-typography-config: mat.m2-define-typography-config($font-family: $content-base-font-family-boeing-meso,
-    $headline-1: $dls-headline-1,
-    $headline-2: $dls-headline-2,
-    $headline-3: $dls-headline-3,
-    $headline-4: $dls-headline-4,
-    $headline-5: $dls-headline-5,
-    $headline-6: $dls-headline-6,
-    $subtitle-1: $dls-subtitle-1,
+$table-typography-config: mat.m2-define-typography-config($font-family: vars.$content-base-font-family-boeing-meso,
+    $headline-1: typography.$dls-headline-1,
+    $headline-2: typography.$dls-headline-2,
+    $headline-3: typography.$dls-headline-3,
+    $headline-4: typography.$dls-headline-4,
+    $headline-5: typography.$dls-headline-5,
+    $headline-6: typography.$dls-headline-6,
+    $subtitle-1: typography.$dls-subtitle-1,
     $subtitle-2: $table-subtitle-2,
-    $body-1: $dls-body-1,
+    $body-1: typography.$dls-body-1,
     $body-2: $table-body-2,
-    $caption: $dls-caption,
-    $button: $dls-button,
+    $caption: typography.$dls-caption,
+    $button: typography.$dls-button,
   );
 
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.table-theme($dark-theme);
-  // If needed use the single dimension mixins to override particular aspects
-  // @include mat.button-base($dark-theme);
-  // @include mat.button-color($dark-theme);
-  @include mat.table-typography($table-typography-config);
-  // @include mat.table-density($dark-theme);
-
-}
+  :root {
+    // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+    @include mat.table-theme(m3.$dark-theme);
+    // If needed use the single dimension mixins to override particular aspects
+    @include mat.table-typography($table-typography-config);
+  
+  }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.table-color($light-theme);
+  @include mat.table-color(m3.$light-theme);
 }
 
 [mat-table] {
@@ -109,7 +106,8 @@ $table-typography-config: mat.m2-define-typography-config($font-family: $content
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
   --mat-table-background-color: transparent;
   --mat-table-row-item-label-text-color: var(--color-interactive-primary-textandicon-selected);
   --mat-table-row-item-label-text-color: var(--color-interactive-primary-textandicon-primary-default);

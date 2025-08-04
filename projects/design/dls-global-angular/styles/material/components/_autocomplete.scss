@@ -1,25 +1,25 @@
 @use '@angular/material' as mat;
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss';
-@import '../m3-theme.scss';
+@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '../m3-theme.scss' as m3;
 
 // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
 :root{
-  @include mat.autocomplete-theme($dark-theme);
+  @include mat.autocomplete-theme(m3.$dark-theme);
 }
 
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.autocomplete-color($light-theme);
+  @include mat.autocomplete-color(m3.$light-theme);
 }
 
-// TODO: Temporary specular border values until we can fix the mixin
+// TODO: autocompleteorary specular border values until we can fix the mixin
 // The mixin uses border-image-source to create a gradient border but
 // this does not seem to work as intended, needs more investigation
-$composition-dark-interactive-primary-border-hovered-specular-temp: rgba(255, 255, 255, 0.40);
-$composition-light-interactive-primary-border-hovered-specular-temp: rgba(255, 255, 255, 0.40);
+$composition-dark-interactive-primary-border-hovered-specular-autocomplete: rgba(255, 255, 255, 0.40);
+$composition-light-interactive-primary-border-hovered-specular-autocomplete: rgba(255, 255, 255, 0.40);
 
 // we want to be careful here to not override styles for either the `input`, `form field`, or `list`
 // components, as the select component is a composite of those. Directly overriding variables here
@@ -27,7 +27,8 @@ $composition-light-interactive-primary-border-hovered-specular-temp: rgba(255, 2
 
 // DARK MODE
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
   div.mat-mdc-autocomplete-panel {
     // overall autocomplete panel color
     --mat-autocomplete-background-color: var(--color-ui-glass-surface-regular);
@@ -37,6 +38,7 @@ html .theme-light,html .theme-dark {
 }
 
 html {
+
   // the autocomplete is designed to have the same border radius as other form fields, but the bottom
   // corner radii are removed when expanded. Due to MaterialUI's DOM structure and available
   // classes, the most stable way to accomodate this is to listen for the aria-expanded data
@@ -50,11 +52,12 @@ html {
 
   div.mat-mdc-autocomplete-panel {
     // blur the background behind overlay
-    @include composition-dark-ui-glass-background-blur;
+    @include composition.composition-dark-ui-glass-background-blur;
     padding-top: var(--size-spacing-s);
     padding-bottom: var(--size-spacing-s);
+
     .theme-light & {
-      @include composition-light-ui-glass-background-blur;
+      @include composition.composition-light-ui-glass-background-blur;
     }
 
     // list panel in a autocomplete should have rounded bottom corners and flat top corners...
@@ -64,31 +67,35 @@ html {
     border-bottom-right-radius: var(--size-radius-s);
     // ..and ideally, this panel should have a specular border, but since that is not really
     // working right now, we'll make a solid border:
-    border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-temp};
+    border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-autocomplete};
     .theme-light & {
-      border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-temp};
+      border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-autocomplete};
     }
 
     .mat-mdc-option {
       span {
-        @include typography-xl-body-low-default;
+        @include typography.typography-xl-body-low-default;
         text-transform: capitalize;
       }
     }
 
     // Styles for the non-selected options...
     .mat-mdc-option:not(.mdc-list-item--disabled) {
+
       // default option text dcolor
       .mdc-list-item__primary-text {
         color: var(--color-interactive-primary-textandicon-primary-default);
       }
     }
+
     // Styles for the selected option...
     .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+
       // selected option text color
       .mdc-list-item__primary-text {
         color: var(--color-interactive-primary-textandicon-selected);
       }
+
       // turn off the default checkbox on the selected option
       .mat-pseudo-checkbox {
         display: none;
@@ -106,6 +113,7 @@ html {
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
   --mat-autocomplete-background-color: var(--color-ui-glass-surface-regular);
 }

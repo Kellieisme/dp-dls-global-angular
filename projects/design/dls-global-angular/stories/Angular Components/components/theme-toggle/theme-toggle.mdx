@@ -1,0 +1,134 @@
+import { Meta, Markdown, Canvas } from "@storybook/blocks";
+import { Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { moduleMetadata } from '@storybook/angular';
+import * as ThemeToggleStories from "./themeToggle.stories";
+import {
+  Blue_text,
+  Red_text,
+  Info_Blue_text,
+} from "../../../../mdx_styles.mdx";
+
+<Meta of={ThemeToggleStories} />
+
+<div style={{backgroundColor:'var(--color-ui-background-medium)',padding:'8px 15px', borderRadius: '8px'}}>
+
+# Theme Toggle
+
+### API reference
+
+The Theme Toggle is a custom component provided by Atmosphere Angular Library to switch between Light and Dark Themes.This component is based on the `ThemeToggleService`
+
+
+### Selectors
+
+`ba-theme-toggle`
+
+### Usage
+
+In your typescript file.
+
+```typescript
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ThemeToggleComponent,
+  ThemeToggleModule,
+  ThemeToggleService,
+} from '@design/dls-global-angular/theme-toggle';
+
+
+@Component({
+  selector: 'theme-toggle-example-page',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ThemeToggleModule,
+  ],
+  template: `<ba-theme-toggle></ba-theme-toggle>`,
+})
+export class CustomThemeToggleComponent { }
+
+```
+
+Note: To use Icons in the Button Component you need to import the IconRegistryModule.
+Make sure your `angular.json` has the path to `svgSet.svg`. You can find the steps to set it up [here](?path=/docs/get-started-install-configure-atmosphere-setting-global-styles-and-fonts--docs).
+
+
+<Canvas of={ThemeToggleStories.Default} />
+
+
+# Theme Toggle Service
+
+The `ThemeToggleService` provides light and dark theme switching functionality by toggling `theme-light` and `theme-dark` classes on the `document.body`. Components can reactively update based on the active theme using the exposed observable.
+
+### Features
+
+- Apply theme class to `<body>` to control global styles.
+- Emits theme changes via `themeChanged$`.
+- Exposes `toggleTheme()` and `getCurrentTheme()` for manual control.
+
+### API
+
+`toggleTheme(): void`
+
+Toggles between light and dark themes. Automatically applies corresponding class to `document.body`.
+
+`getCurrentTheme(): Theme`
+
+Returns the currently active theme. Useful for conditionally rendering elements based on the current mode.
+
+`themeChanged$: Observable<Theme>`
+
+An observable that emits the new theme value on every change. Suitable for subscribing in components to react to theme switches.
+
+### Usage
+
+#### Custom Theme Toggle Component with ThemeToggleService
+
+In the below example a switch component used with `toggleTheme()` function from ThemeToggleService to create a custom theme toggle component.
+Additionally , you can see how you can get the current theme through the observable and also get the current theme using the `getCurrentTheme()` function.
+
+Expand `Show Code` section to see the implementation.
+
+<Canvas of={ThemeToggleStories.CustomThemeSwitch} />
+
+
+</div>
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+      
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>

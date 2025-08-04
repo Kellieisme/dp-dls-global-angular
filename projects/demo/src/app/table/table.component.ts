@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+<<<<<<< Updated upstream
 import { MatTableModule } from '@angular/material/table';
+=======
+import {MatTableModule} from '@angular/material/table';
+
+>>>>>>> Stashed changes
 export interface ScreenSize {
   size: string;
   columns: string;
@@ -20,11 +25,19 @@ const ELEMENT_DATA: ScreenSize[] = [
 ];
 
 @Component({
+<<<<<<< Updated upstream
   selector: 'table-page',
   imports: [MatTableModule, MatButtonModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
+=======
+    selector: 'table-page',
+    imports: [MatTableModule, MatButtonModule],
+    templateUrl: './table.component.html',
+    styleUrl: './table.component.scss'
+}) 
+>>>>>>> Stashed changes
 
 export class TablePageComponent {
   title = 'Table';

@@ -1,53 +1,53 @@
 @use "@angular/material" as mat;
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss";
-@import '../m3-theme.scss';
-@import '../typography';
+@use "@design/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@design/dls-global-assets/dist/scss/base/_variablesBase.scss";
+@use '../m3-theme.scss' as m3;
+@use '../typography' as typography;
 
 // Map to: xl-label-medium
-$chip-body-2: mat.m2-define-typography-level($font-size: $responsive-type-label-medium-size-xl,
-		$line-height: $responsive-type-label-medium-height-xl,
-		$font-weight: $content-base-font-weight-medium,
-		$letter-spacing: $responsive-type-label-medium-letter-xl,
+$chip-body-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-label-medium-size-xl,
+		$line-height: vars.$responsive-type-label-medium-height-xl,
+		$font-weight: vars.$content-base-font-weight-medium,
+		$letter-spacing: vars.$responsive-type-label-medium-letter-xl,
 	);
 
-$chips-typography-config: mat.m2-define-typography-config($font-family: $content-base-font-family-boeing-meso,
-		$headline-1: $dls-headline-1,
-		$headline-2: $dls-headline-2,
-		$headline-3: $dls-headline-3,
-		$headline-4: $dls-headline-4,
-		$headline-5: $dls-headline-5,
-		$headline-6: $dls-headline-6,
-		$subtitle-1: $dls-subtitle-1,
-		$subtitle-2: $dls-subtitle-2,
-		$body-1: $dls-body-1,
+$chips-typography-config: mat.m2-define-typography-config($font-family: vars.$content-base-font-family-boeing-meso,
+		$headline-1: typography.$dls-headline-1,
+		$headline-2: typography.$dls-headline-2,
+		$headline-3: typography.$dls-headline-3,
+		$headline-4: typography.$dls-headline-4,
+		$headline-5: typography.$dls-headline-5,
+		$headline-6: typography.$dls-headline-6,
+		$subtitle-1: typography.$dls-subtitle-1,
+		$subtitle-2: typography.$dls-subtitle-2,
+		$body-1: typography.$dls-body-1,
 		$body-2: $chip-body-2,
-		$caption: $dls-caption,
-		$button: $dls-button,
+		$caption: typography.$dls-caption,
+		$button: typography.$dls-button,
 	);
 
 :root {
 	// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-	// @include mat.checkbox-theme($dark-theme);
+	// @include mat.checkbox-theme(m3.$dark-theme);
 	// If needed use the single dimension mixins to override particular aspects
 	// @include mat.button-base($dark-theme);
-	@include mat.chips-theme($dark-theme);
+	@include mat.chips-theme(m3.$dark-theme);
 	@include mat.chips-typography($chips-typography-config);
-	// @include mat.button-density($dark-theme);
+	// @include mat.button-density(m3.$dark-theme);
 
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-	@include mat.chips-color($light-theme);
+	@include mat.chips-color(m3.$light-theme);
 }
 
 .mat-mdc-standard-chip {
 	&.avatar-chip {
-		--mdc-chip-container-shape-radius: #{$size-relaxed-radius-full} !important;
+		--mdc-chip-container-shape-radius: #{vars.$size-relaxed-radius-full} !important;
 
 		.mdc-evolution-chip__action {
-			padding-left: #{$size-relaxed-spacing-2xs} !important;
+			padding-left: #{vars.$size-relaxed-spacing-2xs} !important;
 		}
 	}
 
@@ -68,19 +68,21 @@ $chips-typography-config: mat.m2-define-typography-config($font-family: $content
 .mdc-evolution-chip__text-label {
 	display: flex;
 	align-items: center;
-	gap: #{$size-relaxed-spacing-xs};
+	gap: #{vars.$size-relaxed-spacing-xs};
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
 	.mat-mdc-standard-chip {
+
 		//--mdc-chip-container-shape-family: rounded;
-		--mdc-chip-container-shape-radius: #{$size-relaxed-radius-s};
+		--mdc-chip-container-shape-radius: #{vars.$size-relaxed-radius-s};
 		// --mdc-chip-with-avatar-avatar-shape-family: rounded;
 		// --mdc-chip-with-avatar-avatar-shape-radius: 14px 14px 14px 14px;
 		// --mdc-chip-with-avatar-avatar-size: 28px;
 		// --mdc-chip-with-icon-icon-size: 18px;
-		--mdc-chip-outline-width: #{$size-base-border-width-1};
+		--mdc-chip-outline-width: #{vars.$size-base-border-width-1};
 		--mdc-chip-outline-color: var(--color-interactive-primary-border-enabled);
 		--mdc-chip-disabled-outline-color: transparent;
 		--mdc-chip-focus-outline-color: transparent;
@@ -121,7 +123,8 @@ html .theme-light,html .theme-dark {
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
 
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
@@ -149,7 +152,8 @@ html .theme-light,html .theme-dark {
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
 
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
