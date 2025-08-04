@@ -28,11 +28,8 @@ const mockActivatedRoute = {
 };
 
 const basicTemplate = (type: string): string =>
-<<<<<<< Updated upstream
   ` 
-=======
   `
->>>>>>> Stashed changes
     <ba-navigation-drawer
       [fixedOpen]="fixedOpen"
       [minifyOnCollapse]="minifyOnCollapse"
@@ -107,11 +104,8 @@ export const Default: Story = {
     opened: true,
     minifyOnCollapse: true,
   },
-<<<<<<< Updated upstream
   render: ({ opened, minifyOnCollapse, homeRoute }) => ({
-=======
   render: ({ opened, minifyOnCollapse, homeRoute }: { opened: boolean; minifyOnCollapse: boolean; homeRoute?: string }) => ({
->>>>>>> Stashed changes
     props: {
       opened,
       minifyOnCollapse, homeRoute
@@ -130,11 +124,8 @@ export const Standalone: Story = {
     opened: false,
     minifyOnCollapse: true,
   },
-<<<<<<< Updated upstream
   render: ({ opened, minifyOnCollapse, homeRoute }) => ({
-=======
   render: ({ opened, minifyOnCollapse, homeRoute }: { opened: boolean; minifyOnCollapse: boolean; homeRoute?: string }) => ({
->>>>>>> Stashed changes
     props: { opened, minifyOnCollapse, homeRoute },
     template: basicTemplate('standalone')
   }),
@@ -151,11 +142,8 @@ export const Modal: Story = {
     minifyOnCollapse: true,
     fixedOpen: false,
   },
-<<<<<<< Updated upstream
   render: ({ opened, fixedOpen, homeRoute, minifyOnCollapse }) => ({
-=======
   render: ({ opened, fixedOpen, homeRoute, minifyOnCollapse }: { opened: boolean; fixedOpen: boolean; homeRoute?: string; minifyOnCollapse: boolean }) => ({
->>>>>>> Stashed changes
     props: { opened, fixedOpen, homeRoute, minifyOnCollapse },
     template: basicTemplate('modal')
   }),
@@ -171,11 +159,8 @@ export const FixedOpen: Story = {
     opened: true,
     fixedOpen: true,
   },
-<<<<<<< Updated upstream
   render: ({ opened, fixedOpen, homeRoute }) => ({
-=======
   render: ({ opened, fixedOpen, homeRoute }: { opened: boolean; fixedOpen: boolean; homeRoute?: string }) => ({
->>>>>>> Stashed changes
     props: { opened, fixedOpen, homeRoute },
     template: basicTemplate('default')
   }),

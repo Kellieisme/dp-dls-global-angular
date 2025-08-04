@@ -1,15 +1,15 @@
 @use '@angular/material' as mat;
-@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
 
 :root {
-  // The `-theme` mixin can be used to include the component's styles for all 
+  // The `-theme` mixin can be used to include the component's styles for all
   //theme dimensions at once
   @include mat.datepicker-theme(m3.$dark-theme);
   // If needed use the single dimension mixins to override particular aspects
-  
+
 }
 
 // Apply the light theme only when the user prefers light themes.

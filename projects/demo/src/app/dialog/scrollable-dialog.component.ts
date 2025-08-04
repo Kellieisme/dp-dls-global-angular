@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
     selector: 'app-scrollable-dialog',
@@ -15,7 +15,7 @@ import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
     ],
     template: `
     <h2 mat-dialog-title>Update Angular</h2>
-    <mat-dialog-content> 
+    <mat-dialog-content>
       <h3 class="title-medium">Speed &amp; Performance</h3>
       <p>
         Achieve the maximum speed possible on the Web Platform today, and take

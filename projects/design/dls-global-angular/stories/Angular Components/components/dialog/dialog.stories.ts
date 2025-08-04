@@ -16,30 +16,24 @@ import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-reg
     </div>
     
     <ng-template #basicDialog let-data="data">
-<<<<<<< Updated upstream
 
       <div class="d-flex">
       <div class="d-flex">
 
         @if (args.withIcon) {
           <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
-=======
     
       <div class="d-flex">
     
->>>>>>> Stashed changes
         @if (args.withIcon) {
           <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
             <mat-icon svgIcon="icon-warning"></mat-icon>
           </div>
         }
-<<<<<<< Updated upstream
           </div>
         }
 
-=======
     
->>>>>>> Stashed changes
         @if (args.closeButton) {
           <div class="ms-auto" style="padding: 4px 4px 0 0; margin-bottom: 0;">
             <button mat-icon-button mat-dialog-close="true">
@@ -47,7 +41,6 @@ import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-reg
             </button>
           </div>
         }
-<<<<<<< Updated upstream
         @if (args.closeButton) {
           <div class="ms-auto" style="padding: 4px 4px 0 0; margin-bottom: 0;">
             <button mat-icon-button mat-dialog-close="true">
@@ -59,12 +52,10 @@ import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-reg
       </div>
 
 
-=======
     
       </div>
     
     
->>>>>>> Stashed changes
       <!-- 6px 24px 13px -->
       <h2 mat-dialog-title style="padding-top: 0px; margin-top: 0px;">Dialog Title</h2>
       <mat-dialog-content>

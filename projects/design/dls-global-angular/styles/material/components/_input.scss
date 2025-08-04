@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
-@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
 
 :root {

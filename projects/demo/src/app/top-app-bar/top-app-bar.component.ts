@@ -3,29 +3,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
-import { TopAppBarComponent } from '@design/dls-global-angular/top-app-bar';
-import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
+import { TopAppBarComponent } from '../../../../design/dls-global-angular/top-app-bar/src/top-app-bar.component';
+import { UserProfileComponent } from '../../../../design/dls-global-angular/user-profile/src/user-profile.component';
 
 @Component({
-<<<<<<< Updated upstream
-    selector: 'top-app-bar',
-    imports: [TopAppBarComponent, MatButtonModule, MatIconModule, IconRegistryModule, MatMenuModule, MatDividerModule, UserProfileComponent],
-    templateUrl: './top-app-bar.component.html',
-    styleUrl: './top-app-bar.component.scss'
-=======
   selector: 'top-app-bar',
-  standalone: true,
   imports: [
-    TopAppBarComponent, 
-    MatButtonModule, 
-    MatIconModule, 
-    IconRegistryModule,
-     MatMenuModule, 
+    TopAppBarComponent,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
     MatDividerModule,
-     UserProfileComponent],
-  templateUrl: './top-app-bar.component.html'
->>>>>>> Stashed changes
+    UserProfileComponent
+  ],
+  templateUrl: './top-app-bar.component.html',
+  styleUrl: './top-app-bar.component.scss'
 })
 
 export class TopAppBarPageComponent {

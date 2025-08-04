@@ -1,9 +1,9 @@
-@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 .ba-breadcrumb__list {
   display: flex;
   list-style-type: none;
-  
+
   li:not(:last-child)::after {
     content: '/';
     padding: 0 var(--size-spacing-2xs);

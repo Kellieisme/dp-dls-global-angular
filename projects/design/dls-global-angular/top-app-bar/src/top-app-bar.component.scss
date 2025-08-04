@@ -1,8 +1,8 @@
-@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 
-@use '../../styles/material/bootstrap' as bootstrap;
-@use '@design/dls-global-assets/dist/scss/global' as global;
-@use '@design/dls-global-assets/dist/scss/base/typography' as typography;
+@use '../../styles/material/_bootstrap' as bootstrap;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/global' as global;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/typography' as typography;
 
 .top-app-bar {
   align-items: center;
@@ -126,8 +126,8 @@ mat-toolbar h6 {
 //   left: 0;
 //   right: 0;
 //   display: flex;
-//   justify-content: center; 
-//   align-items: center; 
+//   justify-content: center;
+//   align-items: center;
 // }
 
 /* SPACER (only needed for centered variant) */

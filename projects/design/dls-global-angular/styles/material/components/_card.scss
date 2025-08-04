@@ -1,10 +1,10 @@
 @use '@angular/material' as mat;
-@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
 
-@use '@design/dls-global-assets/dist/scss/base/_bootstrapMixins' as bm;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_bootstrapMixins' as bm;
 @use '../bootstrap' as bootstrap;
 
 $grid-breakpoints: bm.$custom-grid-breakpoints !default;
@@ -236,7 +236,7 @@ mat-card-content {
       padding-bottom: var(--size-spacing-xl);
     }
   p {
-    @include typography.typography-xl-body-low-default; 
+    @include typography.typography-xl-body-low-default;
     color: var(--color-ui-textandicon-medium);
   }
   }

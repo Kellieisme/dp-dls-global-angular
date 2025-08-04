@@ -1,5 +1,5 @@
-@use "@design/dls-global-assets/dist/scss/base/_variables.scss" as vars;
-@use "@design/dls-global-assets/dist/scss/base/_variablesBase.scss" as varsbase;
+@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss" as varsbase;
 
 // Constants
 $section-label-max-width: 82%;
@@ -47,22 +47,14 @@ mat-sidenav {
   flex-direction: column;
   height: 100%;
   width: $side-nav-width;
-<<<<<<< Updated upstream
-  backdrop-filter: blur($size-base-shadow-blur-100);
-  padding: $size-relaxed-spacing-l $size-relaxed-spacing-s;
-=======
   backdrop-filter: blur(vars.$size-base-shadow-blur-100);
   padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-s;
->>>>>>> Stashed changes
   box-shadow: none;
   border-right-color: var(--mat-sidenav-container-divider-color, transparent);
   border-right-width: 1px;
   border-right-style: solid;
-<<<<<<< Updated upstream
-=======
   backdrop-filter: blur(vars.$size-base-shadow-blur-100);
   padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-s;
->>>>>>> Stashed changes
 
   mat-list-item {
     .mdc-list-item__content {
@@ -123,7 +115,7 @@ html {
     .mdc-list-item--with-leading-icon.mdc-list-item {
       padding-left: vars.$size-relaxed-spacing-none;
       padding-right: vars.$size-relaxed-spacing-none;
-    }   
+    }
     .level2-nav,
     .level3-nav {
         .mat-list-item.mat-mdc-list-item,
@@ -173,22 +165,14 @@ html {
 .navigation__app-icon--dark {
   display: block;
   &.letter-mark {
-<<<<<<< Updated upstream
-    padding: 0 $size-relaxed-sizing-m;
-=======
     padding-left: vars.$size-relaxed-sizing-m;
->>>>>>> Stashed changes
   }
 }
 
 .theme-light .navigation__app-icon--light {
   display: block;
   &.letter-mark {
-<<<<<<< Updated upstream
-    padding: 0 $size-relaxed-sizing-m;
-=======
     padding-left: vars.$size-relaxed-sizing-m;
->>>>>>> Stashed changes
   }
 }
 
@@ -217,11 +201,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-<<<<<<< Updated upstream
-  padding: 0 $size-relaxed-spacing-xs !important;
-=======
   padding: 0 vars.$size-relaxed-spacing-xs !important;
->>>>>>> Stashed changes
 }
 
 .dropdown-icon {

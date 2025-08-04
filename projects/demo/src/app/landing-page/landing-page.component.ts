@@ -7,9 +7,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import { BreadcrumbComponent } from '@design/dls-global-angular/breadcrumb';
-import { TopAppBarComponent } from '@design/dls-global-angular/top-app-bar';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
+import { TopAppBarComponent } from '@dasdigitalplatform/dls-global-angular/top-app-bar';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
   selector: 'app-landing-page',
@@ -26,7 +26,7 @@ import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
     MatIconModule,
     BreadcrumbComponent,
     TopAppBarComponent,
-  
+
   ],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']

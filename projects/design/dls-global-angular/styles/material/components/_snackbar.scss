@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@use "@design/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss" as vars;
 @use "../m3-theme" as m3;
 
 :root {
@@ -14,7 +14,7 @@
 
 .mat-mdc-snack-bar-container {
   backdrop-filter: blur(vars.$size-base-shadow-blur-100);
-  
+
   .mdc-snackbar__label {
     padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-m);
 

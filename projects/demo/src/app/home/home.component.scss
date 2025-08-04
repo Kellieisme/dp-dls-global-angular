@@ -1,6 +1,6 @@
 // Style for the home page
-@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 :host {
   @include typography.typography-xl-body-low-default;

@@ -4,7 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleChange, MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
   selector: 'lib-switch-example',

@@ -1,4 +1,4 @@
-@use '@design/dls-global-assets/dist/scss/base/_bootstrapMixins' as bm;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_bootstrapMixins' as bm;
 
 $raw: bm.$custom-grid-breakpoints;
 // Manually re-map into sorted order

@@ -1,10 +1,10 @@
-@use '@design/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 
 .content {
   height: 700px;
   max-height: 700px;
   overflow-y: scroll;
-  
+
 .main{
   background-color: var(--color-ui-background-low);
   color: var(--color-ui-textandicon-high);
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
 }
-    
+
 }
 .glass {
   @include composition.composition-dark-ui-glass-background-blur;

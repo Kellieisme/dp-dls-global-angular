@@ -1,6 +1,6 @@
-@use '@design/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@design/dls-global-assets/dist/scss/base/_linkMixins.scss' as links;
-@use '@design/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_linkMixins.scss' as links;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 body {
   background: var(--color-ui-background-lowest);

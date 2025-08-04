@@ -1,9 +1,9 @@
-import { IconRegistryStorybookModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryStorybookModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import {
   ThemeToggleComponent,
   ThemeToggleModule,
   ThemeToggleService,
-} from '@design/dls-global-angular/theme-toggle';
+} from '@dasdigitalplatform/dls-global-angular/theme-toggle';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
 import { Component } from '@angular/core';
@@ -31,7 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     >
       <mat-slide-toggle (change)="onToggle()"></mat-slide-toggle>
       <p style="color: var(--color-ui-textandicon-high);">
-        The theme captured through observable in ThemeToggleService is:</p> 
+        The theme captured through observable in ThemeToggleService is:</p>
       <h1 style="color: var(--color-ui-textandicon-high);">{{ themetext }}</h1>
       <button mat-flat-button (click)="buttonClick()">
         Show Current Theme

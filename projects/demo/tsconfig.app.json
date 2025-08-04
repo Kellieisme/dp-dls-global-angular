@@ -3,10 +3,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@design/dls-global-angular/*": [
+      "@dasdigitalplatform/dls-global-angular/*": [
         "./../../dist/design/dls-global-angular/*"
       ],
-      "@design/dls-global-angular": [
+      "@dasdigitalplatform/dls-global-angular": [
         "./../../dist/design/dls-global-angular"
       ]
     },

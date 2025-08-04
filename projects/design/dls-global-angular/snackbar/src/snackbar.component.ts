@@ -1,8 +1,4 @@
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 import { Component, Inject, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,22 +6,16 @@ import {
   MAT_SNACK_BAR_DATA,
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 
 /**
  * Snackbar is a service for displaying snack-bar notifications.
  */
 @Component({
-<<<<<<< Updated upstream
-  selector: 'ba-snackbar',
-  imports: [MatButtonModule, MatIconModule, IconRegistryModule],
-  template: `
-=======
     selector: 'ba-snackbar',
     imports: [MatButtonModule, MatIconModule, IconRegistryModule],
     template: `
->>>>>>> Stashed changes
     <div class="ba-snackbar__content">
       <span class="ba-snackbar__message">{{ data.message }}</span>
       <div class="ba-snackbar__actions">
@@ -43,33 +33,11 @@ import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
             <mat-icon svgIcon="icon-close"></mat-icon>
           </button>
         }
-<<<<<<< Updated upstream
-        @if (data.action) {
-          <button
-            color="accent"
-            mat-button
-            (click)="onAction()"
-            >
-            {{ data.action }}
-          </button>
-        }
-        @if (data.showClose) {
-          <button mat-icon-button (click)="onClose()">
-            <mat-icon svgIcon="icon-close"></mat-icon>
-          </button>
-        }
-      </div>
-    </div>
-    `,
-  styles: [
-    `
-=======
       </div>
     </div>
     `,
     styles: [
         `
->>>>>>> Stashed changes
       .ba-snackbar__content {
         display: flex;
         justify-content: space-between;

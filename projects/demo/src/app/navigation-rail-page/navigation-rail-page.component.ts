@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavigationRailComponent } from '@design/dls-global-angular/navigation-rail';
-import { UserProfileComponent } from '@design/dls-global-angular/user-profile';
+import { NavigationRailComponent } from '@dasdigitalplatform/dls-global-angular/navigation-rail';
+import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import { IconRegistryModule } from '@design/dls-global-angular/icon-registry';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({

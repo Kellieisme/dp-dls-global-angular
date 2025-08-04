@@ -1,17 +1,18 @@
 import { RouterOutlet } from '@angular/router';
 import { Component } from '@angular/core';
-import { ThemeToggleModule, ThemeToggleService } from '@design/dls-global-angular/theme-toggle';
+import { ThemeToggleComponent } from '../../../design/dls-global-angular/theme-toggle/src/theme-toggle.component';
+import { ThemeToggleService } from '../../../design/dls-global-angular/theme-toggle/src/theme-toggle.service';
 import { Subscription } from 'rxjs';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { Theme } from '@design/dls-global-angular/theme-toggle/src/theme-toggle.model';
+import { Theme } from '../../../design/dls-global-angular/theme-toggle/src/theme-toggle.model';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, ThemeToggleModule ],
+    imports: [RouterOutlet, ThemeToggleComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
-}) 
+})
 
 export class AppComponent implements OnInit, OnDestroy {
   currentTheme!: Theme;

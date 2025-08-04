@@ -2,11 +2,7 @@
   "packages": [
     "projects/design/*"
   ],
-<<<<<<< Updated upstream
-  "version": "3.2.2",
-=======
   "version": "3.3.0",
->>>>>>> Stashed changes
   "command": {
     "version": {
       "conventionalCommits": true

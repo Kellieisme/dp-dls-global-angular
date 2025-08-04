@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '@design/dls-global-assets/dist/scss/base/_variables.scss';
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
 @use '../m3-theme.scss' as m3;
 
 :root {
@@ -171,7 +171,7 @@ html {
 }
 
 
-// The CSS custom properties emitted by the theme mixins are derived from M3's design tokens. 
+// The CSS custom properties emitted by the theme mixins are derived from M3's design tokens.
 // To further customize your UI beyond the define-theme API, you can manually set these custom properties in your styles.
 
 html,
@@ -225,11 +225,11 @@ html .theme-dark {
   //   --mdc-protected-button-label-text-color: black;
   //   --mdc-protected-button-disabled-container-color: rgba(0, 0, 0, 0.12);
   //   --mdc-protected-button-disabled-label-text-color: rgba(0, 0, 0, 0.38);
-  //   --mdc-protected-button-container-elevation-shadow: 
-  //   --mdc-protected-button-disabled-container-elevation-shadow: 
-  //   --mdc-protected-button-focus-container-elevation-shadow: 
-  //   --mdc-protected-button-hover-container-elevation-shadow: 
-  //   --mdc-protected-button-pressed-container-elevation-shadow: 
+  //   --mdc-protected-button-container-elevation-shadow:
+  //   --mdc-protected-button-disabled-container-elevation-shadow:
+  //   --mdc-protected-button-focus-container-elevation-shadow:
+  //   --mdc-protected-button-hover-container-elevation-shadow:
+  //   --mdc-protected-button-pressed-container-elevation-shadow:
   //   --mdc-protected-button-container-shadow-color: #000;
   //   --mat-protected-button-state-layer-color: black;
   //   --mat-protected-button-disabled-state-layer-color: black;

@@ -1,11 +1,7 @@
 <mat-sidenav-container
   autosize="true"
   color="primary"
-<<<<<<< Updated upstream
-  [hasBackdrop]="!fixedOpen"
-=======
   [hasBackdrop]="navDrawerPresentation === 'modal'"
->>>>>>> Stashed changes
   [class.collapse-to-rail] = "minifyOnCollapse"
   (backdropClick)="onBackdropClick()"
 >
@@ -19,33 +15,6 @@
   >
     <!-- OPTIONAL BRANDING HEADER -->
     <ng-container>
-<<<<<<< Updated upstream
-      <div class="sidenav-header">
-        <a class="app-home-link" [routerLink]="homeRoute">
-          @if (appLogo && opened) {
-            <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_dark.svg'" class="navigation__app-icon--dark letter-mark" alt="dark App Logo">
-          }
-          @if (appLogo && opened) {
-            <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_light.svg'" class="navigation__app-icon--light letter-mark" alt="light App Logo">
-          }
-          @if (appLogo && !opened) {
-            <img [src]="'./assets/' + appLogo + '-logomark_Navigation_dark.svg'" class="navigation__app-icon--dark" alt="dark App Logo">
-          }
-          @if (appLogo && !opened) {
-            <img [src]="'./assets/' + appLogo + '-logomark_Navigation_light.svg'" class="navigation__app-icon--light" alt="light App Logo">
-          }
-          @if (opened) {
-            <mat-divider
-              [vertical]="true"
-              class="divider"
-            ></mat-divider>
-          }
-          <h5 class="app-name" [class.hide-app-name]="!opened">
-            {{ appName }}
-          </h5>
-        </a>
-      </div>
-=======
       @if (appLogo) {
         <div class="sidenav-header">
           <a class="app-home-link" (click)="routerClicked(homeRoute)">
@@ -75,7 +44,6 @@
           </a>
         </div>
       }
->>>>>>> Stashed changes
     </ng-container>
 
     <!-- DYNAMIC MENU -->
@@ -100,38 +68,29 @@
             }
           </div>
         }
-  
+
         <!-- navigation list -->
         <mat-nav-list>
           @for (item of section.sectionMenuItems; track item) {
             <ng-container>
               <mat-list-item
-<<<<<<< Updated upstream
-                matListItemTitle 
-                [routerLink]="item.route"
-                (mouseenter)="opened = true"
-                (focus)="opened = true"
-                (click)="onMenuItemClick(item); 
-                toggleSubMenu(item)"
-=======
                 matListItemTitle
                 (mouseenter)="opened = true"
                 (focus)="opened = true"
-                (click)="onMenuItemClick(item); 
+                (click)="onMenuItemClick(item);
                 toggleSubMenu(item); routerClicked(item.route, item)"
->>>>>>> Stashed changes
                 [ngClass]="{ 'mat-list-item--toggle-on': item.toggled }"
                 >
                 @if (item.icon) {
                   <mat-icon matListItemIcon
                     [svgIcon]="item.toggled ? 'icon-'+item.icon+'-filled' : 'icon-'+item.icon"
                   ></mat-icon>
-                }    
+                }
                 @if (opened || navDrawerPresentation === NavDrawerPresentationEnum.MODAL) {
                   <div matListItemTitle class="section-label">
                     {{ item.label }}
                   </div>
-                }    
+                }
                 @if (item.children && opened) {
                   <mat-icon
                     matListItemIcon
@@ -139,20 +98,15 @@
                     [class.expanded]="item.expanded"
                     svgIcon="icon-arrow-drop-down"
                   ></mat-icon>
-                }    
+                }
               </mat-list-item>
-          
+
               @if (item.children && item.expanded && opened) {
                 <div>
                   <mat-nav-list class="level2-nav">
                     @for (child of item.children; track child) {
                       <mat-list-item
-<<<<<<< Updated upstream
-                        [routerLink]="child.route"
-                        (click)="onMenuItemClick(child)"
-=======
                         (click)="onMenuItemClick(child); routerClicked(child.route, child)"
->>>>>>> Stashed changes
                         [ngClass]="{ 'mat-list-item--toggle-on': child.toggled }"
                         >
                         @if (child.icon) {
@@ -167,7 +121,7 @@
                     }
                   </mat-nav-list>
                 </div>
-              }    
+              }
             </ng-container>
           }
           <mat-divider></mat-divider>
@@ -182,19 +136,11 @@
       <ng-template *ngTemplateOutlet="navBarBottomComponent2" />
       <ng-template *ngTemplateOutlet="navBarBottomComponent3" />
       <ng-template *ngTemplateOutlet="navBarBottomComponent4" />
-    </mat-nav-list>  
+    </mat-nav-list>
 
     <!-- Drag bar -->
-    <!-- Removed Mat-divider as backdrop-click is not active for all type of navigation-drawer. 
+    <!-- Removed Mat-divider as backdrop-click is not active for all type of navigation-drawer.
     Kept the html code here for later improvements required in future-->
-<<<<<<< Updated upstream
-    <!-- <mat-divider
-      vertical
-      class="sidenav-drag-handle"
-      [class.enabled] = "isDraggable"
-      >
-    </mat-divider> -->
-=======
     <mat-divider
       vertical
       class="sidenav-drag-handle"
@@ -203,7 +149,6 @@
       (touchstart)="isDraggable && startDragging($event)"
       >
     </mat-divider>
->>>>>>> Stashed changes
   </mat-sidenav>
   <mat-sidenav-content #sidenavContent class="content">
     <router-outlet></router-outlet>

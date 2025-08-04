@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { BreadcrumbComponent } from '@design/dls-global-angular/breadcrumb';
+import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
 
 // Mock for ActivatedRoute
 const mockActivatedRoute = {
