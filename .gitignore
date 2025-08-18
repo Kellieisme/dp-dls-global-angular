@@ -16,6 +16,7 @@ npm-debug.log
 yarn-error.log
 dls-global-angular.iml
 dls-global-docs.code-workspace
+package-lock.json
 
 # IDEs and editors
 .idea/

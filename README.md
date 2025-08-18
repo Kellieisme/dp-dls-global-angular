@@ -20,7 +20,7 @@ npm install -g @angular/cli
 
 ### Create an .npmrc
 
-Public NPM packages will be installed from the Boeing SRES package repository (Jfrog Artifactory) and private NPM packages (`@dasdigitalplatform/dls-global-assets`) will be downloaded from the Boeing Github package registry. To enable this, create a new filed named `.npmrc` in the project root. The content should be:
+Public NPM packages will be installed from npmjs and private NPM packages (`@dasdigitalplatform/dls-global-assets`) will be downloaded from the Github package registry. To enable this, create a new filed named `.npmrc` in the project root. The content should be:
 
 ```
 @dasdigitalplatform:registry=https://npm.pkg.github.com/
