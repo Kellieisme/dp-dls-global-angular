@@ -28,24 +28,15 @@ This README covers two developer roles, contributing and consuming:
 
 ## Using the NPM package
 
-The Global Angular Component Library is deployed as an NPM package to the Boeing GitLab package registry. To tell NPM where to download the package, use an `.npmrc` file.
+The Global Angular Component Library is deployed as an NPM package to the Boeing Github package registry. To tell NPM where to download the package, use an `.npmrc` file.
 
 The contents of the `.npmrc` should include:
 
-registry=<https://sres.web.boeing.com/artifactory/api/npm/npm-remote/>
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:_password=JFROG_PASSWORD
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:username=JFROG_USERNAME
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:email=EMAIL
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:always-auth=true
-@dasdigitalplatform:registry=https://git.web.boeing.com/api/v4/packages/npm/
-//git.web.boeing.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
+@dasdigitalplatform:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=GITLAB_AUTH_TOKEN
 
 Replace the folowing values:
-
-- JFROG_PASSWORD: Login to [Artifactory](https://sres.web.boeing.com/ui/admin/artifactory/user_profile) using your Boeing email and Windows password. Go to User Profile and create a new Identity Token. Save in a safe place. Encode the Identity Token in [Base64](https://www.base64encode.org/) and use that string as the JFROG_PASSWORD.
-- JFROG_USERNAME: On [Artifactory](https://sres.web.boeing.com/) in the top right you will see your username, a 7-digit number.
-- EMAIL: Your Boeing email
-- GITLAB_AUTH_TOKEN: Create a [GitLab Personal Access Token](https://git.web.boeing.com/-/user_settings/personal_access_tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
+- GITLAB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
 
 ### Add dependency to package.json
 
@@ -86,10 +77,8 @@ To include the global styles, fonts, icons, and Angular Material theme, add the 
   },
 ```
 
-> If your project's SASS compiler cannot resolve the aliased path to the fonts in the above `fonts.scss` and throws errors, the recommendation is to create your own `fonts.scss` and update the base path to a value your compiler can resolve.
+ If your project's SASS compiler cannot resolve the aliased path to the fonts in the above `fonts.scss` and throws errors, the recommendation is to create your own `fonts.scss` and update the base path to a value your compiler can resolve.
 
-<<<<<<< Updated upstream
-=======
 For applications using `@angular-devkit/build-angular:application` create a file with:
 ```typescript
 @import '@dasdigitalplatform/dls-global-assets/dist/scss/base/fonts';
@@ -102,8 +91,6 @@ For applications using `@angular-builders/custom-webpack:browser` create a file 
 @include boeing-meso("/fonts");
 ```
 
-> 
->>>>>>> Stashed changes
 To register the custom SvgIconSet edit the `app.component.ts` and add the `IconRegistryModule` as an import:
 
 ```bash
@@ -137,7 +124,7 @@ export const appConfig: ApplicationConfig = {
 
 ### Using an Angular Material component
 
-Angular Material components can be used according to the [Angular Material documentation](https://v17.material.angular.io/components/categories). If the stylesheets are included in the angular.json as described above, the components will be styled without any further action needed.
+Angular Material components can be used according to the [Angular Material documentation](https://material.angular.dev/components/categories). If the stylesheets are included in the angular.json as described above, the components will be styled without any further action needed.
 
 ### Using a custom Angular component
 
@@ -254,7 +241,6 @@ Note the use of the element name in the selector to increase specificity so the 
 
 From the root of the repository, run the following command to scaffold a new component:
 
-<<<<<<< Updated upstream
 ```bash
 ng generate component component-name --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
 ```
@@ -263,15 +249,6 @@ You can also use:
 
 ```bash
 ng generate directive|pipe|service|class|guard|interface|enum|module --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
-=======
-```
-ng generate component component-name --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
-```
-
-You can also use:
-```
-ng generate directive|pipe|service|class|guard|interface|enum|module --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
->>>>>>> Stashed changes
 ```
 
 Follow the pattern of an existing custom component (such as `breadcrumb`) to do the following steps:
