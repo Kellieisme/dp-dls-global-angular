@@ -1,18 +1,18 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, ViewChild, TemplateRef, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
+import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { MatListModule, MatNavList } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MockSidebarMenuData } from './navigation-drawer.mock-menu-data';
 import { AtmosphereNavDrawerMenu, AtmosphereNavDrawerVariant } from './navigation-drawer.types';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 /**
  * An enum denoting the different possible variants for the navigation drawer
@@ -80,20 +80,21 @@ type SideNavigationModeType = `${SideNavMode}`;
 @Component({
     selector: 'ba-navigation-drawer',
     imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterModule,
-    MatListModule,
-    RouterModule,
-    MatNavList,
-    MatDividerModule,
-    MatMenuModule,
-    MatSidenavModule,
-    IconRegistryModule
-],
+        CommonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterOutlet,
+        RouterModule,
+        MatListModule,
+        RouterModule,
+        MatNavList,
+        MatDividerModule,
+        MatMenuModule,
+        MatSidenavModule,
+        IconRegistryModule
+    ],
     templateUrl: './navigation-drawer.component.html',
     styleUrls: ['./navigation-drawer.component.scss'],
     encapsulation: ViewEncapsulation.None
@@ -104,8 +105,6 @@ export class NavigationDrawerComponent implements OnDestroy {
    * @ignore
    */
   @ViewChild('sidenav', { read: ElementRef }) sidenavElement!: ElementRef;
-
-  // Removed duplicate declaration of boundStopDrag
 
   /*****************************************************************************
                                      INPUTS
@@ -244,7 +243,7 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   @Input({ transform: coerceBooleanProperty }) opened: boolean = false;
 
-  // Removed duplicate declaration of openedChange
+  @Output() openedChange = new EventEmitter<boolean>(); // Notifies parent of changes
 
   @Output() routeRequested = new EventEmitter<{ route?: string; item?: any }>();
 
@@ -319,7 +318,7 @@ export class NavigationDrawerComponent implements OnDestroy {
 
 
   private boundDrag: (event: MouseEvent | TouchEvent) => void;
-
+  
   private boundStopDrag: () => void;
 
   /*****************************************************************************
@@ -341,7 +340,7 @@ export class NavigationDrawerComponent implements OnDestroy {
   ngOnInit() {
     this.setFirstItemActive();
   }
-
+  
   setFirstItemActive() {
     if (this.navDrawerMenuItems && this.navDrawerMenuItems.length > 0) {
       const firstItem = this.navDrawerMenuItems[0];
@@ -356,9 +355,6 @@ export class NavigationDrawerComponent implements OnDestroy {
       }
     }
   }
-
-  @Output() openedChange = new EventEmitter<boolean>(); // Notifies parent of changes
-
 
   /*****************************************************************************
                                      METHODS
@@ -390,6 +386,8 @@ export class NavigationDrawerComponent implements OnDestroy {
     document.addEventListener("mouseup", this.boundStopDrag);
     document.addEventListener("mouseleave", this.boundStopDrag);
     document.addEventListener("touchend", this.boundStopDrag);
+
+
   }
 
   /**
@@ -401,13 +399,6 @@ export class NavigationDrawerComponent implements OnDestroy {
   drag(event: MouseEvent | TouchEvent) {
 
     if (!this.#isDragging) return;
-
-    // Fix: If mouse button is released but `mouseup` didn’t trigger, stop dragging
-    if (event instanceof MouseEvent && event.buttons === 0) {
-      this.stopDragging();
-      return;
-    }
-
 
     // Fix: If mouse button is released but `mouseup` didn’t trigger, stop dragging
     if (event instanceof MouseEvent && event.buttons === 0) {

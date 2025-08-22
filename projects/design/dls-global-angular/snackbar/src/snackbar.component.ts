@@ -8,7 +8,6 @@ import {
 } from '@angular/material/snack-bar';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
-
 /**
  * Snackbar is a service for displaying snack-bar notifications.
  */
@@ -53,7 +52,7 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
         flex-shrink: 0;
       }
     `,
-  ]
+    ]
 })
 export class SnackbarComponent {
 
@@ -86,7 +85,7 @@ export class SnackbarComponent {
   constructor(
     @Inject(MAT_SNACK_BAR_DATA) public data: any,
     public snackBarRef: MatSnackBarRef<SnackbarComponent>,
-  ) { }
+  ) {}
 
   onAction() {
     this.snackBarRef.dismissWithAction();

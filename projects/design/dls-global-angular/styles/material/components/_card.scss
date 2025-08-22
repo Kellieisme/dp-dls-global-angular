@@ -236,7 +236,7 @@ mat-card-content {
       padding-bottom: var(--size-spacing-xl);
     }
   p {
-    @include typography.typography-xl-body-low-default;
+    @include typography.typography-xl-body-low-default; 
     color: var(--color-ui-textandicon-medium);
   }
   }

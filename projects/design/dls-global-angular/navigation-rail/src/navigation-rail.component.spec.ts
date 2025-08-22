@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationRailComponent } from './navigation-rail.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('ButtonComponent', () => {
   let component: NavigationRailComponent;
@@ -11,7 +12,9 @@ describe('ButtonComponent', () => {
     TestBed.configureTestingModule({
       imports: [NavigationRailComponent, BrowserAnimationsModule],
       providers: [
-        provideRouter([])
+        provideRouter([]),
+        provideAnimations(),
+        provideHttpClient(),
       ]
     });
     fixture = TestBed.createComponent(NavigationRailComponent);

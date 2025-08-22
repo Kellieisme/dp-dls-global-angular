@@ -122,7 +122,7 @@ mat-sidenav {
 }
 
 mat-list-item.narrow {
-  display: flex;
+  display: flex; 
   .mat-mdc-list-item-icon {
     margin-left: vars.$size-relaxed-sizing-m;
     margin-right: vars.$size-relaxed-sizing-m;

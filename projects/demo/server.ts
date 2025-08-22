@@ -33,7 +33,7 @@ export function app(): express.Express {
       url: `${protocol}://${headers.host}${originalUrl}`,
       platformProviders: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
     })
-      .then((html: string) => res.send(html))
+      .then((html: any) => res.send(html))
       .catch((err: any) => next(err));
   });
 

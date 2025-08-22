@@ -1,6 +1,6 @@
 @use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 
-@use '../../styles/material/_bootstrap' as bootstrap;
+@use '../../styles/material/bootstrap' as bootstrap;
 @use '@dasdigitalplatform/dls-global-assets/dist/scss/global' as global;
 @use '@dasdigitalplatform/dls-global-assets/dist/scss/base/typography' as typography;
 
@@ -10,8 +10,23 @@
   background: var(--color-ui-glass-surface-thin);
 }
 
+mat-toolbar h1 {
+  @extend .h1;
+  margin: 0;
+}
+
+mat-toolbar h2 {
+  @extend .h2;
+  margin: 0;
+}
+
+mat-toolbar h3 {
+  @extend .h3;
+  margin: 0;
+}
+
 mat-toolbar h4 {
-  @extend .h1, .h2, .h3, .h4;
+  @extend .h4;
   margin: 0;
 }
 
@@ -111,8 +126,8 @@ mat-toolbar h6 {
 //   left: 0;
 //   right: 0;
 //   display: flex;
-//   justify-content: center;
-//   align-items: center;
+//   justify-content: center; 
+//   align-items: center; 
 // }
 
 /* SPACER (only needed for centered variant) */

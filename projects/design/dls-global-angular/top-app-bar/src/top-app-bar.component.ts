@@ -34,7 +34,7 @@ export class TopAppBarComponent {
   /* THIS INPUT IS NOW OBSOLETE */
 
   @Input({ transform: coerceBooleanProperty }) menuAlignCenter: boolean = true;
-
+  
   /* When `hamburgerMenuOnly` is present, the hamburger icon displays at all sizes.
    * If the flag is not present, the navigation will present a hamburger icon at smaller sizes. */
 
@@ -56,7 +56,7 @@ export class TopAppBarComponent {
   @Input({ transform: coerceBooleanProperty }) isNavigationDrawer: boolean = false;
 
   /* To use the hamburger menu at all breakpoints, use the `hamburgerMenuOnly` flag. */
-
+  
   @Input() topAppBarMenu: AtmosphereTopBarNavigationLinkArray = [];
 
   /* Output event for hamburger menu button click */

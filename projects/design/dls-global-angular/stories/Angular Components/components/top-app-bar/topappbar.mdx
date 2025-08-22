@@ -5,8 +5,6 @@ import * as TopAppBarStories from './topappbar.stories';
 
 <div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
 
-<<<<<<< Updated upstream
-=======
 # Top App Bar
 
 ### API references
@@ -116,21 +114,19 @@ export class AppComponent {
 
 HamburgerMenuOnly & Top-Appbar with Navigation Drawer [Pattern here](?path=/story/patterns-navigation--navigation-drawerand-top-app-bar)
 
->>>>>>> Stashed changes
 ### Properties
 
 <Markdown>
 {`
 | Name                                                        | Description                                                                   |
 | ------------------------------------------------------------| ----------------------------------------------------------------------------- |
-| @Input() menuAlignCenter | boolean | Aligns the menu items to the center if true. Default is true. |
-| @Input() hamburgerMenuOnly | boolean | Displays the hamburger menu at all sizes if true. Default is false. |
-| @Input() appName | string | The name of the application. Default is 'App Name'. |
-| @Input() appLogo | string | A string reference to the application logo. If not passed, no logo displays. |
-| @Input() homeRoute | string | Application home route added as a routerLink when clicking the logo. Default is '/'. |
-| @Input() isNavigationDrawer | boolean | Checks if the Top App Bar is used with a navigation drawer. Default is false. Consumers must set this to true when using the Top App Bar in conjunction with a navigation drawer to ensure proper UI alignment; otherwise, the UI may be affected. |
-| @Input() topAppBarMenu | AtmosphereTopBarNavigationLinkArray | An array of navigation links for the top app bar. |
-| @Output() hamburgerMenuClick | EventEmitter<void> | Emits an event when the hamburger menu button is clicked. Consumers can choose to handle this event or not. |
+| @Input() appName: string                                    | The name displayed in the top app bar. Defaults to 'App Name'. |
+| @Input() appLogo: string                                    | Logo file name (excluding path & extension). Defaults to ''. |
+| @Input() homeRoute: string                                  | Route linked to the logo. Defaults to '/'. |
+| @Input() menuAlignCenter: boolean                           | Obsolete - This is obsolete and needs to be updated. Defaults to false. |
+| @Input() hamburgerMenuOnly: boolean                         | Broken - Forces the menu to use a hamburger icon at all breakpoints. Defaults to false. |
+| @Input() topAppBarMenu: AtmosphereTopBarNavigationLinkArray | Clarification needed if this is for the old tabs or automatically creates the hamburger's links now? List of menu items for navigation. Defaults to []. |
+
 `}
 </Markdown>
 
@@ -140,7 +136,7 @@ HamburgerMenuOnly & Top-Appbar with Navigation Drawer [Pattern here](?path=/stor
 
 <Canvas of={TopAppBarStories.Default} />
 
-### HamburgerMenuOnly Variant: Top-appbar
+### With Hamburger Menu Only - VARIANT: Hamburger menu
 
 <Canvas of={TopAppBarStories.HamburgerOnly} />
 
@@ -166,7 +162,7 @@ HamburgerMenuOnly & Top-Appbar with Navigation Drawer [Pattern here](?path=/stor
     .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
       color: var(--color-ui-textandicon-high);
       background: var(--color-ui-background-medium);
-      border: 1px solid var(--color-ui-divider-flat-high);
+      border: 1px solid var(--color-ui-divider-flat-high);      
     }
     .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
     .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
@@ -178,9 +174,3 @@ HamburgerMenuOnly & Top-Appbar with Navigation Drawer [Pattern here](?path=/stor
   `}
 </style>
 
-<<<<<<< Updated upstream
-<Canvas of={TopAppBarStories.HamburgerOnly} />
-
-</div>
-=======
->>>>>>> Stashed changes

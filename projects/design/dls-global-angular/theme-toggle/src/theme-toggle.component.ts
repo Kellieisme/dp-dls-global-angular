@@ -19,7 +19,7 @@ import { MatIcon } from '@angular/material/icon';
   styleUrls: ["theme-toggle.component.scss"]
 })
 export class ThemeToggleComponent {
-  constructor(private themeToggleService: ThemeToggleService) { }
+  constructor(private themeToggleService: ThemeToggleService) {}
 
   toggle() {
     this.themeToggleService.toggleTheme();
