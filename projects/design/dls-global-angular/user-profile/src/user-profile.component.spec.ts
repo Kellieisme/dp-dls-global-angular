@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 
 describe('UserProfileComponent', () => {
   let component: UserProfileComponent;
@@ -13,7 +15,7 @@ describe('UserProfileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatTabsModule, MatIconModule, MatButtonModule, MatToolbarModule],
-      providers: [provideAnimations()]
+      providers: [provideAnimations(), provideHttpClient(), provideRouter([])]
     }).compileComponents();
   });
 

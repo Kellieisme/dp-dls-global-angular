@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 
 export interface ScreenSize {
   size: string;
@@ -21,11 +21,11 @@ const ELEMENT_DATA: ScreenSize[] = [
 ];
 
 @Component({
-  selector: 'table-page',
-  imports: [MatTableModule, MatButtonModule],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
-})
+    selector: 'table-page',
+    imports: [MatTableModule, MatButtonModule],
+    templateUrl: './table.component.html',
+    styleUrl: './table.component.scss'
+}) 
 
 export class TablePageComponent {
   title = 'Table';

@@ -17,11 +17,11 @@ import { MatButtonModule } from '@angular/material/button';
         IconRegistryModule,
     ],
     template: `
-     <div class="d-flex align-items-end pt-3" style="padding-left: 24px;">
+     <div class="dialog-header">
       <div>
         <mat-icon svgIcon="icon-warning"></mat-icon>
       </div>
-      <div class="ms-auto me-3">
+      <div class="dialog-header-actions">
         <button mat-icon-button mat-dialog-close="true">
           <mat-icon svgIcon="icon-close"></mat-icon>
         </button>

@@ -5,7 +5,6 @@
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
   @include mat.dialog-theme(m3.$dark-theme);
-  @include mat.dialog-theme(m3.$dark-theme);
 
   // If needed use the single dimension mixins to override particular aspects
 

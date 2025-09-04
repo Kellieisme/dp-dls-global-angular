@@ -1,9 +1,41 @@
 @use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+
+.padding-extra{
+  padding: 0 vars.$size-relaxed-sizing-m;
+}
+
 .col {
     margin-bottom: vars.$size-relaxed-spacing-2xl;
 }
 
-h6 {
+h6 { 
   color: var(--color-ui-textandicon-high);
-  margin-bottom: 1rem;
+  margin-bottom: vars.$size-relaxed-sizing-m;
+}
+
+.card-grid {
+  display: grid;
+  gap: vars.$size-relaxed-sizing-m;
+  width: 100%;
+  align-items: stretch;
+}
+
+.cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.example-footer-card {
+  max-width: 400px;
 }

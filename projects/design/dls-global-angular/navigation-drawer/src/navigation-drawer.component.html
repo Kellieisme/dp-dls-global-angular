@@ -77,7 +77,7 @@
                 matListItemTitle
                 (mouseenter)="opened = true"
                 (focus)="opened = true"
-                (click)="onMenuItemClick(item);
+                (click)="onMenuItemClick(item); 
                 toggleSubMenu(item); routerClicked(item.route, item)"
                 [ngClass]="{ 'mat-list-item--toggle-on': item.toggled }"
                 >

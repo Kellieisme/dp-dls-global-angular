@@ -107,75 +107,34 @@ export const TokenTable = () => {
   );
 };
 
-<div style={{ width: "100%", fontFamily: "Arial, sans-serif" }}>
-  <div
-    style={{
-      display: "flex",
-      fontWeight: "bold",
-      borderBottom: "1px solid var(--color-ui-divider-flat-low)",
-      padding: "8px",
-      alignItems: "center",
-    }}
-  >
-    <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>
-      Example
-    </span>
-    <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>
-      UI Variable
-    </span>
-    <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>
-      Figma Variables
-    </span>
-  </div>
-  {tokenData.map(({ cssVar, figmaVar }) => (
-    <div
-      key={cssVar}
-      style={{
-        borderBottom: "1px solid var(--color-ui-divider-flat-low)",
-        padding: "8px",
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      <span
-        style={{
-          background: `var(${cssVar})`,
-          height: "40px",
-          width: "40px",
-          display: "inline-block",
-          marginRight: "45px",
-        }}
-      ></span>
-      <span
-        style={{
-          flex: 1,
-          color: "var(--color-ui-textandicon-high)",
-          textAlign: "center",
-        }}
-      >
-        {cssVar}
-      </span>
-      <span
-        style={{
-          flex: 1,
-          color: "var(--color-ui-textandicon-high)",
-          textAlign: "center",
-        }}
-      >
-        {figmaVar}
-      </span>
-    </div>
-  ))}
-</div>
-); };
-
 <div style={{color: "var(--color-interactive-primary-textandicon-primary-default)",padding: "8px 15px",borderRadius: "8px",}}>
 
   # Color Tokens for light and dark mode
 
-      <Info_Blue_text> Attention! The New Light Mode is now available on Angular 18 🎉</Info_Blue_text>
+      <Info_Blue_text> Attention! The new Atmosphere Light Mode is now available for Angular 18 and above 🎉</Info_Blue_text>
 
-      Upgrade to ```@dasdigitalplatform/dls-global-angular@2.5.1``` which is based on ```@dasdigitalplatform/dls-global-assets ^2.0.0```
+      Upgrading ```@dasdigitalplatform/dls-global-angular``` and ```@dasdigitalplatform/dls-global-assets```
+
+      ### For Angular 18 projects:
+      ```json
+      {
+        "dependencies": {
+          "@dasdigitalplatform/dls-global-angular": "^2.5.1",
+          "@dasdigitalplatform/dls-global-assets": "^2.0.0"
+        }
+      }
+      ```
+
+      ### For angular 19 projects:
+      ```json
+      {
+        "dependencies": {
+          "@dasdigitalplatform/dls-global-angular": "^3.4.0",
+          "@dasdigitalplatform/dls-global-assets": "^2.1.2"
+        }
+      }
+      ```
+
 
   The atmosphere theme is controlled by the assets library. This library exposes some variables that you can use so that you can adhere to the theme and seamlessly maintain it in both light and dark mode. Use these variables in your scss to maintain light and dark mode in code that is not part of the atmosphere library but needs atmosphere theme-ing
 
@@ -230,7 +189,7 @@ export const TokenTable = () => {
       color: var(--color-ui-textandicon-high);
       background: var(--color-ui-background-medium);
       border: 1px solid var(--color-ui-divider-flat-high);
-
+      
     }
     .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
     .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {

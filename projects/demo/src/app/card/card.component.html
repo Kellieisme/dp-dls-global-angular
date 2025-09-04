@@ -1,274 +1,102 @@
-<!-- Default is flat; glass is an arg: appearance="outlined" -->
-
-<h6>Two columns, small up; Interactive</h6>
-<div class="container-fluid">
-  <!--Row-->
-  <!--Interactive-->
-  <!--Two columns, small up-->
-  <div class="row row-cols-1 row-cols-sm-2">
-    <div class="col">
-      <a href="#" class="mat-card-wrapper">
-        <mat-card>
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <mat-card-header>
-            <mat-card-title>Long card title</mat-card-title>
-            <mat-card-subtitle>Subheading</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    </div>
-    <div class="col">
-      <a href="#" class="mat-card-wrapper mat-card-wrapper--outlined">
-        <mat-card appearance="outlined">
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <mat-card-header>
-            <mat-card-title>Long card title</mat-card-title>
-            <mat-card-subtitle>Subheading</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    </div>
+<div class="padding-extra">
+  <h6>Basic 2 cards side by side</h6>
+  <div class="card-grid cols-2">
+    <mat-card *ngFor="let card of basicCards" appearance="raised">
+      <mat-card-header>
+        <mat-card-title>{{ card.title }}</mat-card-title>
+        <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ card.content }}</p>
+      </mat-card-content>
+    </mat-card>
   </div>
-</div>
 
-<h6>Three columns, medium up; Non-Interactive, 2 buttons; Card landscape in small breakpoint</h6>
-<div class="container-fluid">
-  <!--Row-->
-  <!--Non-Interactive, 2 buttons-->
-  <!--Three columns, medium up; in small breakpoint, card layout goes landscape-->
-  <div class="row row-cols-1 row-cols-md-3">
-    <div class="col">
-      <mat-card class="mat-mdc-card--landscape-sm">
-        <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-        <div>
-          <mat-card-header>
-            <mat-card-title>Card title</mat-card-title>
-            <mat-card-subtitle>Subheading</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-stroked-button color="primary">Action 2</button> 
-            <button mat-flat-button color="primary">Action 1</button>
-          </mat-card-actions>
-        </div>
-      </mat-card>
-    </div>
-    <div class="col">
-      <mat-card class="mat-mdc-card--landscape-sm">
-        <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-        <div>
-          <mat-card-header>
-            <mat-card-title>Card title</mat-card-title>
-            <mat-card-subtitle>Subheading</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-stroked-button color="primary">Action 2</button>
-            <button mat-flat-button color="primary">Action 1</button>
-          </mat-card-actions>
-        </div>
-      </mat-card>
-    </div>
-    <div class="col">
-      <mat-card class="mat-mdc-card--landscape-sm">
-        <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-        <div>
-          <mat-card-header>
-            <mat-card-title>Card title</mat-card-title>
-            <mat-card-subtitle>Subheading</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-stroked-button color="primary">Action 2</button> 
-            <button mat-flat-button color="primary">Action 1</button>
-          </mat-card-actions>
-        </div>
-      </mat-card>
-    </div>
+  <!-- b. Card with Actions: 3 cards in one row -->
+  <h6>Card with Actions - 3 cards</h6>
+  <div class="card-grid cols-3">
+    <mat-card *ngFor="let card of cardsWithActions" appearance="raised">
+      <mat-card-header>
+        <mat-card-title>{{ card.title }}</mat-card-title>
+        <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ card.content }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button>Action 2</button>
+        <button mat-flat-button>Action 1</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
-</div>
 
-<h6>Two columns, small up; Interactive; no subheading; landscape</h6>
-<div class="container-fluid">
-  <!--Row-->
-  <!--Interactive; no subheading; landscape-->
-  <!--Two columns, small up-->
-  <div class="row row-cols-1 row-cols-sm-2">
-    <div class="col">
-      <a href="#" class="mat-card-wrapper">
-        <mat-card class="mat-mdc-card--landscape">
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <div>
-            <mat-card-header>
-              <mat-card-title>Short card title</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-            </mat-card-content>
-          </div>
-        </mat-card>
-      </a>
-    </div>
-    <div class="col">
-      <a href="#" class="mat-card-wrapper">
-        <mat-card class="mat-mdc-card--landscape">
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <div>
-            <mat-card-header>
-              <mat-card-title>Short card title</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-            </mat-card-content>
-          </div>
-        </mat-card>
-      </a>
-    </div>
-    <div class="col">
-      <a href="#" class="mat-card-wrapper">
-        <mat-card class="mat-mdc-card--landscape">
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <div>
-            <mat-card-header>
-              <mat-card-title>Short card title</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-            </mat-card-content>
-          </div>
-        </mat-card>
-      </a>
-    </div>
-    <div class="col">
-      <a href="#" class="mat-card-wrapper">
-        <mat-card class="mat-mdc-card--landscape">
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <div>
-            <mat-card-header>
-              <mat-card-title>Short card title</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-            </mat-card-content>
-          </div>
-        </mat-card>
-      </a>
-    </div>
-  </div>
-</div>
-
-<h6>Two columns, small up; Four columns, medium up; Non-interactive, one button</h6>
-<div class="container-fluid">
-  <!--Row-->
-  <!--Non-interactive, one button-->
-  <!--Two columns, small up-->
-  <!--Four columns, medium up-->
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-    <div class="col">
-      <mat-card>
-        <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
+  <!-- c. Clickable Cards 4 cards in a row -->
+  <h6>Clickable Cards - 4 cards</h6>
+  <div class="card-grid cols-4">
+    <a *ngFor="let card of clickableCards" href="#">
+      <mat-card appearance="raised">
         <mat-card-header>
-          <mat-card-title>Card title</mat-card-title>
-          <mat-card-subtitle>Subheading</mat-card-subtitle>
+          <mat-card-title>{{ card.title }}</mat-card-title>
+          <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p>Elaborate on the card's topic using concise supporting text</p>
+          <p>{{ card.content }}</p>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-stroked-button color="primary">Action 1</button>
-        </mat-card-actions>
       </mat-card>
-    </div>
-    <div class="col">
-      <mat-card>
-        <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-        <mat-card-header>
-          <mat-card-title>Card title</mat-card-title>
-          <mat-card-subtitle>Subheading</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Elaborate on the card's topic using concise supporting text</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-stroked-button color="primary">Action 1</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div class="col">
-      <mat-card>
-        <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-        <mat-card-header>
-          <mat-card-title>Card title</mat-card-title>
-          <mat-card-subtitle>Subheading</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Elaborate on the card's topic using concise supporting text</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-stroked-button color="primary">Action 1</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div class="col">
-      <mat-card>
-        <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-        <mat-card-header>
-          <mat-card-title>Card title</mat-card-title>
-          <mat-card-subtitle>Subheading</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Elaborate on the card's topic using concise supporting text</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-stroked-button color="primary">Action 1</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+    </a>
   </div>
-</div>
 
-<h6>8/4 column split, medium up; Interactive</h6>
-<div class="container-fluid">
-  <!--Row-->
-  <!--Interactive-->
-  <!--8/4, medium up-->
-  <div class="row">
-    <div class="col col-12 col-md-8">
-      <a href="#" class="mat-card-wrapper">
-        <mat-card>
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <mat-card-header>
-            <mat-card-title>Long card title</mat-card-title>
-            <mat-card-subtitle>Subheading</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
-      </a>
-    </div>
-    <div class="col col-12 col-md-4">
-      <a href="#" class="mat-card-wrapper">
-        <mat-card>
-          <img mat-card-image src="/assets/card-img-1.png" alt="Card image">
-          <mat-card-header>
-            <mat-card-title>Card title</mat-card-title>
-            <mat-card-subtitle>Subheading</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Explain more about the topic shown in the card title and subheading through short supporting text here.</p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    </div>
+  <!-- d. Card with standard Image, 4 cards with one action button -->
+  <h6>Card with Standard Image - 4 cards</h6>
+  <div class="card-grid cols-4">
+    <mat-card *ngFor="let card of standardImageCards" appearance="raised">
+      <img mat-card-image [src]="card.image" alt="Card image" />
+      <mat-card-header>
+        <mat-card-title>{{ card.title }}</mat-card-title>
+        <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ card.content }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button>Action 1</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- e. Landscape layout 2 cards in a row -->
+  <h6>Landscape layout - 2 cards</h6>
+  <div class="card-grid cols-2">
+    <mat-card *ngFor="let card of landscapeCards" appearance="raised" class="mat-mdc-card--landscape">
+      <img mat-card-image [src]="card.image" alt="Card image" />
+      <div>
+        <mat-card-header>
+          <mat-card-title>{{ card.title }}</mat-card-title>
+          <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ card.content }}</p>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- f. One card with footer containing chips -->
+  <h6>One Card with Footer containing Chips</h6>
+  <div class="card-grid cols-1">
+    <mat-card appearance="raised" class="example-footer-card">
+      <mat-card-header>
+        <mat-card-title>{{ footerCard.title }}</mat-card-title>
+        <mat-card-subtitle>{{ footerCard.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ footerCard.content }}</p>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-chip-set>
+          <mat-chip *ngFor="let chip of footerCard.chips">{{ chip }}</mat-chip>
+        </mat-chip-set>
+      </mat-card-footer>
+    </mat-card>
   </div>
 </div>

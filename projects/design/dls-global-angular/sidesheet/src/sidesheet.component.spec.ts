@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SideSheetComponent } from './sidesheet.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('SidesheetComponent', () => {
   let component: SideSheetComponent;
@@ -11,7 +12,9 @@ describe('SidesheetComponent', () => {
     TestBed.configureTestingModule({
       imports: [SideSheetComponent, BrowserAnimationsModule],
       providers: [
-        provideRouter([])
+        provideRouter([]),
+        provideAnimations(),
+        provideHttpClient(),
       ]
     });
     fixture = TestBed.createComponent(SideSheetComponent);

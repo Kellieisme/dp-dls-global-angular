@@ -3,7 +3,7 @@
 .ba-breadcrumb__list {
   display: flex;
   list-style-type: none;
-
+  
   li:not(:last-child)::after {
     content: '/';
     padding: 0 var(--size-spacing-2xs);
