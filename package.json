@@ -76,6 +76,7 @@
     "@types/jasmine": "^5.1.7",
     "@types/node": "^24.0.12",
     "angular-eslint": "19.8.1",
+    "bootstrap": "^5.3.8",
     "conventional-changelog-cli": "^5.0.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsdoc": "^51.3.4",
