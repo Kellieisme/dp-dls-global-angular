@@ -4,12 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavDrawerPresentationEnum, NavigationDrawerComponent } from '../../../../navigation-drawer';
-import { NavigationRailComponent } from '../../../../navigation-rail';
-import { TopAppBarComponent } from '../../../../top-app-bar';
-import { UserProfileComponent } from '../../../../user-profile';
+import { NavDrawerPresentationEnum, NavigationDrawerComponent } from '../../../navigation-drawer';
+import { NavigationRailComponent } from '../../../navigation-rail';
+import { TopAppBarComponent } from '../../../top-app-bar';
+import { UserProfileComponent } from '../../../user-profile';
 import { CommonModule } from '@angular/common';
-import { IconRegistryStorybookModule } from '../../../../icon-registry';
+import { IconRegistryStorybookModule } from '../../../icon-registry';
 import { ActivatedRoute, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { MatListModule, MatNavList } from '@angular/material/list';
 
@@ -80,7 +80,7 @@ const bottomIcons = `
 </ng-template>
 
 <ng-template #sideNavProfileButton let-data="data">
-<ba-user-profile clickable userFirstName="William" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
+<ba-user-profile clickable class="avatar" userFirstName="William" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
   <mat-menu #menuUserLetter="matMenu">
     <button mat-menu-item class="user-info-menu-item">
         <ba-user-profile userFirstName="William"></ba-user-profile>
@@ -107,19 +107,7 @@ const bottomIcons = `
     </button>
   </mat-menu>
 </ng-template>
-`;
-
-const navRailTemplateWithoutLogo = `
-  <ba-navigation-rail
-    [hideLabels]="hideLabels"
-    [wide]="wide"
-    [menuItems]="menuItems"
-    [navRailBottomComponent1] = "sideNavNotificationsButton"
-    [navRailBottomComponent2] = "sideNavProfileButton"
-    >
-  </ba-navigation-rail>
-  ${bottomIcons}
-`;
+`
 
 const navRailTemplate = `
   <ba-navigation-rail
@@ -149,7 +137,6 @@ const navDrawerandTopAppBarTemplate = `
 <ba-top-app-bar    
   [appLogo]="'boeing-logomark'"
   [appName]="appName"
-  isNavigationDrawer
 >
   <div class="actions large-screen">
     <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
@@ -211,15 +198,16 @@ const navDrawerandTopAppBarTemplate = `
   [navDrawerPresentation]="navDrawerPresentation"
   [navBarBottomComponent1] = "sideNavNotificationsButton"
   [navBarBottomComponent2] = "sideNavProfileButton"
-  [opened]="opened"
+  [appName]="'Boeing App'"
+  [appLogo]="'boeing'"
+  opened
   ></ba-navigation-drawer>
   ${bottomIcons}
-`;
+`
 const navRailandTopAppBarTemplate = `
 <ba-top-app-bar    
   [appLogo]="'boeing-logomark'"
   [appName]="appName"
-  isNavigationDrawer
 >
   <div class="actions large-screen">
     <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
@@ -276,7 +264,7 @@ const navRailandTopAppBarTemplate = `
     </button>
   </mat-menu>
 </ba-top-app-bar>
-${navRailTemplateWithoutLogo}
+${navRailTemplate}
 `;
 
 const navRailAndDrawerTemplate = `
@@ -337,7 +325,6 @@ const navRailAndDrawerTemplate = `
 const baseArgs = {
   appName: 'Boeing App',
   appLogo: 'boeing',
-  opened: true,
   sectionHeaderLabel: 'Main navigation',
   menuItems: [
     {
@@ -458,7 +445,7 @@ export const NavigationDrawerandTopAppBar: Story = {
   name: 'Navigation Drawer + Top App Bar (1-2 levels of depth)',
   args: {
     ...baseArgs,
-    variant: 'modal',
+    variant: 'standard',
   },
   render: (args) => ({
     props: args,
@@ -466,9 +453,6 @@ export const NavigationDrawerandTopAppBar: Story = {
 <ba-top-app-bar    
   [appLogo]="'boeing-logomark'"
   [appName]="appName"
-  isNavigationDrawer
-  hamburgerMenuOnly
-  (hamburgerMenuClick)="opened = !opened"
 >
   <div class="actions large-screen">
     <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
@@ -526,10 +510,13 @@ export const NavigationDrawerandTopAppBar: Story = {
   </mat-menu>
 </ba-top-app-bar>
 <ba-navigation-drawer
+  minifyOnCollapse
   [navDrawerPresentation]="navDrawerPresentation"
   [navBarBottomComponent1] = "sideNavNotificationsButton"
   [navBarBottomComponent2] = "sideNavProfileButton"
-  [(opened)]="opened"
+  [appName]="'Boeing App'"
+  [appLogo]="'boeing'"
+  opened
   ></ba-navigation-drawer>
   ${bottomIcons}
 `

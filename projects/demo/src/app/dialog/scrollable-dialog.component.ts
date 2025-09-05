@@ -1,19 +1,35 @@
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatButton } from '@angular/material/button';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
 @Component({
     selector: 'app-scrollable-dialog',
     imports: [
-        MatDialogModule,
-        MatButtonModule,
+        MatDialogContent,
+        MatDialogTitle,
+        MatDialogClose,
+        MatDialogActions,
+        MatButton,
         IconRegistryModule,
     ],
     template: `
     <h2 mat-dialog-title>Update Angular</h2>
-    <mat-dialog-content> 
-      <h3 class="title-medium">Speed &amp; Performance</h3>
+    <mat-dialog-content>
+      <p>
+        Learn one way to build applications with Angular and reuse your code and
+        abilities to build apps for any deployment target. For web, mobile web,
+        native mobile and native desktop.
+      </p>
+
+      <h3 class="title-medium">
+        Speed &amp; Performance
+      </h3>
       <p>
         Achieve the maximum speed possible on the Web Platform today, and take
         it further, via Web Workers and server-side rendering. Angular puts you

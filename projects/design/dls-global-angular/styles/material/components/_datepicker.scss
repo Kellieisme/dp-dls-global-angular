@@ -1,20 +1,23 @@
 @use '@angular/material' as mat;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss';
+@import '../m3-theme.scss';
 
 :root {
-  // The `-theme` mixin can be used to include the component's styles for all 
+  // The `-theme` mixin can be used to include the component's styles for all
   //theme dimensions at once
-  @include mat.datepicker-theme(m3.$dark-theme);
+  @include mat.datepicker-theme($dark-theme);
   // If needed use the single dimension mixins to override particular aspects
-  
+  // @include mat.button-base($dark-theme);
+  // @include mat.button-color($dark-theme);
+  // @include mat.button-typography($dark-theme);
+  // @include mat.button-density($dark-theme);
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.datepicker-color(m3.$light-theme);
+  @include mat.datepicker-color($light-theme);
 }
 
 // Scaling/Density:
@@ -32,16 +35,15 @@
 /******************************************************************************/
 
 
-// TODO: datepickerorary specular border values until we can fix the mixin
+// TODO: Temporary specular border values until we can fix the mixin
 // The mixin uses border-image-source to create a gradient border but
 // this does not seem to work as intended, needs more investigation
-$composition-dark-interactive-primary-border-hovered-specular-datepicker: rgba(255, 255, 255, 0.40);
-$composition-light-interactive-primary-border-hovered-specular-datepicker: rgba(255, 255, 255, 0.17);
+$composition-dark-interactive-primary-border-hovered-specular-temp: rgba(255, 255, 255, 0.40);
+$composition-light-interactive-primary-border-hovered-specular-temp: rgba(255, 255, 255, 0.17);
 
 // Additional Invalid/Error Styles
 html,
-html .theme-light,
-html .theme-dark {
+html .theme-light,html .theme-dark {
   .mat-mdc-form-field.mat-form-field-invalid {
     --mat-datepicker-toggle-icon-color: var(--color-semantic-textandicon-error);
     --mat-datepicker-toggle-active-state-icon-color: var(--color-semantic-textandicon-error);
@@ -51,12 +53,12 @@ html .theme-dark {
 
 // Additional styles for calendar container
 mat-datepicker-content {
-  border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-datepicker};
-  @include composition.composition-dark-ui-glass-background-blur;
+  border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-temp};
+  @include composition-dark-ui-glass-background-blur;
 
   .theme-light & {
-    border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-datepicker};
-    @include composition.composition-light-ui-glass-background-blur;
+    border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-temp};
+    @include composition-light-ui-glass-background-blur;
   }
 }
 

@@ -1,9 +1,11 @@
 import { Story, Canvas, Meta, Markdown } from "@storybook/blocks";
 import * as CheckboxStories from "./checkbox.stories";
 
+
 <Meta of={CheckboxStories} />
 
-<div style={{backgroundColor:'var(--color-ui-background-medium)',padding:'8px 15px', borderRadius: '8px'}}>
+
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
 
 # Checkbox
 
@@ -28,10 +30,12 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
   })
 ```
 
+
+
 ### Style Classes
 
 <Markdown>
-  {`
+{`
 | Name                                                       | Description                                                                                  |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | error                                                      | Adds styles for error state. |
@@ -41,7 +45,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 ### Properties
 
 <Markdown>
-  {`
+{`
 | Name                                                       | Description                                                                                  |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | @Input() id: string                                        | A unique id for the checkbox input. If none is supplied, it will be auto-generated.|
@@ -61,6 +65,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 
 <Canvas of={CheckboxStories.Single} />
 
+
 #### Nested Checkbox
 
 <Canvas of={CheckboxStories.Nested} />
@@ -74,7 +79,7 @@ You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/d
 #### Angular Material Reference
 
 <Markdown>
-  {`
+{`
 | Boeing DLS Global Angular Library Version    | Angular Material Version  | API Reference                                                              |
 | -------------------------------------------- | ------------------------- | -------------------------------------------------------------------------- |
 | 1.x.x                                        | 17.x.x                    | [Checkbox](https://v17.material.angular.io/components/checkbox/api)        |
@@ -84,36 +89,3 @@ You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/d
 </Markdown>
 
 </div>
-
-<style>
-  {`
-    .sbdocs{
-      background: var(--color-ui-background-lowest);
-      color: var(--color-ui-textandicon-high);
-    }
-    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-      color: var(--color-ui-textandicon-medium) !important;
-    }
-
-    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
-    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
-      color: var(--color-ui-textandicon-high) !important;
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
-      color: var(--color-ui-textandicon-high);
-      background: var(--color-ui-background-medium);
-      border: 1px solid var(--color-ui-divider-flat-high);
-      
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
-      color: var(--color-ui-textandicon-medium);
-      background: var(--color-ui-background-low);
-      border: 1px solid var(--color-ui-divider-flat-high);
-
-    }
-  `}
-</style>

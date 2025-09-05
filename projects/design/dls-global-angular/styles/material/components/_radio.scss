@@ -1,17 +1,21 @@
 @use "@angular/material" as mat;
-@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss" as vars;
-@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
-@use "../m3-theme" as m3;
-@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins" as typographymixin;
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss";
+@import "../m3-theme";
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.radio-theme(m3.$dark-theme);
+  @include mat.radio-theme($dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+  // @include mat.button-base($dark-theme);
+  // @include mat.button-color($dark-theme);
+  // @include mat.button-typography($dark-theme);
+  // @include mat.button-density($dark-theme);
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.radio-color(m3.$light-theme);
+  @include mat.radio-color($light-theme);
 }
 
 .mat-mdc-radio-button {
@@ -19,14 +23,14 @@
     .mdc-radio {
       &:hover:not(:disabled) {
         .mat-ripple {
-          @include composition.composition-dark-interactive-primary-glow-small-surface;
+          @include composition-dark-interactive-primary-glow-small-surface;
         }
       }
     }
   }
 
   .mdc-label {
-    @include typographymixin.typography-xl-body-low-default;
+    @include typography-xl-body-low-default;
 
     &:hover:not(:disabled) {
       cursor: pointer
@@ -37,7 +41,7 @@
 html .theme-condensed {
   .mat-mdc-radio-touch-target {
 
-    // height: 40px; 
+    // height: 40px;
     // width: 40px;
     height: var(--size-sizing-4xl);
     width: var(--size-sizing-4xl);

@@ -1,17 +1,21 @@
 @use '@angular/material' as mat;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '../m3-theme.scss' as m3;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
+@import '../m3-theme.scss';
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.divider-theme(m3.$dark-theme);
+  @include mat.divider-theme($dark-theme);
   // If needed use the single dimension mixins to override particular aspects
+  // @include mat.button-base($dark-theme);
+  // @include mat.button-color($dark-theme);
+  // @include mat.button-typography($dark-theme);
+  // @include mat.button-density($dark-theme);
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.divider-color(m3.$light-theme);
+  @include mat.divider-color($light-theme);
 }
 
 mat-divider {
@@ -35,8 +39,7 @@ mat-divider {
 }
 
 html,
-html .theme-light,
-html .theme-dark {
+html .theme-light,html .theme-dark {
   --mat-divider-color: var(--color-ui-divider-flat-high);
-  --mat-divider-width: #{vars.$size-base-border-width-1};
+  --mat-divider-width: #{$size-base-border-width-1};
 }

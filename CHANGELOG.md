@@ -1,5 +1,4 @@
 # Change Log
-<<<<<<< Updated upstream
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -17,34 +16,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 # Changelog
-=======
->>>>>>> Stashed changes
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-# [3.3.0](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v3.2.2...v3.3.0) (2025-07-21)
-
-
-### Features
-
-* Allow users to set the title in the sidesheet ([587930d](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/587930d863919612fa22f997a0aaf90e45fdd844))
-
-
-
-## [3.2.2](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v3.2.1...v3.2.2) (2025-05-20)
+### 2.5.11 (2025-05-21)
 
 
 ### Bug Fixes
 
-* **nav-drawer:** enhnenching the quality of navigation drawer. ([d9af466](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/d9af466cd05126d63e8bb00bdc806f046cdf1a4d))
-* **navigation-drawer:** resolve UI inconsistencies and enhacne functionality for angualr 19 ([4e11492](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/4e11492a1ca2385a9a674ad5fd2e68cb53888569))
+* Rev push may not work on main branch, so working with develop branch ([b5fdbd5](https://github.com/dasdigitalplatform/dls-global-angular/commit/b5fdbd5c6108c4002012a73ed59fb4cf0137fca2))
 
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 ### [3.2.1](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v3.2.0...v3.2.1) (2025-04-14)
 
 
@@ -69,30 +50,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **slide-toggle:** Align with new Light mode ([de3bb0e](https://git.web.boeing.com/design/design-system/dls-global-angular/commit/de3bb0e3ad9f5324eebd08100adca75a28e0678f))
 * Update package.json ([3c2f4a1](https://git.web.boeing.com/design/design-system/dls-global-angular/commit/3c2f4a1b186ed12823f7c4933ea9df66ef27c596))
 
-<<<<<<< Updated upstream
-=======
-
-
-# [2.6.0](https://git.web.boeing.com/design/design-system/dls-global-angular/compare/v3.2.1...v2.6.0) (2025-05-15)
-
-
-### Bug Fixes
-
-* icon alignment ([052ade8](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/052ade81a6cd28d7dbb8b5f59b68d84b4cb3c577))
-
-
-### Features
-
-* add tooltip for navigation rail ([2254cc1](https://git.web.boeing.com/design/design-system/dls-global-angular/commits/2254cc13ac85ed63a4e3aa536ee6360570291299))
-
-
-
-## 2.5.8 (2025-03-25)
-
-
-
-
-
-
->>>>>>> Stashed changes
 ## 2.5.0 (2025-02-28)

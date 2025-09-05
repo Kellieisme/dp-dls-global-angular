@@ -1,18 +1,32 @@
-import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, ViewChild, TemplateRef, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  ViewChild,
+  TemplateRef,
+  ViewEncapsulation,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatListModule, MatNavList } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MockSidebarMenuData } from './navigation-drawer.mock-menu-data';
-import { AtmosphereNavDrawerMenu, AtmosphereNavDrawerVariant } from './navigation-drawer.types';
+import {
+  AtmosphereNavDrawerMenu,
+  AtmosphereNavDrawerVariant,
+} from './navigation-drawer.types';
 
 /**
  * An enum denoting the different possible variants for the navigation drawer
@@ -78,33 +92,138 @@ type SideNavigationModeType = `${SideNavMode}`;
  *
  */
 @Component({
-    selector: 'ba-navigation-drawer',
-    imports: [
-        CommonModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatIconModule,
-        RouterOutlet,
-        RouterModule,
-        MatListModule,
-        RouterModule,
-        MatNavList,
-        MatDividerModule,
-        MatMenuModule,
-        MatSidenavModule,
-        IconRegistryModule
-    ],
-    templateUrl: './navigation-drawer.component.html',
-    styleUrls: ['./navigation-drawer.component.scss'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'ba-navigation-drawer',
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterOutlet,
+    RouterModule,
+    MatListModule,
+    MatNavList,
+    MatDividerModule,
+    MatMenuModule
+  ],
+  templateUrl: './navigation-drawer.component.html',
+  styleUrls: ['./navigation-drawer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NavigationDrawerComponent implements OnDestroy {
+
+  ngOnInit() {
+    this.setFirstItemActive();
+  }
+
+  setFirstItemActive() {
+    if (this.navDrawerMenuItems && this.navDrawerMenuItems.length > 0) {
+      const firstItem = this.navDrawerMenuItems[0];
+      if (firstItem.sectionMenuItems && firstItem.sectionMenuItems.length > 0) {
+        this.onMenuItemClick(firstItem.sectionMenuItems[0]);
+        // The following check for sidenavMode is commented out because we have decided
+        // to enable backdrop clicks for both modal and standalone presentations.
+        // As a result, the distinction between 'over' and other modes is no longer necessary.
+        // if(this.sidenavMode !== 'over') { //Commented
+        // this.opened = false;
+        // }
+        // The following check for sidenavMode is commented out because we have decided
+        // to enable backdrop clicks for both modal and standalone presentations.
+        // As a result, the distinction between 'over' and other modes is no longer necessary.
+        // if(this.sidenavMode !== 'over') { //Commented
+        // this.opened = false;
+        // }
+      }
+    }
+  }
+  /**
+   * @ignore
+   */
+  mobileQuery: MediaQueryList;
 
   /**
    * @ignore
    */
   @ViewChild('sidenav', { read: ElementRef }) sidenavElement!: ElementRef;
+
+  private boundDrag: (event: MouseEvent | TouchEvent) => void;
+  private boundStopDrag: () => void;
+
+  /*****************************************************************************
+                                 CONSTRUCTOR
+  *****************************************************************************/
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.boundDrag = this.drag.bind(this);
+    this.boundStopDrag = this.stopDragging.bind(this);
+  }
+
+  /*****************************************************************************
+                                  PROPERTIES
+  *****************************************************************************/
+
+  /**
+   * When not in MODAL mode, we want the drawer to collapse on mouse-out and on
+   * selection of a menu item... UNLESS the drawer has already been manually
+   * dragged open. We count such a state as an "intentional open" and respect
+   * that the user deliberately expanded the drawer. This flag provides us a
+   * check for such cases, and is used in conditional logic within the template.
+   */
+  intentionalOpen: boolean = false;
+
+  /**
+   * PRIVATE
+   *
+   * Is the drawer currently being dragged around?
+   *
+   * @ignore
+   */
+  #isDragging: boolean = false;
+
+  /**
+   * Determines if a menu item was clicked. Not sure we need this one.
+   *
+   * @ignore
+   */
+  isMenuItemClicked: boolean = false;
+
+  /**
+   * PRIVATE
+   *
+   * The starting width for the drawer. Ostensibly used in dragging, but
+   * uncertain if this is still required. Code has moved away from using JS
+   * animation and towards capitalizing on Material's `opened` property and
+   * premade transforms.
+   *
+   * @todo Ascertain the above and remove if necessary.
+   *
+   * @ignore
+   */
+  #startWidth: number = 0;
+
+  /**
+   * PRIVATE
+   *
+   * The starting X-position for the drawer. Ostensibly used in dragging, but
+   * uncertain if this is still required. Code has moved away from using JS
+   * animation and towards capitalizing on Material's `opened` property and
+   * premade transforms.
+   *
+   * @todo Ascertain the above and remove if necessary.
+   *
+   * @ignore
+   */
+  #startX: number = 0;
+
+  /**
+   * Since our `NavDrawerPresentationEnum` is used for evaluations not only in
+   * our class code, but also in our template, we need to expose it publicly on
+   * our class.
+   */
+  public NavDrawerPresentationEnum = NavDrawerPresentationEnum;
 
   /*****************************************************************************
                                      INPUTS
@@ -114,18 +233,18 @@ export class NavigationDrawerComponent implements OnDestroy {
    * The application logo, used when the Nav Drawer is rendered in its
    * STANDALONE configuration.
    */
-  @Input() appLogo?: string ;
+  @Input() appLogo: string = '';
 
   /**
    * The application name, used when the Nav Drawer is rendered in its
    * STANDALONE configuration.
    */
-  @Input() appName?: string;
+  @Input() appName: string = 'App name';
 
   /**
    * Application home route, will be added as a routerLink when clicking the logo
    */
-  @Input() homeRoute?: string;
+  @Input() homeRoute: string = '/';
 
   /**
    * Sets the width for the drawer when in its collapsed state.
@@ -241,120 +360,10 @@ export class NavigationDrawerComponent implements OnDestroy {
    * animations to facilitate the expansion/collapse becase additional ARIA
    * properties and classes are predicated on this component state marker.
    */
-  @Input({ transform: coerceBooleanProperty }) opened: boolean = false;
+  @Input({ transform: coerceBooleanProperty }) opened: boolean = true;
 
   @Output() openedChange = new EventEmitter<boolean>(); // Notifies parent of changes
 
-  @Output() routeRequested = new EventEmitter<{ route?: string; item?: any }>();
-
-    /*****************************************************************************
-                                  PROPERTIES
-  *****************************************************************************/
-
-  /**
-   * When not in MODAL mode, we want the drawer to collapse on mouse-out and on
-   * selection of a menu item... UNLESS the drawer has already been manually
-   * dragged open. We count such a state as an "intentional open" and respect
-   * that the user deliberately expanded the drawer. This flag provides us a
-   * check for such cases, and is used in conditional logic within the template.
-   */
-  intentionalOpen: boolean = false;
-
-  /**
-   * PRIVATE
-   *
-   * Is the drawer currently being dragged around?
-   *
-   * @ignore
-   */
-  #isDragging: boolean = false;
-
-  /**
-   * Determines if a menu item was clicked. Not sure we need this one.
-   *
-   * @ignore
-   */
-  isMenuItemClicked: boolean = false;
-
-  /**
-   * PRIVATE
-   *
-   * The starting width for the drawer. Ostensibly used in dragging, but
-   * uncertain if this is still required. Code has moved away from using JS
-   * animation and towards capitalizing on Material's `opened` property and
-   * premade transforms.
-   *
-   * @todo Ascertain the above and remove if necessary.
-   *
-   * @ignore
-   */
-  #startWidth: number = 0;
-
-  /**
-   * PRIVATE
-   *
-   * The starting X-position for the drawer. Ostensibly used in dragging, but
-   * uncertain if this is still required. Code has moved away from using JS
-   * animation and towards capitalizing on Material's `opened` property and
-   * premade transforms.
-   *
-   * @todo Ascertain the above and remove if necessary.
-   *
-   * @ignore
-   */
-  #startX: number = 0;
-
-  /**
-   * Since our `NavDrawerPresentationEnum` is used for evaluations not only in
-   * our class code, but also in our template, we need to expose it publicly on
-   * our class.
-   */
-  public NavDrawerPresentationEnum = NavDrawerPresentationEnum;
-
-  /**
-   * @ignore
-   */
-  mobileQuery: MediaQueryList;
-
-
-  private boundDrag: (event: MouseEvent | TouchEvent) => void;
-  
-  private boundStopDrag: () => void;
-
-  /*****************************************************************************
-                                 CONSTRUCTOR
-  *****************************************************************************/
-
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-    private router: Router,
-    media: MediaMatcher,
-  ) {
-  this.mobileQuery = media.matchMedia('(max-width: 600px)');
-  this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-  this.mobileQuery.addListener(this._mobileQueryListener);
-  this.boundDrag = this.drag.bind(this);
-  this.boundStopDrag = this.stopDragging.bind(this);
-  }
-
-  ngOnInit() {
-    this.setFirstItemActive();
-  }
-  
-  setFirstItemActive() {
-    if (this.navDrawerMenuItems && this.navDrawerMenuItems.length > 0) {
-      const firstItem = this.navDrawerMenuItems[0];
-      if (firstItem.sectionMenuItems && firstItem.sectionMenuItems.length > 0) {
-        this.onMenuItemClick(firstItem.sectionMenuItems[0]);
-        // The following check for sidenavMode is commented out because we have decided
-        // to enable backdrop clicks for both modal and standalone presentations.
-        // As a result, the distinction between 'over' and other modes is no longer necessary.
-        // if(this.sidenavMode !== 'over') { //Commented
-        // this.opened = false;
-        // }
-      }
-    }
-  }
 
   /*****************************************************************************
                                      METHODS
@@ -365,6 +374,7 @@ export class NavigationDrawerComponent implements OnDestroy {
    * the relevant flags.
    */
   startDragging(event: MouseEvent | TouchEvent) {
+
     // Ensure only the left mouse button starts the drag
     if (event instanceof MouseEvent) {
       if (event.buttons !== 1) {
@@ -386,8 +396,6 @@ export class NavigationDrawerComponent implements OnDestroy {
     document.addEventListener("mouseup", this.boundStopDrag);
     document.addEventListener("mouseleave", this.boundStopDrag);
     document.addEventListener("touchend", this.boundStopDrag);
-
-
   }
 
   /**
@@ -398,7 +406,15 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   drag(event: MouseEvent | TouchEvent) {
 
+
     if (!this.#isDragging) return;
+
+    // Fix: If mouse button is released but `mouseup` didn’t trigger, stop dragging
+    if (event instanceof MouseEvent && event.buttons === 0) {
+      this.stopDragging();
+      return;
+    }
+
 
     // Fix: If mouse button is released but `mouseup` didn’t trigger, stop dragging
     if (event instanceof MouseEvent && event.buttons === 0) {
@@ -409,13 +425,12 @@ export class NavigationDrawerComponent implements OnDestroy {
     const currentX =
       event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
 
+
     if (currentX <= parseInt(this.expandedWidth) - 100) {
       this.opened = false;
-      this.openedChange.emit(this.opened);
       this.isMenuItemClicked = false;
     } else if (currentX >= parseInt(this.expandedWidth)) {
       this.opened = true;
-      this.openedChange.emit(this.opened);
     }
   }
 
@@ -441,11 +456,9 @@ export class NavigationDrawerComponent implements OnDestroy {
     if (currentWidth > collapsedWidth) {
       this.intentionalOpen = true;
       this.opened = true;
-      this.openedChange.emit(this.opened);
     } else if (currentWidth < expandedWidth) {
       this.intentionalOpen = false;
       this.opened = false;
-      this.openedChange.emit(this.opened);
     }
   }
 
@@ -477,9 +490,8 @@ export class NavigationDrawerComponent implements OnDestroy {
    */
   onMenuItemClick(item: any) {
     this.isMenuItemClicked = true;
-    // this.intentionalOpen = true;
-    // this.opened = true;
-    // this.openedChange.emit(this.opened);
+    this.intentionalOpen = true;
+    this.opened = true;
     // Reset toggled state for all items including child items
     const resetToggledState = (menuItems: any[]) => {
       menuItems.forEach((menuItem) => {
@@ -505,20 +517,6 @@ export class NavigationDrawerComponent implements OnDestroy {
   toggleSubMenu(item: any): void {
     if (item.children) {
       item.expanded = !item.expanded;
-    }
-  }
-
-  routerClicked(route?: string, item?: any): void {
-    if (route) {
-      // Navigate internally using Angular Router
-      this.router.navigate([route]).catch(err => {
-        console.error('Navigation error:', err);
-        // Optionally emit event if navigation fails
-        this.routeRequested.emit({ route, item });
-      });
-    } else {
-      // No route provided, emit event for consumer to handle routing
-      this.routeRequested.emit({ route: undefined, item });
     }
   }
 
@@ -552,23 +550,6 @@ export class NavigationDrawerComponent implements OnDestroy {
   onBackdropClick(): void {
     this.opened = false; // Close the drawer
     this.openedChange.emit(this.opened); // Notify parent about the state change
-    this.changeDetectorRef.detectChanges();
-  }
 
-  onMouseEnter() {
-    if (!this.fixedOpen) {
-      this.opened = true;
-      this.openedChange.emit(this.opened);
-      this.changeDetectorRef.detectChanges();
-    }
   }
-
-  onMouseLeave(){
-    if(!this.fixedOpen && this.opened && !this.intentionalOpen) {
-      this.opened = false;
-      this.openedChange.emit(this.opened);
-      this.changeDetectorRef.detectChanges();
-    }
-  }
-  // CLASS END
 }

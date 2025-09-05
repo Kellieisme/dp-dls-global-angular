@@ -1,9 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import { ButtonPageComponent } from './button.component';
-import { provideRouter } from '@angular/router';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
 
 describe('ButtonPageComponent', () => {
   let component: ButtonPageComponent;
@@ -11,12 +8,7 @@ describe('ButtonPageComponent', () => {
 
   beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
-      imports: [ButtonPageComponent, BrowserAnimationsModule],
-      providers: [
-        provideRouter([]),
-        provideAnimations(),
-        provideHttpClient(),
-      ]
+      imports: [ButtonPageComponent]
     })
       .compileComponents();
 

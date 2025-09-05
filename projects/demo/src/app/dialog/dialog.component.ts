@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle} from '@angular/material/dialog';
+import { MatDialogModule, MatDialogActions,  MatDialogClose,  MatDialogContent,  MatDialogTitle} from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,11 +17,11 @@ import { MatButtonModule } from '@angular/material/button';
         IconRegistryModule,
     ],
     template: `
-     <div class="dialog-header">
+     <div class="d-flex align-items-end pt-3" style="padding-left: 24px;">
       <div>
         <mat-icon svgIcon="icon-warning"></mat-icon>
       </div>
-      <div class="dialog-header-actions">
+      <div class="ms-auto me-3">
         <button mat-icon-button mat-dialog-close="true">
           <mat-icon svgIcon="icon-close"></mat-icon>
         </button>

@@ -1,9 +1,9 @@
 // Style for the home page
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss';
 
 :host {
-  @include typography.typography-xl-body-low-default;
+  @include typography-xl-body-low-default;
 }
 
 h1 {
@@ -31,6 +31,6 @@ p {
 
 ul {
   list-style-type: disc;
-  padding-left: vars.$size-relaxed-spacing-l;
+  padding-left: $size-relaxed-spacing-l;
   color: var(--color-ui-textandicon-high);
 }

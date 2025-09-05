@@ -1,20 +1,26 @@
 @use "@angular/material" as mat;
-@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss" as vars;
-@use "../m3-theme" as m3;
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@import "../m3-theme";
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.snack-bar-theme(m3.$dark-theme);
+  @include mat.snack-bar-theme($dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+  // @include mat.button-base($dark-theme);
+  // @include mat.button-color($dark-theme);
+  // @include mat.button-typography($dark-theme);
+  // @include mat.button-density($dark-theme);
 }
 
 // Apply the light theme only when the user prefers light themes.
+
 .theme-light {
-  @include mat.snack-bar-color(m3.$light-theme);
+  @include mat.snack-bar-color($light-theme);
 }
 
 .mat-mdc-snack-bar-container {
-  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
-  
+  backdrop-filter: blur($size-base-shadow-blur-100);
+
   .mdc-snackbar__label {
     padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-m);
 

@@ -1,10 +1,12 @@
 import { Meta, Markdown, Canvas } from '@storybook/blocks';
-import * as CardStories from './cards.stories';
+import * as CardInteractiveStories from './card-interactive.stories';
+import * as CardStories from './card-non-interactive.stories';
 import { Alert } from '@storybook/blocks';
 
-<Meta of={CardStories}/>
+<Meta title="COMPONENTS/Card" />
 
-<div style={{backgroundColor:'var(--color-ui-background-medium)',padding:'8px 15px', borderRadius: '8px'}}>
+
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
 
 # Card
 
@@ -14,22 +16,22 @@ The Card is a direct implementation of the Angular Material Card component. Cust
 
 ### Selectors
 
-`<mat-card>`
+``<mat-card>``
 
 ### Usage
 
 In your typescript file.
 
 ```typescript
-import { ChangeDetectionStrategy, Component} from '@angular/core';
-import { MatCardModule} from '@angular/material/card';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {MatCardModule} from '@angular/material/card';
 
 /**
  * @title Basic cards
  */
 @Component({
-  selector: "card-overview-example",
-  templateUrl: "card-overview-example.html",
+  selector: 'card-overview-example',
+  templateUrl: 'card-overview-example.html',
   standalone: true,
   imports: [MatCardModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,17 +47,16 @@ export class CardOverviewExample {}
   If you integrate **third-party components* or use **Angular Material Components** that are **not explicitly supported** by Atmosphere, we **cannot guarantee** proper 
   compatibility with the Atmosphere Design System, including theming, styling & responsivness.
 
-Before using any additional component, please verify their compatibility with the Atmosphere Library to ensure a seamless user experience.
-[Doc Hub/Atmosphere Components](https://design.pages.boeing.com/design-system/dls-global-docs/components)
+  Before using any additional component, please verify their compatibility with the Atmosphere Library to ensure a seamless user experience.
+  [Doc Hub/Atmosphere Components](https://design.pages.boeing.com/design-system/dls-global-docs/components)
 `}
-
   </div>
 </Markdown> */}
 
-### **Important Note:**
- 
+> ### **Important Note:**
+> 
 > The 'mat-card', 'mat-card-header', 'mat-card-footer' components support **light and dark modes** only when used with components provided by the **Atmosphere Library**. If you integrate **third-party components** or use **Angular Material Components** that are **not explicitly supported** by Atmosphere, we **cannot guarantee** proper compatibility with the Atmosphere Design System, including theming, styling & responsiveness.
->
+> 
 > Before using any additional component, please verify their compatibility with the Atmosphere Library to ensure a seamless user experience.
 > [Doc Hub/Atmosphere Components](https://design.pages.boeing.com/design-system/dls-global-docs/components)
 
@@ -63,7 +64,7 @@ Before using any additional component, please verify their compatibility with th
 
 ### MatCard
 
-Atmosphere Design card component. Cards contain content and actions about a single subject. See
+Atmosphere Design card component. Cards contain content and actions about a single subject. See 
 (https://design.pages.boeing.com/design-system/dls-global-docs/components/card)
 
 MatCard provides no behaviors, instead serving as a purely visual treatment.
@@ -163,7 +164,7 @@ type MatCardAppearance = 'outlined' | 'raised';
 Setting `appearance="outlined"` produces the "glass" style card.
 
 <Markdown>
-  {`
+{`
 | Class added to host element                  | effect
 | -------------------------------------------- | ------------------------------------------------------------------------ |
 | mat-mdc-card--landscape                      | give the Card a landscape layout                                         |
@@ -177,33 +178,47 @@ Setting `appearance="outlined"` produces the "glass" style card.
 
 ## Examples
 
-### Basic Card
-<Canvas of={CardStories.SimpleCards}/>
+### Card Non-Interactive
 
-#### Cards with Action Buttons
-<Canvas of={CardStories.CardWithActionButtons}/>
+#### Non Interactive: Two columns
+<Canvas of={CardStories.NonInteractiveStoryOne}/>
 
-#### Card With Footer & Chips
-<Canvas of={CardStories.CardWithFooterStory}/>
+#### Non-Interactive: 8/4 split columns
+<Canvas of={CardStories.NonInteractiveStoryTwo}/>
 
-#### Cards(Interactive): clickable entire card
-<Canvas of={CardStories.InteractiveClickableCard}/>
+#### Non-Interactive: Card With Footer
+<Canvas of={CardStories.NonInteractiveCardWithFooterStory}/>
 
-#### Card: Standard Layout with Image
+#### Non-Interactive: Card With Image (Standard & Landscape)
 Standard Layout : This card displays a standard layout that includes an image, a title, and content text. It is designed for general use cases where a simple and straightforward presentation of information is required.
-<Canvas of={CardStories.CardWithStandardLayoutImage}/>
 
-#### Card(Interactive): Landscape Layoute with Image
 Landscape Layout : This card features a landscape orientation. The layout is enhanced by the custom class `mat-mdc-card--landscape`, which adjusts the card's styling to better fit landscape-oriented images.
-<Canvas of={CardStories.CardWithLandscapeLayout}/>
+<Canvas of={CardStories.NonInteractiveCardWithImageStory}/>
 
+
+
+
+
+### Card (Interactive)
+
+#### Interactive: Three Columns, one action
+
+<Canvas of={CardInteractiveStories.InteractiveStoryOne}/>
+
+#### Interactive: Four columns, one action
+
+<Canvas of={CardInteractiveStories.InteractiveStoryTwo}/>
+
+#### Interactive: Card with Images
+
+<Canvas of={CardInteractiveStories.InteractiveCardWithImageStory}/>
 
 ## Additional Resources
 
 #### Angular documentation
 
 <Markdown>
-  {`
+{`
 | Boeing DLS Global Angular Library Version    | Angular Material Version  | API Reference                                                                              |
 | -------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
 | 1.x.x                                        | 17.x.x                    | [Card](https://v17.material.angular.io/components/card/api)                                |
@@ -213,40 +228,7 @@ Landscape Layout : This card features a landscape orientation. The layout is enh
 </Markdown>
 
 #### Guidelines and Specs
-
+ 
 You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/design-system/dls-global-docs/components/card)
 
 </div>
-
-<style>
-  {`
-    .sbdocs{
-      background: var(--color-ui-background-lowest);
-      color: var(--color-ui-textandicon-high);
-    }
-    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-      color: var(--color-ui-textandicon-medium) !important;
-    }
-
-    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
-    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
-      color: var(--color-ui-textandicon-high) !important;
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
-      color: var(--color-ui-textandicon-high);
-      background: var(--color-ui-background-medium);
-      border: 1px solid var(--color-ui-divider-flat-high);
-      
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
-      color: var(--color-ui-textandicon-medium);
-      background: var(--color-ui-background-low);
-      border: 1px solid var(--color-ui-divider-flat-high);
-
-    }
-  `}
-</style>

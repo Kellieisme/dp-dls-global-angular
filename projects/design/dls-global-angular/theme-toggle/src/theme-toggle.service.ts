@@ -79,15 +79,6 @@ export class ThemeToggleService {
   }
 
   /**
-   * Function to get the current theme
-   * @returns Current theme
-   * Exposed publicly
-   */
-  getCurrentTheme(): Theme {
-    return this.currentTheme;
-  }
-
-  /**
    * Function that toggles the theme
    * Exposed publicly
    */

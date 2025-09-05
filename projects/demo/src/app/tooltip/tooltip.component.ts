@@ -9,7 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     imports: [MatTooltipModule, MatButtonModule, MatIconModule, IconRegistryModule],
     templateUrl: './tooltip.component.html',
     styleUrl: './tooltip.component.scss'
-}) 
+})
 
 export class TooltipPageComponent {
   title = 'Tooltip';

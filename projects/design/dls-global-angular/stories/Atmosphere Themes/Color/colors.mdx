@@ -3,6 +3,9 @@ import { NoData, Red_text, Info_Blue_text } from "../../../mdx_styles.mdx";
 
 <Meta title="FOUNDATION/Color System" />
 
+
+
+
 export const TokenTable = () => {
   const tokenData = [
     { cssVar: "--color-ui-textandicon-high", figmaVar: "foundation.ui.textandicon.high" },
@@ -13,6 +16,43 @@ export const TokenTable = () => {
     { cssVar: "--color-ui-background-medium", figmaVar: "foundation.ui.background.medium" },
     { cssVar: "--color-ui-background-low", figmaVar: "foundation.ui.background.low" },
     { cssVar: "--color-ui-background-lowest", figmaVar: "foundation.ui.background.lowest" },
+    { cssVar: "--color-ui-glass-surface-thickest", figmaVar: "foundation.ui.glass.surface.thickest" },
+    { cssVar: "--color-ui-glass-surface-thick", figmaVar: "foundation.ui.glass.surface.thick" },
+    { cssVar: "--color-ui-glass-surface-regular", figmaVar: "foundation.ui.glass.surface.regular" },
+    { cssVar: "--color-ui-glass-surface-thin", figmaVar: "foundation.ui.glass.surface.thin" },
+    { cssVar: "--color-ui-glass-surface-thinnest", figmaVar: "foundation.ui.glass.surface.thinnest" },
+    { cssVar: "--color-ui-glass-surface-specular-0", figmaVar: "foundation.ui.glass.surface.specular.0" },
+    { cssVar: "--color-ui-glass-surface-specular-100", figmaVar: "foundation.ui.glass.surface.specular.100" },
+    { cssVar: "--color-ui-glass-border-specular-11", figmaVar: "foundation.ui.glass.border.specular.11" },
+    { cssVar: "--color-ui-glass-border-specular-45", figmaVar: "foundation.ui.glass.border.specular.45" },
+    { cssVar: "--color-ui-glass-border-specular-60", figmaVar: "foundation.ui.glass.border.specular.60" },
+    { cssVar: "--color-ui-glass-border-specular-89", figmaVar: "foundation.ui.glass.border.specular.89" },
+    { cssVar: "--color-ui-glass-divider-specular-0", figmaVar: "foundation.ui.glass.divider.specular.0" },
+    { cssVar: "--color-ui-glass-divider-specular-10", figmaVar: "foundation.ui.glass.divider.specular.10" },
+    { cssVar: "--color-ui-glass-divider-specular-44", figmaVar: "foundation.ui.glass.divider.specular.44" },
+    { cssVar: "--color-ui-glass-divider-specular-100", figmaVar: "foundation.ui.glass.divider.specular.100" },
+     { cssVar: "--color-semantic-textandicon-error", figmaVar: "foundation.semantic.textandicon.error" },
+    { cssVar: "--color-semantic-background-error-filled", figmaVar: "foundation.semantic.background.error.filled" },
+    { cssVar: "--color-semantic-border-error", figmaVar: "foundation.semantic.border.error" },
+    { cssVar: "--color-semantic-background-error-tonal", figmaVar: "foundation.semantic.background.error.tonal" },
+    { cssVar: "--color-semantic-textandicon-warning", figmaVar: "foundation.semantic.textandicon.warning" },
+    { cssVar: "--color-semantic-background-warning-filled", figmaVar: "foundation.semantic.background.warning.filled" },
+    { cssVar: "--color-semantic-border-warning", figmaVar: "foundation.semantic.border.warning" },
+    { cssVar: "--color-semantic-background-warning-tonal", figmaVar: "foundation.semantic.background.warning.tonal" },
+    { cssVar: "--color-semantic-textandicon-success", figmaVar: "foundation.semantic.textandicon.success" },
+    { cssVar: "--color-semantic-background-success-tonal", figmaVar: "foundation.semantic.background.success.tonal" },
+    { cssVar: "--color-semantic-background-success-filled", figmaVar: "foundation.semantic.background.success.filled" },
+    { cssVar: "--color-semantic-border-success", figmaVar: "foundation.semantic.border.success" },
+    { cssVar: "--color-semantic-textandicon-info", figmaVar: "foundation.semantic.textandicon.info" },
+    { cssVar: "--color-semantic-border-info", figmaVar: "foundation.semantic.border.info" },
+    { cssVar: "--color-semantic-background-info-tonal", figmaVar: "foundation.semantic.background.info.tonal" },
+    { cssVar: "--color-semantic-background-info-filled", figmaVar: "foundation.semantic.background.info.filled" },
+    { cssVar: "--color-static-white", figmaVar: "foundation.static.white" },
+    { cssVar: "--color-static-black", figmaVar: "foundation.static.black" },
+    { cssVar: "--color-static-gray", figmaVar: "foundation.static.gray" },
+    { cssVar: "--color-ui-divider-flat-high", figmaVar: "foundation.ui.divider.flat.high" },
+    { cssVar: "--color-ui-divider-flat-low", figmaVar: "foundation.ui.divider.flat.low" },
+    { cssVar: "--color-ui-embellishment", figmaVar: "foundation.ui.embellishment" },
     { cssVar: "--color-interactive-accent-textandicon-visited", figmaVar: "foundation.interactive.accent.textandicon.visited" },
     { cssVar: "--color-interactive-primary-textandicon-selected", figmaVar: "foundation.interactive.primary.textandicon.selected" },
     { cssVar: "--color-interactive-primary-textandicon-primary-default", figmaVar: "foundation.interactive.primary.textandicon.primary.default" },
@@ -38,53 +78,13 @@ export const TokenTable = () => {
     { cssVar: "--color-interactive-accent-background-enabled-tonal", figmaVar: "foundation.interactive.accent.background.enabled.tonal" },
     { cssVar: "--color-interactive-accent-background-hovered", figmaVar: "foundation.interactive.accent.background.hovered" },
     { cssVar: "--color-interactive-accent-background-selected", figmaVar: "foundation.interactive.accent.background.selected" },
-    { cssVar: "--color-semantic-textandicon-error", figmaVar: "foundation.semantic.textandicon.error" },
-    { cssVar: "--color-semantic-background-error-filled", figmaVar: "foundation.semantic.background.error.filled" },
-    { cssVar: "--color-semantic-border-error", figmaVar: "foundation.semantic.border.error" },
-    { cssVar: "--color-semantic-background-error-tonal", figmaVar: "foundation.semantic.background.error.tonal" },
-    { cssVar: "--color-semantic-textandicon-warning", figmaVar: "foundation.semantic.textandicon.warning" },
-    { cssVar: "--color-semantic-background-warning-filled", figmaVar: "foundation.semantic.background.warning.filled" },
-    { cssVar: "--color-semantic-border-warning", figmaVar: "foundation.semantic.border.warning" },
-    { cssVar: "--color-semantic-background-warning-tonal", figmaVar: "foundation.semantic.background.warning.tonal" },
-    { cssVar: "--color-semantic-textandicon-success", figmaVar: "foundation.semantic.textandicon.success" },
-    { cssVar: "--color-semantic-background-success-tonal", figmaVar: "foundation.semantic.background.success.tonal" },
-    { cssVar: "--color-semantic-background-success-filled", figmaVar: "foundation.semantic.background.success.filled" },
-    { cssVar: "--color-semantic-border-success", figmaVar: "foundation.semantic.border.success" },
-    { cssVar: "--color-semantic-textandicon-info", figmaVar: "foundation.semantic.textandicon.info" },
-    { cssVar: "--color-semantic-border-info", figmaVar: "foundation.semantic.border.info" },
-    { cssVar: "--color-semantic-background-info-tonal", figmaVar: "foundation.semantic.background.info.tonal" },
-    { cssVar: "--color-semantic-background-info-filled", figmaVar: "foundation.semantic.background.info.filled" },
-    { cssVar: "--color-static-white", figmaVar: "foundation.static.white" },
-    { cssVar: "--color-static-black", figmaVar: "foundation.static.black" },
-    { cssVar: "--color-static-gray", figmaVar: "foundation.static.gray" },
-    { cssVar: "--color-ui-divider-flat-high", figmaVar: "foundation.ui.divider.flat.high" },
-    { cssVar: "--color-ui-divider-flat-low", figmaVar: "foundation.ui.divider.flat.low" },
-    { cssVar: "--color-ui-embellishment", figmaVar: "foundation.ui.embellishment" },
-    { cssVar: "--color-ui-glass-surface-thickest", figmaVar: "foundation.ui.glass.surface.thickest" },
-    { cssVar: "--color-ui-glass-surface-thick", figmaVar: "foundation.ui.glass.surface.thick" },
-    { cssVar: "--color-ui-glass-surface-regular", figmaVar: "foundation.ui.glass.surface.regular" },
-    { cssVar: "--color-ui-glass-surface-thin", figmaVar: "foundation.ui.glass.surface.thin" },
-    { cssVar: "--color-ui-glass-surface-thinnest", figmaVar: "foundation.ui.glass.surface.thinnest" },
-    { cssVar: "--color-ui-glass-surface-specular-0", figmaVar: "foundation.ui.glass.surface.specular.0" },
-    { cssVar: "--color-ui-glass-surface-specular-100", figmaVar: "foundation.ui.glass.surface.specular.100" },
-    { cssVar: "--color-ui-glass-border-specular-11", figmaVar: "foundation.ui.glass.border.specular.11" },
-    { cssVar: "--color-ui-glass-border-specular-45", figmaVar: "foundation.ui.glass.border.specular.45" },
-    { cssVar: "--color-ui-glass-border-specular-60", figmaVar: "foundation.ui.glass.border.specular.60" },
-    { cssVar: "--color-ui-glass-border-specular-89", figmaVar: "foundation.ui.glass.border.specular.89" },
-    { cssVar: "--color-ui-glass-divider-specular-0", figmaVar: "foundation.ui.glass.divider.specular.0" },
-    { cssVar: "--color-ui-glass-divider-specular-10", figmaVar: "foundation.ui.glass.divider.specular.10" },
-    { cssVar: "--color-ui-glass-divider-specular-44", figmaVar: "foundation.ui.glass.divider.specular.44" },
-    { cssVar: "--color-ui-glass-divider-specular-100", figmaVar: "foundation.ui.glass.divider.specular.100" },
   ];
 
   return (
     <div style={{ width: "100%", fontFamily: "Arial, sans-serif" }}>
       <div style={{
-        display: "flex",
-        fontWeight: "bold",
-        borderBottom: "1px solid var(--color-ui-divider-flat-low)",
-        padding: "8px",
-        alignItems: "center"
+        display: "flex", fontWeight: "bold", borderBottom: "1px solid var(--color-ui-divider-flat-low)",
+        padding: "8px", alignItems: "center"
       }}>
         <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>Example</span>
         <span style={{ flex: 1, color: "var(--color-ui-textandicon-high)" }}>UI Variable</span>
@@ -107,98 +107,50 @@ export const TokenTable = () => {
   );
 };
 
+
 <div style={{color: "var(--color-interactive-primary-textandicon-primary-default)",padding: "8px 15px",borderRadius: "8px",}}>
 
-  # Color Tokens for light and dark mode
+   # Color Tokens for light and dark mode
 
-      <Info_Blue_text> Attention! The new Atmosphere Light Mode is now available for Angular 18 and above 🎉</Info_Blue_text>
+    <Info_Blue_text> Attention! The New Light Mode is now available on Angular 18 🎉</Info_Blue_text>
 
-      Upgrading ```@dasdigitalplatform/dls-global-angular``` and ```@dasdigitalplatform/dls-global-assets```
-
-      ### For Angular 18 projects:
-      ```json
-      {
-        "dependencies": {
-          "@dasdigitalplatform/dls-global-angular": "^2.5.1",
-          "@dasdigitalplatform/dls-global-assets": "^2.0.0"
-        }
-      }
-      ```
-
-      ### For angular 19 projects:
-      ```json
-      {
-        "dependencies": {
-          "@dasdigitalplatform/dls-global-angular": "^3.4.0",
-          "@dasdigitalplatform/dls-global-assets": "^2.1.2"
-        }
-      }
-      ```
+     Upgrade to ```@dasdigitalplatform/dls-global-angular@2.5.1``` which is based on ```@dasdigitalplatform/dls-global-assets ^2.0.0```
 
 
-  The atmosphere theme is controlled by the assets library. This library exposes some variables that you can use so that you can adhere to the theme and seamlessly maintain it in both light and dark mode. Use these variables in your scss to maintain light and dark mode in code that is not part of the atmosphere library but needs atmosphere theme-ing
 
-      See below a example of how your scss/sass code would look.
-      ```scss
-      div {
-          background:var(--color-ui-background-lowest)
-      }
-      ```
+  The atmosphere theme is controlled by the assets library. This library exposes some variables that you can use so that you can adhere to the theme and seamlessly maintain it in both light and dark mode.   Use these variables in your scss to maintain light and dark mode in code that is not part of the atmosphere library but needs atmosphere theme-ing
+
+    See below a example of how your scss/sass code would look.
+    ```scss
+    div {
+        background:var(--color-ui-background-lowest)
+    }
+    ```
 
   The library is by default in dark mode , however if you wish to hard set it to light you can add `theme-light` to the `body` tag.
 
   In index.html
-
-  ```html
+  ``` html
   <body class="theme-light">
     <app-root></app-root>
   </body>
   ```
 
-  # Color Tokens and Figma Variables
 
-      Below are the list of tokens that are available for use and how/when to use them.
+    Below are the list of tokens that are available for use and how/when to use them.
 
-      Your Designer may use the corresponding variable in Figma. The variables in figma start with the prefix `foundation`.
-      The corresponding sass/scss variable can be found in the documentation below.
+    Your Designer may use the corresponding variable in Figma. The variables in figma start with the prefix `foundation`.
+    The corresponding sass/scss variable can be found in the documentation below.
 
-  <Red_text>Note: Your page background must always have a variable to ensure that toggling between light and dark does not break the visual appearance of your UI.The recommended variable is `--color-ui-background-lowest`</Red_text>
+  <Red_text>Note: Your page background must always have a variable to ensure that toggling between light and dark does not break the visual appearance of your UI.The recommended variable is  `--color-ui-background-lowest`</Red_text>
 
-      <TokenTable />
+
+    # Color Tokens and Figma Variables
+
+    <TokenTable />
+
+
 
 </div>
-
-<style>
-  {`
-    .sbdocs{
-      background: var(--color-ui-background-lowest);
-      color: var(--color-ui-textandicon-high);
-    }
-    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-      color: var(--color-ui-textandicon-medium) !important;
-    }
-
-    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
-    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
-      color: var(--color-ui-textandicon-high) !important;
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
-      color: var(--color-ui-textandicon-high);
-      background: var(--color-ui-background-medium);
-      border: 1px solid var(--color-ui-divider-flat-high);
-      
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
-      color: var(--color-ui-textandicon-medium);
-      background: var(--color-ui-background-low);
-      border: 1px solid var(--color-ui-divider-flat-high);
-
-    }
-  `}
-</style>
 
 

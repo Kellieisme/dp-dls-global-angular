@@ -1,7 +1,7 @@
 @use "@angular/material" as mat;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
-@use "../m3-theme" as m3;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
+@import "../m3-theme";
 
 
 mat-slide-toggle:not(.mat-warn) {
@@ -43,10 +43,10 @@ html .theme-condensed {
   --mdc-switch-unselected-icon-size: 18px;
 
   // --mdc-switch-selected-focus-state-layer-opacity: 0.12;
-  --mdc-switch-selected-hover-state-layer-opacity: #{vars.$opacity-base-5};
+  --mdc-switch-selected-hover-state-layer-opacity: #{$opacity-base-5};
   // --mdc-switch-selected-pressed-state-layer-opacity: 0.1;
   // --mdc-switch-unselected-focus-state-layer-opacity: 0.12;
-  --mdc-switch-unselected-hover-state-layer-opacity: #{vars.$opacity-base-5};
+  --mdc-switch-unselected-hover-state-layer-opacity: #{$opacity-base-5};
   // --mdc-switch-unselected-pressed-state-layer-opacity: 0.1;
   // --mat-switch-disabled-selected-handle-opacity: 0.38;
   // --mat-switch-disabled-unselected-handle-opacity: 0.38;
@@ -139,13 +139,13 @@ p .mat-mdc-slide-toggle.mat-accent {
 
 html .mat-mdc-slide-toggle.mat-warn {
   --mdc-switch-handle-surface-color: var(--color-semantic-background-error-filled);
-  --mdc-switch-selected-track-color: var(--color-semantic-border-error);
-  --mat-switch-selected-track-outline-color: var(--color-semantic-border-error);
+  --mdc-switch-selected-track-color:var(--color-semantic-border-error);
+  --mat-switch-selected-track-outline-color:var(--color-semantic-border-error);
   --mdc-switch-selected-icon-color: var(--color-interactive-primary-textandicon-selected);
-  --mdc-switch-selected-focus-state-layer-color: var(--color-semantic-background-error-filled);
-  --mdc-switch-selected-handle-color: var(--color-semantic-background-error-filled);
-  --mdc-switch-selected-hover-state-layer-color: var(--color-semantic-background-error-filled);
-  --mdc-switch-selected-pressed-state-layer-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-focus-state-layer-color:var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-handle-color:var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-hover-state-layer-color:var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-pressed-state-layer-color:var(--color-semantic-background-error-filled);
   --mdc-switch-disabled-selected-handle-color: var(--color-interactive-primary-textandicon-disabled);
   --mdc-switch-selected-focus-handle-color: var(--color-semantic-background-error-filled);
   --mdc-switch-selected-hover-handle-color: var(--color-semantic-background-error-filled);
@@ -156,8 +156,8 @@ html .mat-mdc-slide-toggle.mat-warn {
   --mdc-switch-selected-track-color: var(--color-semantic-border-error);
   --mdc-switch-selected-icon-color: var(--color-interactive-primary-textandicon-inverse);
 
-  .mdc-switch--disabled {
-    .mdc-switch__handle::before {
+  .mdc-switch--disabled{
+    .mdc-switch__handle::before{
       background: var(--color-interactive-primary-textandicon-disabled);
     }
   }

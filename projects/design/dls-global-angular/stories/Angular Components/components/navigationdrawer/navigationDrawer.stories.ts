@@ -1,13 +1,12 @@
-import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   NavigationDrawerComponent,
   MockSidebarMenuData,
+  NavDrawerPresentationEnum
 } from '../../../../navigation-drawer';
 import { CommonModule } from '@angular/common';
 import { IconRegistryStorybookModule } from '../../../../icon-registry';
@@ -30,7 +29,7 @@ const mockActivatedRoute = {
 };
 
 const basicTemplate = (type: string): string =>
-  `
+  ` 
     <ba-navigation-drawer
       [fixedOpen]="fixedOpen"
       [minifyOnCollapse]="minifyOnCollapse"
@@ -39,13 +38,13 @@ const basicTemplate = (type: string): string =>
       [navBarBottomComponent2] = "sideNavProfileButton"
       [appName]="'Boeing App'"
       [appLogo]="'boeing'"
-      [(opened)]="opened"
+      [opened]="opened"
       [homeRoute]="homeRoute"
      ></ba-navigation-drawer>
 
     <ng-template #sideNavNotificationsButton let-data="data">
-      <button
-        mat-icon-button
+      <button 
+        mat-icon-button 
         [ngClass]="{
           'mat-mdc-icon-button--toggle-on': toggled === true
         }"
@@ -55,33 +54,7 @@ const basicTemplate = (type: string): string =>
     </ng-template>
 
     <ng-template #sideNavProfileButton let-data="data">
-      <ba-user-profile clickable [userFirstName]="firstName" userAvatarSource="./assets/card-img-1.png" [matMenuTriggerFor]="menuUserImage"></ba-user-profile>
-    <mat-menu #menuUserImage="matMenu">
-      <button mat-menu-item class="user-info-menu-item">
-        <ba-user-profile [userFirstName]="firstName" userAvatarSource="./assets/card-img-1.png"></ba-user-profile>
-        <div class="user-info">
-          <span class="user-name">{{ firstName }}</span>
-          <span class="additional-info">Additional info</span>
-        </div>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-        <span>Profile</span>
-      </button>
-      <button mat-menu-item>
-        <span>Preferences</span>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-        <mat-icon svgIcon="icon-question-mark">question-mark</mat-icon>
-        <span>Help and tutorials</span>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-        <mat-icon svgIcon="icon-power-settings-new">power-settings-new</mat-icon>
-        <span>Sign out</span>
-      </button>
-    </mat-menu>
+      <ba-user-profile clickable userFirstName="William"></ba-user-profile>
     </ng-template>
   `
 
@@ -97,8 +70,6 @@ export default {
         BrowserAnimationsModule,
         MatButtonModule,
         MatIconModule,
-        MatMenuModule,
-        MatDividerModule,
         IconRegistryStorybookModule,
         MatListModule,
         RouterModule,
@@ -133,7 +104,7 @@ export const Default: Story = {
     opened: true,
     minifyOnCollapse: true,
   },
-  render: ({ opened, minifyOnCollapse, homeRoute }: { opened: boolean; minifyOnCollapse: boolean; homeRoute?: string }) => ({
+  render: ({ opened, minifyOnCollapse, homeRoute }) => ({
     props: {
       opened,
       minifyOnCollapse, homeRoute
@@ -152,7 +123,7 @@ export const Standalone: Story = {
     opened: false,
     minifyOnCollapse: true,
   },
-  render: ({ opened, minifyOnCollapse, homeRoute }: { opened: boolean; minifyOnCollapse: boolean; homeRoute?: string }) => ({
+  render: ({ opened, minifyOnCollapse, homeRoute }) => ({
     props: { opened, minifyOnCollapse, homeRoute },
     template: basicTemplate('standalone')
   }),
@@ -169,7 +140,7 @@ export const Modal: Story = {
     minifyOnCollapse: true,
     fixedOpen: false,
   },
-  render: ({ opened, fixedOpen, homeRoute, minifyOnCollapse }: { opened: boolean; fixedOpen: boolean; homeRoute?: string; minifyOnCollapse: boolean }) => ({
+  render: ({ opened, fixedOpen, homeRoute, minifyOnCollapse }) => ({
     props: { opened, fixedOpen, homeRoute, minifyOnCollapse },
     template: basicTemplate('modal')
   }),
@@ -185,7 +156,7 @@ export const FixedOpen: Story = {
     opened: true,
     fixedOpen: true,
   },
-  render: ({ opened, fixedOpen, homeRoute }: { opened: boolean; fixedOpen: boolean; homeRoute?: string }) => ({
+  render: ({ opened, fixedOpen, homeRoute }) => ({
     props: { opened, fixedOpen, homeRoute },
     template: basicTemplate('default')
   }),

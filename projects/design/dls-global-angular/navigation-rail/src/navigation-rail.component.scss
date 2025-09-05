@@ -1,48 +1,40 @@
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss' as varsbase;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss';
 
 mat-sidenav-container {
   .app-home-link {
     display: block;
-
     &:focus {
       outline: none;
     }
   }
-
   height: 100vh;
-
   mat-sidenav {
     width: 80px;
   }
-
   &.wide {
     mat-sidenav {
       width: 100px;
     }
   }
-
   &.labels-visible {
     mat-sidenav {
       mat-list-item {
         overflow: visible;
-        margin-bottom: vars.$size-relaxed-spacing-2xl;
+        margin-bottom: $size-relaxed-spacing-2xl;
         padding-top: var(--size-spacing-2xs);
-        padding-right: vars.$size-relaxed-sizing-none;
-        height: vars.$size-relaxed-spacing-2xl;
+        height: $size-relaxed-spacing-2xl;
         &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
           height: var(--size-spacing-2xl);
         }
-
         ::ng-deep .mdc-list-item__content {
           position: relative;
-          bottom: -(vars.$size-relaxed-spacing-2xs);
+          bottom: -($size-relaxed-spacing-2xs);
           cursor: pointer;
         }
       }
     }
   }
-
   &:not(.labels-visible) {
     mat-sidenav {
       mat-list-item {
@@ -53,43 +45,34 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
-  border-right: vars.$size-base-border-width-1 solid var(--color-ui-divider-flat-high);
-  padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-xs;
-
+  backdrop-filter: blur($size-base-shadow-blur-100);
+  border-right: $size-base-border-width-1 solid var(--color-ui-divider-flat-high);
+  padding: $size-relaxed-spacing-l $size-relaxed-spacing-xs;
   mat-list-item {
     &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
-      height: vars.$size-relaxed-spacing-5xl;
+      height: $size-relaxed-spacing-5xl;
     }
-
     &.mat-mdc-list-item {
       background-color: transparent;
-
       &:focus {
         background-color: var(--color-interactive-primary-background-enabled-tonal);
       }
-
       &:active {
         background-color: var(--color-interactive-primary-background-selected);
       }
-
-      &:hover:not(:disabled),
-      &.mat-list-item--toggle-on {
+      &:hover:not(:disabled), &.mat-list-item--toggle-on {
         background-color: var(--color-interactive-primary-background-hovered);
-
         .mat-icon {
           overflow: visible;
-
           svg {
             filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
           }
         }
       }
-
       .mdc-list-item__primary-text {
-        --mdc-list-list-item-label-text-line-height: #{vars.$responsive-type-label-low-height-xl};
-        --mdc-list-list-item-label-text-size: #{vars.$responsive-type-label-low-size-xl};
-        --mdc-list-list-item-label-text-weight: #{vars.$content-base-font-weight-medium};
+        --mdc-list-list-item-label-text-line-height: #{$responsive-type-label-low-height-xl};
+        --mdc-list-list-item-label-text-size: #{$responsive-type-label-low-size-xl};
+        --mdc-list-list-item-label-text-weight: #{$content-base-font-weight-medium};
       }
     }
   }
@@ -104,7 +87,6 @@ mat-sidenav {
   justify-content: center;
   display: flex;
 }
-
 .navigation__app-icon--light {
   display: none;
 }
@@ -122,18 +104,18 @@ mat-sidenav {
 }
 
 mat-list-item.narrow {
-  display: flex; 
+  display: flex;
   .mat-mdc-list-item-icon {
-    margin-left: vars.$size-relaxed-sizing-m;
-    margin-right: vars.$size-relaxed-sizing-m;
+    margin-left: $size-relaxed-sizing-m;
+    margin-right: $size-relaxed-sizing-m;
   }
 }
 
 mat-list-item {
   display: block;
   text-align: center;
-  padding-right: vars.$size-relaxed-sizing-none;
-  margin-top: vars.$size-relaxed-spacing-s;
+  padding-right: $size-relaxed-sizing-none;
+  margin-top: $size-relaxed-spacing-s;
   .mat-mdc-list-item-icon {
     margin: 0;
   }
@@ -145,7 +127,7 @@ mat-list-item {
 
 .bottom-icons {
   display: flex;
-  bottom: vars.$size-relaxed-spacing-none;
+  bottom: $size-relaxed-spacing-none;
   flex-direction: column;
   text-align: center;
   align-items: center;

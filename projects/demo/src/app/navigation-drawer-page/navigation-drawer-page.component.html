@@ -1,12 +1,11 @@
 <ba-navigation-drawer
       minifyOnCollapse
-      navDrawerPresentation = "modal"
+      navDrawerPresentation = "standalone"
       [navBarBottomComponent1] = "sideNavNotificationsButton"
       [navBarBottomComponent2] = "sideNavProfileButton"
       [appName]="'Boeing App'"
       [appLogo]="'boeing'"
       [(opened)]="toggled"
-      (routeRequested)="handleRouteRequest($event)"
      ></ba-navigation-drawer>
 
     <ng-template #sideNavNotificationsButton let-data="data">

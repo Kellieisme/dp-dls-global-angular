@@ -1,2 +1,2 @@
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/fonts' as fonts;
-@include fonts.boeing-meso("../../fonts");
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/fonts';
+@include boeing-meso("../../fonts");

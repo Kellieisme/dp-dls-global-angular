@@ -8,7 +8,7 @@ import {
 
 <Meta of={BreadcrumbStories} />
 
-<div style={{backgroundColor:'var(--color-ui-background-medium)',padding:'8px 15px', borderRadius: '8px'}}>
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
 # Breadcrumb
 
 The Atmosphere breadcrumb component provides for an actionable/navigable
@@ -41,91 +41,74 @@ of the breadcrumb trail can be maintained as consistent.
 html: breadcrumbPageComponent.component.html
 
 ```html
-<ba-breadcrumb
-  [breadcrumbs]="crumbs.slice(0, breadcrumbData)"
-  (selectedLink)="onBreadcrumbSelected($event)"
-></ba-breadcrumb>
+<ba-breadcrumb [breadcrumbs]="crumbs.slice(0, breadcrumbData)" (selectedLink)="onBreadcrumbSelected($event)"></ba-breadcrumb>
 
 <div class="content">
   <h1>{{ crumbs[breadcrumbData - 1].label }}</h1>
-  <p>
-    Welcome to {{ crumbs[breadcrumbData - 1].label }}. Click the button below to
-    go to the next level.
-  </p>
-  <br />
-  <button
-    mat-flat-button
-    (click)="goToNextLevel()"
-    [disabled]="breadcrumbData >= crumbs.length"
-  >
-    Next Level
-  </button>
+  <p>Welcome to {{ crumbs[breadcrumbData - 1].label }}. Click the button below to go to the next level.</p>
+  <br>
+  <button mat-flat-button (click)="goToNextLevel()" [disabled]="breadcrumbData >= crumbs.length">Next Level</button>
 </div>
 ```
 
 typescript: breadcrumbPageComponent.component.ts
 
 ```typescript
-import { Component } from "@angular/core";
-import { BreadcrumbComponent } from "@dasdigitalplatform/dls-global-angular/breadcrumb";
-import { ActivatedRoute, Router } from "@angular/router";
-import { MatButtonModule } from "@angular/material/button";
+import { Component } from '@angular/core';
+import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: "breadcrumb-page",
+  selector: 'breadcrumb-page',
   standalone: true,
-  imports: [BreadcrumbComponent, MatButtonModule],
-  templateUrl: "./breadcrumb.component.html",
-  styleUrl: "./breadcrumb.component.scss",
+  imports: [BreadcrumbComponent,MatButtonModule],
+  templateUrl: './breadcrumb.component.html',
+  styleUrl: './breadcrumb.component.scss'
 })
 export class BreadcrumbPageComponent {
-  title = "Breadcrumb";
+  title = 'Breadcrumb';
 
   breadcrumbData: number = 1; // Start from Home (index 1 for `slice`)
   crumbs = [
-    { label: "Home", path: "/breadcrumb" },
-    { label: "Level 1", path: "/breadcrumb/level-1" },
-    { label: "Level 2", path: "/breadcrumb/level-1/level-2" },
-    { label: "Level 3", path: "/breadcrumb/level-1/level-2/level-3" },
-    { label: "Level 4", path: "/breadcrumb/level-1/level-2/level-3/level-4" },
-    {
-      label: "Level 5",
-      path: "/breadcrumb/level-1/level-2/level-3/level-4/level-5",
-    },
+    { label: 'Home', path: '/breadcrumb' },
+    { label: 'Level 1', path: '/breadcrumb/level-1' },
+    { label: 'Level 2', path: '/breadcrumb/level-1/level-2' },
+    { label: 'Level 3', path: '/breadcrumb/level-1/level-2/level-3' },
+    { label: 'Level 4', path: '/breadcrumb/level-1/level-2/level-3/level-4' },
+    { label: 'Level 5', path: '/breadcrumb/level-1/level-2/level-3/level-4/level-5' }
   ];
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-  ) {
-    this.route.url.subscribe((urlSegments) => {
-      const currentPath = "/" + urlSegments.map((seg) => seg.path).join("/");
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.url.subscribe(urlSegments => {
+      const currentPath = '/' + urlSegments.map(seg => seg.path).join('/');
       this.breadcrumbData = this.getBreadcrumbIndex(currentPath);
     });
   }
 
   getBreadcrumbIndex(currentPath: string): number {
-    const index = this.crumbs.findIndex((crumb) => crumb.path === currentPath);
+    const index = this.crumbs.findIndex(crumb => crumb.path === currentPath);
     return index >= 0 ? index + 1 : 1; // Ensure at least Home is shown
   }
 
   onBreadcrumbSelected(event: { label: string; path: string; level: number }) {
-    console.log("Breadcrumb selected:", event);
-    // Example: Send analytics event
-    // analyticsService.track('Breadcrumb Clicked', event);
-  }
+  console.log('Breadcrumb selected:', event);
+  // Example: Send analytics event
+  // analyticsService.track('Breadcrumb Clicked', event);
+ }
 
   goToNextLevel() {
-    console.log("Go to next level");
+    console.log('Go to next level');
     if (this.breadcrumbData < this.crumbs.length) {
       const nextPath = this.crumbs[this.breadcrumbData].path;
-      console.log("Navigating to:", nextPath);
+      console.log('Navigating to:', nextPath);
       this.router.navigate([nextPath]).then(() => {
         this.breadcrumbData++; // Update breadcrumb index after successful navigation
       });
     }
   }
 }
+
 ```
 
 scss: breadcrumbComponent.component.scss
@@ -134,43 +117,24 @@ scss: breadcrumbComponent.component.scss
 // Style for the breadcrumb page
 
 .content {
-  color: var(--color-interactive-primary-textandicon-primary-default);
+    color: var(--color-interactive-primary-textandicon-primary-default);
 }
 ```
+
 
 app.routes.ts
 
 ```typescript
 import { Routes } from "@angular/router";
-import { BreadcrumbPageComponent } from "./breadcrumb/breadcrumb.component";
+import { BreadcrumbPageComponent } from './breadcrumb/breadcrumb.component';
 
 export const routes: Routes = [
-  { path: "breadcrumb", redirectTo: "/level-1", pathMatch: "full" },
-  {
-    path: "breadcrumb/level-1",
-    component: BreadcrumbPageComponent,
-    data: { breadcrumb: "Level 1" },
-  },
-  {
-    path: "breadcrumb/level-1/level-2",
-    component: BreadcrumbPageComponent,
-    data: { breadcrumb: "Level 2" },
-  },
-  {
-    path: "breadcrumb/level-1/level-2/level-3",
-    component: BreadcrumbPageComponent,
-    data: { breadcrumb: "Level 3" },
-  },
-  {
-    path: "breadcrumb/level-1/level-2/level-3/level-4",
-    component: BreadcrumbPageComponent,
-    data: { breadcrumb: "Level 4" },
-  },
-  {
-    path: "breadcrumb/level-1/level-2/level-3/level-4/level-5",
-    component: BreadcrumbPageComponent,
-    data: { breadcrumb: "Level 5" },
-  },
+  { path: 'breadcrumb', redirectTo: '/level-1', pathMatch: 'full' },
+  { path: 'breadcrumb/level-1', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 1' } },
+  { path: 'breadcrumb/level-1/level-2', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 2' } },
+  { path: 'breadcrumb/level-1/level-2/level-3', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 3' } },
+  { path: 'breadcrumb/level-1/level-2/level-3/level-4', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 4' } },
+  { path: 'breadcrumb/level-1/level-2/level-3/level-4/level-5', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 5' } },
 ];
 ```
 
@@ -179,36 +143,3 @@ export const routes: Routes = [
 <Canvas of={BreadcrumbStories.FiveLevels} />
 
 </div>
-
-<style>
-  {`
-    .sbdocs{
-      background: var(--color-ui-background-lowest);
-      color: var(--color-ui-textandicon-high);
-    }
-    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-      color: var(--color-ui-textandicon-medium) !important;
-    }
-
-    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
-    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
-      color: var(--color-ui-textandicon-high) !important;
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
-      color: var(--color-ui-textandicon-high);
-      background: var(--color-ui-background-medium);
-      border: 1px solid var(--color-ui-divider-flat-high);
-      
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
-      color: var(--color-ui-textandicon-medium);
-      background: var(--color-ui-background-low);
-      border: 1px solid var(--color-ui-divider-flat-high);
-
-    }
-  `}
-</style>

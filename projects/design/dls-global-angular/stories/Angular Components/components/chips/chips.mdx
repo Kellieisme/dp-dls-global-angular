@@ -1,5 +1,5 @@
-import { Meta, Markdown } from "@storybook/blocks";
-import * as ChipsStories from "./chips.stories";
+import { Meta, Markdown } from '@storybook/blocks';
+import * as ChipsStories from './chips.stories';
 
 <Meta of={ChipsStories} />
 
@@ -10,7 +10,7 @@ import * as ChipsStories from "./chips.stories";
 The Chips is a direct implementation of the Angular Material Chips component. Custom styles are applied using the Angular Material theming API and additional CSS rules.
 
 <Markdown>
-  {`
+{`
 | Boeing DLS Global Angular Library Version    | Angular Material Version  | API Reference                                                              |
 | -------------------------------------------- | ------------------------- | -------------------------------------------------------------------------- |
 | 1.x.x                                        | 17.x.x                    | [Chips](https://v17.material.angular.io/components/chips/api)              |
@@ -22,36 +22,3 @@ The Chips is a direct implementation of the Angular Material Chips component. Cu
 ## Additional documentation
 
 N/A
-
-<style>
-  {`
-    .sbdocs{
-      background: var(--color-ui-background-lowest);
-      color: var(--color-ui-textandicon-high);
-    }
-    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-      color: var(--color-ui-textandicon-medium) !important;
-    }
-
-    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
-    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
-      color: var(--color-ui-textandicon-high) !important;
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
-      color: var(--color-ui-textandicon-high);
-      background: var(--color-ui-background-medium);
-      border: 1px solid var(--color-ui-divider-flat-high);
-      
-    }
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
-    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
-      color: var(--color-ui-textandicon-medium);
-      background: var(--color-ui-background-low);
-      border: 1px solid var(--color-ui-divider-flat-high);
-
-    }
-  `}
-</style>

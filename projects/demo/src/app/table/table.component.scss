@@ -1,4 +1,4 @@
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
 
 h6 {
   color: var(--color-ui-textandicon-high);
@@ -11,3 +11,5 @@ h6 {
     background-color: var(--color-ui-glass-surface-thick);
   }
 }
+
+

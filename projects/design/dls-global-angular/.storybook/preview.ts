@@ -35,7 +35,7 @@ const preview: Preview = {
           'INSTALLATION',
           [
             'Get Node',
-            'Create an Angular Project',
+            'Create an Angular Projects',
             'Configure an Angular Project',
             'Install Atmosphere',
             'Setting Global Styles and Fonts',

@@ -1,17 +1,16 @@
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_linkMixins.scss' as links;
-@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_linkMixins.scss';
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_typographyMixins.scss';
 
 body {
   background: var(--color-ui-background-lowest);
 }
-
 .col {
-  margin-bottom: vars.$size-relaxed-spacing-2xl;
+  margin-bottom: $size-relaxed-spacing-2xl;
 }
 
 .table-container {
-  padding: vars.$size-relaxed-spacing-2xl;
+  padding: $size-relaxed-spacing-2xl;
   background-color: var(--color-ui-background-low);
 }
 
@@ -19,22 +18,18 @@ div.link-sheet {
   border: 1px solid var(--color-interactive-primary-border-focused);
   margin-bottom: 20px;
   padding: 20px;
-
   a {
     display: inline-flex;
     align-items: center;
   }
-
   &.mat-icon--before {
     a {
       flex-direction: row-reverse;
     }
-
     mat-icon {
       margin-right: var(--size-spacing-xs);
     }
   }
-
   &.mat-icon--after {
     mat-icon {
       margin-left: var(--size-spacing-xs);
@@ -46,7 +41,6 @@ div.usage {
   padding: 5px;
   margin-bottom: 30px;
   margin-top: -10px;
-
   code {
     font-family: 'Courier New', monospace;
     color: var(--color-interactive-accent-textandicon-default);
@@ -54,36 +48,35 @@ div.usage {
 }
 
 div.link-sheet.primary > a {
-  @include links.link-primary;
+  @include link-primary;
 }
 
-div.link-sheet.primary.underlined>a {
-  @include links.link-primary-underlined;
+div.link-sheet.primary.underlined > a {
+  @include link-primary-underlined;
 }
 
-div.link-sheet.accent>a {
-  @include links.link-accent;
+div.link-sheet.accent > a {
+  @include link-accent;
 }
 
-div.link-sheet.accent.visited>a {
-  @include links.link-accent-visited;
+div.link-sheet.accent.visited > a {
+  @include link-accent-visited;
 }
 
-div.link-sheet.accent.underlined>a {
-  @include links.link-accent-underlined;
+div.link-sheet.accent.underlined > a {
+  @include link-accent-underlined;
 }
 
-div.link-sheet.accent.underlined.visited>a {
-  @include links.link-accent-underlined-visited;
+div.link-sheet.accent.underlined.visited > a {
+  @include link-accent-underlined-visited;
 }
 
 // Visited color must be explicitely set for mat-icon, because "color: inherit" does not obey :visited pseudo-selector
-div.link-sheet.accent.visited>a:visited {
+div.link-sheet.accent.visited > a:visited {
   mat-icon {
     // THIS TOKEN IS NOT CURRENTLY BEING EXPORTED FROM THE TOKEN SERVICE
     color: var(--color-interactive-accent-textandicon-visited, #DB8BFF);
   }
-
   &.disabled {
     mat-icon {
       color: var(--color-interactive-primary-textandicon-disabled);

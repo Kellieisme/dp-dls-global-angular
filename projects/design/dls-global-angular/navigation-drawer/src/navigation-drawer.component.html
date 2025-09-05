@@ -1,49 +1,44 @@
 <mat-sidenav-container
   autosize="true"
   color="primary"
-  [hasBackdrop]="navDrawerPresentation === 'modal'"
+  [hasBackdrop]="!fixedOpen"
   [class.collapse-to-rail] = "minifyOnCollapse"
   (backdropClick)="onBackdropClick()"
 >
   <mat-sidenav
     #sidenav
-    (mouseenter)="onMouseEnter()"
-    (mouseleave)="onMouseLeave()"
+    (mouseleave)="!fixedOpen && opened && !intentionalOpen ? opened = false : null"
     [mode]="sidenavMode"
     [opened]="fixedOpen ? true : opened"
     [autoFocus]="true"
   >
     <!-- OPTIONAL BRANDING HEADER -->
     <ng-container>
-      @if (appLogo) {
-        <div class="sidenav-header">
-          <a class="app-home-link" (click)="routerClicked(homeRoute)">
-            @if (appLogo && opened) {
-              <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_dark.svg'" class="navigation__app-icon--dark letter-mark" alt="dark App Logo">
-            }
-            @if (appLogo && opened) {
-              <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_light.svg'" class="navigation__app-icon--light letter-mark" alt="light App Logo">
-            }
-            @if (appLogo && !opened) {
-              <img [src]="'./assets/' + appLogo + '-logomark_Navigation_dark.svg'" class="navigation__app-icon--dark" alt="dark App Logo">
-            }
-            @if (appLogo && !opened) {
-              <img [src]="'./assets/' + appLogo + '-logomark_Navigation_light.svg'" class="navigation__app-icon--light" alt="light App Logo">
-            }
-            @if (opened) {
-              <mat-divider
-                [vertical]="true"
-                class="divider"
-              ></mat-divider>
-            }
-            @if (appName) {
-              <h5 class="app-name" [class.hide-app-name]="!opened">
-                {{ appName }}
-              </h5>
-            }
-          </a>
-        </div>
-      }
+      <div class="sidenav-header">
+        <a class="app-home-link" [routerLink]="homeRoute">
+          @if (appLogo && opened) {
+            <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_dark.svg'" class="navigation__app-icon--dark letter-mark" alt="dark App Logo">
+          }
+          @if (appLogo && opened) {
+            <img [src]="'./assets/' + appLogo + '-lettermark_Navigation_light.svg'" class="navigation__app-icon--light letter-mark" alt="light App Logo">
+          }
+          @if (appLogo && !opened) {
+            <img [src]="'./assets/' + appLogo + '-logomark_Navigation_dark.svg'" class="navigation__app-icon--dark" alt="dark App Logo">
+          }
+          @if (appLogo && !opened) {
+            <img [src]="'./assets/' + appLogo + '-logomark_Navigation_light.svg'" class="navigation__app-icon--light" alt="light App Logo">
+          }
+          @if (opened) {
+            <mat-divider
+              [vertical]="true"
+              class="divider"
+            ></mat-divider>
+          }
+          <h5 class="app-name" [class.hide-app-name]="!opened">
+            {{ appName }}
+          </h5>
+        </a>
+      </div>
     </ng-container>
 
     <!-- DYNAMIC MENU -->
@@ -68,29 +63,30 @@
             }
           </div>
         }
-
+  
         <!-- navigation list -->
         <mat-nav-list>
           @for (item of section.sectionMenuItems; track item) {
             <ng-container>
               <mat-list-item
-                matListItemTitle
+                matListItemTitle 
+                [routerLink]="item.route"
                 (mouseenter)="opened = true"
                 (focus)="opened = true"
                 (click)="onMenuItemClick(item); 
-                toggleSubMenu(item); routerClicked(item.route, item)"
+                toggleSubMenu(item)"
                 [ngClass]="{ 'mat-list-item--toggle-on': item.toggled }"
                 >
                 @if (item.icon) {
                   <mat-icon matListItemIcon
                     [svgIcon]="item.toggled ? 'icon-'+item.icon+'-filled' : 'icon-'+item.icon"
                   ></mat-icon>
-                }
+                }    
                 @if (opened || navDrawerPresentation === NavDrawerPresentationEnum.MODAL) {
                   <div matListItemTitle class="section-label">
                     {{ item.label }}
                   </div>
-                }
+                }    
                 @if (item.children && opened) {
                   <mat-icon
                     matListItemIcon
@@ -98,15 +94,16 @@
                     [class.expanded]="item.expanded"
                     svgIcon="icon-arrow-drop-down"
                   ></mat-icon>
-                }
+                }    
               </mat-list-item>
-
+          
               @if (item.children && item.expanded && opened) {
                 <div>
                   <mat-nav-list class="level2-nav">
                     @for (child of item.children; track child) {
                       <mat-list-item
-                        (click)="onMenuItemClick(child); routerClicked(child.route, child)"
+                        [routerLink]="child.route"
+                        (click)="onMenuItemClick(child)"
                         [ngClass]="{ 'mat-list-item--toggle-on': child.toggled }"
                         >
                         @if (child.icon) {
@@ -121,7 +118,7 @@
                     }
                   </mat-nav-list>
                 </div>
-              }
+              }    
             </ng-container>
           }
           <mat-divider></mat-divider>
@@ -136,19 +133,17 @@
       <ng-template *ngTemplateOutlet="navBarBottomComponent2" />
       <ng-template *ngTemplateOutlet="navBarBottomComponent3" />
       <ng-template *ngTemplateOutlet="navBarBottomComponent4" />
-    </mat-nav-list>
+    </mat-nav-list>  
 
     <!-- Drag bar -->
-    <!-- Removed Mat-divider as backdrop-click is not active for all type of navigation-drawer.
+    <!-- Removed Mat-divider as backdrop-click is not active for all type of navigation-drawer. 
     Kept the html code here for later improvements required in future-->
-    <mat-divider
+    <!-- <mat-divider
       vertical
       class="sidenav-drag-handle"
       [class.enabled] = "isDraggable"
-      (mousedown)="isDraggable && startDragging($event)"
-      (touchstart)="isDraggable && startDragging($event)"
       >
-    </mat-divider>
+    </mat-divider> -->
   </mat-sidenav>
   <mat-sidenav-content #sidenavContent class="content">
     <router-outlet></router-outlet>

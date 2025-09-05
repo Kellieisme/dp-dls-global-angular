@@ -1,16 +1,21 @@
 @use "@angular/material" as mat;
-@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss" as vars;
-@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss";
-@use "../m3-theme" as m3;
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
+@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variablesBase.scss";
+@import "../m3-theme";
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.tabs-theme(m3.$dark-theme);
+  @include mat.tabs-theme($dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+  // @include mat.button-base($dark-theme);
+  // @include mat.button-color($dark-theme);
+  // @include mat.button-typography($dark-theme);
+  // @include mat.button-density($dark-theme);
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.tabs-color(m3.$light-theme);
+  @include mat.tabs-color($light-theme);
 }
 
 .mat-mdc-tab {
@@ -31,7 +36,7 @@
   }
 
   &.mdc-tab--active .mdc-tab__text-label {
-    font-weight: #{vars.$content-base-font-weight-bold};
+    font-weight: #{$content-base-font-weight-bold};
   }
 }
 
@@ -118,5 +123,5 @@ html .theme-dark {
   //--mat-tab-header-label-text-tracking: 0.0892857143em;
   //--mat-tab-header-label-text-line-height: 20px;
   // --mdc-secondary-navigation-tab-container-height: $size-base-sizing-64px;
-  --mat-tab-header-label-text-weight: #{vars.$content-base-font-weight-medium};
+  --mat-tab-header-label-text-weight: #{$content-base-font-weight-medium};
 }
