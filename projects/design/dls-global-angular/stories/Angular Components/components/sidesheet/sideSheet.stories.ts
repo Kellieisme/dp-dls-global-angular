@@ -63,7 +63,8 @@ const baseArgs = {
   buttons: [
     { text: 'label', buttonType: 'stroked' },
     { text: 'label', buttonType: 'flat' },
-  ] as Button[]
+  ] as Button[],
+  title: 'Title 1',
 };
 
 export const Standard: SideSheetStory = {

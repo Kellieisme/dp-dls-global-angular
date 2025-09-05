@@ -7,14 +7,16 @@ import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-
 
 
 @Component({
-  selector: 'button-page',
-  imports: [
-    MatButtonModule,
-    MatDividerModule,
-    MatIconModule,
-    MatTooltipModule, IconRegistryModule],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+    selector: 'button-page',
+    imports: [
+        MatButtonModule,
+        MatDividerModule,
+        MatIconModule,
+        MatTooltipModule,
+        IconRegistryModule,
+    ],
+    templateUrl: './button.component.html',
+    styleUrl: './button.component.scss'
 })
 export class ButtonPageComponent {
   title = 'Button';

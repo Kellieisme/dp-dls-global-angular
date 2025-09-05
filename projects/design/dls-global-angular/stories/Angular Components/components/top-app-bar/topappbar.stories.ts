@@ -142,6 +142,7 @@ export const HamburgerOnly: Story = {
         [appLogo]="appLogo"
         [appName]="appName"
         [homeRoute]="homeRoute"
+        (hamburgerMenuClick)="console.log('Hamburger Menu is working')"
       >
         <div class="actions large-screen">
           <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a help icon">

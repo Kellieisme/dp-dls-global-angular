@@ -37,7 +37,7 @@ const basicTemplate = () =>
 const currencyTemplate = () =>
   ` <form>
       <mat-form-field floatLabel="always" [ngClass]="{'mat-form-field-invalid' : invalid}">
-        <mat-label>{{labelText | titlecase}}</mat-label>
+        <mat-label>{{labelText}}</mat-label>
         <input matInput [placeholder]="placeholder" [disabled]="disabled" class="justify-right"/>
         <span matTextPrefix *ngIf="prefix">{{ prefixText }}</span>
         <mat-hint *ngIf="hintTextLeft !== ''">{{ hintTextLeft }}</mat-hint>
@@ -49,7 +49,7 @@ const currencyTemplate = () =>
 const weightTemplate = () =>
   ` <form>
       <mat-form-field floatLabel="always" [ngClass]="{'mat-form-field-invalid' : invalid}">
-        <mat-label>{{labelText | titlecase}}</mat-label>
+        <mat-label>{{labelText}}</mat-label>
         <input matInput [placeholder]="placeholder" [disabled]="disabled"/>
         <span matTextSuffix *ngIf="suffix">{{ suffixText }}</span>
         <mat-hint *ngIf="hintTextLeft !== ''">{{ hintTextLeft }}</mat-hint>
@@ -61,7 +61,7 @@ const weightTemplate = () =>
 const iconTemplate = () =>
   ` <form>
       <mat-form-field [ngClass]="{'mat-form-field-invalid' : invalid}">
-        <mat-label>{{labelText | titlecase}}</mat-label>
+        <mat-label>{{labelText}}</mat-label>
         <input matInput [placeholder]="placeholder" [disabled]="disabled"/>
         <mat-icon svgIcon="icon-search" matPrefix *ngIf="leadingIcon"></mat-icon>
         <mat-icon svgIcon="icon-cancel" matSuffix *ngIf="trailingIcon"></mat-icon>

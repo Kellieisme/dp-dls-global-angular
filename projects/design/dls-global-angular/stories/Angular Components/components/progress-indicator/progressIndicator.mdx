@@ -1,5 +1,5 @@
-import { Meta, Markdown, Canvas } from '@storybook/blocks';
-import * as ProgressIndicatorStories from './progressIndicator.stories';
+import { Meta, Markdown, Canvas } from "@storybook/blocks";
+import * as ProgressIndicatorStories from "./progressIndicator.stories";
 
 <Meta of={ProgressIndicatorStories} />
 
@@ -12,25 +12,49 @@ The Progress Indicator (both progress bar and spinner) is implemented using Angu
 ### Selectors
 
 - **MatProgressBar**: `mat-progress-bar`
-- **MatProgressSpinner**: `mat-progress-spinner`
+- **MatProgressSpinner**: `mat-progress-spinner` `mat-spinner`
 
 ## Usage
 
 ```typescript
-import { Component } from '@angular/core';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Component } from "@angular/core";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
-  selector: 'app-progress-indicator',
+  selector: "app-progress-indicator",
   standalone: true,
   imports: [MatProgressBarModule, MatProgressSpinnerModule],
-  templateUrl: './progress-indicator.component.html',
-  styleUrl: './progress-indicator.component.scss'
+  templateUrl: "./progress-indicator.component.html",
+  styleUrl: "./progress-indicator.component.scss",
 })
-export class ProgressIndicatorComponent {
+export class ProgressIndicatorComponent {}
+```
 
-}
+## Color Customization
+
+By default, the progress indicators use the **info** color token for the active indicator color: which is `--color-semantic-background-info-filled`
+
+You can easily customize the color by adding one of the following classes to your progress indicator component:
+
+<Markdown>
+  {`
+|      CSS Class     |                                                               Color                                                                     |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| .progress-error    | <span style="display:inline-block; width:16px; height:16px; background-color: var(--color-semantic-background-error-filled);"></span>   |
+| .progress-warning  | <span style="display:inline-block; width:16px; height:16px; background-color: var(--color-semantic-background-warning-filled);"></span> |
+| .progress-success  | <span style="display:inline-block; width:16px; height:16px; background-color: var(--color-semantic-background-success-filled);"></span> |
+  `}
+</Markdown>
+
+## Color Customization Example Usage
+
+```html
+<mat-spinner mode="determinate" [value]="40" class="progress-success"></mat-spinner>
+
+OR
+
+<mat-progress-bar mode="determinate" [value]="40" class="progress-warning"></mat-progress-bar>
 ```
 
 ## Directives
@@ -40,7 +64,7 @@ export class ProgressIndicatorComponent {
 #### Properties
 
 <Markdown>
-{`
+  {`
 | Name                                                       | Description                                                                                  |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | @Input({ transform: numberAttribute }) bufferValue: number | Buffer value of the progress bar. Defaults to zero. |
@@ -56,7 +80,7 @@ export class ProgressIndicatorComponent {
 #### Properties
 
 <Markdown>
-{`
+  {`
 | Name                                                       | Description                                                                                  |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | @Input() color : string | Theme color of the progress spinner. This API is supported in M2 themes only, it has no effect in M3 themes. For information on applying color variants in M3, see https://material.angular.io/guide/theming#using-component-color-variants. |
@@ -66,7 +90,6 @@ export class ProgressIndicatorComponent {
 | @Input()({ transform: numberAttribute }) value : number | Value of the progress spinner. Defaults to zero. Mirrored to aria-valuenow. |
 `}
 </Markdown>
-
 
 ## Interfaces
 
@@ -98,31 +121,31 @@ export class ProgressIndicatorComponent {
 ### `ProgressBarMode`
 
 ```ts
-type ProgressBarMode = 'determinate' | 'indeterminate' | 'buffer' | 'query';
+type ProgressBarMode = "determinate" | "indeterminate" | "buffer" | "query";
 ```
 
 ### `ProgressSpinnerMode`
 
 ```ts
-type ProgressBarMode = 'determinate' | 'indeterminate';
+type ProgressBarMode = "determinate" | "indeterminate";
 ```
 
 ## Examples
 
 #### Progress Bar: Determinate
 
-<Canvas of={ProgressIndicatorStories.ProgressBar}/>
+<Canvas of={ProgressIndicatorStories.ProgressBar} />
 
 #### Progress Spinner: Determinate
 
-<Canvas of={ProgressIndicatorStories.ProgressSpinner}/>
+<Canvas of={ProgressIndicatorStories.ProgressSpinner} />
 
 ## Additional Resources
 
 #### Angular documentation
 
 <Markdown>
-{`
+  {`
 | Boeing DLS Global Angular Library Version    | Angular Material Version  | API Reference                                                                              |
 | -------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
 | 1.x.x                                        | 17.x.x                    | [Progress Bar](https://v17.material.angular.io/components/progress-bar/api)                |
@@ -135,5 +158,37 @@ type ProgressBarMode = 'determinate' | 'indeterminate';
 </Markdown>
 
 #### Guidelines and Specs
- 
+
 You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/design-system/dls-global-docs/components/progress-inidicator)
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);      
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>

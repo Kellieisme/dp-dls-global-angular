@@ -1,7 +1,9 @@
-import { Meta, Markdown, Canvas } from '@storybook/blocks';
-import * as NavigationStories from './navigationDrawer.stories';
+import { Meta, Markdown, Canvas } from "@storybook/blocks";
+import * as NavigationStories from "./navigationDrawer.stories";
 
 <Meta of={NavigationStories} />
+
+<div style={{backgroundColor:'var(--color-ui-background-medium)',padding:'8px 15px', borderRadius: '8px'}}>
 
 # Navigation Drawer
 
@@ -42,6 +44,7 @@ export class NavigationDrawerPageComponent {
 ## API reference
 
 ## Features
+
 - Customizable branding (app name & logo)
 - Supports different presentation styles: `Default`, `Standalone`, and `Modal`
 - Configurable expansion and collapse behavior
@@ -68,22 +71,22 @@ To enable two-way binding for the opened property, you can use the following syn
 
 <Markdown>
 {`
-| Name                     | Description                                                                                                | Type                          | Default Value         |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------- |
-| appLogo                  | The application logo, used when the Nav Drawer is rendered in its STANDALONE configuration.                | string                        | ''                    |
-| appName                  | The application name, used when the Nav Drawer is rendered in its STANDALONE configuration.                | string                        | 'App name'            |
-| homeRoute                | Application home route, will be added as a routerLink when clicking the logo.                              | string                        | '/'                   |
-| collapsedWidth           | Sets the width for the drawer when in its collapsed state.                                                 | string                        | '80px'                |
-| expandedWidth            | Sets the width for the drawer when in its expanded state.                                                  | string                        | '360px'               |
-| fixedOpen                | An input flag denoting whether or not the Nav Drawer should never collapse down to a minified state.       | boolean                       | false                 |
-| minifyOnCollapse         | An input flag denoting whether or not the Nav Drawer should show a minified presentation when collapsed.   | boolean                       | false                 |
-| navBarBottomComponent1   | Template for the first functional component aligned to the bottom of the drawer.                           | TemplateRef<any>              | undefined             |
-| navBarBottomComponent2   | Template for the second functional component aligned to the bottom of the drawer.                          | TemplateRef<any>              | undefined             |
-| navBarBottomComponent3   | Template for the third functional component aligned to the bottom of the drawer.                           | TemplateRef<any>              | undefined             |
-| navBarBottomComponent4   | Template for the fourth functional component aligned to the bottom of the drawer.                          | TemplateRef<any>              | undefined             |
-| navDrawerMenuItems       | Menu items for the navdrawer.                                                                              | AtmosphereNavDrawerMenu       | MockSidebarMenuData   |
-| navDrawerPresentation    | An input flag denoting the presentation style of the Nav Drawer. Input must be one of these values: 'default', 'standalone' & 'modal'| AtmosphereNavDrawerVariant    | 'default' |
-| opened                   | A direct map to Angular Material's opened property of the Side Nav component.                              | boolean                       | true                  |
+| Name                                              | Description                                                                                                             |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| @Input() appLogo                                  | The application logo, used when the Nav Drawer is rendered in its STANDALONE configuration.                             |
+| @Input() appName                                  | The application name, used when the Nav Drawer is rendered in its STANDALONE configuration.                             |
+| @Input() homeRoute                                | Application home route, will be added as a routerLink when clicking the logo.                                           |
+| @Input() collapsedWidth                           | Sets the width for the drawer when in its collapsed state.                                                              |
+| @Input() expandedWidth                            | Sets the width for the drawer when in its expanded state.                                                               |
+| @Input() fixedOpen                                | An input flag denoting whether or not the Nav Drawer should never collapse down to a minified state.                    |
+| @Input() minifyOnCollapse                         | An input flag denoting whether or not the Nav Drawer should show a minified presentation when collapsed.                |
+| @Input() navBarBottomComponent1                   | Template for the first functional component aligned to the bottom of the drawer.                                        |
+| @Input() navBarBottomComponent2                   | Template for the second functional component aligned to the bottom of the drawer.                                       |
+| @Input() navBarBottomComponent3                   | Template for the third functional component aligned to the bottom of the drawer.                                        |
+| @Input() navBarBottomComponent4                   | Template for the fourth functional component aligned to the bottom of the drawer.                                       |
+| @Input() navDrawerMenuItems                       | Menu items for the navdrawer.                                                                                           |
+| @Input() navDrawerPresentation: "default"         | An input flag denoting the presentation style of the Nav Drawer. Acceptable values are: "default", "standalone", "modal".|
+| @Input() opened                                   | A direct map to Angular Material's opened property of the Side Nav component.                                           |
 `}
 </Markdown>
 
@@ -103,3 +106,38 @@ You can see how the different inputs work in the individual component stories.
 <Canvas of={NavigationStories.FixedOpen}/>
 
 You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/design-system/dls-global-docs/components/navigation-drawer)
+
+</div>
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+      
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>

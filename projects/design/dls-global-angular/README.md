@@ -21,37 +21,29 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 This README covers two developer roles, contributing and consuming:
 
-- [Using the Global Angular Component Library in your Angular project](#using-the-global-angular-component-library-in-your-angular-project)
-- [Contributing to the Global Angular Component Library](#contributing-to-the-global-angular-component-library)
+- [Using the Global Angular Component Library in your Angular project](#Using-the-Global-Angular-Component-Library-in-your-Angular-project)
+- [Contributing to the Global Angular Component Library](#Contributing-to-the-Global-Angular-Component-Library)
 
-## Using the Global Angular Component Library in your Angular project
+# Using the Global Angular Component Library in your Angular project
 
 ## Using the NPM package
 
-The Global Angular Component Library is deployed as an NPM package to the Boeing GitLab package registry. To tell NPM where to download the package, use an `.npmrc` file.
+The Global Angular Component Library is deployed as an NPM package to the Boeing Github package registry. To tell NPM where to download the package, use an `.npmrc` file.
 
 The contents of the `.npmrc` should include:
 
-registry=<https://sres.web.boeing.com/artifactory/api/npm/npm-remote/>
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:_password=JFROG_PASSWORD
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:username=JFROG_USERNAME
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:email=EMAIL
-//sres.web.boeing.com/artifactory/api/npm/npm-remote/:always-auth=true
-@dasdigitalplatform:registry=<https://git.web.boeing.com/api/v4/packages/npm/>
-//git.web.boeing.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
+@dasdigitalplatform:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=GITLAB_AUTH_TOKEN
 
 Replace the folowing values:
-
-- JFROG_PASSWORD: Login to [Artifactory](https://sres.web.boeing.com/ui/admin/artifactory/user_profile) using your Boeing email and Windows password. Go to User Profile and create a new Identity Token. Save in a safe place. Encode the Identity Token in [Base64](https://www.base64encode.org/) and use that string as the JFROG_PASSWORD.
-- JFROG_USERNAME: On [Artifactory](https://sres.web.boeing.com/) in the top right you will see your username, a 7-digit number.
-- EMAIL: Your Boeing email
-- GITLAB_AUTH_TOKEN: Create a [GitLab Personal Access Token](https://git.web.boeing.com/-/user_settings/personal_access_tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
+- GITLAB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
 
 ### Add dependency to package.json
 
 Run the following command to install the package and save it as a dependency:
 
-```bash
+```
+```
 npm install @dasdigitalplatform/dls-global-angular
 ```
 
@@ -59,7 +51,7 @@ npm install @dasdigitalplatform/dls-global-angular
 
 To include the global styles, fonts, icons, and Angular Material theme, add the following files to the build options for your project:
 
-```bash
+```
 "projects": {
     "project-name": {
       "architect": {
@@ -86,11 +78,23 @@ To include the global styles, fonts, icons, and Angular Material theme, add the 
   },
 ```
 
-> If your project's SASS compiler cannot resolve the aliased path to the fonts in the above `fonts.scss` and throws errors, the recommendation is to create your own `fonts.scss` and update the base path to a value your compiler can resolve.
+ If your project's SASS compiler cannot resolve the aliased path to the fonts in the above `fonts.scss` and throws errors, the recommendation is to create your own `fonts.scss` and update the base path to a value your compiler can resolve.
+
+For applications using `@angular-devkit/build-angular:application` create a file with:
+```typescript
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/fonts';
+@include boeing-meso("@dasdigitalplatform/dls-global-assets/dist/fonts");
+```
+
+For applications using `@angular-builders/custom-webpack:browser` create a file with:
+```typescript
+@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/fonts';
+@include boeing-meso("/fonts");
+```
 
 To register the custom SvgIconSet edit the `app.component.ts` and add the `IconRegistryModule` as an import:
 
-```bash
+```
 import { Component } from '@angular/core';
 import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 
@@ -107,7 +111,7 @@ export class AppComponent {
 
 Important: Add `provideHttpClient()` to the ApplicationConfig in app.config.ts.
 
-```bash
+```
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
@@ -121,13 +125,13 @@ export const appConfig: ApplicationConfig = {
 
 ### Using an Angular Material component
 
-Angular Material components can be used according to the [Angular Material documentation](https://v17.material.angular.io/components/categories). If the stylesheets are included in the angular.json as described above, the components will be styled without any further action needed.
+Angular Material components can be used according to the [Angular Material documentation](https://material.angular.dev/components/categories). If the stylesheets are included in the angular.json as described above, the components will be styled without any further action needed.
 
 ### Using a custom Angular component
 
 Import the component as needed:
 
-```bash
+```
 import { Component } from '@angular/core';
 import { BreadcrumbComponent } from '@dasdigitalplatform/dls-global-angular/breadcrumb';
 
@@ -143,7 +147,7 @@ export class AppComponent {
 
 ```
 
-## Contributing to the Global Angular Component Library
+# Contributing to the Global Angular Component Library
 
 ## Theming an Angular Material component
 
@@ -161,18 +165,21 @@ The first step in customizing an Angular Material component is initializing its 
 2. In `projects/design/dls-global-angular/styles/material.scss` add the new `_menu.scss` to the list of imports.
 3. Import the required SCSS modules:
 
-```bash
+```
 @use '@angular/material' as mat;
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss';
-@import '../themes';
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '../m3-theme.scss' as m3;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '../m3-theme.scss' as m3;
 ```
 
 All design tokens used in the style customizations should be referenced from `_variables.scss`, `_compositionMixins.scss`, `_typographyMixins.scss`, or `_bootstrapMixins.scss`. Do not hard code CSS properties. This ensures that when tokens change in Tokens Studio, the values will be reflected downstream without the need for code updates.
 
-4. Apply the dark theme as the default theme.
+4. Apply the dark theme as the default theme. 
 
-```bash
+```
 @include mat.menu-theme($dark-theme);
 ```
 
@@ -180,7 +187,7 @@ Using the `{component-name}-theme` mixin name includes the component's styles fo
 
 5. Apply the light theme when the `theme-light` parent class is present.
 
-```bash
+```
 .theme-light {
   @include mat.menu-color($light-theme);
 }
@@ -192,31 +199,30 @@ The Angular Material style mixins emit a set of CSS custom properties for each c
 
 See the Angular Material documentation on [Granular customizations with CSS custom properties](https://material.angular.io/guide/theming#granular-customizations-with-css-custom-properties)
 
-The simpest way to get a comprehensive list of the CSS custom properties available for your component is to reference the CSS output of one of the prebuilt Angular Material themes.
-
-1. Reference the file `node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css`. In your editor, select the contents of the file and format it for easy reading.
+The simpest way to get a comprehensive list of the CSS custom properties available for your component is to reference the CSS output of one of the prebuilt Angular Material themes. 
+1. Reference the file `node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css`. In your editor, select the contents of the file and format it for easy reading. 
 2. Search for your component name (e.g. `-menu`) and copy over the matched set of CSS custom properties into the `_menu.scss` file.
 3. Only modify the CSS custom properties you need (where the design differs from default Angular Material styles). Comment out the other ones.
 
 The example syntax for assigning a SCSS variable to an Angular Material CSS custom property is:
 
-```bash
+```
 --mat-menu-container-shape: #{$size-relaxed-radius-m};
 ```
 
 The example syntax for assigning a themed CSS custom property to an Angular Material CSS custom property is:
 
-```bash
+```
 --mat-menu-container-shape: --var(size-radius-m);
 ```
 
-### 3. Add additional styles if needed
+### 3. Add additional styles if needed 
 
 For the final set of customizations, write additional CSS rules using Angular Material element classes as selectors. If you need to overwrite default Angular Material styles, use selector specificity. Avoid using the `!important` flag unless absolutely critical and the style cannot be applied using selector specificity.
 
-For example, to add style to the element with class `.mat-mdc-menu-item`:
+For example, to add style to the element with class `.mat-mdc-menu-item`: 
 
-```bash
+```
 .mat-mdc-menu-item {
     min-height: $size-condensed-sizing-3xl;
 }
@@ -224,7 +230,7 @@ For example, to add style to the element with class `.mat-mdc-menu-item`:
 
 To overwrite style of the element with class `.mat-mdc-menu-item`:
 
-```bash
+```
 [mat-menu-item] {
   &.mat-mdc-menu-item {
     min-height: $size-condensed-sizing-3xl;
@@ -238,18 +244,16 @@ Note the use of the element name in the selector to increase specificity so the 
 
 From the root of the repository, run the following command to scaffold a new component:
 
-```bash
+```
 ng generate component component-name --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
 ```
 
 You can also use:
-
-```bash
+```
 ng generate directive|pipe|service|class|guard|interface|enum|module --project @dasdigitalplatform/dls-global-angular --path projects/design/dls-global-angular
 ```
 
 Follow the pattern of an existing custom component (such as `breadcrumb`) to do the following steps:
-
 1. Create a `src` folder inside the component folder.
 2. Move the generated component files into the `src` folder.
 3. Create or copy the `index.ts`, `ng-package.json`, and `public-api.ts` files and update the paths inside to match the new component name.
@@ -258,7 +262,7 @@ The above structure enables components to be packaged with each component having
 
 ## Using the demo application for development
 
-The repository includes a demo application with live-reloading that will run with the command `npm run start`.
+The repository includes a demo application with live-reloading that will run with the command `npm run start`. 
 
 For each component, create a new page component and route to provide a development sandbox for that component.
 
@@ -266,13 +270,13 @@ For each component, create a new page component and route to provide a developme
 
 From the root of the repository, run the following command to scaffold a new page component:
 
-```bash
+```
 ng generate component component-name --project demo --path projects/demo/src/app
 ```
 
 Add a new route to the `app.routes.ts`:
 
-```bash
+```
 export const routes: Routes = [
   {...},  
   {
@@ -286,6 +290,7 @@ export const routes: Routes = [
 
 To access your new component route from the main menu, edit `src/app/home/home.component.html` to include a route link to your new component.
 
+
 ## Adding Storybook stories
 
 All components (customized Angular Material components and custom components) should have at least one Storybook story to demo their functionality and provide a QA testing space.
@@ -295,14 +300,12 @@ It is at the developer's discrection how many stories to create, but there shoul
 Use existing Storybook stories as a template for creating a new set of Storybook stories.
 
 Customized Angular Material component:
-
-```bash
+```
 projects/design/dls-global-angular/stories/button.stories.ts
 ```
 
 Custom component:
-
-```bash
+```
 projects/design/dls-global-angular/stories/breadcrumb.stories.ts
 ```
 

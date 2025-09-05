@@ -1,6 +1,6 @@
-import { Meta, Markdown, Canvas } from '@storybook/blocks';
-import * as ButtonCommonStories from './buttonCommon.stories';
-import IconButton from './buttonCommon.stories';
+import { Meta, Markdown, Canvas } from "@storybook/blocks";
+import * as ButtonCommonStories from "./buttonCommon.stories";
+import IconButton from "./buttonCommon.stories";
 import {
   Blue_text,
   Red_text,
@@ -9,7 +9,7 @@ import {
 
 <Meta of={ButtonCommonStories} />
 
-<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+<div style={{backgroundColor:'var(--color-ui-background-medium)',padding:'8px 15px', borderRadius: '8px'}}>
 
 # Button
 
@@ -21,7 +21,7 @@ The Button (Common) is a direct implementation of the Angular Material Button co
 
 `button[mat-button]` `button[mat-flat-button]` `button[mat-stroked-button]` `button[mat-icon-button]`
 
-<Red_text>Note: fab button is not supported by Atmosphere </Red_text>
+<Red_text>Note: fab button and tonal button is not supported by Atmosphere </Red_text>
 ### Usage
 
 In your typescript file.
@@ -42,7 +42,6 @@ imports: [MatButtonModule, MatIconModule, TitleCasePipe, IconRegistryModule]
 Note: To use Icons in the Button Component you need to import the IconRegistryModule.
 Make sure your `angular.json` has the path to `svgSet.svg`. You can find the steps to set it up [here](?path=/docs/get-started-install-configure-atmosphere-setting-global-styles-and-fonts--docs).
 
-
 ### Properties
 
 <Markdown>
@@ -56,8 +55,8 @@ Make sure your `angular.json` has the path to `svgSet.svg`. You can find the ste
 
 </Markdown>
 
-
 ### Examples
+
 You can see how the different inputs work in the individual component stories.
 
 #### Button Text/Basic
@@ -85,7 +84,7 @@ You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/d
 #### Angular Material Reference
 
 <Markdown>
-{`
+  {`
 | Boeing DLS Global Angular Library Version    | Angular Material Version  | API Reference                                                              |
 | -------------------------------------------- | ------------------------- | -------------------------------------------------------------------------- |
 | 1.x.x                                        | 17.x.x                    | [Button](https://v17.material.angular.io/components/button/api)            |
@@ -95,3 +94,36 @@ You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/d
 </Markdown>
 
 </div>
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+      
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>

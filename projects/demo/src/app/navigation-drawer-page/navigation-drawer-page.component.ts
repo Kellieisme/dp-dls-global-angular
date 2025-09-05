@@ -1,18 +1,23 @@
 import { Component } from '@angular/core';
-import { NavigationDrawerComponent } from '@dasdigitalplatform/dls-global-angular/navigation-drawer';
-import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
+import { NavigationDrawerComponent } from '../../../../design/dls-global-angular/navigation-drawer/src/navigation-drawer.component';
+import { UserProfileComponent } from '../../../../design/dls-global-angular/user-profile/src/user-profile.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'navigation-drawer-page',
-    imports: [NavigationDrawerComponent, UserProfileComponent, MatMenuModule, MatButtonModule, MatDividerModule, IconRegistryModule, MatIconModule],
+    imports: [NavigationDrawerComponent, UserProfileComponent, MatMenuModule, MatButtonModule, MatDividerModule, MatIconModule],
     templateUrl: './navigation-drawer-page.component.html',
     styleUrl: './navigation-drawer-page.component.scss'
 })
 export class NavigationDrawerPageComponent {
   toggled = false;
+
+  handleRouteRequest(event: { route?: string; item?: any}){
+    if(!event.route){
+      console.log('Custom routing for: ', event.item);
+    }
+  }
 }

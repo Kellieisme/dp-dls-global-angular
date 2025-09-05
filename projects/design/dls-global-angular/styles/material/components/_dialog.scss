@@ -1,21 +1,18 @@
 @use '@angular/material' as mat;
-// @import '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
-@import '../m3-theme.scss';
+@use  '@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss';
+@use '../m3-theme.scss' as m3;
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.dialog-theme($dark-theme);
+  @include mat.dialog-theme(m3.$dark-theme);
 
   // If needed use the single dimension mixins to override particular aspects
-  // @include mat.dialog-base($dark-theme);
-  // @include mat.dialog-color($dark-theme);
-  // @include mat.dialog-typography($dark-theme);
-  // @include mat.dialog-density($dark-theme);
+
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.dialog-color($light-theme);
+  @include mat.dialog-color(m3.$light-theme);
 }
 
 html,
@@ -24,13 +21,9 @@ html .theme-light {
     &.mat-mdc-dialog-container {
       --mat-icon-color: var(--color-interactive-primary-textandicon-primary-default);
 
-      p {
-        margin-bottom: var(--size-spacing-s);
-      }
+      p { margin-bottom: var(--size-spacing-s); }
 
-      .title-medium {
-        margin-bottom: var(--size-spacing-s);
-      }
+      .title-medium { margin-bottom: var(--size-spacing-s); }
     }
   }
 }
@@ -49,7 +42,8 @@ html .theme-condensed {
 }
 
 html,
-html .theme-light,html .theme-dark {
+html .theme-light,
+html .theme-dark {
   --mdc-dialog-container-color: var(--color-ui-background-high);
   --mdc-dialog-subhead-color: var(--color-ui-textandicon-medium);
   --mdc-dialog-supporting-text-color: var(--color-ui-textandicon-medium);

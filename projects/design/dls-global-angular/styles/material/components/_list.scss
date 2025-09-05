@@ -1,21 +1,17 @@
 @use "@angular/material" as mat;
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss";
-@import "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss";
-@import "../m3-theme";
+@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@dasdigitalplatform/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
+@use "../m3-theme" as m3;
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.list-theme($dark-theme);
-  // If needed use the single dimension mixins to override particular aspects
-  // @include mat.button-base($dark-theme);
-  // @include mat.button-color($dark-theme);
-  // @include mat.button-typography($dark-theme);
-  // @include mat.button-density($dark-theme);
+  @include mat.list-theme(m3.$dark-theme);
+
 }
 
 // Apply the light theme only when the user prefers light themes.
 .theme-light {
-  @include mat.list-color($light-theme);
+  @include mat.list-color(m3.$light-theme);
 }
 
 // Apply density for condensed mode
@@ -38,7 +34,7 @@ mat-list-option.mat-mdc-list-option {
   }
 
   &.enableEmphasis {
-    background-color:var(--color-ui-background-high);
+    background-color: var(--color-ui-background-high);
   }
 
   &.mdc-list-item--with-trailing-meta .mdc-list-item__end {
@@ -61,7 +57,7 @@ mat-list-option.mat-mdc-list-option {
   }
 
   .overline {
-    font-size: $responsive-type-label-low-size-s;
+    font-size: vars.$responsive-type-label-low-size-s;
     color: var(--color-ui-textandicon-low);
     display: flex;
   }
@@ -81,7 +77,7 @@ mat-list-option.mat-mdc-list-option {
   border-radius: var(--size-spacing-none) !important;
 
   .overline {
-    font-size: $responsive-type-label-low-size-s;
+    font-size: vars.$responsive-type-label-low-size-s;
     color: var(--color-ui-textandicon-low);
   }
 }
@@ -94,10 +90,10 @@ html .theme-dark {
   --mdc-list-list-item-focus-label-text-color: var(--color-interactive-primary-textandicon-selected);
   --mdc-list-list-item-container-color: var(--color-ui-background-medium);
   --mdc-list-list-item-hover-state-layer-color: var(--color-interactive-primary-background-hovered);
-  --mdc-list-list-item-hover-state-layer-opacity: #{$opacity-base-5};
+  --mdc-list-list-item-hover-state-layer-opacity: #{vars.$opacity-base-5};
   --mdc-list-list-item-focus-state-layer-color: var(--color-interactive-primary-background-selected);
-  --mdc-list-list-item-focus-state-layer-opacity: #{$opacity-base-12};
-  --mat-list-active-indicator-shape: #{$size-relaxed-radius-full};
+  --mdc-list-list-item-focus-state-layer-opacity: #{vars.$opacity-base-12};
+  --mat-list-active-indicator-shape: #{vars.$size-relaxed-radius-full};
   --mdc-list-list-item-leading-icon-color: var(--color-interactive-primary-textandicon-secondary-default);
   // --mat-list-list-item-leading-icon-end-space: var(--size-spacing-m);
   // --mat-list-list-item-leading-icon-start-space: var(--size-spacing-none);

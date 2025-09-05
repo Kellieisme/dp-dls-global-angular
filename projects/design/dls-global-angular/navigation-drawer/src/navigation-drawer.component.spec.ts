@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationDrawerComponent } from './navigation-drawer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('NavigationDrawerComponent', () => {
   let component: NavigationDrawerComponent;
@@ -14,7 +15,9 @@ describe('NavigationDrawerComponent', () => {
         BrowserAnimationsModule
       ],
       providers: [
-        provideRouter([])
+        provideRouter([]),
+        provideAnimations(),
+        provideHttpClient(),
       ]
     });
     fixture = TestBed.createComponent(NavigationDrawerComponent);

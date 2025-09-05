@@ -17,12 +17,11 @@ export interface LabelExample {
 }
 
 @Component({
-      selector: 'storybook-chips-page',
-      template: `
+    selector: 'storybook-chips-page',
+    template: `
     @if (variant === 'InputChips') {
       <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGrid aria-label="Enter labels">
-          @for (labelExample of labelExamples(); track labelExample) {
           @for (labelExample of labelExamples(); track labelExample) {
             <mat-chip-row
               (removed)="remove(labelExample)"
@@ -32,7 +31,7 @@ export interface LabelExample {
               >
               @if (withIcon) {
                 <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-              },
+              }
               @if (withIcon && iconType === 'favicon') {
                 <mat-icon svgIcon="icon-favorite" matChipAvatar></mat-icon>
               }
@@ -40,10 +39,7 @@ export interface LabelExample {
               <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
                 <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
               </button>
-              </button>
             </mat-chip-row>
-          }
-          <input
           }
           <input
             placeholder="Add item ..."
@@ -55,13 +51,7 @@ export interface LabelExample {
         </mat-chip-grid>
       </mat-form-field>
     }
-      </mat-form-field>
-    }
-
-    @if (variant === 'AvatarInputChips') {
-      <mat-form-field class="example-chip-list">
-        <mat-chip-grid #chipGridAvatar aria-label="Enter chips">
-          @for (labelExample of labelExamples(); track labelExample.name) {
+    
     @if (variant === 'AvatarInputChips') {
       <mat-form-field class="example-chip-list">
         <mat-chip-grid #chipGridAvatar aria-label="Enter chips">
@@ -78,20 +68,7 @@ export interface LabelExample {
               <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
                 <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
               </button>
-              (removed)="remove(labelExample)"
-              [editable]="true"
-              (edited)="edit(labelExample, $event)"
-              [aria-description]="'press enter to edit ' + labelExample.name"
-              class="avatar-chip"
-              >
-              <ba-user-profile userFirstName="William" [small]="true" userAvatarSource="./assets/card-img-1.png" />
-              {{labelExample.name}}
-              <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
-                <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
-              </button>
             </mat-chip-row>
-          }
-          <input
           }
           <input
             placeholder="New thing..."
@@ -103,17 +80,7 @@ export interface LabelExample {
         </mat-chip-grid>
       </mat-form-field>
     }
-            />
-        </mat-chip-grid>
-      </mat-form-field>
-    }
-
-    @if (variant === 'AssistiveChips') {
-      <mat-chip-set
-        class="example-chip"
-        cdkDropList
-        cdkDropListOrientation="horizontal"
-        (cdkDropListDropped)="drop($event)"
+    
     @if (variant === 'AssistiveChips') {
       <mat-chip-set
         class="example-chip"
@@ -123,19 +90,9 @@ export interface LabelExample {
         >
         @for (labelExample of labelExamples(); track labelExample.name) {
           <mat-chip
-        @for (labelExample of labelExamples(); track labelExample.name) {
-          <mat-chip
             class="example-box assistive"
             [class.elevated]="style === 'elevated'"
             cdkDrag>
-            @if (withIcon && iconType === 'leading') {
-              <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-            }
-            @if (withIcon && iconType === 'favicon') {
-              <img
-                matChipAvatar
-                src="./assets/card-img-1.png"
-                alt="Example photo"
             @if (withIcon && iconType === 'leading') {
               <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
             }
@@ -151,20 +108,7 @@ export interface LabelExample {
         }
       </mat-chip-set>
     }
-            }
-            {{labelExample.name}}
-          </mat-chip>
-        }
-      </mat-chip-set>
-    }
-
-    @if (variant === 'FilterAndSuggestionChips') {
-      <mat-chip-listbox aria-label="Labels examples">
-        @for (labelExample of labelExamples(); track labelExample.name) {
-          <mat-chip-option [class.elevated]="style === 'elevated'">
-            @if (withIcon) {
-              <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-            }
+    
     @if (variant === 'FilterAndSuggestionChips') {
       <mat-chip-listbox aria-label="Labels examples">
         @for (labelExample of labelExamples(); track labelExample.name) {
@@ -173,13 +117,6 @@ export interface LabelExample {
               <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
             }
             {{labelExample.name}}
-            @if (withTrailingIcon) {
-              <mat-icon svgIcon="icon-expand-more" MatChipTrailingIcon></mat-icon>
-            }
-          </mat-chip-option>
-        }
-      </mat-chip-listbox>
-    }
             @if (withTrailingIcon) {
               <mat-icon svgIcon="icon-expand-more" MatChipTrailingIcon></mat-icon>
             }
@@ -188,7 +125,6 @@ export interface LabelExample {
       </mat-chip-listbox>
     }
     `,
-
     styles: [`
     .example-chip-list {
       width: 100%;
