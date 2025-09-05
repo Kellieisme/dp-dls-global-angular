@@ -1,4 +1,4 @@
-# Boeing DLS Global Angular Component Library
+# IDS Global Angular Component Library
 
 ## Introduction
 
@@ -41,7 +41,7 @@ $ npm install
 
 ## Local development
 
-The Boeing DLS Global Angular Component Library has a dependency on the Boeing DLS Global Assets Library (`@dasdigitalplatform/dls-global-assets`). 
+The IDS Global Angular Component Library has a dependency on the IDS Global Assets Library (`@dasdigitalplatform/dls-global-assets`). 
 
 The package `@dasdigitalplatform/dls-global-assets` will be downloaded from the Github package registry, as long as the `.npmrc` file is present, as described above.
 
