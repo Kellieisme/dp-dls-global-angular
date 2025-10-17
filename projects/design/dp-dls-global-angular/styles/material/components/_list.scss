@@ -1,0 +1,113 @@
+@use "@angular/material" as mat;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
+@use "../m3-theme" as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.list-theme(m3.$dark-theme);
+
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.list-color(m3.$light-theme);
+}
+
+// Apply density for condensed mode
+.theme-condensed {
+  @include mat.list-density(-2);
+}
+
+.mat-mdc-list-item.mdc-list-item.list-item,
+mat-list-option.mat-mdc-list-option {
+  border-radius: var(--size-spacing-none);
+  padding: var(--size-spacing-s) var(--size-spacing-m);
+  cursor: default;
+
+  &.interactive {
+    cursor: pointer;
+  }
+
+  &.interactive:hover {
+    background-color: var(--color-interactive-primary-background-hovered);
+  }
+
+  &.enableEmphasis {
+    background-color: var(--color-ui-background-high);
+  }
+
+  &.mdc-list-item--with-trailing-meta .mdc-list-item__end {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &.mdc-list-item__start,
+  .mdc-list-item__end {
+    --mdc-radio-state-layer-size: var(--size-spacing-4xl);
+  }
+
+  .mat-icon {
+    margin: var(--size-spacing-none);
+    margin-right: var(--size-spacing-m);
+  }
+
+  &.multiline .mat-icon {
+    margin-top: var(--size-spacing-m);
+  }
+
+  .overline {
+    font-size: vars.$responsive-type-label-low-size-s;
+    color: var(--color-ui-textandicon-low);
+    display: flex;
+  }
+
+  &.multiline .mdc-list-item__content {
+    align-self: flex-end;
+  }
+}
+
+
+.trailing-icon {
+  position: absolute;
+  right: var(--size-spacing-m);
+}
+
+.mat-mdc-list-option {
+  border-radius: var(--size-spacing-none) !important;
+
+  .overline {
+    font-size: vars.$responsive-type-label-low-size-s;
+    color: var(--color-ui-textandicon-low);
+  }
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-list-list-item-label-text-color: var(--color-ui-textandicon-high);
+  --mdc-list-list-item-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
+  --mdc-list-list-item-focus-label-text-color: var(--color-interactive-primary-textandicon-selected);
+  --mdc-list-list-item-container-color: var(--color-ui-background-medium);
+  --mdc-list-list-item-hover-state-layer-color: var(--color-interactive-primary-background-hovered);
+  --mdc-list-list-item-hover-state-layer-opacity: #{vars.$opacity-base-5};
+  --mdc-list-list-item-focus-state-layer-color: var(--color-interactive-primary-background-selected);
+  --mdc-list-list-item-focus-state-layer-opacity: #{vars.$opacity-base-12};
+  --mat-list-active-indicator-shape: #{vars.$size-relaxed-radius-full};
+  --mdc-list-list-item-leading-icon-color: var(--color-interactive-primary-textandicon-secondary-default);
+  // --mat-list-list-item-leading-icon-end-space: var(--size-spacing-m);
+  // --mat-list-list-item-leading-icon-start-space: var(--size-spacing-none);
+  --mdc-list-list-item-hover-leading-icon-color: var(--box-shadow-interactive-primary-glow-backlit);
+  --mdc-list-list-item-selected-container-color: var(--color-interactive-primary-background-selected);
+  --mdc-list-list-item-supporting-text-color: var(--color-ui-textandicon-medium);
+  --mdc-radio-state-layer-size: var(--size-spacing-5xl);
+  --mdc-checkbox-state-layer-size: var(--size-spacing-5xl);
+}
+
+html,
+html .theme-condensed {
+  --mdc-checkbox-state-layer-size: var(--size-spacing-4xl);
+  --mdc-radio-state-layer-size: var(--size-spacing-4xl);
+  --mdc-list-list-item-leading-icon-size: var(--size-spacing-xl);
+  --mat-list-list-item-leading-icon-end-space: var(--size-spacing-s);
+}

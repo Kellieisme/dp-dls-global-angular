@@ -1,0 +1,57 @@
+<mat-toolbar class="top-app-bar">
+  <div class="top-app-bar__info">
+    @if (hamburgerMenuOnly) {
+      <button  
+      class="top-app-bar__icon-menu-button" 
+      [class.top-app-bar__icon-menu-button--hidden]="hamburgerMenuOnly"
+      mat-icon-button
+      matTooltip="Primary"
+      color="primary"
+      aria-label="icon-button with a bookmark icon"
+      (click)="hamburgerMenuClick.emit()"
+      >
+        <mat-icon svgIcon="icon-menu"></mat-icon>
+      </button>
+    }
+    <div class="top-app-bar__logo-section">
+      <a [routerLink]="homeRoute">
+        @if (appLogo) {
+          <img 
+          [src]="'./assets/' + appLogo + '_TopAppBar_dark.svg'" 
+          [ngClass]=" !hamburgerMenuOnly && isNavigationDrawer ? 'top-app-bar__app-icon--dark app-icon-padding-left': 'top-app-bar__app-icon--dark'"
+          alt="dark App Logo"
+          >
+        }
+        @if (appLogo) {
+          <img
+          [src]="'./assets/' + appLogo + '_TopAppBar_light.svg'"
+          [ngClass]=" !hamburgerMenuOnly && isNavigationDrawer ? 'top-app-bar__app-icon--light app-icon-padding-left': 'top-app-bar__app-icon--light'"
+          alt="light App Logo"
+          >
+        }
+        <h6 class="top-app-bar__title-low">{{ appName }}</h6>
+      </a>
+    </div>
+  </div>
+  <div class="top-app-bar__tabs" [class.top-app-bar__tabs--centered]="menuAlignCenter">
+    @if (topAppBarMenu.length && !hamburgerMenuOnly) {
+      <ng-container class="top-app-bar__tab-group">
+        <mat-tab-group class="top-app-bar__tab-group" mat-stretch-tabs>
+          @for (tab of topAppBarMenu; track tab; let i = $index) {
+            @if (i < 6) {
+              <mat-tab [label]="tab.label"></mat-tab>
+            }
+          }
+        </mat-tab-group>
+      </ng-container>
+    }
+  </div>
+  <div
+    class="top-app-bar__spacer"
+    [class.top-app-bar__spacer--centered]="menuAlignCenter"
+  ></div>
+
+  <div class="top-app-bar__actions">
+    <ng-content></ng-content>
+  </div>
+</mat-toolbar>

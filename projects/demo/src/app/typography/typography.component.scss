@@ -1,0 +1,54 @@
+.group {
+  display: grid;
+  grid-template-columns:  1fr 1fr 1fr;
+  grid-gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1000px) {
+  .group {
+    grid-template-columns: auto;
+  }
+}
+
+.surface-variable {
+  display: inline-block;
+  font-family: monospace;
+  padding: 0 6px;
+ }
+
+.typography-group {
+  border: 1px dotted;
+  border-radius: 16px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.typography-title {
+  text-transform: capitalize;
+  padding: 8px;
+  background-color: lightgrey;
+}
+
+.typography-variable {
+  min-width: 12rem;
+}
+
+.typography-example {
+  padding: 16px;
+  display: flex;
+  align-items: baseline;
+  border-top: 1px dotted;
+}
+
+.typography-example:nth-child(1) {
+  border: none;
+}
+
+.typography-example .surface-variable {
+  margin-left: 16px;
+}
+
+.typography-text {
+  display: inline-block;
+}

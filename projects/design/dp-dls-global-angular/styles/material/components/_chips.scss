@@ -1,0 +1,181 @@
+@use "@angular/material" as mat;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss";
+@use '../m3-theme.scss' as m3;
+@use '../typography' as typography;
+
+// Map to: xl-label-medium
+$chip-body-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-label-medium-size-xl,
+		$line-height: vars.$responsive-type-label-medium-height-xl,
+		$font-weight: vars.$content-base-font-weight-medium,
+		$letter-spacing: vars.$responsive-type-label-medium-letter-xl,
+	);
+
+$chips-typography-config: mat.m2-define-typography-config($font-family: vars.$content-base-font-family-boeing-meso,
+		$headline-1: typography.$dls-headline-1,
+		$headline-2: typography.$dls-headline-2,
+		$headline-3: typography.$dls-headline-3,
+		$headline-4: typography.$dls-headline-4,
+		$headline-5: typography.$dls-headline-5,
+		$headline-6: typography.$dls-headline-6,
+		$subtitle-1: typography.$dls-subtitle-1,
+		$subtitle-2: typography.$dls-subtitle-2,
+		$body-1: typography.$dls-body-1,
+		$body-2: $chip-body-2,
+		$caption: typography.$dls-caption,
+		$button: typography.$dls-button,
+	);
+
+:root {
+	// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+	// @include mat.checkbox-theme(m3.$dark-theme);
+	// If needed use the single dimension mixins to override particular aspects
+	// @include mat.button-base($dark-theme);
+	@include mat.chips-theme(m3.$dark-theme);
+	@include mat.chips-typography($chips-typography-config);
+	// @include mat.button-density(m3.$dark-theme);
+
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+	@include mat.chips-color(m3.$light-theme);
+}
+
+.mat-mdc-standard-chip {
+	&.avatar-chip {
+		--mdc-chip-container-shape-radius: #{vars.$size-relaxed-radius-full} !important;
+
+		.mdc-evolution-chip__action {
+			padding-left: #{vars.$size-relaxed-spacing-2xs} !important;
+		}
+	}
+
+	&.elevated {
+		--mdc-chip-elevated-container-color: var(--color-ui-background-high) !important;
+		--mdc-chip-outline-width: 0 !important;
+		--mdc-chip-outline-color: transparent !important;
+		box-shadow: var(--box-shadow-elevation-1);
+	}
+
+	&.assistive {
+		.mdc-evolution-chip__action {
+			cursor: pointer;
+		}
+	}
+}
+
+.mdc-evolution-chip__text-label {
+	display: flex;
+	align-items: center;
+	gap: #{vars.$size-relaxed-spacing-xs};
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+	.mat-mdc-standard-chip {
+
+		//--mdc-chip-container-shape-family: rounded;
+		--mdc-chip-container-shape-radius: #{vars.$size-relaxed-radius-s};
+		// --mdc-chip-with-avatar-avatar-shape-family: rounded;
+		// --mdc-chip-with-avatar-avatar-shape-radius: 14px 14px 14px 14px;
+		// --mdc-chip-with-avatar-avatar-size: 28px;
+		// --mdc-chip-with-icon-icon-size: 18px;
+		--mdc-chip-outline-width: #{vars.$size-base-border-width-1};
+		--mdc-chip-outline-color: var(--color-interactive-primary-border-enabled);
+		--mdc-chip-disabled-outline-color: transparent;
+		--mdc-chip-focus-outline-color: transparent;
+		// --mdc-chip-hover-state-layer-opacity: 0.04;
+		// --mdc-chip-with-avatar-disabled-avatar-opacity: 1;
+		// --mdc-chip-flat-selected-outline-width: 0;
+		// --mdc-chip-selected-hover-state-layer-opacity: 0.04;
+		// --mdc-chip-with-trailing-icon-disabled-trailing-icon-opacity: 1;
+		// --mdc-chip-with-icon-disabled-icon-opacity: 1;
+		// --mat-chip-disabled-container-opacity: 0.4;
+		// --mat-chip-trailing-action-opacity: 0.54;
+		// --mat-chip-trailing-action-focus-opacity: 1;
+		// --mat-chip-trailing-action-state-layer-color: transparent;
+		// --mat-chip-selected-trailing-action-state-layer-color: transparent;
+		// --mat-chip-trailing-action-hover-state-layer-opacity: 0;
+		// --mat-chip-trailing-action-focus-state-layer-opacity: 0;
+		--mdc-chip-disabled-label-text-color: var(--color-interactive-primary-textandicon-selected);
+		--mdc-chip-elevated-container-color: transparent;
+		// --mdc-chip-elevated-selected-container-color: #e0e0e0;
+		// --mdc-chip-elevated-disabled-container-color: #e0e0e0;
+		// --mdc-chip-flat-disabled-selected-container-color: #e0e0e0;
+		// --mdc-chip-focus-state-layer-color: black;
+		// --mdc-chip-hover-state-layer-color: black;
+		// --mdc-chip-selected-hover-state-layer-color: black;
+		// --mdc-chip-focus-state-layer-opacity: 0.12;
+		// --mdc-chip-selected-focus-state-layer-color: black;
+		// --mdc-chip-selected-focus-state-layer-opacity: 0.12;
+		--mdc-chip-label-text-color: var(--color-interactive-primary-textandicon-selected);
+		--mdc-chip-selected-label-text-color: var(--color-interactive-primary-textandicon-inverse);
+		--mdc-chip-with-icon-icon-color: var(--color-interactive-primary-textandicon-selected);
+		--mdc-chip-with-icon-disabled-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mdc-chip-with-icon-selected-icon-color: var(--color-interactive-primary-textandicon-inverse);
+		--mdc-chip-with-trailing-icon-disabled-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mdc-chip-with-trailing-icon-trailing-icon-color: var(--color-interactive-primary-textandicon-selected);
+		--mat-chip-selected-disabled-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mat-chip-selected-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+	}
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+
+	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary,
+	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
+		// --mdc-chip-disabled-label-text-color: white;
+		// --mdc-chip-elevated-container-color: #673ab7;
+		--mdc-chip-elevated-selected-container-color: var(--color-interactive-accent-background-enabled-filled);
+		// --mdc-chip-elevated-disabled-container-color: #673ab7;
+		// --mdc-chip-flat-disabled-selected-container-color: #673ab7;
+		// --mdc-chip-focus-state-layer-color: black;
+		// --mdc-chip-hover-state-layer-color: black;
+		// --mdc-chip-selected-hover-state-layer-color: black;
+		// --mdc-chip-focus-state-layer-opacity: 0.12;
+		// --mdc-chip-selected-focus-state-layer-color: black;
+		// --mdc-chip-selected-focus-state-layer-opacity: 0.12;
+		--mdc-chip-label-text-color: var(--color-interactive-primary-textandicon-selected);
+		--mdc-chip-selected-label-text-color: var(--color-interactive-primary-textandicon-inverse);
+		--mdc-chip-with-icon-icon-color: var(--color-interactive-primary-textandicon-selected);
+		--mdc-chip-with-icon-disabled-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mdc-chip-with-icon-selected-icon-color: var(--color-interactive-primary-textandicon-inverse);
+		--mdc-chip-with-trailing-icon-disabled-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mdc-chip-with-trailing-icon-trailing-icon-color: var(--color-interactive-primary-textandicon-selected);
+		--mat-chip-selected-disabled-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mat-chip-selected-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+	}
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+
+	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent,
+	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
+		// --mdc-chip-disabled-label-text-color: rgba(0, 0, 0, 0.87);
+		// --mdc-chip-elevated-container-color: #ffd740;
+		// --mdc-chip-elevated-selected-container-color: #ffd740;
+		// --mdc-chip-elevated-disabled-container-color: #ffd740;
+		// --mdc-chip-flat-disabled-selected-container-color: #ffd740;
+		// --mdc-chip-focus-state-layer-color: black;
+		// --mdc-chip-hover-state-layer-color: black;
+		// --mdc-chip-selected-hover-state-layer-color: black;
+		// --mdc-chip-focus-state-layer-opacity: 0.12;
+		// --mdc-chip-selected-focus-state-layer-color: black;
+		// --mdc-chip-selected-focus-state-layer-opacity: 0.12;
+		--mdc-chip-label-text-color: var(--color-interactive-primary-textandicon-selected);
+		--mdc-chip-selected-label-text-color: var(--color-interactive-primary-textandicon-inverse);
+		--mdc-chip-with-icon-icon-color: var(--color-interactive-primary-textandicon-selected);
+		--mdc-chip-with-icon-disabled-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mdc-chip-with-icon-selected-icon-color: var(--color-interactive-primary-textandicon-inverse);
+		--mdc-chip-with-trailing-icon-disabled-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mdc-chip-with-trailing-icon-trailing-icon-color: var(--color-interactive-primary-textandicon-selected);
+		--mat-chip-selected-disabled-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+		--mat-chip-selected-trailing-icon-color: var(--color-interactive-accent-textandicon-inverse);
+	}
+}

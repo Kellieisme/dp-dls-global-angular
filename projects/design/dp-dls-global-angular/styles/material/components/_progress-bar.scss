@@ -1,0 +1,41 @@
+// Import Angular Material library with an alias for convenience
+@use '@angular/material' as mat;
+
+// Import custom design system variables and mixins for styling consistency
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss'; // Custom global variables
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss'; // Custom mixins for layout and style composition
+
+// Import theme configurations for the application
+@use '../m3-theme.scss' as m3; // Imports user-defined themes, e.g., light and dark theme settings
+
+:root {
+  // Apply a dark theme to the Angular Material progress bar
+  @include mat.progress-bar-theme(m3.$dark-theme);
+}
+
+// Define a light theme for the progress bar in the `.theme-light` class
+.theme-light {
+  @include mat.progress-bar-color(m3.$light-theme);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-info-filled); //info is by default when no class is selected
+
+  .progress-error {
+    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-error-filled);
+  }
+
+  .progress-warning {
+    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-warning-filled);
+  }
+
+  .progress-success {
+    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-success-filled);
+  }
+
+  .progress-info {
+    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-info-filled);
+  }
+}

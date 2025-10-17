@@ -1,0 +1,176 @@
+import { Meta, Canvas, Markdown } from '@storybook/addon-docs/blocks';
+import * as TopAppBarStories from './topappbar.stories';
+
+<Meta of={TopAppBarStories} />
+
+<div style={{backgroundColor:'var(--color-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
+
+# Top App Bar
+
+### API references
+The `TopAppBarComponent` is a custom component designed to serve as a top navigation bar for applications.
+It can include a logo, application name, and optional hamburger menu functionality.
+This component is built using Angular and Angular Material primitives.
+
+### Setting Global Styles and Fonts
+[Set Global Styles and Fonts](?path=/docs/installation-setting-global-styles-and-font--overview)
+
+
+## Usage
+Selector: `<ba-top-app-bar>`
+
+### Basic Usage
+
+```typeScript
+import { Component } from '@angular/core';
+import { TopAppBarComponent } from './top-app-bar.component';
+import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
+import { TopAppBarComponent } from '@jeppesen-foreflight/dp-dls-global-angular/top-app-bar';
+import { UserProfileComponent } from '@jeppesen-foreflight/dp-dls-global-angular/user-profile';
+
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: true,
+    imports: [TopAppBarComponent]
+})
+export class AppComponent {
+  appName = 'My Application'; // The name of the application displayed in the top app bar.
+
+  appLogo = 'my-logo'; // The logo of the application, referenced by its filename.
+
+  homeRoute = '/'; // The route to navigate to when the logo is clicked.
+
+  topAppBarMenu = [
+    { label: 'Home', path: '/' }, // Navigation link for the Home page.
+    { label: 'About', path: '/about' }, // Navigation link for the About page.
+    { label: 'Contact', path: '/contact' } // Navigation link for the Contact page.
+  ];
+}
+```
+
+```html
+<ba-top-app-bar
+  [appName]="appName"
+  [appLogo]="appLogo"
+  [homeRoute]="homeRoute"
+  [topAppBarMenu]="topAppBarMenu">
+</ba-top-app-bar>
+```
+
+### Usage with Hamburger Menu Click
+
+```typeScript
+import { Component } from '@angular/core';
+import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
+import { TopAppBarComponent } from '@jeppesen-foreflight/dp-dls-global-angular/top-app-bar';
+import { UserProfileComponent } from '@jeppesen-foreflight/dp-dls-global-angular/user-profile';
+
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: true,
+    imports: [TopAppBarComponent]
+})
+export class AppComponent {
+  appName = 'My Application'; // The name of the application displayed in the top app bar.
+
+  appLogo = 'my-logo'; // The logo of the application, referenced by its filename.
+
+  homeRoute = '/'; // The route to navigate to when the logo is clicked.
+
+  topAppBarMenu = [
+    { label: 'Home', path: '/' }, // Navigation link for the Home page.
+    { label: 'About', path: '/about' }, // Navigation link for the About page.
+    { label: 'Contact', path: '/contact' } // Navigation link for the Contact page.
+  ];
+
+
+  /**
+   * This method is called when the hamburger menu button is clicked.
+   * It is optional for consumers to implement this method.
+   * If implemented, it can be used to handle the action that should occur
+   * when the hamburger menu is activated, such as opening a side navigation drawer.
+   */
+  onHamburgerMenuClick() {
+    console.log('Hamburger menu clicked!'); // Log message for demonstration purposes.
+  }
+}
+```
+
+```html
+<ba-top-app-bar
+  [appName]="appName"
+  [appLogo]="appLogo"
+  [homeRoute]="homeRoute"
+  [topAppBarMenu]="topAppBarMenu"
+  hamburgerMenuOnly
+  (hamburgerMenuClick)="onHamburgerMenuClick()">
+</ba-top-app-bar>
+```
+### Usage of HamburgerMenuOnly & Top-Appbar with Navigation-drawer
+
+HamburgerMenuOnly & Top-Appbar with Navigation Drawer [Pattern here](?path=/story/patterns-navigation--navigation-drawerand-top-app-bar)
+
+### Properties
+
+<Markdown>
+{`
+| Name                                                        | Description                                                                   |
+| ------------------------------------------------------------| ----------------------------------------------------------------------------- |
+| @Input() appName: string                                    | The name displayed in the top app bar. Defaults to 'App Name'. |
+| @Input() appLogo: string                                    | Logo file name (excluding path & extension). Defaults to ''. |
+| @Input() homeRoute: string                                  | Route linked to the logo. Defaults to '/'. |
+| @Input() menuAlignCenter: boolean                           | Obsolete - This is obsolete and needs to be updated. Defaults to false. |
+| @Input() hamburgerMenuOnly: boolean                         | Broken - Forces the menu to use a hamburger icon at all breakpoints. Defaults to false. |
+| @Input() topAppBarMenu: AtmosphereTopBarNavigationLinkArray | Clarification needed if this is for the old tabs or automatically creates the hamburger's links now? List of menu items for navigation. Defaults to []. |
+
+`}
+</Markdown>
+
+## Examples
+
+### Standard
+
+<Canvas of={TopAppBarStories.Default} />
+
+### With Hamburger Menu Only - VARIANT: Hamburger menu
+
+<Canvas of={TopAppBarStories.HamburgerOnly} />
+
+</div>
+
+<style>
+  {`
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-qa4clq :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-qa4clq :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-qa4clq :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-qa4clq :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-qa4clq :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-qa4clq :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+    }
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-qa4clq :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>
+

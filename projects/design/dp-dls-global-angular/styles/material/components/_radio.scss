@@ -1,0 +1,119 @@
+@use "@angular/material" as mat;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
+@use "../m3-theme" as m3;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins" as typographymixin;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.radio-theme(m3.$dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.radio-color(m3.$light-theme);
+}
+
+.mat-mdc-radio-button {
+  .mdc-form-field {
+    .mdc-radio {
+      &:hover:not(:disabled) {
+        .mat-ripple {
+          @include composition.composition-dark-interactive-primary-glow-small-surface;
+        }
+      }
+    }
+  }
+
+  .mdc-label {
+    @include typographymixin.typography-xl-body-low-default;
+
+    &:hover:not(:disabled) {
+      cursor: pointer
+    }
+  }
+}
+
+html .theme-condensed {
+  .mat-mdc-radio-touch-target {
+
+    // height: 40px;
+    // width: 40px;
+    height: var(--size-sizing-4xl);
+    width: var(--size-sizing-4xl);
+  }
+
+  .mat-mdc-radio-button .mdc-radio {
+    max-height: var(--size-sizing-3xl);
+    max-width: var(--size-sizing-3xl);
+    padding: var(--size-spacing-s);
+  }
+
+  .mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before {
+    max-height: var(--size-sizing-3xl);
+    max-width: var(--size-sizing-3xl);
+    margin: var(--size-spacing-xs);
+  }
+
+  .mat-mdc-radio-button .mdc-radio .mdc-radio__background::before {
+    max-height: var(--size-sizing-3xl);
+    max-width: var(--size-sizing-3xl);
+    margin: var(--size-spacing-xs);
+  }
+
+  .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control {
+    max-height: var(--size-sizing-3xl);
+    max-width: var(--size-sizing-3xl);
+    margin: var(--size-spacing-xs);
+  }
+
+  .mat-radio-ripple {
+    height: var(--size-sizing-3xl);
+    width: var(--size-sizing-3xl);
+    margin: var(--size-spacing-2xs);
+  }
+}
+
+// html {
+//   --mdc-radio-disabled-selected-icon-opacity: 0.38;
+//   --mdc-radio-disabled-unselected-icon-opacity: 0.38;
+//   --mdc-radio-state-layer-size: 40px
+// }
+
+// .mat-mdc-radio-button {
+//   --mdc-form-field-label-text-color: rgba(0, 0, 0, 0.87)
+// }
+
+html,
+html .theme-light,
+html .theme-dark {
+  .mat-mdc-radio-button.mat-primary {
+    // --mdc-radio-disabled-selected-icon-color: black;
+    // --mdc-radio-disabled-unselected-icon-color: black;
+    // --mdc-radio-unselected-hover-icon-color: #212121;
+    --mdc-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mdc-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mdc-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mdc-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mdc-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
+    --mdc-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
+    // --mat-radio-ripple-color: var(--color-interactive-accent-textandicon-selected};
+    --mat-radio-checked-ripple-color: var(--color-interactive-accent-textandicon-selected);
+    // --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38)
+  }
+
+  .mat-mdc-radio-button.mat-accent {
+    //   --mdc-radio-disabled-selected-icon-color: black;
+    //   --mdc-radio-disabled-unselected-icon-color: black;
+    //   --mdc-radio-unselected-hover-icon-color: #212121;
+    --mdc-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mdc-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mdc-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mdc-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mdc-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
+    --mdc-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
+    // --mat-radio-ripple-color: var(--color-interactive-accent-textandicon-selected};
+    --mat-radio-checked-ripple-color: var(--color-interactive-accent-textandicon-selected);
+    // --mat-radio-disabled-label-color: #00000000;
+  }
+}

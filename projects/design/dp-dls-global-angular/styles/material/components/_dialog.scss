@@ -1,0 +1,50 @@
+@use '@angular/material' as mat;
+@use  '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+@use '../m3-theme.scss' as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.dialog-theme(m3.$dark-theme);
+
+  // If needed use the single dimension mixins to override particular aspects
+
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.dialog-color(m3.$light-theme);
+}
+
+html,
+html .theme-light {
+  mat-dialog-container {
+    &.mat-mdc-dialog-container {
+      --mat-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+
+      p { margin-bottom: var(--size-spacing-s); }
+
+      .title-medium { margin-bottom: var(--size-spacing-s); }
+    }
+  }
+}
+
+html,
+html .theme-condensed {
+  --mdc-dialog-container-shape: var(--size-radius-m);
+  --mat-dialog-container-max-width: 80vw;
+  --mat-dialog-container-small-max-width: 80vw;
+  --mat-dialog-container-min-width: 0;
+  --mat-dialog-actions-alignment: end;
+  --mat-dialog-actions-padding: var(--size-spacing-xl);
+  --mat-dialog-content-padding: var(--size-spacing-xl);
+  --mat-dialog-with-actions-content-padding: 0 var(--size-spacing-xl);
+  --mat-dialog-headline-padding: var(--size-spacing-m) var(--size-spacing-xl) var(--size-spacing-xl) var(--size-relaxed-spacing-xl);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-dialog-container-color: var(--color-ui-background-high);
+  --mdc-dialog-subhead-color: var(--color-ui-textandicon-medium);
+  --mdc-dialog-supporting-text-color: var(--color-ui-textandicon-medium);
+}

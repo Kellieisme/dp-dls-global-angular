@@ -1,0 +1,13 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+
+.ba-breadcrumb__list {
+  display: flex;
+  list-style-type: none;
+
+  li:not(:last-child)::after {
+    content: '/';
+    padding: 0 var(--size-spacing-2xs);
+    @include typography.typography-s-body-medium-default;
+    color: var(--color-ui-divider-flat-high);
+  }
+}

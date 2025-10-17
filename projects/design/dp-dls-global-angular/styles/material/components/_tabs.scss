@@ -1,0 +1,122 @@
+@use "@angular/material" as mat;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss";
+@use "../m3-theme" as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.tabs-theme(m3.$dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.tabs-color(m3.$light-theme);
+}
+
+.mat-mdc-tab {
+  &:hover {
+    background: var(--color-interactive-primary-background-hovered);
+  }
+
+  &:active {
+    background: var(--color-interactive-primary-background-selected);
+  }
+
+  &:focus {
+    background: var(--color-interactive-primary-background-enabled-tonal);
+  }
+
+  .mdc-tab__text-label {
+    gap: var(--size-spacing-xs);
+  }
+
+  &.mdc-tab--active .mdc-tab__text-label {
+    font-weight: #{vars.$content-base-font-weight-bold};
+  }
+}
+
+
+html,
+html .theme-light,
+html .theme-dark {
+
+  .mat-mdc-tab-group,
+  .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: var(--color-ui-embellishment);
+    --mat-tab-header-active-focus-indicator-color: var(--color-ui-embellishment);
+    // --mat-tab-header-disabled-ripple-color: rgba(201, 27, 27, 0.38);
+    // --mat-tab-header-pagination-icon-color: black;
+    --mat-tab-header-inactive-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mat-tab-header-active-label-text-color: var(--color-interactive-primary-textandicon-selected);
+    --mat-tab-header-active-ripple-color: var(--color-interactive-primary-background-selected);
+    --mat-tab-header-inactive-ripple-color: var(--color-interactive-primary-background-primary-default);
+    //--mat-tab-header-inactive-focus-label-text-color: rgba(0, 0, 0, 0.6);
+    --mat-tab-header-inactive-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
+    --mat-tab-header-active-focus-label-text-color: var(--color-interactive-primary-textandicon-selected);
+    --mat-tab-header-active-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
+  }
+}
+
+// .mat-mdc-tab-group.mat-accent,
+// .mat-mdc-tab-nav-bar.mat-accent {
+// 	--mdc-tab-indicator-active-indicator-color: #ff4081;
+// 	--mat-tab-header-disabled-ripple-color: rgba(0, 0, 0, 0.38);
+// 	--mat-tab-header-pagination-icon-color: black;
+// 	--mat-tab-header-inactive-label-text-color: rgba(0, 0, 0, 0.6);
+// 	--mat-tab-header-active-label-text-color: #ff4081;
+// 	--mat-tab-header-active-ripple-color: #ff4081;
+// 	--mat-tab-header-inactive-ripple-color: #ff4081;
+// 	--mat-tab-header-inactive-focus-label-text-color: rgba(0, 0, 0, 0.6);
+// 	--mat-tab-header-inactive-hover-label-text-color: rgba(0, 0, 0, 0.6);
+// 	--mat-tab-header-active-focus-label-text-color: #ff4081;
+// 	--mat-tab-header-active-hover-label-text-color: #ff4081;
+// 	--mat-tab-header-active-focus-indicator-color: #ff4081;
+// 	--mat-tab-header-active-hover-indicator-color: #ff4081
+// }
+
+// .mat-mdc-tab-group.mat-warn,
+// .mat-mdc-tab-nav-bar.mat-warn {
+// 	--mdc-tab-indicator-active-indicator-color: #f44336;
+// 	--mat-tab-header-disabled-ripple-color: rgba(181, 26, 26, 0.38);
+// 	--mat-tab-header-pagination-icon-color: black;
+// 	--mat-tab-header-inactive-label-text-color: rgba(190, 26, 26, 0.6);
+// 	--mat-tab-header-active-label-text-color: #f44336;
+// 	--mat-tab-header-active-ripple-color: #f44336;
+// 	--mat-tab-header-inactive-ripple-color: #f44336;
+// 	--mat-tab-header-inactive-focus-label-text-color: rgba(181, 16, 16, 0.6);
+// 	--mat-tab-header-inactive-hover-label-text-color: rgba(0, 0, 0, 0.6);
+// 	--mat-tab-header-active-focus-label-text-color: #f44336;
+// 	--mat-tab-header-active-hover-label-text-color: #f44336;
+// 	--mat-tab-header-active-focus-indicator-color: #f44336;
+// 	--mat-tab-header-active-hover-indicator-color: #f44336
+// }
+
+// .mat-mdc-tab-group.mat-background-primary,
+// .mat-mdc-tab-nav-bar.mat-background-primary {
+// 	--mat-tab-header-with-background-background-color: #3f51b5;
+// 	--mat-tab-header-with-background-foreground-color: white
+// }
+
+// .mat-mdc-tab-group.mat-background-accent,
+// .mat-mdc-tab-nav-bar.mat-background-accent {
+// 	--mat-tab-header-with-background-background-color: #ff4081;
+// 	--mat-tab-header-with-background-foreground-color: white
+// }
+
+// .mat-mdc-tab-group.mat-background-warn,
+// .mat-mdc-tab-nav-bar.mat-background-warn {
+// 	--mat-tab-header-with-background-background-color: #f44336;
+// 	--mat-tab-header-with-background-foreground-color: white
+// }
+
+// .mat-mdc-tab-header {
+// 	--mdc-secondary-navigation-tab-container-height: 64px;
+// }
+
+.mat-mdc-tab-header {
+  //--mat-tab-header-label-text-size: 14px;
+  //--mat-tab-header-label-text-tracking: 0.0892857143em;
+  //--mat-tab-header-label-text-line-height: 20px;
+  // --mdc-secondary-navigation-tab-container-height: $size-base-sizing-64px;
+  --mat-tab-header-label-text-weight: #{vars.$content-base-font-weight-medium};
+}

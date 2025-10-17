@@ -1,0 +1,65 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss' as varsbase;
+
+.user-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &--display-only {
+    width: vars.$size-base-sizing-48px;
+    height: vars.$size-base-sizing-48px;
+    font-size: vars.$size-base-font-size-22px;
+    cursor: default;
+  }
+
+  &--display-only-small {
+    width: vars.$size-base-sizing-24px;
+    height: vars.$size-base-sizing-24px;
+    font-size: vars.$size-base-font-size-14px;
+    cursor: default;
+  }
+
+  &--clickable {
+    width: vars.$size-base-sizing-40px;
+    height: vars.$size-base-sizing-40px;
+    font-size: vars.$size-base-font-size-14px;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    .user-profile--clickable & {
+      width: vars.$size-base-sizing-32px;
+      height: vars.$size-base-sizing-32px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__letter {
+    background-color: var(--color-static-gray);
+    color: var(--color-static-white);
+    font-family: vars.$content-base-font-family-boeing-meso;
+    font-weight: vars.$content-base-font-weight-medium;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+}

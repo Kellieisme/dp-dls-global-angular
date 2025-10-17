@@ -3,17 +3,17 @@ import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatChipEditedEvent, MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+import { IconRegistryModule } from '../../../../design/dp-dls-global-angular/icon-registry/src/icon-registry.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { IconRegistryModule } from '@dasdigitalplatform/dls-global-angular/icon-registry';
-import { UserProfileComponent } from '@dasdigitalplatform/dls-global-angular/user-profile';
+import { UserProfileComponent } from '../../../../design/dp-dls-global-angular/user-profile/src/user-profile.component';
 export interface LabelExample {
   name: string;
 }
 
 @Component({
     selector: 'chips-page',
-    imports: [MatChipsModule, MatIconModule, IconRegistryModule, CdkDropList, CdkDrag, MatFormFieldModule, UserProfileComponent, MatIconModule ],
+    imports: [MatChipsModule, MatIconModule, IconRegistryModule, CdkDropList, CdkDrag, MatFormFieldModule, UserProfileComponent],
     templateUrl: './chips.component.html',
     styleUrl: './chips.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

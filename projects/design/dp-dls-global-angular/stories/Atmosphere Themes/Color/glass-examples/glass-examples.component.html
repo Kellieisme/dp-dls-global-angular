@@ -1,0 +1,26 @@
+<div class="content">
+  <div class="main">
+    <div style="display: flex;flex-direction: column;margin-top: 30vh;">
+      <div style="background-color: var(--color-semantic-background-error-filled); width: 500px;height: 100px;"></div>
+      <div style="background-color: var(--color-semantic-background-warning-filled); width: 500px;height: 100px;"></div>
+      <div style="background-color: var(--color-semantic-background-success-filled); width: 500px;height: 100px;"></div>
+      <div style="background-color: var(--color-semantic-background-info-filled); width: 500px;height: 100px;"></div>
+    </div>
+    <div class="glass">
+    <h2>Scroll to move the glass sheet over the background</h2>
+      <form (ngSubmit)="onSubmit()" style="display: flex;flex-direction: column;">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter your name" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Enter your password" required>
+        </mat-form-field>
+        <button mat-flat-button type="submit" style="margin-top: 20px;">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+  
+  

@@ -1,0 +1,119 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '../m3-theme.scss' as m3;
+
+// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+:root{
+  @include mat.autocomplete-theme(m3.$dark-theme);
+}
+
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.autocomplete-color(m3.$light-theme);
+}
+
+// TODO: autocompleteorary specular border values until we can fix the mixin
+// The mixin uses border-image-source to create a gradient border but
+// this does not seem to work as intended, needs more investigation
+$composition-dark-interactive-primary-border-hovered-specular-autocomplete: rgba(255, 255, 255, 0.40);
+$composition-light-interactive-primary-border-hovered-specular-autocomplete: rgba(255, 255, 255, 0.40);
+
+// we want to be careful here to not override styles for either the `input`, `form field`, or `list`
+// components, as the select component is a composite of those. Directly overriding variables here
+// can be tricky. Use caution and check the various components for collisions.
+
+// DARK MODE
+html,
+html .theme-light,
+html .theme-dark {
+  div.mat-mdc-autocomplete-panel {
+    // overall autocomplete panel color
+    --mat-autocomplete-background-color: var(--color-ui-glass-surface-regular);
+    // selected item background color
+    --mat-option-selected-state-layer-color: var(--color-interactive-primary-background-selected);
+  }
+}
+
+html {
+
+  // the autocomplete is designed to have the same border radius as other form fields, but the bottom
+  // corner radii are removed when expanded. Due to MaterialUI's DOM structure and available
+  // classes, the most stable way to accomodate this is to listen for the aria-expanded data
+  // attribute on the input element itself.
+  .mat-mdc-form-field.mat-focused:has(.mat-mdc-autocomplete) {
+    .mdc-text-field--filled:not(.mdc-text-field--disabled):has(input[aria-expanded="true"]) {
+      border-bottom-left-radius: var(--size-radius-none);
+      border-bottom-right-radius: var(--size-radius-none);
+    }
+  }
+
+  div.mat-mdc-autocomplete-panel {
+    // blur the background behind overlay
+    @include composition.composition-dark-ui-glass-background-blur;
+    padding-top: var(--size-spacing-s);
+    padding-bottom: var(--size-spacing-s);
+
+    .theme-light & {
+      @include composition.composition-light-ui-glass-background-blur;
+    }
+
+    // list panel in a autocomplete should have rounded bottom corners and flat top corners...
+    border-top-left-radius: var(--size-radius-none);
+    border-top-right-radius: var(--size-radius-none);
+    border-bottom-left-radius: var(--size-radius-s);
+    border-bottom-right-radius: var(--size-radius-s);
+    // ..and ideally, this panel should have a specular border, but since that is not really
+    // working right now, we'll make a solid border:
+    border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-autocomplete};
+    .theme-light & {
+      border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-autocomplete};
+    }
+
+    .mat-mdc-option {
+      span {
+        @include typography.typography-xl-body-low-default;
+        text-transform: capitalize;
+      }
+    }
+
+    // Styles for the non-selected options...
+    .mat-mdc-option:not(.mdc-list-item--disabled) {
+
+      // default option text dcolor
+      .mdc-list-item__primary-text {
+        color: var(--color-interactive-primary-textandicon-primary-default);
+      }
+    }
+
+    // Styles for the selected option...
+    .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+
+      // selected option text color
+      .mdc-list-item__primary-text {
+        color: var(--color-interactive-primary-textandicon-selected);
+      }
+
+      // turn off the default checkbox on the selected option
+      .mat-pseudo-checkbox {
+        display: none;
+      }
+    }
+  }
+}
+
+/**
+*   VARIABLE OVERRIDES
+*/
+
+html {
+  --mat-autocomplete-container-elevation-shadow: none;
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mat-autocomplete-background-color: var(--color-ui-glass-surface-regular);
+}

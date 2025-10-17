@@ -11,10 +11,10 @@
 
 # Node
 /node_modules
-projects/design/dls-global-angular/node_modules/
+projects/design/dp-dls-global-angular/node_modules/
 npm-debug.log
 yarn-error.log
-dls-global-angular.iml
+dp-dls-global-angular.iml
 dls-global-docs.code-workspace
 
 # IDEs and editors
@@ -48,6 +48,5 @@ testem.log
 Thumbs.db
 
 *storybook.log
-projects/design/dls-global-angular/node_modules
-documentation.json
-
+projects/design/dp-dls-global-angular/node_modules
+projects/design/dp-dls-global-angular/documentation.json

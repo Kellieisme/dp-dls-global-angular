@@ -1,0 +1,95 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss';
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '../m3-theme.scss' as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.form-field-theme(m3.$dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+  // @include mat.button-base(m3.$dark-theme);
+  // @include mat.button-color(m3.$dark-theme);
+  // @include mat.button-typography(m3.$dark-theme);
+  // @include mat.button-density(m3.$dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.form-field-color(m3.$light-theme);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  .mat-mdc-form-field {
+    --mat-mdc-form-field-floating-label-scale: 1;
+
+    &.mat-focused {
+      --mat-form-field-trailing-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+      --mat-form-field-leading-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+
+      .mat-mdc-form-field-text-suffix {
+        color: var(--color-interactive-primary-textandicon-primary-default);
+      }
+    }
+  }
+
+  .mat-form-field-disabled {
+    .mat-mdc-form-field-subscript-wrapper {
+      color: var(--color-interactive-primary-textandicon-disabled);
+    }
+  }
+
+  // supporting hint text underneath form fields...
+  .mat-mdc-form-field-subscript-wrapper {
+    @include typography.typography-xl-label-low;
+    color: var(--color-interactive-primary-textandicon-secondary-default);
+  }
+
+  input::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  .mat-mdc-form-field-text-prefix {
+    @include typography.typography-xl-label-medium;
+    color: var(--color-interactive-primary-textandicon-primary-default);
+  }
+
+  .mat-mdc-form-field-text-suffix {
+    @include typography.typography-xl-label-medium;
+    color: var(--color-interactive-primary-textandicon-disabled);
+  }
+
+  .mat-mdc-form-field.mat-form-field-invalid {
+    .mat-mdc-form-field-icon-suffix {
+      --mat-form-field-trailing-icon-color: var(--color-semantic-textandicon-error);
+    }
+
+    .mat-mdc-form-field-subscript-wrapper {
+      color: var(--color-semantic-textandicon-error);
+    }
+  }
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  //   --mat-form-field-focus-select-arrow-color: rgba(103, 58, 183, 0.87);
+  //   --mat-form-field-disabled-input-text-placeholder-color: rgba(0, 0, 0, 0.38);
+  //   --mat-form-field-state-layer-color: rgba(0, 0, 0, 0.87);
+  //   --mat-form-field-error-text-color: #f44336;
+  //   --mat-form-field-select-option-text-color: inherit;
+  //   --mat-form-field-select-disabled-option-text-color: GrayText;
+  --mat-form-field-leading-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-form-field-disabled-leading-icon-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-form-field-trailing-icon-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-form-field-disabled-trailing-icon-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-form-field-error-focus-trailing-icon-color: var(--color-semantic-textandicon-error);
+  --mat-form-field-error-hover-trailing-icon-color: var(--color-semantic-textandicon-error);
+  --mat-form-field-error-trailing-icon-color: var(--color-semantic-textandicon-error);
+  //   --mat-form-field-enabled-select-arrow-color: rgba(0, 0, 0, 0.54);
+  //   --mat-form-field-disabled-select-arrow-color: rgba(0, 0, 0, 0.38);
+  // --mat-form-field-hover-state-layer-opacity: 0.04;
+  --mat-form-field-focus-state-layer-opacity: 0;
+}

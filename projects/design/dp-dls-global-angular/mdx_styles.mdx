@@ -1,0 +1,109 @@
+
+export const Highlight_yellow = ({ children }) => (
+  <span style={{
+    backgroundColor: '#F1C000',
+    color: 'black',
+    fontWeight: 'bold',
+    padding: '0 4px'
+  }}>
+    {children}
+  </span>
+);
+
+export const Blue_text = ({ children }) => (
+  <span style={{
+    color: 'var(--color-interactive-accent-textandicon-default)',
+    fontWeight: 'bold',
+    fontSize: '17px',
+    padding: '0 4px'
+  }}>
+    {children}
+  </span>
+);
+
+export const Info_Blue_text = ({ children }) => (
+  <span style={{
+    color: 'var(--color-interactive-accent-textandicon-default)',
+    fontWeight: 'bold',
+    padding: '0 4px'
+  }}>
+    {children}
+  </span>
+);
+
+export const Info_Section = ({ children }) => (
+  <span style={{
+    color: '#84CFFF',
+    background: '#23313D',
+    fontWeight: 'bold',
+    padding: '0 4px'
+  }}>
+    {children}
+  </span>
+);
+
+export const Red_text = ({ children }) => (
+  <span style={{
+    color: 'var(--color-semantic-textandicon-error)',
+    padding: '0 4px'
+  }}>
+    {children}
+  </span>
+);
+
+export const Deprecated = ({ children }) => (
+  <span style={{
+backgroundColor: 'orange',
+  color: 'black',
+  border: '1px solid #ccc',
+  borderRadius: '8px',
+  padding: '4px 8px',
+  display: 'inline-block'
+  }}>
+    {children}
+  </span>
+);
+
+export const Inprogress = ({ children }) => (
+  <span style={{
+backgroundColor: 'green',
+  color: 'black',
+  border: '1px solid #ccc',
+  borderRadius: '8px',
+  padding: '4px 8px',
+  display: 'inline-block'
+  }}>
+    {children}
+  </span>
+);
+
+
+export const NoData = () => (
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '50vh',
+    textAlign: 'center',
+    fontFamily: 'Arial, sans-serif',
+    color: 'var(--color-ui-textandicon-high)'
+  }}>
+ Atmosphere Design System Docs
+
+    <h1 style={{ fontSize: '1.8rem', color: 'var(--color-ui-textandicon-high)', background: 'var(--color-ui-background-medium)' }}>🚧 Coming Soon 🚧</h1>
+    <p style={{
+      fontSize: '1rem',
+      maxWidth: '600px',
+      lineHeight: '1.6',
+      marginTop: '10px',
+      color: 'var(--color-ui-textandicon-low)'
+    }}>
+      We're currently working on this section. Stay tuned for updates and new documentation!
+      In the meantime, feel free to explore other available components.
+    </p>
+  </div>
+);
+
+
+

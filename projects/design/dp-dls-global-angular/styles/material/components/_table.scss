@@ -1,0 +1,122 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '../typography' as typography;
+@use '../m3-theme.scss' as m3;
+
+// Map to: xl-body-low-highlight
+$table-subtitle-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-body-low-size-xl,
+    $line-height: vars.$responsive-type-body-low-height-xl,
+    $font-weight: vars.$content-base-font-weight-bold,
+    $letter-spacing: vars.$responsive-type-body-low-letter-xl,
+  );
+
+// Map to: xl-body-low-default
+$table-body-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-body-low-size-xl,
+    $line-height: vars.$responsive-type-body-low-height-xl,
+    $font-weight: vars.$content-base-font-weight-regular,
+    $letter-spacing: vars.$responsive-type-body-low-letter-xl,
+  );
+
+$table-typography-config: mat.m2-define-typography-config($font-family: vars.$content-base-font-family-boeing-meso,
+    $headline-1: typography.$dls-headline-1,
+    $headline-2: typography.$dls-headline-2,
+    $headline-3: typography.$dls-headline-3,
+    $headline-4: typography.$dls-headline-4,
+    $headline-5: typography.$dls-headline-5,
+    $headline-6: typography.$dls-headline-6,
+    $subtitle-1: typography.$dls-subtitle-1,
+    $subtitle-2: $table-subtitle-2,
+    $body-1: typography.$dls-body-1,
+    $body-2: $table-body-2,
+    $caption: typography.$dls-caption,
+    $button: typography.$dls-button,
+  );
+
+  :root {
+    // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+    @include mat.table-theme(m3.$dark-theme);
+    // If needed use the single dimension mixins to override particular aspects
+    @include mat.table-typography($table-typography-config);
+
+  }
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.table-color(m3.$light-theme);
+}
+
+[mat-table] {
+  &.mat-mdc-table {
+    vertical-align: middle;
+
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td {
+      vertical-align: inherit;
+    }
+
+    border-spacing: 0;
+    border-radius: var(--size-radius-l);
+
+    .mdc-data-table__cell,
+    .mdc-data-table__header-cell {
+      padding: 0 var(--size-spacing-xs) 0 var(--size-spacing-xs);
+
+      &:first-child {
+        padding-left: var(--size-spacing-m);
+      }
+    }
+
+    th,
+    .mat-mdc-header-cell {
+      background-color: var(--color-ui-background-medium);
+    }
+
+    td {
+      background-color: var(--color-ui-background-medium);
+    }
+
+    th:first-of-type {
+      border-top-left-radius: var(--size-radius-l);
+    }
+
+    th:last-of-type {
+      border-top-right-radius: var(--size-radius-l);
+    }
+
+    tr:last-of-type td:first-of-type {
+      border-bottom-left-radius: var(--size-radius-l);
+    }
+
+    tr:last-of-type td:last-of-type {
+      border-bottom-right-radius: var(--size-radius-l);
+    }
+
+    .mdc-data-table__row:last-child {
+      .mat-mdc-cell {
+        border-bottom-color: var(--mat-table-row-item-outline-color);
+        border-bottom-width: var(--mat-table-row-item-outline-width);
+        border-bottom-style: solid;
+      }
+    }
+  }
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mat-table-background-color: transparent;
+  --mat-table-row-item-label-text-color: var(--color-interactive-primary-textandicon-selected);
+  --mat-table-row-item-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-table-row-item-outline-color: var(--color-ui-divider-flat-high);
+}
+
+html,
+html .theme-condensed {
+  --mat-table-header-container-height: var(--size-spacing-4xl);
+  --mat-table-footer-container-height: var(--size-spacing-3xl);
+  --mat-table-row-item-container-height: var(--size-spacing-3xl);
+}

@@ -1,0 +1,293 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '../m3-theme.scss' as m3;
+
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/media-breakpoints' as mb;
+@use '../media-breakpointMixins' as breakpointMixin;
+
+// Use values from your local media-breakpoints module / mb module
+$grid-breakpoints: mb.$custom-grid-breakpoints !default;
+$container-max-widths : mb.$container-max-widths !default;
+$grid-gutter-width: 1.5rem !default;
+$gutters: breakpointMixin.$gutters !default;
+
+// NOTE: removed Bootstrap @import statements (functions/variables/mixins/grid)
+// They are not required; using local bootstrap helpers instead.
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.card-theme(m3.$dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.card-color(m3.$light-theme);
+}
+
+// TODO: cardorary specular border values until we can fix the mixin
+$composition-light-ui-glass-border-specular-card: rgba(255, 255, 255, 0.40);
+$composition-dark-ui-glass-border-specular-card: rgba(255, 255, 255, 0.17);
+
+// TODO: cardorary specular surface values until we can fix the token
+$composition-light-ui-glass-surface-specular-card: linear-gradient(-156deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.16) 100%);
+$composition-dark-ui-glass-surface-specular-card: linear-gradient(-156deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+@mixin card-landscape {
+  flex-direction: row;
+
+  .mat-mdc-card-image {
+    width: 33%;
+    padding-bottom: var(--size-spacing-xs);
+  }
+}
+
+.mat-card-wrapper {
+  display: block;
+  height: 100%;
+  background-color: var(--color-ui-background-high);
+  text-decoration: none;
+
+  &.mat-card-wrapper--outlined {
+    background-color: var(--color-ui-glass-surface-thick);
+    @include composition.composition-dark-ui-glass-background-blur;
+    .theme-light & {
+      @include composition.composition-light-ui-glass-background-blur;
+    }
+
+    &:hover {
+      .mat-mdc-card-outlined {
+        background: $composition-dark-ui-glass-surface-specular-card, var(--color-interactive-primary-background-hovered);
+        .theme-light & {
+          background: $composition-light-ui-glass-surface-specular-card, var(--color-interactive-primary-background-hovered);
+        }
+      }
+    }
+
+    &:focus,
+    &:active,
+    &.mat-card-wrapper--dragged {
+      .mat-mdc-card-outlined {
+        background: $composition-dark-ui-glass-surface-specular-card, var(--color-interactive-primary-background-selected);
+        .theme-light & {
+          background: $composition-light-ui-glass-surface-specular-card, var(--color-interactive-primary-background-selected);
+        }
+      }
+    }
+
+    &.mat-card-wrapper--disabled {
+      background: $composition-dark-ui-glass-surface-specular-card, var(--color-interactive-primary-background-disabled);
+
+      .theme-light & {
+        background: $composition-light-ui-glass-surface-specular-card, var(--color-interactive-primary-background-disabled);
+      }
+    }
+  }
+
+  border-radius: var(--size-radius-l);
+
+  &:hover {
+    --mdc-elevated-card-container-color: var(--color-interactive-primary-background-hovered);
+    --mdc-outlined-card-container-color: var(--color-interactive-primary-background-hovered);
+    box-shadow: var(--box-shadow-elevation-2);
+  }
+
+  &:focus,
+  &:active,
+  &.mat-card-wrapper--dragged {
+    --mdc-elevated-card-container-color: var(--color-interactive-primary-background-selected);
+    --mdc-outlined-card-container-color: var(--color-interactive-primary-background-selected);
+  }
+
+  &:focus,
+  &:active {
+    box-shadow: none;
+
+    .theme-light & {
+      box-shadow: none;
+    }
+  }
+
+  &.mat-card-wrapper--dragged {
+    box-shadow: var(--box-shadow-dark-elevation-3);
+  }
+
+  &.mat-card-wrapper--disabled {
+    --mdc-elevated-card-container-color: var(--color-interactive-primary-background-disabled);
+    --mdc-outlined-card-container-color: var(--color-interactive-primary-background-disabled);
+  }
+}
+
+mat-card {
+  &.mat-mdc-card {
+    &:not(.mat-mdc-card--landscape) {
+      > :last-child {
+        padding-bottom: var(--size-spacing-xl);
+      }
+    }
+    .row & {
+      height: 100%;
+    }
+
+    .mdc-button {
+      // use local bootstrap mixin for down breakpoint
+      @include breakpointMixin.media-breakpoint-down(md) {
+        flex: 1;
+      }
+    }
+  }
+
+  // Apply landscape for all breakpoints
+  &.mat-mdc-card--landscape {
+    flex-direction: row;
+
+    .mat-mdc-card-image {
+      width: 33%;
+      padding-bottom: var(--size-spacing-xs);
+    }
+
+    .mat-mdc-card-lg-image,
+    .mat-mdc-card-sm-image,
+    .mat-mdc-card-md-image,
+    .mat-mdc-card-xl-image {
+      padding-bottom: var(--size-spacing-xs);
+    }
+
+    .mat-mdc-card-actions {
+      padding: var(--size-spacing-xl);
+    }
+  }
+
+  // Apply landscape mode at specific breakpoints using a class
+  &.mat-mdc-card--landscape-sm {
+    @include breakpointMixin.media-breakpoint-only(sm) {
+      @include card-landscape;
+    }
+  }
+
+  &.mat-mdc-card--landscape-md {
+    @include breakpointMixin.media-breakpoint-only(md) {
+      @include card-landscape;
+    }
+  }
+
+  &.mat-mdc-card--landscape-lg {
+    @include breakpointMixin.media-breakpoint-only(lg) {
+      @include card-landscape;
+    }
+  }
+
+  &.mat-mdc-card--landscape-xl {
+    @include breakpointMixin.media-breakpoint-only(xl) {
+      @include card-landscape;
+    }
+  }
+
+  &.mat-mdc-card--landscape-xxl {
+    @include breakpointMixin.media-breakpoint-only(xxl) {
+      @include card-landscape;
+    }
+  }
+}
+
+mat-card-header {
+  &.mat-mdc-card-header {
+    padding: var(--size-spacing-xl);
+    padding-bottom: 0;
+
+    .mat-mdc-card-header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--size-spacing-xs);
+      align-self: stretch;
+    }
+  }
+}
+
+mat-card-footer {
+  &.mat-mdc-card-footer {
+    padding: var(--size-spacing-xl);
+    padding-top: 0;
+  }
+}
+
+mat-card-content {
+  &.mat-mdc-card-content {
+    display: flex;
+    padding: var(--size-spacing-m) var(--size-spacing-xl) var(--size-spacing-m);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--size-spacing-s);
+    align-self: stretch;
+
+    &:last-child {
+      padding-bottom: var(--size-spacing-xl);
+    }
+  p {
+    @include typography.typography-xl-body-low-default;
+    color: var(--color-ui-textandicon-medium);
+  }
+  }
+}
+
+mat-card-actions {
+  &.mdc-card__actions {
+    justify-content: end;
+    gap: var(--size-spacing-m);
+    padding: var(--size-spacing-xl);
+    padding-bottom: 0;
+  }
+}
+
+.mat-mdc-card-title {
+  color: var(--color-ui-textandicon-high);
+}
+
+.mat-mdc-card-subtitle {
+  text-transform: vars.$content-base-text-transform-uppercase;
+  color: var(--color-ui-textandicon-medium);
+}
+
+.mat-mdc-card-image,
+.mat-mdc-card-lg-image,
+.mat-mdc-card-sm-image,
+.mat-mdc-card-md-image,
+.mat-mdc-card-xl-image {
+  padding: var(--size-spacing-xs);
+  padding-bottom: 0;
+  border-radius: var(--size-radius-l);
+  max-height: 312px;
+}
+
+a {
+  .mat-mdc-card-content {
+    color: var(--color-ui-textandicon-high);
+
+    p {
+      color: var(--color-ui-textandicon-medium);
+    }
+  }
+}
+
+html,
+html .theme-condensed {
+  --mdc-elevated-card-container-shape: var(--size-radius-l);
+  --mdc-outlined-card-container-shape: var(--size-radius-l);
+}
+
+html {
+  --mdc-outlined-card-outline-color: #{$composition-dark-ui-glass-border-specular-card};
+  .theme-light {
+    --mdc-outlined-card-outline-color: #{$composition-light-ui-glass-border-specular-card};
+  }
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-elevated-card-container-color: var(--color-ui-background-high);
+  --mdc-outlined-card-container-color: var(--color-ui-background-high);
+  --mat-card-subtitle-text-color: var(--color-ui-textandicon-medium);
+}

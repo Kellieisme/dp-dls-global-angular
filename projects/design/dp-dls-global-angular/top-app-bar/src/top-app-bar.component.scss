@@ -1,0 +1,262 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins' as typography;
+@use '../../styles/material/media-breakpointMixins' as breakpointMixin;
+
+
+.top-app-bar {
+  align-items: center;
+  border-bottom: 1px solid var(--color-ui-divider-flat-high);
+  background: var(--color-ui-glass-surface-thin);
+}
+
+
+mat-toolbar h1 {
+    margin: 0;
+    @include typography.typography-s-heading-high;
+    @include breakpointMixin.media-breakpoint-up(md) {
+      @include typography.typography-m-heading-high;
+    }
+    @include breakpointMixin.media-breakpoint-up(lg) {
+      @include typography.typography-l-heading-high;
+    }
+    @include breakpointMixin.media-breakpoint-up(xl) {
+      @include typography.typography-xl-heading-high;
+    }
+  }
+
+  mat-toolbar h2 {
+    margin: 0;
+    @include typography.typography-s-heading-medium;
+    @include breakpointMixin.media-breakpoint-up(md) {
+      @include typography.typography-m-heading-medium;
+    }
+    @include breakpointMixin.media-breakpoint-up(lg) {
+      @include typography.typography-l-heading-medium;
+    }
+    @include breakpointMixin.media-breakpoint-up(xl) {
+      @include typography.typography-xl-heading-medium;
+    }
+  }
+
+  mat-toolbar h3 {
+    margin: 0;
+    @include typography.typography-s-heading-low;
+    @include breakpointMixin.media-breakpoint-up(md) {
+      @include typography.typography-m-heading-low;
+    }
+    @include breakpointMixin.media-breakpoint-up(lg) {
+      @include typography.typography-l-heading-low;
+    }
+    @include breakpointMixin.media-breakpoint-up(xl) {
+      @include typography.typography-xl-heading-low;
+    }
+  }
+
+  mat-toolbar h4 {
+    margin: 0;
+    @include typography.typography-s-title-high;
+    @include breakpointMixin.media-breakpoint-up(md) {
+      @include typography.typography-m-title-high;
+    }
+    @include breakpointMixin.media-breakpoint-up(lg) {
+      @include typography.typography-l-title-high;
+    }
+    @include breakpointMixin.media-breakpoint-up(xl) {
+      @include typography.typography-xl-title-high;
+    }
+  }
+
+  mat-toolbar h5 {
+    margin: 0;
+    @include typography.typography-s-title-medium;
+    @include breakpointMixin.media-breakpoint-up(md) {
+      @include typography.typography-m-title-medium;
+    }
+    @include breakpointMixin.media-breakpoint-up(lg) {
+      @include typography.typography-l-title-medium;
+    }
+    @include breakpointMixin.media-breakpoint-up(xl) {
+      @include typography.typography-xl-title-medium;
+    }
+  }
+
+  mat-toolbar h6 {
+    margin: 0;
+    @include typography.typography-s-title-low;
+    @include breakpointMixin.media-breakpoint-up(md) {
+      @include typography.typography-m-title-low;
+    }
+    @include breakpointMixin.media-breakpoint-up(lg) {
+      @include typography.typography-l-title-low;
+    }
+    @include breakpointMixin.media-breakpoint-up(xl) {
+      @include typography.typography-xl-title-low;
+    }
+  }
+
+/* INFO SECTION */
+
+.top-app-bar__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$size-relaxed-spacing-s;
+  position: relative;
+  z-index: 1;
+}
+
+.top-app-bar__logo-section {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vars.$size-relaxed-spacing-xs;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    color: var(--color-ui-textandicon-high);
+  }
+}
+
+.top-app-bar__app-icon {
+  margin-left: vars.$size-relaxed-spacing-l;
+  height: vars.$size-relaxed-sizing-xl;
+  width: vars.$size-relaxed-sizing-2xl;
+  color: white;
+}
+
+.top-app-bar__app-icon--light {
+  display: none;
+}
+
+.top-app-bar__app-icon--dark {
+  display: block;
+}
+
+.app-icon-padding-left{
+  padding-left: vars.$size-relaxed-spacing-s;
+}
+
+::ng-deep .theme-light .top-app-bar__app-icon--light {
+  display: block;
+}
+
+::ng-deep .theme-light .top-app-bar__app-icon--dark {
+  display: none;
+}
+
+.top-app-bar__icon-menu-button {
+  display: none;
+}
+
+.top-app-bar__icon-menu-button--hidden {
+  display: inline-flex;
+}
+
+@include breakpointMixin.media-down(md) {
+  .top-app-bar__icon-menu-button {
+    display: inline-flex;
+  }
+
+  .top-app-bar__tab-group {
+    display: none;
+  }
+}
+
+/* TABS SECTION - tabs are gone but some styles have dependencies and further research needed */
+
+// .top-app-bar__tabs {
+//   flex-grow: 1;
+//   display: flex;
+//   justify-content: flex-start;
+//   margin-left: vars.$size-relaxed-spacing-xl;
+// }
+
+// .top-app-bar__tabs--centered {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+/* SPACER (only needed for centered variant) */
+.top-app-bar__spacer {
+  display: none;
+}
+
+.top-app-bar__spacer--centered {
+  flex-grow: 1;
+  display: block;
+}
+
+/* ACTIONS SECTION */
+.top-app-bar__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$size-relaxed-spacing-s;
+  height: 100%;
+  padding-left: vars.$size-relaxed-spacing-m;
+}
+
+::ng-deep .actions {
+  display: flex;
+  flex-direction: row;
+  gap: var(--size-spacing-xs);
+}
+
+::ng-deep .actions.small-screen {
+  display: none;
+}
+
+@include breakpointMixin.media-down(md) {
+  ::ng-deep .actions.large-screen {
+    display: none;
+  }
+
+  ::ng-deep .actions.small-screen {
+    display: block;
+  }
+}
+
+/* AVATAR */
+::ng-deep .divider-parent {
+  position: relative;
+  height: 40%;
+  padding-left: var(--size-spacing-s);
+  padding-right: var(--size-spacing-s);
+}
+
+::ng-deep .mat-toolbar {
+  .divider-parent .mat-divider {
+    right: var(--size-spacing-s);
+    top: var(--size-spacing-s);
+    bottom: var(--size-spacing-s);
+    border-left: vars.$size-base-border-width-1 solid var(--color-ui-divider-flat-high);
+    height: 100%;
+  }
+}
+
+@include breakpointMixin.media-down(md) {
+  ::ng-deep .divider-parent {
+    display: none;
+  }
+}
+
+::ng-deep .avatar {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  padding: 0 vars.$size-relaxed-spacing-xs;
+}
+
+@include breakpointMixin.media-down(md) {
+  ::ng-deep .avatar {
+    border-left: none;
+  }
+}
