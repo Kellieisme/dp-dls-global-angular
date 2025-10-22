@@ -1,0 +1,35 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+@use '../m3-theme.scss' as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.icon-theme(m3.$dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+
+
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.icon-color(m3.$light-theme);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mat-icon-color: inherit;
+
+  .mat-icon.mat-primary {
+    --mat-icon-color: inherit;
+  }
+
+  .mat-icon.mat-accent {
+    --mat-icon-color: inherit;
+  }
+
+  .mat-icon.mat-warn {
+    --mat-icon-color: inherit;
+  }
+
+}

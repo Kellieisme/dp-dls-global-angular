@@ -1,0 +1,170 @@
+@use "@angular/material" as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss';
+@use "../m3-theme" as m3;
+
+
+mat-slide-toggle:not(.mat-warn) {
+  .mdc-switch--checked:not(.mdc-switch--disabled) {
+
+    .mdc-switch__track::after,
+    .mdc-switch__track::before {
+      border-color: var(--color-interactive-accent-background-enabled-filled);
+    }
+  }
+}
+
+.mdc-switch--disabled.mdc-switch--checked {
+
+  .mdc-switch__track::after,
+  .mdc-switch__track::before {
+    border-color: var(--color-interactive-primary-border-disabled);
+  }
+}
+
+.mdc-switch__handle::before,
+.mdc-switch__handle::after {
+  left: 5px;
+}
+
+html,
+html .theme-condensed {
+  // --mdc-switch-disabled-selected-icon-opacity: 0.38;
+  // --mdc-switch-disabled-track-opacity: 0.12;
+  // --mdc-switch-disabled-unselected-icon-opacity: 0.38;
+
+  --mdc-switch-handle-height: var(--size-sizing-xl);
+  --mdc-switch-handle-shape: var(--size-sizing-xl);
+  --mdc-switch-handle-width: var(--size-sizing-xl);
+  --mdc-switch-selected-icon-size: var(--size-sizing-l);
+  --mdc-switch-track-height: var(--size-sizing-2xl);
+  --mdc-switch-track-shape: var(--size-radius-full);
+  --mdc-switch-track-width: var(--size-sizing-5xl);
+  --mdc-switch-unselected-icon-size: 18px;
+
+  // --mdc-switch-selected-focus-state-layer-opacity: 0.12;
+  --mdc-switch-selected-hover-state-layer-opacity: #{vars.$opacity-base-5};
+  // --mdc-switch-selected-pressed-state-layer-opacity: 0.1;
+  // --mdc-switch-unselected-focus-state-layer-opacity: 0.12;
+  --mdc-switch-unselected-hover-state-layer-opacity: #{vars.$opacity-base-5};
+  // --mdc-switch-unselected-pressed-state-layer-opacity: 0.1;
+  // --mat-switch-disabled-selected-handle-opacity: 0.38;
+  // --mat-switch-disabled-unselected-handle-opacity: 0.38;
+
+  --mat-switch-unselected-handle-size: var(--size-sizing-xl);
+  --mat-switch-selected-handle-size: var(--size-sizing-xl);
+  --mat-switch-pressed-handle-size: var(--size-sizing-xl);
+  --mat-switch-with-icon-handle-size: var(--size-sizing-xl);
+
+  // --mat-switch-selected-handle-horizontal-margin: 0
+  --mat-switch-selected-with-icon-handle-horizontal-margin: 0 -6px;
+  // --mat-switch-selected-pressed-handle-horizontal-margin: 0
+  --mat-switch-unselected-handle-horizontal-margin: 0 0 0 var(--size-sizing-2xs);
+  --mat-switch-unselected-with-icon-handle-horizontal-margin: 0 0 0 var(--size-sizing-2xs);
+  --mat-switch-unselected-pressed-handle-horizontal-margin: 0 0 0 var(--size-sizing-2xs);
+
+  // --mat-switch-visible-track-opacity: 1;
+  // --mat-switch-hidden-track-opacity: 1;
+  // --mat-switch-visible-track-transition: transform 75ms 0ms cubic-bezier(0, 0, 0.2, 1);
+  // --mat-switch-hidden-track-transition: transform 75ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+
+  --mat-switch-track-outline-width: 2px;
+  --mat-switch-selected-track-outline-width: var(--size-sizing-3xs);
+  --mat-switch-disabled-unselected-track-outline-width: 2px;
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mat-switch-track-outline-color: var(--color-interactive-primary-textandicon-secondary-default);
+  --mat-switch-label-text-color: var(--color-ui-textandicon-medium);
+  --mdc-switch-selected-focus-state-layer-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-hover-state-layer-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-pressed-state-layer-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-focus-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-hover-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-pressed-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-focus-track-color: var(--color-interactive-accent-background-enabled-filled);
+  --mdc-switch-selected-hover-track-color: var(--color-interactive-accent-background-enabled-filled);
+  --mdc-switch-selected-pressed-track-color: var(--color-interactive-accent-background-enabled-filled);
+  --mdc-switch-selected-track-color: var(--color-interactive-accent-background-enabled-filled);
+
+  --mdc-switch-disabled-selected-handle-color: var(--color-interactive-primary-textandicon-disabled);
+  --mdc-switch-disabled-selected-icon-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-disabled-selected-track-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mdc-switch-unselected-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-disabled-unselected-icon-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-disabled-unselected-track-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mdc-switch-handle-surface-color: var(--color-interactive-primary-textandicon-inverse);
+  //--mdc-switch-handle-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  //--mdc-switch-handle-shadow-color: black;
+  //--mdc-switch-disabled-handle-elevation-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  --mdc-switch-selected-icon-color: var(--color-interactive-accent-textandicon-selected);
+  --mdc-switch-unselected-focus-handle-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-switch-unselected-focus-state-layer-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-switch-unselected-focus-track-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mdc-switch-unselected-handle-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-switch-unselected-hover-handle-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-switch-unselected-hover-state-layer-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-switch-unselected-hover-track-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mdc-switch-unselected-icon-color: var(--color-ui-background-medium);
+  --mdc-switch-unselected-pressed-handle-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-switch-unselected-pressed-state-layer-color: var(--color-ui-background-medium);
+  --mdc-switch-unselected-pressed-track-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mdc-switch-unselected-track-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mdc-switch-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-switch-disabled-unselected-track-outline-color: var(--color-interactive-primary-border-disabled);
+}
+
+html .mat-mdc-slide-toggle,
+html .theme-light .mat-mdc-slide-toggle {
+  --mdc-form-field-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+}
+
+html .mat-mdc-slide-toggle.mat-accent,
+p .mat-mdc-slide-toggle.mat-accent {
+  --mdc-switch-selected-focus-state-layer-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-hover-state-layer-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-pressed-state-layer-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-focus-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-hover-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-pressed-handle-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-switch-selected-focus-track-color: var(--color-interactive-accent-background-enabled-filled);
+  --mdc-switch-selected-hover-track-color: var(--color-interactive-accent-background-enabled-filled);
+  --mdc-switch-selected-pressed-track-color: var(--color-interactive-accent-background-enabled-filled);
+  --mdc-switch-selected-track-color: var(--color-interactive-accent-background-enabled-filled);
+}
+
+html .mat-mdc-slide-toggle.mat-warn {
+  --mdc-switch-handle-surface-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-track-color: var(--color-semantic-border-error);
+  --mat-switch-selected-track-outline-color: var(--color-semantic-border-error);
+  --mdc-switch-selected-icon-color: var(--color-interactive-primary-textandicon-selected);
+  --mdc-switch-selected-focus-state-layer-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-handle-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-hover-state-layer-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-pressed-state-layer-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-disabled-selected-handle-color: var(--color-interactive-primary-textandicon-disabled);
+  --mdc-switch-selected-focus-handle-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-hover-handle-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-pressed-handle-color: var(--color-semantic-background-error-filled);
+  --mdc-switch-selected-focus-track-color: var(--color-semantic-border-error);
+  --mdc-switch-selected-hover-track-color: var(--color-semantic-border-error);
+  --mdc-switch-selected-pressed-track-color: var(--color-semantic-border-error);
+  --mdc-switch-selected-track-color: var(--color-semantic-border-error);
+  --mdc-switch-selected-icon-color: var(--color-interactive-primary-textandicon-inverse);
+
+  .mdc-switch--disabled {
+    .mdc-switch__handle::before {
+      background: var(--color-interactive-primary-textandicon-disabled);
+    }
+  }
+
+}
+
+html,
+html .theme-condensed {
+  --mdc-switch-state-layer-size: var(--size-sizing-xl);
+}

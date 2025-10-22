@@ -1,0 +1,50 @@
+@use "@angular/material" as mat;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "../m3-theme" as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.snack-bar-theme(m3.$dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.snack-bar-color(m3.$light-theme);
+}
+
+.mat-mdc-snack-bar-container {
+  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
+
+  .mdc-snackbar__label {
+    padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-m);
+
+    .theme-condensed & {
+      padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-s);
+    }
+  }
+}
+
+.mdc-snackbar__surface {
+  padding: var(--size-spacing-none);
+}
+
+
+html,
+html .theme-condensed {
+  --mdc-snackbar-container-shape: var(--size-radius-xs);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-snackbar-container-color: var(--color-ui-glass-surface-thickest);
+  --mdc-snackbar-supporting-text-color: var(--color-ui-textandicon-high);
+  //--mat-snack-bar-button-color: #ffd740
+}
+
+// html {
+//   --mdc-snackbar-supporting-text-font: Roboto, sans-serif;
+//   --mdc-snackbar-supporting-text-line-height: 20px;
+//   --mdc-snackbar-supporting-text-size: 14px;
+//   --mdc-snackbar-supporting-text-weight: 400
+// }

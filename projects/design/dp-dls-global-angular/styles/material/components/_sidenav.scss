@@ -1,0 +1,23 @@
+@use "@angular/material" as mat;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss";
+@use "../m3-theme" as m3;
+
+:root {
+  @include mat.sidenav-theme(m3.$dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.sidenav-color(m3.$light-theme);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mat-sidenav-container-background-color: var(--color-ui-glass-surface-thinnest);
+  --mat-sidenav-scrim-color: var(--color-ui-background-low);
+  --mat-sidenav-container-text-color: var(--color-ui-textandicon-high);
+  --mat-sidenav-container-divider-color: var(--color-ui-divider-flat-high);
+  --mat-sidenav-content-background-color: var(--color-ui-background-medium);
+}

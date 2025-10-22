@@ -35,7 +35,7 @@ build-package:
     - echo "//${JFROG_URL}/${JFROG_REPO}/:_authToken=${JFROG_AUTHTOKEN}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:username=${JFROG_USER}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:always-auth=true" >> .npmrc
-    - echo "@dasdigitalplatform:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
+    - echo "@jeppesen-foreflight:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - echo "Created the following .npmrc:"; cat .npmrc
     - npm install
@@ -90,7 +90,7 @@ build-storybook:
     - echo "//${JFROG_URL}/${JFROG_REPO}/:_authToken=${JFROG_AUTHTOKEN}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:username=${JFROG_USER}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:always-auth=true" >> .npmrc
-    - echo "@dasdigitalplatform:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
+    - echo "@jeppesen-foreflight:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - echo "Created the following .npmrc:"; cat .npmrc
 
@@ -179,7 +179,7 @@ storybook:
     - echo "//${JFROG_URL}/${JFROG_REPO}/:_authToken=${JFROG_AUTHTOKEN}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:username=${JFROG_USER}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:always-auth=true" >> .npmrc
-    - echo "@dasdigitalplatform:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
+    - echo "@jeppesen-foreflight:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - echo "Created the following .npmrc:"; cat .npmrc
 
@@ -250,7 +250,7 @@ pr-develop:
     - echo "//${JFROG_URL}/${JFROG_REPO}/:_authToken=${JFROG_AUTHTOKEN}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:username=${JFROG_USER}" >> .npmrc
     - echo "//${JFROG_URL}/${JFROG_REPO}/:always-auth=true" >> .npmrc
-    - echo "@dasdigitalplatform:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
+    - echo "@jeppesen-foreflight:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/" >> .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - echo "Created the following .npmrc:"; cat .npmrc
 

@@ -1,0 +1,29 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+
+.content {
+  height: 500px;
+  max-height: 500px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+
+.main{
+  background-color: var(--color-ui-background-low);
+  color: var(--color-ui-textandicon-high);
+  height: 1500px;
+  display: flex;
+  justify-content: center;
+}
+
+}
+.glass {
+  @include composition.composition-dark-ui-glass-background-blur;
+
+  .theme-light & {
+    @include composition.composition-light-ui-glass-background-blur;
+  }
+  padding: 20px;
+  border-radius: 8px; // Optional: for rounded corners
+  width: 400px;
+  position: fixed;
+  top: 30px;
+}

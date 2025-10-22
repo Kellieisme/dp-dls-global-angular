@@ -1,0 +1,249 @@
+// styles/material/_bootstrap.scss
+// Self-contained helpers to replace Bootstrap's breakpoint mixins and avoid using Bootstrap imports.
+// Uses Dart Sass module APIs to avoid deprecation warnings.
+
+// Load Sass builtin modules (namespaced)
+@use "sass:map" as map;
+@use "sass:list" as list;
+@use "sass:meta" as meta;   // for meta.type-of()
+// Use math for unit() inspection
+@use "sass:math" as math;
+
+// Load your custom media breakpoints file as mb (already provided by you)
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/media-breakpoints' as mb;
+
+// Extract values from your custom mixins module
+$raw: mb.$custom-grid-breakpoints;
+
+// Manually re-map into sorted order using the module map API
+$grid-breakpoints: (
+  xs: map.get($raw, xs),
+  sm: map.get($raw, sm),
+  md: map.get($raw, md),
+  lg: map.get($raw, lg),
+  xl: map.get($raw, xl),
+  xxl: map.get($raw, xxl)
+);
+
+// Container widths and spacers from your mb file
+$container-max-widths: mb.$container-max-widths;
+$spacers: mb.$spacers;
+$spacer: mb.$spacer;
+
+// Gutters derived from $spacer
+$gutters: (
+  xs: $spacer * .25,
+  sm: $spacer * .5,
+  md: $spacer,
+  lg: $spacer * 1.25,
+  xl: $spacer * 1.50,
+  xxl: $spacer * 1.75
+);
+
+// ------------------------
+// Helper functions & mixins
+// ------------------------
+
+// Normalize/convert values to px lengths where practical.
+// If value is unitless number, treat it as pixels (i.e., 600 -> 600px).
+@function _to-px($value) {
+  // use meta.type-of and sass:math.unit to avoid deprecated global functions
+  @if meta.type-of($value) == 'number' and math.unit($value) == 'px' {
+    @return $value;
+  }
+  @if meta.type-of($value) == 'number' and math.unit($value) == '' {
+    @return $value * 1px;
+  }
+  // Return as-is for other units (em, rem, etc.). Caller must ensure correctness.
+  @return $value;
+}
+
+// Get breakpoint value by name from $grid-breakpoints
+@function breakpoint-value($name) {
+  @if map.has-key($grid-breakpoints, $name) {
+    @return map.get($grid-breakpoints, $name);
+  }
+  @error "Unknown breakpoint `#{$name}`. Available keys: #{map.keys($grid-breakpoints)}";
+}
+
+// media-breakpoint-up($name): apply styles at min-width of the given breakpoint.
+// If the breakpoint value is 0 (xs), it will output styles without a media query.
+@mixin media-breakpoint-up($name) {
+  $min: _to-px(breakpoint-value($name));
+  @if $min == 0 or $min == 0px {
+    // xs (or zero) -> no media query needed
+    @content;
+  } @else {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+}
+
+// media-breakpoint-down($name): apply styles up to and including the given breakpoint.
+// Implements "max-width: nextBreakpoint - 0.02px" pattern similar to Bootstrap.
+@mixin media-breakpoint-down($name) {
+  $keys: map.keys($grid-breakpoints);
+  $index: list.index($keys, $name);
+  @if $index == null {
+    @error "Unknown breakpoint `#{$name}` in media-breakpoint-down.";
+  }
+
+  $next-index: $index + 1;
+  @if $next-index > list.length($keys) {
+    // No next breakpoint -> styles apply with no upper bound
+    @content;
+  } @else {
+    $next-key: list.nth($keys, $next-index);
+    $next-value: _to-px(map.get($grid-breakpoints, $next-key));
+    // Subtract epsilon to make max-width inclusive up to the next breakpoint
+    $max: $next-value - 0.02px;
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+// media-breakpoint-between($lower, $upper): apply between two breakpoints (inclusive lower, inclusive upper)
+@mixin media-breakpoint-between($lower, $upper) {
+  $min: _to-px(breakpoint-value($lower));
+
+  $keys: map.keys($grid-breakpoints);
+  $upper-index: list.index($keys, $upper);
+  @if $upper-index == null {
+    @error "Unknown upper breakpoint `#{$upper}` in media-breakpoint-between.";
+  }
+
+  $next-index: $upper-index + 1;
+  @if $next-index > list.length($keys) {
+    // If upper is the last breakpoint, just use min-width (no upper bound)
+    @if $min == 0 or $min == 0px {
+      @content;
+    } @else {
+      @media (min-width: $min) {
+        @content;
+      }
+    }
+  } @else {
+    $next-key: list.nth($keys, $next-index);
+    $next-value: _to-px(map.get($grid-breakpoints, $next-key));
+    $max: $next-value - 0.02px;
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+// Keep your convenience wrappers for backward compatibility with your code
+@mixin media-up($breakpoint) {
+  @include media-breakpoint-up($breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-down($breakpoint) {
+  @include media-breakpoint-down($breakpoint) {
+    @content;
+  }
+}
+
+// media-breakpoint-only($name): apply styles only for the single breakpoint range.
+// Example: media-breakpoint-only(sm) == between sm and next-sm - epsilon
+@mixin media-breakpoint-only($name) {
+  // Use your existing helpers
+  @include media-breakpoint-between($name, $name) {
+    @content;
+  }
+}
+
+// Minimal grid utilities (12-column) to mimic Bootstrap grid behavior for your components.
+// Depends on:
+// - $grid-breakpoints map (keys: xs,sm,md,lg,xl,xxl)
+// - $container-max-widths (optional)
+// - $gutters map with matching breakpoint keys (or fallback single $grid-gutter-width)
+// - media-breakpoint-up/down mixins defined in your bootstrap helpers
+
+// CONFIG: number of columns
+$grid-columns: 12 !default;
+
+// get gutter for breakpoint (fallback to default)
+@function _gutter-for($bp) {
+  @if map.has-key($gutters, $bp) {
+    @return map.get($gutters, $bp);
+  }
+  @return 1.5rem; // fallback
+}
+
+// row: negative margins to compensate column padding
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0; // default
+  margin-right: 0;
+
+  // apply negative half-gutter at each breakpoint
+  @each $bp in map.keys($grid-breakpoints) {
+    $g: _gutter-for($bp);
+    @include media-breakpoint-up($bp) {
+      margin-left: -(math.div($g, 2));
+      margin-right: -(math.div($g, 2));
+    }
+  }
+}
+
+// base column class: padding for gutters and flexible behavior
+.col {
+  position: relative;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  // default equal-width flex items
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+
+  // apply half-gutter padding at each breakpoint
+  @each $bp in map.keys($grid-breakpoints) {
+    $g: _gutter-for($bp);
+    @include media-breakpoint-up($bp) {
+      padding-left: math.div($g, 2);
+      padding-right: math.div($g, 2);
+    }
+  }
+}
+
+// Helper to create .col-{n} width classes for each breakpoint
+@function _col-percent($n) {
+  @return (math.div($n, $grid-columns)) * 100%;
+}
+
+// Generate responsive column classes e.g., .col-sm-6, .col-md-4, etc.
+@each $bp in map.keys($grid-breakpoints) {
+  @for $i from 1 through $grid-columns {
+    $pct: _col-percent($i);
+    .col-#{$bp}-#{$i} {
+      @include media-breakpoint-up($bp) {
+        flex: 0 0 $pct;
+        max-width: $pct;
+      }
+    }
+  }
+  // auto columns at breakpoint
+  .col-#{$bp}-auto {
+    @include media-breakpoint-up($bp) {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+    }
+  }
+}
+
+// Also provide simple .col-auto and .col-1..12 for non-breakpoint usage
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    $pct: _col-percent($i);
+    flex: 0 0 $pct;
+    max-width: $pct;
+  }
+}
+.col-auto { flex: 0 0 auto; width: auto; max-width: none; }

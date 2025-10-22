@@ -1,0 +1,406 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+@use '../m3-theme.scss' as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.button-theme(m3.$dark-theme);
+  @include mat.icon-button-theme(m3.$dark-theme);
+}
+
+.theme-light {
+  @include mat.button-color(m3.$light-theme);
+  @include mat.icon-button-color(m3.$light-theme);
+}
+
+// Define state layer colors and opacities
+// Base are tokens used because Material needs color and opacity as seperate properties,
+// but our alias tokens combine them into a single 8-character hex color
+html {
+  --state-layer-background-opacity-hovered: yellow;
+  --state-layer-background-opacity-selected: green;
+}
+
+// Add glow effects to hovered and pressed buttons
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-icon-button {
+
+  &:hover,
+  &:focus {
+    --mdc-text-button-label-text-color: var(--color-interactive-primary-textandicon-selected);
+    --mdc-outlined-button-label-text-color: var(--color-interactive-primary-textandicon-selected);
+
+    .mdc-button__label {
+      text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
+    }
+
+    .mat-icon {
+      overflow: visible;
+
+      svg {
+        filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+      }
+    }
+
+    &.mat-primary {
+      --mdc-text-button-label-text-color: var(--color-interactive-primary-textandicon-selected);
+      --mdc-outlined-button-label-text-color: var(--color-interactive-primary-textandicon-selected);
+
+      .mdc-button__label {
+        text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
+      }
+
+      .mat-icon {
+        overflow: visible;
+
+        svg {
+          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+        }
+      }
+    }
+
+    &.mat-accent {
+      --mdc-text-button-label-text-color: var(--color-interactive-accent-textandicon-selected);
+      --mdc-outlined-button-label-text-color: var(--color-interactive-accent-textandicon-selected);
+
+      .mdc-button__label {
+        text-shadow: var(--box-shadow-interactive-accent-glow-backlit);
+      }
+
+      .mat-icon {
+        overflow: visible;
+
+        svg {
+          filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
+        }
+      }
+    }
+  }
+
+  // Turn off text shadow on pressed button
+  &:active {
+    .mdc-button__label {
+      text-shadow: inherit;
+
+      .theme-light & {
+        text-shadow: inherit;
+      }
+    }
+
+    &.mat-primary {
+      .mdc-button__label {
+        text-shadow: inherit;
+
+        .theme-light & {
+          text-shadow: inherit;
+        }
+      }
+    }
+
+    &.mat-accent {
+      .mdc-button__label {
+        text-shadow: inherit;
+
+        .theme-light & {
+          text-shadow: inherit;
+        }
+      }
+    }
+  }
+}
+
+// Border color customizations for outlined button
+.mat-mdc-outlined-button {
+
+  &:hover,
+  &:focus {
+    border-color: var(--color-interactive-primary-border-hovered-flat);
+
+    &.mat-primary {
+      border-color: var(--color-interactive-primary-border-hovered-flat);
+    }
+
+    &.mat-accent {
+      border-color: var(--color-interactive-accent-border-hovered);
+    }
+  }
+
+  &:active {
+    border-color: var(--color-interactive-primary-border-selected);
+
+    &.mat-primary {
+      border-color: var(--color-interactive-primary-border-selected);
+    }
+
+    &.mat-accent {
+      border-color: var(--color-interactive-accent-border-selected);
+    }
+  }
+}
+
+[mat-icon-button] {
+  &.mat-mdc-icon-button--toggle-on {
+    .mat-mdc-button-persistent-ripple::before {
+      background-color: var(--color-interactive-primary-background-enabled-tonal);
+      opacity: var(--state-layer-background-opacity-hovered);
+    }
+
+    &:focus,
+    &:active {
+      .mat-mdc-button-persistent-ripple::before {
+        opacity: var(--state-layer-background-opacity-selected);
+      }
+    }
+  }
+}
+
+
+.mat-mdc-button>.mat-icon,
+.mat-mdc-unelevated-button>.mat-icon,
+.mat-mdc-raised-button>.mat-icon,
+.mat-mdc-outlined-button>.mat-icon {
+  font-size: inherit !important;
+}
+
+
+// The CSS custom properties emitted by the theme mixins are derived from M3's design tokens.
+// To further customize your UI beyond the define-theme API, you can manually set these custom properties in your styles.
+
+html,
+html .theme-condensed {
+  --mdc-text-button-container-shape: var(--size-radius-full);
+  //   --mdc-text-button-keep-touch-target: false;
+  --mdc-filled-button-container-shape: var(--size-radius-full);
+  //   --mdc-filled-button-keep-touch-target: false;
+  --mdc-protected-button-container-shape: var(--size-radius-full);
+  //   --mdc-protected-button-keep-touch-target: false;
+  //   --mdc-outlined-button-keep-touch-target: false;
+  //   --mdc-outlined-button-outline-width: 1px;
+  --mdc-outlined-button-container-shape: var(--size-radius-full);
+  //   --mat-text-button-horizontal-padding: 8px;
+  //   --mat-text-button-with-icon-horizontal-padding: 8px;
+  //   --mat-text-button-icon-spacing: 8px;
+  //   --mat-text-button-icon-offset: 0;
+  //   --mat-filled-button-horizontal-padding: 16px;
+  //   --mat-filled-button-icon-spacing: 8px;
+  //   --mat-filled-button-icon-offset: -4px;
+  //   --mat-protected-button-horizontal-padding: 16px;
+  //   --mat-protected-button-icon-spacing: 8px;
+  //   --mat-protected-button-icon-offset: -4px;
+  //   --mat-outlined-button-horizontal-padding: 15px;
+  //   --mat-outlined-button-icon-spacing: 8px;
+  //   --mat-outlined-button-icon-offset: -4px
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-text-button-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-text-button-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-text-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mat-text-button-disabled-state-layer-color: var(--color-interactive-primary-textandicon-disabled);
+  //   --mat-text-button-ripple-color: rgba(0, 0, 0, 0.1);
+  --mat-text-button-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
+  //   --mat-text-button-focus-state-layer-opacity: 0.12;
+  //   --mat-text-button-pressed-state-layer-opacity: 0.12;
+  --mdc-filled-button-container-color: var(--color-interactive-primary-background-enabled-filled);
+  --mdc-filled-button-label-text-color: var(--color-interactive-primary-textandicon-inverse);
+  --mdc-filled-button-disabled-container-color: var(--color-interactive-primary-background-disabled);
+  --mdc-filled-button-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-filled-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mat-filled-button-disabled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  //   --mat-filled-button-ripple-color: rgba(0, 0, 0, 0.1);
+  --mat-filled-button-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
+  //   --mat-filled-button-focus-state-layer-opacity: 0.12;
+  //   --mat-filled-button-pressed-state-layer-opacity: 0.12;
+  //   --mdc-protected-button-container-color: white;
+  //   --mdc-protected-button-label-text-color: black;
+  //   --mdc-protected-button-disabled-container-color: rgba(0, 0, 0, 0.12);
+  //   --mdc-protected-button-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  //   --mdc-protected-button-container-elevation-shadow:
+  //   --mdc-protected-button-disabled-container-elevation-shadow:
+  //   --mdc-protected-button-focus-container-elevation-shadow:
+  //   --mdc-protected-button-hover-container-elevation-shadow:
+  //   --mdc-protected-button-pressed-container-elevation-shadow:
+  //   --mdc-protected-button-container-shadow-color: #000;
+  //   --mat-protected-button-state-layer-color: black;
+  //   --mat-protected-button-disabled-state-layer-color: black;
+  //   --mat-protected-button-ripple-color: rgba(0, 0, 0, 0.1);
+  //   --mat-protected-button-hover-state-layer-opacity: 0.04;
+  //   --mat-protected-button-focus-state-layer-opacity: 0.12;
+  //   --mat-protected-button-pressed-state-layer-opacity: 0.12;
+  --mdc-outlined-button-disabled-outline-color: var(--color-interactive-primary-border-disabled);
+  --mdc-outlined-button-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mdc-outlined-button-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-outlined-button-outline-color: var(--color-interactive-primary-border-enabled);
+  --mat-outlined-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mat-outlined-button-disabled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  //   --mat-outlined-button-ripple-color: rgba(0, 0, 0, 0.1);
+  --mat-outlined-button-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
+  //   --mat-outlined-button-focus-state-layer-opacity: 0.12;
+  //   --mat-outlined-button-pressed-state-layer-opacity: 0.12
+}
+
+.mat-mdc-button.mat-primary,
+.theme-light .mat-mdc-button.mat-primary {
+  --mdc-text-button-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-text-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  //   --mat-text-button-ripple-color: rgba(63, 81, 181, 0.1)
+}
+
+.mat-mdc-button.mat-accent,
+.theme-light .mat-mdc-button.mat-accent {
+  --mdc-text-button-label-text-color: var(--color-interactive-accent-textandicon-default);
+  --mat-text-button-state-layer-color: var(--color-interactive-accent-background-hovered);
+  //   --mat-text-button-ripple-color: rgba(255, 64, 129, 0.1)
+}
+
+.mat-mdc-button.mat-warn {
+  --mdc-text-button-label-text-color: var(--color-semantic-textandicon-error);
+  --mat-text-button-state-layer-color: var(--color-semantic-background-error-tonal);
+  --mat-text-button-ripple-color: var(--color-semantic-background-error-tonal);
+}
+
+.mat-mdc-unelevated-button.mat-primary,
+.theme-light .mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-container-color: var(--color-interactive-primary-background-enabled-filled);
+  --mdc-filled-button-label-text-color: var(--color-interactive-primary-textandicon-inverse);
+  --mat-filled-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  //   --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.1)
+}
+
+.mat-mdc-unelevated-button.mat-accent,
+.theme-light .mat-mdc-unelevated-button.mat-accent {
+  --mdc-filled-button-container-color: var(--color-interactive-accent-background-enabled-filled);
+  --mdc-filled-button-label-text-color: var(--color-interactive-accent-textandicon-inverse);
+  --mat-filled-button-state-layer-color: var(--color-interactive-accent-background-hovered);
+  //   --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.1)
+}
+
+.mat-mdc-unelevated-button.mat-warn {
+  --mdc-filled-button-container-color: var(--color-semantic-background-error-filled);
+  --mat-filled-button-state-layer-color: var(--color-semantic-background-error-tonal);
+  --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.1);
+  --mdc-filled-button-label-text-color: var(--color-interactive-primary-textandicon-inverse);
+}
+
+// .mat-mdc-raised-button.mat-primary {
+//   --mdc-protected-button-container-color: #3f51b5;
+//   --mdc-protected-button-label-text-color: white;
+//   --mat-protected-button-state-layer-color: white;
+//   --mat-protected-button-ripple-color: rgba(255, 255, 255, 0.1)
+// }
+
+// .mat-mdc-raised-button.mat-accent {
+//   --mdc-protected-button-container-color: #ff4081;
+//   --mdc-protected-button-label-text-color: white;
+//   --mat-protected-button-state-layer-color: white;
+//   --mat-protected-button-ripple-color: rgba(255, 255, 255, 0.1)
+// }
+
+.mat-mdc-raised-button.mat-warn {
+  --mdc-protected-button-container-color: var(--color-semantic-background-error-filled);
+  --mdc-protected-button-label-text-color: var(--color-semantic-textandicon-error);
+  --mat-protected-button-state-layer-color: var(--color-semantic-textandicon-error);
+  --mat-protected-button-ripple-color: var(--color-semantic-background-error-tonal);
+}
+
+.mat-mdc-outlined-button.mat-primary,
+.theme-light .mat-mdc-outlined-button.mat-primary {
+  --mdc-outlined-button-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-outlined-button-outline-color: var(--color-interactive-primary-border-enabled);
+  --mat-outlined-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  //   --mat-outlined-button-ripple-color: rgba(63, 81, 181, 0.1)
+}
+
+.mat-mdc-outlined-button.mat-accent,
+.theme-light .mat-mdc-outlined-button.mat-accent {
+  --mdc-outlined-button-label-text-color: var(--color-interactive-accent-textandicon-default);
+  --mdc-outlined-button-outline-color: var(--color-interactive-accent-border-enabled);
+  --mat-outlined-button-state-layer-color: var(--color-interactive-accent-background-hovered);
+  //   --mat-outlined-button-ripple-color: rgba(255, 64, 129, 0.1)
+}
+
+.mat-mdc-outlined-button.mat-warn {
+  --mdc-outlined-button-label-text-color: var(--color-semantic-textandicon-error);
+  --mdc-outlined-button-outline-color: var(--color-semantic-background-error-filled);
+  --mat-outlined-button-state-layer-color: var(--color-semantic-background-error-tonal);
+  --mat-outlined-button-ripple-color: var(--color-semantic-background-error-tonal)
+}
+
+html,
+html .theme-condensed {
+  --mdc-text-button-container-height: var(--size-sizing-3xl);
+  --mdc-filled-button-container-height: var(--size-sizing-3xl);
+  --mdc-outlined-button-container-height: var(--size-sizing-3xl);
+  --mdc-protected-button-container-height: var(--size-sizing-3xl);
+  //   --mat-text-button-touch-target-display: block;
+  //   --mat-filled-button-touch-target-display: block;
+  //   --mat-protected-button-touch-target-display: block;
+  //   --mat-outlined-button-touch-target-display: block
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  //   --mdc-icon-button-icon-color: inherit;
+  --mdc-icon-button-disabled-icon-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-icon-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mat-icon-button-disabled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mat-icon-button-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
+  //   --mat-icon-button-focus-state-layer-opacity: 0.12;
+  //   --mat-icon-button-pressed-state-layer-opacity: 0.12
+}
+
+html .mat-mdc-icon-button.mat-primary,
+html .theme-light .mat-mdc-icon-button.mat-primary {
+  --mdc-icon-button-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-icon-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
+  --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
+
+  &.filled-primary {
+    background-color: var(--color-interactive-primary-background-enabled-filled);
+    color: var(--color-interactive-primary-textandicon-inverse);
+    --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
+
+    &.mat-mdc-icon-button.mat-mdc-button-disabled {
+      background-color: var(--color-interactive-primary-background-disabled);
+      color: var(--color-interactive-primary-textandicon-disabled);
+    }
+  }
+}
+
+html .mat-mdc-icon-button.mat-accent,
+html .theme-light .mat-mdc-icon-button.mat-accent {
+  --mdc-icon-button-icon-color: var(--color-interactive-accent-textandicon-default);
+  --mat-icon-button-state-layer-color: var(--color-interactive-accent-background-hovered);
+
+  //   --mat-icon-button-ripple-color: rgba(255, 64, 129, 0.1)
+  &.filled-accent {
+    background-color: var(--color-interactive-accent-background-enabled-filled);
+    color: var(--color-interactive-accent-textandicon-inverse);
+    --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
+
+    &.mat-mdc-icon-button.mat-mdc-button-disabled {
+      background-color: var(--color-interactive-primary-background-disabled);
+      color: var(--color-interactive-primary-textandicon-disabled);
+    }
+  }
+}
+
+html .mat-mdc-icon-button.mat-warn {
+  --mdc-icon-button-icon-color: var(--color-semantic-textandicon-error);
+  --mat-icon-button-state-layer-color: var(--color-semantic-background-error-tonal);
+  --mat-icon-button-ripple-color: var(--color-semantic-background-error-tonal);
+
+  &.filled-warn {
+    background-color: var(--color-semantic-background-error-filled);
+    color: var(--color-interactive-primary-textandicon-inverse);
+
+    &.mat-mdc-icon-button.mat-mdc-button-disabled {
+      background-color: var(--color-interactive-primary-background-disabled);
+      color: var(--color-interactive-primary-textandicon-disabled);
+    }
+  }
+}

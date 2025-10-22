@@ -1,0 +1,43 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+
+.glass {
+  width: 300px;
+  height: 300px;
+  z-index: 100;
+  position: fixed;
+  top: 0px;
+  @include composition.composition-dark-ui-glass-background-blur;
+
+  .theme-light & {
+    @include composition.composition-light-ui-glass-background-blur;
+  }
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; // Margin between rows
+
+  .large-card {
+    margin-bottom: 10px; // Space below the large card
+  }
+
+  .small-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; // Margin between columns
+  }
+
+  .small-card {
+    flex: 1 1 calc(25% - 5px); // Four cards in a row with margin
+  }
+
+  .table-container {
+    margin-top: 10px;
+  }
+
+  .spinner-value {
+    font-size: 1.5em;
+    margin-left: 10px;
+  }
+}

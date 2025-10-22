@@ -1,0 +1,198 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+@use '../m3-theme.scss' as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.input-theme(m3.$dark-theme);
+  // If needed use the single dimension mixins to override particular aspects
+
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.input-color(m3.$light-theme);
+}
+
+// Scaling/Density:
+// Note that, due to the interdependency of form components on each other, any
+// changes to the density of the input element will impact other elements that
+// implement inputs. Examples include date pickers and selects.
+
+// Commenting out the relaxed density settings, as the defined relaxed
+// density is -2 in Material's density schema. At this size, in this version
+// of Angular Material, input labels are hidden.
+
+.mdc-text-field {
+  @include mat.form-field-density(-2);
+  @include mat.icon-button-density(-2);
+
+  input.mat-mdc-input-element,
+  .mat-mdc-form-field-text-prefix,
+  .mat-mdc-form-field-text-suffix,
+  textarea {
+    transform: translate(0px, 9px);
+  }
+}
+
+.theme-condensed {
+  .mdc-text-field {
+    @include mat.form-field-density(-4);
+    @include mat.icon-button-density(-4);
+
+    input.mat-mdc-input-element,
+    .mat-mdc-form-field-text-prefix,
+    .mat-mdc-form-field-text-suffix,
+    textarea {
+      transform: translate(0px, 7px);
+    }
+  }
+}
+
+/*******************************************************************************
+*                                CUSTOM CSS
+/******************************************************************************/
+
+
+// TODO: Temporary specular border values until we can fix the mixin
+// The mixin uses border-image-source to create a gradient border but
+// this does not seem to work as intended, needs more investigation
+$composition-dark-interactive-primary-border-hovered-specular-input: rgba(255, 255, 255, 0.40);
+$composition-light-interactive-primary-border-hovered-specular-input: rgba(255, 255, 255, 0.18);
+
+// Floating text label
+body {
+  .mdc-text-field--filled .mdc-floating-label--float-above {
+    @include typography.typography-xl-label-lowest2;
+    // transform: translateY(-106%) scale(0.75); //<-- original
+    // transform: translateY(-156%) scale(0.75); //<-- original
+    transform: translateY(-150%) scale(1);
+  }
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-floating-label {
+    display: inline;
+  }
+
+  .justify-right {
+    text-align: right
+  }
+
+  .mdc-text-field--filled {
+    border-radius: var(--size-radius-s);
+    border: 1px solid transparent;
+
+    .mdc-text-field__input {
+      @include typography.typography-xl-label-medium;
+    }
+
+    .mdc-floating-label--float-above {
+      --mdc-filled-text-field-label-text-color: var(--color-interactive-primary-textandicon-secondary-default);
+    }
+  }
+
+  // Error state overrides
+  .mat-mdc-form-field.mat-form-field-invalid {
+    --mdc-filled-text-field-focus-label-text-color: var(--color-semantic-textandicon-error);
+    --mdc-filled-text-field-label-text-color: var(--color-semantic-textandicon-error);
+    --mdc-filled-text-field-hover-label-text-color: var(--color-semantic-textandicon-error);
+
+    .mdc-text-field--invalid {
+      border: 1px solid var(--color-semantic-border-error);
+
+      &:hover {
+        border: 1px solid var(--color-semantic-border-error);
+      }
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+      border: 1px solid var(--color-semantic-border-error);
+
+      &.mdc-text-field--focused {
+        border: 1px solid var(--color-semantic-border-error);
+      }
+
+      &:hover {
+        border: 1px solid var(--color-semantic-border-error);
+      }
+
+      .mdc-floating-label--float-above {
+        --mdc-filled-text-field-label-text-color: var(--color-semantic-textandicon-error);
+      }
+    }
+
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    .mdc-line-ripple::before {
+      display: none;
+    }
+
+    .mdc-line-ripple::after {
+      display: none;
+    }
+
+    &.mdc-text-field--focused {
+      border: 1px solid var(--color-interactive-primary-border-focused);
+
+      &:hover {
+        border: 1px solid var(--color-interactive-primary-border-focused);
+      }
+    }
+
+    &:hover {
+      border: 1px solid $composition-dark-interactive-primary-border-hovered-specular-input;
+
+      .theme-light & {
+        border: 1px solid $composition-light-interactive-primary-border-hovered-specular-input;
+      }
+
+      .mat-mdc-form-field-focus-overlay {
+        @include composition.composition-dark-interactive-primary-glow-medium-surface;
+        // Below values are hardcoded because tokens do not exist
+        // These properties style the container on which the
+        // radial gradient (composition-dark-interactive-primary-glow-medium-surface) is applied
+        height: 96px;
+        width: 450px;
+        border-radius: 360px / 96px;
+        transform: translate(-180px, 0px);
+        opacity: 1;
+      }
+
+    }
+  }
+}
+
+/*******************************************************************************
+*                          THEME VARIABLE OVERRIDES
+/******************************************************************************/
+
+// html {
+//   --mdc-filled-text-field-active-indicator-height: 1px;
+//   --mdc-filled-text-field-focus-active-indicator-height: 2px;
+//   --mdc-filled-text-field-container-shape: var(--size-radius-s);
+// }
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-filled-text-field-caret-color: var(--color-interactive-accent-textandicon-default);
+  // --mdc-filled-text-field-focus-active-indicator-color: green; // underline below input
+  --mdc-filled-text-field-focus-label-text-color: var(--color-interactive-accent-textandicon-default);
+  --mdc-filled-text-field-container-color: var(--color-ui-glass-surface-thick);
+  --mdc-filled-text-field-disabled-container-color: var(--color-interactive-primary-background-disabled);
+  --mdc-filled-text-field-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-filled-text-field-hover-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-filled-text-field-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mdc-filled-text-field-input-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mdc-filled-text-field-disabled-input-text-color: var(--color-interactive-primary-textandicon-disabled);
+  //   --mdc-filled-text-field-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
+  --mdc-filled-text-field-error-hover-label-text-color: var(--color-semantic-textandicon-error);
+  --mdc-filled-text-field-error-focus-label-text-color: var(--color-semantic-textandicon-error);
+  --mdc--filled-text-field-error-label-text-color: var(--color-semantic-textandicon-error);
+}

@@ -1,0 +1,136 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+
+// Mapping of DLS typography composites to Material typography levels
+// display-high
+// display-medium
+// heading-high
+// heading-medium
+// heading-low            > headline-1
+// title-high             > headline-2
+// title-medium           > headline-3/4/5/6
+// title-low
+// body-high-highlight
+// body-high-default
+// body-medium-highlight
+// body-medium-default    > subtitle-1
+// body-low-highlight
+// body-low-default       > body-1, subtitle-2
+// body-lowest-default    > body-2
+// label-high
+// label-medium           > button
+// label-low
+// label-lowest           > caption
+// label-lowest2
+
+// Map to: xl-heading-low
+$dls-headline-1: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-heading-low-size-xl,
+  $line-height: vars.$responsive-type-heading-low-height-xl,
+  $font-weight: vars.$content-base-font-weight-bold,
+  $letter-spacing: vars.$responsive-type-heading-low-letter-xl
+);
+
+// Map to: xl-title-high
+$dls-headline-2: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-title-high-size-xl,
+  $line-height: vars.$responsive-type-title-high-height-xl,
+  $font-weight: vars.$content-base-font-weight-medium,
+  $letter-spacing: vars.$responsive-type-title-high-letter-xl
+);
+
+// Map to: xl-title-medium
+$dls-headline-3: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-title-medium-size-xl,
+  $line-height: vars.$responsive-type-title-medium-height-xl,
+  $font-weight: vars.$content-base-font-weight-medium,
+  $letter-spacing: vars.$responsive-type-title-medium-letter-xl
+);
+
+// Map to: xl-title-medium
+$dls-headline-4: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-title-medium-size-xl,
+  $line-height: vars.$responsive-type-title-medium-height-xl,
+  $font-weight: vars.$content-base-font-weight-medium,
+  $letter-spacing: vars.$responsive-type-title-medium-letter-xl
+);
+
+// Map to: xl-title-medium
+$dls-headline-5: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-title-medium-size-xl,
+  $line-height: vars.$responsive-type-title-medium-height-xl,
+  $font-weight: vars.$content-base-font-weight-medium,
+  $letter-spacing: vars.$responsive-type-title-medium-letter-xl
+);
+
+// Map to: xl-title-medium
+$dls-headline-6: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-title-medium-size-xl,
+  $line-height: vars.$responsive-type-title-medium-height-xl,
+  $font-weight: vars.$content-base-font-weight-medium,
+  $letter-spacing: vars.$responsive-type-title-medium-letter-xl
+);
+
+// Map to: xl-body-medium-default
+$dls-subtitle-1: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-body-medium-size-xl,
+  $line-height: vars.$responsive-type-body-medium-height-xl,
+  $font-weight: vars.$content-base-font-weight-regular,
+  $letter-spacing: vars.$responsive-type-body-medium-letter-xl
+);
+
+// Map to: xl-body-low-default
+$dls-subtitle-2: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-body-low-size-xl,
+  $line-height: vars.$responsive-type-body-low-height-xl,
+  $font-weight: vars.$content-base-font-weight-regular,
+  $letter-spacing: vars.$responsive-type-body-low-letter-xl,
+);
+
+// Map to: xl-body-low-default
+$dls-body-1: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-body-low-size-xl,
+  $line-height: vars.$responsive-type-body-low-height-xl,
+  $font-weight: vars.$content-base-font-weight-regular,
+  $letter-spacing: vars.$responsive-type-body-low-letter-xl,
+);
+
+// Map to: xl-body-lowest-default
+$dls-body-2: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-body-lowest-size-xl,
+  $line-height: vars.$responsive-type-body-lowest-height-xl,
+  $font-weight: vars.$content-base-font-weight-regular,
+  $letter-spacing: vars.$responsive-type-body-lowest-letter-xl,
+);
+
+// Map to: xl-label-lowest
+$dls-caption: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-label-lowest-size-xl,
+  $line-height: vars.$responsive-type-label-lowest-height-xl,
+  $font-weight: vars.$content-base-font-weight-medium,
+  $letter-spacing: vars.$responsive-type-label-lowest-letter-xl,
+);
+
+// Map to: xl-label-medium
+$dls-button: mat.m2-define-typography-level(
+  $font-size: vars.$responsive-type-label-medium-size-xl,
+  $line-height: vars.$responsive-type-label-medium-height-xl,
+  $font-weight: vars.$content-base-font-weight-medium,
+  $letter-spacing: vars.$responsive-type-label-medium-letter-xl,
+);
+
+$dls-typography-config: mat.m2-define-typography-config(
+  $font-family: vars.$content-base-font-family-boeing-meso,
+  $headline-1: $dls-headline-1,
+  $headline-2: $dls-headline-2,
+  $headline-3: $dls-headline-3,
+  $headline-4: $dls-headline-4,
+  $headline-5: $dls-headline-5,
+  $headline-6: $dls-headline-6,
+  $subtitle-1: $dls-subtitle-1,
+  $subtitle-2: $dls-subtitle-2,
+  $body-1: $dls-body-1,
+  $body-2: $dls-body-2,
+  $caption: $dls-caption,
+  $button: $dls-button,
+);

@@ -1,0 +1,31 @@
+@use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+@use '../m3-theme.scss' as m3;
+
+:root {
+  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
+  @include mat.tooltip-theme(m3.$dark-theme);
+}
+
+// Apply the light theme only when the user prefers light themes.
+.theme-light {
+  @include mat.tooltip-color(m3.$light-theme);
+}
+
+html,
+html .theme-light,
+html .theme-dark {
+  --mdc-plain-tooltip-container-color: var(--color-ui-glass-surface-thick);
+  --mdc-plain-tooltip-supporting-text-color: var(--color-ui-textandicon-medium);
+
+  .mdc-tooltip__surface {
+    white-space: pre-line;
+    box-shadow: var(--box-shadow-elevation-3);
+  }
+}
+
+html,
+html .theme-condensed {
+  --mdc-plain-tooltip-container-shape: var(--size-radius-xs);
+  --mdc-plain-tooltip-supporting-text-line-height: var(--size-sizing-m);
+}

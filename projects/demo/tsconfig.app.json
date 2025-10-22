@@ -3,11 +3,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@dasdigitalplatform/dls-global-angular/*": [
-        "./../../dist/design/dls-global-angular/*"
+      "@jeppesen-foreflight/dp-dls-global-angular/*": [
+        "./../../dist/design/dp-dls-global-angular/*"
       ],
-      "@dasdigitalplatform/dls-global-angular": [
-        "./../../dist/design/dls-global-angular"
+      "@jeppesen-foreflight/dp-dls-global-angular": [
+        "./../../dist/design/dp-dls-global-angular"
       ]
     },
     "experimentalDecorators": true,
