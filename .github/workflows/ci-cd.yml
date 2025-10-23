@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'main'
-      - 'develop'
       - 'angular-*'
+      - '*upgrade'
     tags:
       - '2.*'
       - '3.*'
@@ -13,8 +13,8 @@ on:
   pull_request:
     branches:
       - 'main'
-      - 'develop'
       - 'angular-*'
+      - '*upgrade'
 
 jobs:
   lint:
