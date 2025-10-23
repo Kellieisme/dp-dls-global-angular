@@ -1,6 +1,6 @@
 {
   "name": "@jeppesen-foreflight/dp-dls-global-angular",
-  "version": "3.5.0",
+  "version": "4.0.0",
   "main": "dist/design/dp-dls-global-angular/index.d.ts",
   "files": [
     "dist/design/dp-dls-global-angular"
