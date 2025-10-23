@@ -13,8 +13,8 @@ on:
   pull_request:
     branches:
       - 'main'
-      - 'develop'
       - 'angular-*'
+      - '*upgrade'
 
 jobs:
   lint:
