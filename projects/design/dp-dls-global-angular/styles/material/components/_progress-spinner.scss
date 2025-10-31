@@ -22,21 +22,21 @@
 html,
 html .theme-light,
 html .theme-dark {
-    --mdc-circular-progress-active-indicator-color: var(--color-semantic-background-info-filled); //info is by default when no class is selected
+    --mat-progress-spinner-active-indicator-color: var(--color-semantic-background-info-filled); //info is by default when no class is selected
 
   .progress-error {
-    --mdc-circular-progress-active-indicator-color: var(--color-semantic-background-error-filled);
+    --mat-progress-spinner-active-indicator-color: var(--color-semantic-background-error-filled);
   }
-
+  
   .progress-warning {
-    --mdc-circular-progress-active-indicator-color: var(--color-semantic-background-warning-filled);
+    --mat-progress-spinner-active-indicator-color: var(--color-semantic-background-warning-filled);
   }
-
+  
   .progress-success {
-    --mdc-circular-progress-active-indicator-color: var(--color-semantic-background-success-filled);
+    --mat-progress-spinner-active-indicator-color: var(--color-semantic-background-success-filled);
   }
 
   .progress-info {
-    --mdc-circular-progress-active-indicator-color: var(--color-semantic-background-info-filled);
+    --mat-progress-spinner-active-indicator-color: var(--color-semantic-background-info-filled);
   }
 }

@@ -51,7 +51,7 @@
 $composition-dark-interactive-primary-border-hovered-specular-select: rgba(255, 255, 255, 0.40);
 $composition-light-interactive-primary-border-hovered-specular-select: rgba(255, 255, 255, 0.40);
 
-// we want to be careful here to not override styles for either the `input`, `form field`, or `list`
+// we want to be careful here to not override styles for either the `input`, `form field`, or `list` 
 // components, as the select component is a composite of those. Directly overriding variables here
 // can be tricky. Use caution and check the various components for collisions.
 
@@ -69,10 +69,10 @@ html .theme-dark {
 
 html {
 
-  // the select is designed to have the same border radius as other form fields, but the bottom
-  // corner radii are removed when expanded. Due to MaterialUI's DOM structure and available
+  // the select is designed to have the same border radius as other form fields, but the bottom 
+  // corner radii are removed when expanded. Due to MaterialUI's DOM structure and available 
   // classes, the most stable way to accomodate this is to listen for the aria-expanded data
-  // attribute on the mat-select element itself.
+  // attribute on the mat-select element itself. 
   .mat-mdc-form-field-type-mat-select {
     .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused:has(mat-select[aria-expanded="true"]) {
       border-bottom-left-radius: var(--size-radius-none);
@@ -126,7 +126,7 @@ html {
   }
 
   .mat-mdc-select-value {
-    padding-right: var(--size-spacing-2xs);
+    padding-right: var(--size-spacing-xs);
   }
 
   // Ensure proper form field structure alignment
@@ -145,7 +145,7 @@ html {
   }
 
   .mat-mdc-text-field-wrapper {
-    margin-bottom: var(--size-spacing-none);
+    margin-bottom: var(--size-spacing-2xs); //4px;
   }
 
   div.mat-mdc-select-panel {

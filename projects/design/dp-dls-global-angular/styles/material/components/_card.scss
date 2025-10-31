@@ -4,12 +4,12 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
 
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/media-breakpoints' as mb;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_media-breakpoints.scss' as mediabreakpoints;
 @use '../media-breakpointMixins' as breakpointMixin;
 
-// Use values from your local media-breakpoints module / mb module
-$grid-breakpoints: mb.$custom-grid-breakpoints !default;
-$container-max-widths : mb.$container-max-widths !default;
+// Use values from your local bootstrap module / mediabreakpoints module
+$grid-breakpoints: mediabreakpoints.$custom-grid-breakpoints !default;
+$container-max-widths : mediabreakpoints.$container-max-widths !default;
 $grid-gutter-width: 1.5rem !default;
 $gutters: breakpointMixin.$gutters !default;
 
@@ -88,16 +88,16 @@ $composition-dark-ui-glass-surface-specular-card: linear-gradient(-156deg, rgba(
   border-radius: var(--size-radius-l);
 
   &:hover {
-    --mdc-elevated-card-container-color: var(--color-interactive-primary-background-hovered);
-    --mdc-outlined-card-container-color: var(--color-interactive-primary-background-hovered);
+    --mat-card-elevated-container-color: var(--color-interactive-primary-background-hovered);
+    --mat-card-outlined-container-color: var(--color-interactive-primary-background-hovered);
     box-shadow: var(--box-shadow-elevation-2);
   }
 
   &:focus,
   &:active,
   &.mat-card-wrapper--dragged {
-    --mdc-elevated-card-container-color: var(--color-interactive-primary-background-selected);
-    --mdc-outlined-card-container-color: var(--color-interactive-primary-background-selected);
+    --mat-card-elevated-container-color: var(--color-interactive-primary-background-selected);
+    --mat-card-outlined-container-color: var(--color-interactive-primary-background-selected);
   }
 
   &:focus,
@@ -114,8 +114,8 @@ $composition-dark-ui-glass-surface-specular-card: linear-gradient(-156deg, rgba(
   }
 
   &.mat-card-wrapper--disabled {
-    --mdc-elevated-card-container-color: var(--color-interactive-primary-background-disabled);
-    --mdc-outlined-card-container-color: var(--color-interactive-primary-background-disabled);
+    --mat-card-elevated-container-color: var(--color-interactive-primary-background-disabled);
+    --mat-card-outlined-container-color: var(--color-interactive-primary-background-disabled);
   }
 }
 
@@ -226,7 +226,7 @@ mat-card-content {
       padding-bottom: var(--size-spacing-xl);
     }
   p {
-    @include typography.typography-xl-body-low-default;
+    @include typography.typography-xl-body-low-default; 
     color: var(--color-ui-textandicon-medium);
   }
   }
@@ -273,21 +273,21 @@ a {
 
 html,
 html .theme-condensed {
-  --mdc-elevated-card-container-shape: var(--size-radius-l);
-  --mdc-outlined-card-container-shape: var(--size-radius-l);
+  --mat-card-elevated-container-shape: var(--size-radius-l);
+  --mat-card-outlined-container-shape: var(--size-radius-l);
 }
 
 html {
-  --mdc-outlined-card-outline-color: #{$composition-dark-ui-glass-border-specular-card};
+  --mat-card-outlined-outline-color: #{$composition-dark-ui-glass-border-specular-card};
   .theme-light {
-    --mdc-outlined-card-outline-color: #{$composition-light-ui-glass-border-specular-card};
+    --mat-card-outlined-outline-color: #{$composition-light-ui-glass-border-specular-card};
   }
 }
 
 html,
 html .theme-light,
 html .theme-dark {
-  --mdc-elevated-card-container-color: var(--color-ui-background-high);
-  --mdc-outlined-card-container-color: var(--color-ui-background-high);
+  --mat-card-elevated-container-color: var(--color-ui-background-high);
+  --mat-card-outlined-container-color: var(--color-ui-background-high);
   --mat-card-subtitle-text-color: var(--color-ui-textandicon-medium);
 }

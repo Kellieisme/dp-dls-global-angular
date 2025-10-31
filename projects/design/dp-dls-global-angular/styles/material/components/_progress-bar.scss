@@ -21,21 +21,21 @@
 html,
 html .theme-light,
 html .theme-dark {
-  --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-info-filled); //info is by default when no class is selected
+  --mat-progress-bar-active-indicator-color: var(--color-semantic-background-info-filled); //info is by default when no class is selected
 
   .progress-error {
-    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-error-filled);
+    --mat-progress-bar-active-indicator-color: var(--color-semantic-background-error-filled);
   }
-
+  
   .progress-warning {
-    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-warning-filled);
+    --mat-progress-bar-active-indicator-color: var(--color-semantic-background-warning-filled);
   }
-
+  
   .progress-success {
-    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-success-filled);
+    --mat-progress-bar-active-indicator-color: var(--color-semantic-background-success-filled);
   }
 
   .progress-info {
-    --mdc-linear-progress-active-indicator-color: var(--color-semantic-background-info-filled);
+    --mat-progress-bar-active-indicator-color: var(--color-semantic-background-info-filled);
   }
 }

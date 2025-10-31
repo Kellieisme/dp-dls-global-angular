@@ -1,0 +1,24 @@
+{
+  "extends": "../tsconfig.lib.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
+  },
+  "mdx": {
+    "plugins": [
+      [
+        "remark-frontmatter",
+        ["toml", "yaml"]
+      ],
+      "remark-gfm"
+    ]
+  },
+  "exclude": ["../test.ts", "../**/*.spec.ts"],
+  "include": [
+    "../**/*.stories.*", 
+    "./preview.ts",
+    "../**/src/*.component.ts"
+  ],
+  "files": ["./typings.d.ts"]
+}

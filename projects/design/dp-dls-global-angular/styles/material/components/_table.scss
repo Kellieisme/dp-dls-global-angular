@@ -37,7 +37,7 @@ $table-typography-config: mat.m2-define-typography-config($font-family: vars.$co
     @include mat.table-theme(m3.$dark-theme);
     // If needed use the single dimension mixins to override particular aspects
     @include mat.table-typography($table-typography-config);
-
+  
   }
 
 // Apply the light theme only when the user prefers light themes.

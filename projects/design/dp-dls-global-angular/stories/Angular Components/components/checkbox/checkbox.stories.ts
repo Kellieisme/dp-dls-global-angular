@@ -1,5 +1,5 @@
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { CheckboxOverviewExample } from './checkbox_nested.component';
 

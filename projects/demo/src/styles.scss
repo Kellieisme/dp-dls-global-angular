@@ -7,17 +7,12 @@ body {
   background-color: var(--color-ui-background-lowest);
 }
 
-h1, h2, h3, h4, h5, h6, p  {
-    margin-bottom: 1rem;
-  }
-
-  h6, h5 {
+h6, h5 { 
+  color: var(--color-ui-textandicon-high);
+  margin-bottom: 1rem;
   margin-top: 2rem;
 }
 
-   li {
-    display: list-item;
-    margin-left: 10px;
-    list-style-type: disc;
-    color: var(--color-ui-textandicon-high);
-   }
+p,h1,h2,div {
+  color: var(--color-ui-textandicon-high);
+}
