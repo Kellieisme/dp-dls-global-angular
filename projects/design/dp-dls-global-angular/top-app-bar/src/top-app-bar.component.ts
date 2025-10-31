@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-// import { IconRegistryModule } from '../../icon-registry';
+import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AtmosphereTopBarNavigationLinkArray } from './top-app-bar.types';
 import { RouterModule } from '@angular/router';
@@ -22,7 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatToolbarModule,
     MatButtonModule,
     CommonModule,
-    // IconRegistryModule,
+    IconRegistryModule,
     RouterModule,
     MatDividerModule
   ],
@@ -34,7 +34,7 @@ export class TopAppBarComponent {
   /* THIS INPUT IS NOW OBSOLETE */
 
   @Input({ transform: coerceBooleanProperty }) menuAlignCenter: boolean = true;
-
+  
   /* When `hamburgerMenuOnly` is present, the hamburger icon displays at all sizes.
    * If the flag is not present, the navigation will present a hamburger icon at smaller sizes. */
 
@@ -56,7 +56,7 @@ export class TopAppBarComponent {
   @Input({ transform: coerceBooleanProperty }) isNavigationDrawer: boolean = false;
 
   /* To use the hamburger menu at all breakpoints, use the `hamburgerMenuOnly` flag. */
-
+  
   @Input() topAppBarMenu: AtmosphereTopBarNavigationLinkArray = [];
 
   /* Output event for hamburger menu button click */

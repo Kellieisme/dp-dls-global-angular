@@ -14,7 +14,7 @@
 
 .mat-mdc-snack-bar-container {
   backdrop-filter: blur(vars.$size-base-shadow-blur-100);
-
+  
   .mdc-snackbar__label {
     padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-m);
 
@@ -31,20 +31,20 @@
 
 html,
 html .theme-condensed {
-  --mdc-snackbar-container-shape: var(--size-radius-xs);
+  --mat-snackbar-container-shape: var(--size-radius-xs);
 }
 
 html,
 html .theme-light,
 html .theme-dark {
-  --mdc-snackbar-container-color: var(--color-ui-glass-surface-thickest);
-  --mdc-snackbar-supporting-text-color: var(--color-ui-textandicon-high);
+  --mat-snackbar-container-color: var(--color-ui-glass-surface-thickest);
+  --mat-snackbar-supporting-text-color: var(--color-ui-textandicon-high);
   //--mat-snack-bar-button-color: #ffd740
 }
 
 // html {
-//   --mdc-snackbar-supporting-text-font: Roboto, sans-serif;
-//   --mdc-snackbar-supporting-text-line-height: 20px;
-//   --mdc-snackbar-supporting-text-size: 14px;
-//   --mdc-snackbar-supporting-text-weight: 400
+//   --mat-snackbar-supporting-text-font: Roboto, sans-serif;
+//   --mat-snackbar-supporting-text-line-height: 20px;
+//   --mat-snackbar-supporting-text-size: 14px;
+//   --mat-snackbar-supporting-text-weight: 400
 // }

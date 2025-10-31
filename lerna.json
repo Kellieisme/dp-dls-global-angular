@@ -2,10 +2,11 @@
   "packages": [
     "projects/design/*"
   ],
-  "version": "2.6.2",
+  "version": "3.3.0",
   "command": {
     "version": {
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "changelogPreset": "conventional-changelog-angular"
     },
     "publish": {
       "registry": "https://npm.pkg.github.com/"

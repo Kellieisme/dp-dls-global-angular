@@ -99,6 +99,7 @@ type SideNavigationModeType = `${SideNavMode}`;
     styleUrls: ['./navigation-drawer.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
+
 export class NavigationDrawerComponent implements OnDestroy {
 
   /**

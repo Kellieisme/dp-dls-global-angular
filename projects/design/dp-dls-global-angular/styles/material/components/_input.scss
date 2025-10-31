@@ -92,15 +92,15 @@ html .theme-dark {
     }
 
     .mdc-floating-label--float-above {
-      --mdc-filled-text-field-label-text-color: var(--color-interactive-primary-textandicon-secondary-default);
+      --mat-form-field-filled-label-text-color: var(--color-interactive-primary-textandicon-secondary-default);
     }
   }
 
   // Error state overrides
   .mat-mdc-form-field.mat-form-field-invalid {
-    --mdc-filled-text-field-focus-label-text-color: var(--color-semantic-textandicon-error);
-    --mdc-filled-text-field-label-text-color: var(--color-semantic-textandicon-error);
-    --mdc-filled-text-field-hover-label-text-color: var(--color-semantic-textandicon-error);
+    --mat-form-field-filled-focus-label-text-color: var(--color-semantic-textandicon-error);
+    --mat-form-field-filled-label-text-color: var(--color-semantic-textandicon-error);
+    --mat-form-field-filled-hover-label-text-color: var(--color-semantic-textandicon-error);
 
     .mdc-text-field--invalid {
       border: 1px solid var(--color-semantic-border-error);
@@ -122,7 +122,7 @@ html .theme-dark {
       }
 
       .mdc-floating-label--float-above {
-        --mdc-filled-text-field-label-text-color: var(--color-semantic-textandicon-error);
+        --mat-form-field-filled-label-text-color: var(--color-semantic-textandicon-error);
       }
     }
 
@@ -173,26 +173,26 @@ html .theme-dark {
 /******************************************************************************/
 
 // html {
-//   --mdc-filled-text-field-active-indicator-height: 1px;
-//   --mdc-filled-text-field-focus-active-indicator-height: 2px;
-//   --mdc-filled-text-field-container-shape: var(--size-radius-s);
+//   --mat-form-field-filled-active-indicator-height: 1px;
+//   --mat-form-field-filled-focus-active-indicator-height: 2px;
+//   --mat-form-field-filled-container-shape: var(--size-radius-s);
 // }
 
 html,
 html .theme-light,
 html .theme-dark {
-  --mdc-filled-text-field-caret-color: var(--color-interactive-accent-textandicon-default);
-  // --mdc-filled-text-field-focus-active-indicator-color: green; // underline below input
-  --mdc-filled-text-field-focus-label-text-color: var(--color-interactive-accent-textandicon-default);
-  --mdc-filled-text-field-container-color: var(--color-ui-glass-surface-thick);
-  --mdc-filled-text-field-disabled-container-color: var(--color-interactive-primary-background-disabled);
-  --mdc-filled-text-field-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mdc-filled-text-field-hover-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mdc-filled-text-field-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
-  --mdc-filled-text-field-input-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mdc-filled-text-field-disabled-input-text-color: var(--color-interactive-primary-textandicon-disabled);
-  //   --mdc-filled-text-field-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
-  --mdc-filled-text-field-error-hover-label-text-color: var(--color-semantic-textandicon-error);
-  --mdc-filled-text-field-error-focus-label-text-color: var(--color-semantic-textandicon-error);
-  --mdc--filled-text-field-error-label-text-color: var(--color-semantic-textandicon-error);
+  --mat-form-field-filled-caret-color: var(--color-interactive-accent-textandicon-default);
+  // --mat-form-field-filled-focus-active-indicator-color: green; // underline below input
+  --mat-form-field-filled-focus-label-text-color: var(--color-interactive-accent-textandicon-default);
+  --mat-form-field-filled-container-color: var(--color-ui-glass-surface-thick);
+  --mat-form-field-filled-disabled-container-color: var(--color-interactive-primary-background-disabled);
+  --mat-form-field-filled-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-form-field-filled-hover-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-form-field-filled-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-form-field-filled-input-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-form-field-filled-disabled-input-text-color: var(--color-interactive-primary-textandicon-disabled);
+  //   --mat-form-field-filled-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
+  --mat-form-field-filled-error-hover-label-text-color: var(--color-semantic-textandicon-error);
+  --mat-form-field-filled-error-focus-label-text-color: var(--color-semantic-textandicon-error);
+  --mat--filled-text-field-error-label-text-color: var(--color-semantic-textandicon-error);
 }

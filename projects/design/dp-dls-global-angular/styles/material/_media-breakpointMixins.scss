@@ -9,7 +9,7 @@
 // Use math for unit() inspection
 @use "sass:math" as math;
 
-// Load your custom media breakpoints file as mb (already provided by you)
+// Load your custom bootstrap mixins/vars file as mb (already provided by you)
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/media-breakpoints' as mb;
 
 // Extract values from your custom mixins module

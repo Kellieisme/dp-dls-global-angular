@@ -37,7 +37,7 @@
 html .theme-condensed {
   .mat-mdc-radio-touch-target {
 
-    // height: 40px;
+    // height: 40px; 
     // width: 40px;
     height: var(--size-sizing-4xl);
     width: var(--size-sizing-4xl);
@@ -75,43 +75,43 @@ html .theme-condensed {
 }
 
 // html {
-//   --mdc-radio-disabled-selected-icon-opacity: 0.38;
-//   --mdc-radio-disabled-unselected-icon-opacity: 0.38;
-//   --mdc-radio-state-layer-size: 40px
+//   --mat-radio-disabled-selected-icon-opacity: 0.38;
+//   --mat-radio-disabled-unselected-icon-opacity: 0.38;
+//   --mat-radio-state-layer-size: 40px
 // }
 
 // .mat-mdc-radio-button {
-//   --mdc-form-field-label-text-color: rgba(0, 0, 0, 0.87)
+//   --mat-form-field-label-text-color: rgba(0, 0, 0, 0.87)
 // }
 
 html,
 html .theme-light,
 html .theme-dark {
   .mat-mdc-radio-button.mat-primary {
-    // --mdc-radio-disabled-selected-icon-color: black;
-    // --mdc-radio-disabled-unselected-icon-color: black;
-    // --mdc-radio-unselected-hover-icon-color: #212121;
-    --mdc-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mdc-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mdc-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mdc-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mdc-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
-    --mdc-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
+    // --mat-radio-disabled-selected-icon-color: black;
+    // --mat-radio-disabled-unselected-icon-color: black;
+    // --mat-radio-unselected-hover-icon-color: #212121;
+    --mat-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mat-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mat-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mat-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mat-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
+    --mat-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
     // --mat-radio-ripple-color: var(--color-interactive-accent-textandicon-selected};
     --mat-radio-checked-ripple-color: var(--color-interactive-accent-textandicon-selected);
     // --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38)
   }
 
   .mat-mdc-radio-button.mat-accent {
-    //   --mdc-radio-disabled-selected-icon-color: black;
-    //   --mdc-radio-disabled-unselected-icon-color: black;
-    //   --mdc-radio-unselected-hover-icon-color: #212121;
-    --mdc-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mdc-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mdc-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mdc-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mdc-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
-    --mdc-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
+    //   --mat-radio-disabled-selected-icon-color: black;
+    //   --mat-radio-disabled-unselected-icon-color: black;
+    //   --mat-radio-unselected-hover-icon-color: #212121;
+    --mat-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mat-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+    --mat-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mat-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
+    --mat-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
+    --mat-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
     // --mat-radio-ripple-color: var(--color-interactive-accent-textandicon-selected};
     --mat-radio-checked-ripple-color: var(--color-interactive-accent-textandicon-selected);
     // --mat-radio-disabled-label-color: #00000000;
