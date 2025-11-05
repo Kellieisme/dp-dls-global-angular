@@ -36,7 +36,7 @@ const basicTemplate = () =>
 
 const currencyTemplate = () =>
   ` <form>
-      <mat-form-field [ngClass]="{'mat-form-field-invalid' : invalid}" floatLabel="always">
+      <mat-form-field floatLabel="always" [ngClass]="{'mat-form-field-invalid' : invalid}">
         <mat-label>{{labelText}}</mat-label>
         <input matInput [placeholder]="placeholder" [disabled]="disabled" class="justify-right"/>
         <span matTextPrefix *ngIf="prefix">{{ prefixText }}</span>
@@ -48,8 +48,8 @@ const currencyTemplate = () =>
 
 const weightTemplate = () =>
   ` <form>
-      <mat-form-field [ngClass]="{'mat-form-field-invalid' : invalid}"
-        <mat-label>{{'&nbsp;labelText}}</mat-label>
+      <mat-form-field floatLabel="always" [ngClass]="{'mat-form-field-invalid' : invalid}">
+        <mat-label>{{labelText}}</mat-label>
         <input matInput [placeholder]="placeholder" [disabled]="disabled"/>
         <span matTextSuffix *ngIf="suffix">{{ suffixText }}</span>
         <mat-hint *ngIf="hintTextLeft !== ''">{{ hintTextLeft }}</mat-hint>

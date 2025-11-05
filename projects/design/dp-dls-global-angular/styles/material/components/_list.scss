@@ -44,7 +44,7 @@ mat-list-option.mat-mdc-list-option {
 
   &.mdc-list-item__start,
   .mdc-list-item__end {
-    --mdc-radio-state-layer-size: var(--size-spacing-4xl);
+    --mat-radio-state-layer-size: var(--size-spacing-4xl);
   }
 
   .mat-icon {
@@ -85,29 +85,29 @@ mat-list-option.mat-mdc-list-option {
 html,
 html .theme-light,
 html .theme-dark {
-  --mdc-list-list-item-label-text-color: var(--color-ui-textandicon-high);
-  --mdc-list-list-item-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
-  --mdc-list-list-item-focus-label-text-color: var(--color-interactive-primary-textandicon-selected);
-  --mdc-list-list-item-container-color: var(--color-ui-background-medium);
-  --mdc-list-list-item-hover-state-layer-color: var(--color-interactive-primary-background-hovered);
-  --mdc-list-list-item-hover-state-layer-opacity: #{vars.$opacity-base-5};
-  --mdc-list-list-item-focus-state-layer-color: var(--color-interactive-primary-background-selected);
-  --mdc-list-list-item-focus-state-layer-opacity: #{vars.$opacity-base-12};
+  --mat-list-list-item-label-text-color: var(--color-ui-textandicon-high);
+  --mat-list-list-item-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
+  --mat-list-list-item-focus-label-text-color: var(--color-interactive-primary-textandicon-selected);
+  --mat-list-list-item-container-color: var(--color-ui-background-medium);
+  --mat-list-list-item-hover-state-layer-color: var(--color-interactive-primary-background-hovered);
+  --mat-list-list-item-hover-state-layer-opacity: #{vars.$opacity-base-5};
+  --mat-list-list-item-focus-state-layer-color: var(--color-interactive-primary-background-selected);
+  --mat-list-list-item-focus-state-layer-opacity: #{vars.$opacity-base-12};
   --mat-list-active-indicator-shape: #{vars.$size-relaxed-radius-full};
-  --mdc-list-list-item-leading-icon-color: var(--color-interactive-primary-textandicon-secondary-default);
+  --mat-list-list-item-leading-icon-color: var(--color-interactive-primary-textandicon-secondary-default);
   // --mat-list-list-item-leading-icon-end-space: var(--size-spacing-m);
   // --mat-list-list-item-leading-icon-start-space: var(--size-spacing-none);
-  --mdc-list-list-item-hover-leading-icon-color: var(--box-shadow-interactive-primary-glow-backlit);
-  --mdc-list-list-item-selected-container-color: var(--color-interactive-primary-background-selected);
-  --mdc-list-list-item-supporting-text-color: var(--color-ui-textandicon-medium);
-  --mdc-radio-state-layer-size: var(--size-spacing-5xl);
-  --mdc-checkbox-state-layer-size: var(--size-spacing-5xl);
+  --mat-list-list-item-hover-leading-icon-color: var(--box-shadow-interactive-primary-glow-backlit);
+  --mat-list-list-item-selected-container-color: var(--color-interactive-primary-background-selected);
+  --mat-list-list-item-supporting-text-color: var(--color-ui-textandicon-medium);
+  --mat-radio-state-layer-size: var(--size-spacing-5xl);
+  --mat-checkbox-state-layer-size: var(--size-spacing-5xl);
 }
 
 html,
 html .theme-condensed {
-  --mdc-checkbox-state-layer-size: var(--size-spacing-4xl);
-  --mdc-radio-state-layer-size: var(--size-spacing-4xl);
-  --mdc-list-list-item-leading-icon-size: var(--size-spacing-xl);
+  --mat-checkbox-state-layer-size: var(--size-spacing-4xl);
+  --mat-radio-state-layer-size: var(--size-spacing-4xl);
+  --mat-list-list-item-leading-icon-size: var(--size-spacing-xl);
   --mat-list-list-item-leading-icon-end-space: var(--size-spacing-s);
 }

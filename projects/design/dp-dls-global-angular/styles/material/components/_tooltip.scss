@@ -15,8 +15,8 @@
 html,
 html .theme-light,
 html .theme-dark {
-  --mdc-plain-tooltip-container-color: var(--color-ui-glass-surface-thick);
-  --mdc-plain-tooltip-supporting-text-color: var(--color-ui-textandicon-medium);
+  --mat-tooltip-container-color: var(--color-ui-glass-surface-thick);
+  --mat-tooltip-supporting-text-color: var(--color-ui-textandicon-medium);
 
   .mdc-tooltip__surface {
     white-space: pre-line;
@@ -26,6 +26,6 @@ html .theme-dark {
 
 html,
 html .theme-condensed {
-  --mdc-plain-tooltip-container-shape: var(--size-radius-xs);
-  --mdc-plain-tooltip-supporting-text-line-height: var(--size-sizing-m);
+  --mat-tooltip-container-shape: var(--size-radius-xs);
+  --mat-tooltip-supporting-text-line-height: var(--size-sizing-m);
 }

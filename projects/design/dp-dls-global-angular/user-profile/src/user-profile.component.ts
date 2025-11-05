@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-// import { IconRegistryModule } from '../../icon-registry';
+import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
@@ -28,7 +28,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
         MatToolbarModule,
         MatButtonModule,
         CommonModule,
-        // IconRegistryModule
+        IconRegistryModule
     ],
     templateUrl: './user-profile.component.html',
     styleUrls: ['./user-profile.component.scss']

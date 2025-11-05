@@ -30,7 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
     >
       <mat-slide-toggle (change)="onToggle()"></mat-slide-toggle>
       <p style="color: var(--color-ui-textandicon-high);">
-        The theme captured through observable in ThemeToggleService is:</p>
+        The theme captured through observable in ThemeToggleService is:</p> 
       <h1 style="color: var(--color-ui-textandicon-high);">{{ themetext }}</h1>
       <button mat-flat-button (click)="buttonClick()">
         Show Current Theme
