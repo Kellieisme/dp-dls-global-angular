@@ -1,0 +1,102 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    [mode]="sidesheetMode"
+    [opened]="opened"
+    [style.width]="sidesheetWidth"
+    [position]="sidesheetPosition"
+    >
+    <mat-toolbar>
+      <span>Sheet title</span>
+      <button mat-icon-button (click)="sidenav.close()">
+        <mat-icon svgIcon="icon-close"></mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="sidesheet-content">
+      <p>This is the content area.</p>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div class="sidesheet-footer">
+      @if (showFooter) {
+        <div class="footer-actions">
+          @for (button of buttons; track button) {
+            @if (button.buttonType === 'text') {
+              <button
+                mat-button
+                (click)="button.onClick()"
+                >
+                {{ button.text }}
+              </button>
+            }
+            @if (button.buttonType === 'stroked') {
+              <button
+                mat-stroked-button
+                (click)="button.onClick()"
+                >
+                {{ button.text }}
+              </button>
+            }
+            @if (button.buttonType === 'flat') {
+              <button
+                mat-flat-button
+                (click)="button.onClick()"
+                >
+                {{ button.text }}
+              </button>
+            }
+          }
+        </div>
+      }
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Your main content here -->
+    <button mat-button (click)="sidenav.open()">Open Side Sheet</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="bg-danger alert">
+<p class="p-3 d-flex align-items-center text-white body-medium-default">
+  <mat-icon class="me-3" svgIcon="icon-warning"></mat-icon>
+  Both modes' rounded corners background color showing through. On both left and right side versions, top and bottom.
+</p>
+<p class="p-3 d-flex align-items-center text-white body-medium-default">
+  <mat-icon class="me-3" svgIcon="icon-warning"></mat-icon>
+  White line at bottom of sheet in dark mode.
+</p>
+</div>
+
+<ba-sidesheet
+  sidesheetPosition="end"
+  [variant]="'standard'"
+></ba-sidesheet>
+
+
+<ba-sidesheet
+  sidesheetPosition="start"
+  [variant]="'standard'"
+  >
+</ba-sidesheet>
+-->
+
