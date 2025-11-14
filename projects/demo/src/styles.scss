@@ -7,12 +7,25 @@ body {
   background-color: var(--color-ui-background-lowest);
 }
 
-h6, h5 { 
+mat-sidenav-content {
+  padding: 1.25rem !important;
+}
+
+h6, h5 {
   color: var(--color-ui-textandicon-high);
   margin-bottom: 1rem;
   margin-top: 2rem;
 }
 
 p,h1,h2,div {
+  color: var(--color-ui-textandicon-high);
+}
+
+h1 {
+  margin-bottom: 1rem;
+  color: var(--color-ui-textandicon-medium);
+}
+
+a {
   color: var(--color-ui-textandicon-high);
 }

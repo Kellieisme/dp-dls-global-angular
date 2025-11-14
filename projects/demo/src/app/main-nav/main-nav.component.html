@@ -1,0 +1,82 @@
+<ba-top-app-bar homeRoute="/" appLogo="boeing-logomark" appName="Atmosphere sandbox v20.*">
+
+  <div class="actions large-screen">
+
+    <ba-theme-toggle></ba-theme-toggle>
+
+    <button mat-icon-button aria-label="Help">
+      <mat-icon svgIcon="icon-help" aria-hidden="true"></mat-icon>
+    </button>
+
+    <button mat-icon-button aria-label="Notifications">
+      <mat-icon svgIcon="icon-notifications" aria-hidden="true"></mat-icon>
+    </button>
+
+    <button mat-icon-button aria-label="Settings">
+      <mat-icon svgIcon="icon-settings" aria-hidden="true"></mat-icon>
+    </button>
+  </div>
+
+  <div class="actions small-screen" role="toolbar" aria-label="Secondary actions">
+    <ba-theme-toggle></ba-theme-toggle>
+
+    <button mat-icon-button
+           [matMenuTriggerFor]="overflowMenu"
+           aria-label="More options">
+      <mat-icon svgIcon="icon-more-vert" aria-hidden="true"></mat-icon>
+    </button>
+
+    <mat-menu #overflowMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon svgIcon="icon-help" aria-hidden="true"></mat-icon>
+        <span>Help</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon svgIcon="icon-settings" aria-hidden="true"></mat-icon>
+        <span>Settings</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div class="divider-parent">
+    <mat-divider [vertical]="true"> </mat-divider>
+  </div>
+
+  <ba-user-profile clickable class="avatar" userFirstName="JeppFFy" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
+
+  <mat-menu #menuUserLetter="matMenu">
+    <button mat-menu-item class="user-info-menu-item">
+      <ba-user-profile userFirstName="JeppFFy"></ba-user-profile>
+      <div class="user-info">
+        <span class="user-name">JeppFFy</span>
+        <span class="additional-info">Additional info</span>
+      </div>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item>
+      <span>Preferences</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>
+      <mat-icon svgIcon="icon-help"></mat-icon>
+      <span>Help and tutorials</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon svgIcon="icon-logout"></mat-icon>
+      <span>Sign out</span>
+    </button>
+  </mat-menu>
+</ba-top-app-bar>
+
+<ba-navigation-rail
+[hideLabels]="false"
+[menuItems]="menuItems"
+wide
+homeRoute="/">
+
+</ba-navigation-rail>
+

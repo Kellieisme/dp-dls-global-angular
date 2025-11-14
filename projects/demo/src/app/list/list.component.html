@@ -1,0 +1,69 @@
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+    <div class="col">
+    <h4 class="title-medium">Text wrap  (2 or 3 lines)</h4>
+    <mat-list class="example-list-wrapping" interactive multiline enableEmphasis>
+      <mat-divider />
+      <mat-list-item lines="3">
+        <span matListItemTitle>This is 3 lines total</span>
+        <span>Secondary line that will wrap because the list lines is explicitly set to 3 lines. Text
+          inside of a `matListItemTitle` or `matListItemLine` will never wrap.
+        </span>
+      </mat-list-item>
+      <mat-divider />
+      <mat-list-item lines="2">
+        <span matListItemTitle>This is 2 lines total</span>Titles will never wrap, only the 2nd line will. Lorem ipsum
+        dolor
+        sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia deserunt mollit anim id est
+      </mat-list-item>
+      <mat-divider />
+    </mat-list>
+  </div>
+
+  <div class="col">
+    <h4 class="title-medium">Multi-select</h4>
+
+    <mat-selection-list #shoes>
+      @for (shoe of typesOfShoes; track shoe) {
+      <mat-list-option>{{shoe}}</mat-list-option>
+      }
+    </mat-selection-list>
+
+    <p>
+      Options selected: {{shoes.selectedOptions.selected.length}}
+    </p>
+  </div>
+
+  <div class="col">
+    <h4 class="title-medium">List sections</h4>
+    <mat-list interactive multiline enableEmphasis>
+      <div mat-subheader>(Subheader) Folders</div>
+      @for (folder of folders; track folder) {
+      <mat-list-item>
+        <mat-icon matListItemIcon svgIcon="icon-folder"></mat-icon>
+        <div matListItemLine class="overline">overline</div>
+        <div matListItemTitle>{{folder.name}}</div>
+        <div matListItemLine>{{folder.updated | date}}</div>
+      </mat-list-item>
+      }
+
+      <div mat-subheader>(Subheader) Notes</div>
+      @for (note of notes; track note) {
+      <mat-list-item>
+        <mat-icon matListItemIcon svgIcon="icon-done"></mat-icon>
+        <div matListItemTitle>{{note.name}}</div>
+        <div matListItemLine>{{note.updated | date}}</div>
+      </mat-list-item>
+      }
+    </mat-list>
+  </div>
+
+</div>
+
+

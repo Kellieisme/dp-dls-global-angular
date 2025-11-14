@@ -1,16 +1,16 @@
 import { RouterOutlet } from '@angular/router';
 import { Component } from '@angular/core';
-import { ThemeToggleModule } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.module';
 import { ThemeToggleService } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.service';
 import { Subscription } from 'rxjs';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Theme } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.model';
+import { MainNavComponent } from "./main-nav/main-nav.component";
 
 @Component({
-    selector: 'app-root',
+  selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, ThemeToggleModule],
+    imports: [RouterOutlet, MainNavComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
