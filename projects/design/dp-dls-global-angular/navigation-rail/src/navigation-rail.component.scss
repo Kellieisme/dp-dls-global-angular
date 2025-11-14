@@ -87,9 +87,13 @@ mat-sidenav {
       }
 
       .mdc-list-item__primary-text {
-        --mdc-list-list-item-label-text-line-height: #{vars.$responsive-type-label-low-height-xl};
-        --mdc-list-list-item-label-text-size: #{vars.$responsive-type-label-low-size-xl};
-        --mdc-list-list-item-label-text-weight: #{vars.$content-base-font-weight-medium};
+        /* Use the Material (`--mat-...`) custom properties which the Angular
+           Material list styles actually read for font-size/line-height/weight. */
+
+        --mat-list-list-item-label-text-size: #{vars.$responsive-type-label-medium-size-m};
+   //     --mat-list-list-item-label-text-tracking: #{vars.$content-base-font-tracking-medium};
+        --mat-list-list-item-label-text-weight: #{vars.$content-base-font-weight-medium};
+        --mat-list-list-item-label-text-line-height: #{vars.$responsive-type-label-medium-height-m};
       }
     }
   }
