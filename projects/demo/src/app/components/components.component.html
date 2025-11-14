@@ -1,0 +1,345 @@
+<div class="container-fluid mt-3">
+
+  <div class="top-links">
+    <h1 class="heading-low" style="flex:auto;">Components</h1>
+    <a mat-button color="accent" routerLink="/">
+      <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma
+    </a>
+    <a mat-button color="accent" routerLink="/">
+      <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Angular Code
+    </a>
+
+
+  </div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+     <!-- <div class="col">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>card.title</mat-card-title>
+          <mat-card-subtitle>subtitle</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>content</p>
+        </mat-card-content>
+      </mat-card>
+    </div> -->
+
+    <!-- <div class="col">
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <app-badge></app-badge>
+      </mat-card-content>
+    </mat-card>
+  </div> -->
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Breadcrumb</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+
+        <mat-card-content>
+          <div class="d-flex align-items-center alert alert-warning" role="alert">
+            <mat-icon class="me-2" svgIcon="icon-warning-filled"></mat-icon>
+            Should these be text links vs buttons?
+          </div>
+          <p>Breadcrumb short menu</p>
+          <ba-breadcrumb [breadcrumbs]="breadcrumbsShort" />
+          <p>Breadcrumb long menu</p>
+          <ba-breadcrumb [breadcrumbs]="breadcrumbsLong" />
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Button</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <button-page></button-page>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Card</mat-card-title>
+          <mat-card-subtitle>Subtitle</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="d-flex align-items-center alert alert-warning" role="alert">
+            <mat-icon class="me-2" svgIcon="icon-warning-filled"></mat-icon>
+
+            Cards do not allow for additional body styles in [mat-card-content].
+            Also odd that cards are not scaling with content. Not typical behavior for cards.
+          </div>
+          This text does not have the p tag.
+          <p>This text has a p tag.</p>
+        </mat-card-content>
+
+        <mat-card-actions class="d-flex">
+          <button class="me-auto" mat-button color="primary" mat-dialog-close="true">Tertiary</button>
+          <button mat-stroked-button mat-dialog-close>Cancel</button>
+          <button mat-flat-button color="primary" mat-dialog-close cdkFocusInitial>Install</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Checkbox</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <app-checkbox></app-checkbox>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Chip</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <chips-page></chips-page>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Date and time picker</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <app-time-picker></app-time-picker>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Dialog</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <dialog-page></dialog-page>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- <div class="col">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Drag and drop</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-drag-n-drop></app-drag-n-drop>
+      </mat-card-content>
+    </mat-card>
+  </div> -->
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Form field and input</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <app-form-field></app-form-field>
+          <app-input></app-input>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>List</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+        list component coming soon
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Menu</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <menu-page></menu-page>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- <div class="col">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Tree</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-tree></app-tree>
+      </mat-card-content>
+    </mat-card>
+  </div> -->
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Select</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <app-select></app-select>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Sidesheet</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <ba-sidesheet></ba-sidesheet>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Switch / toggle</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <slide-toggle-page></slide-toggle-page>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+  <mat-card appearance="outlined">
+    <div class="d-flex align-items-center" style="padding: 12px 16px;">
+      <mat-card-title>Table</mat-card-title>
+      <div class="ms-auto">
+        <a mat-button href="#" color="accent">
+          <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+        </a>
+      </div>
+    </div>
+    <mat-divider inset="true" style="margin-right: 16px;" />
+    <mat-card-content>
+    <table-page></table-page>
+    </mat-card-content>
+
+  </mat-card>
+
+  <hr>
+
+  <p class="body-medium-default">Components</p>
+<p><a href="/button">Button</a></p>
+<p><a routerLink="/radio">Radio button</a></p>
+
+<p><a href="/breadcrumb">Breadcrumb</a></p>
+<p><a routerLink="/card">Card</a></p>
+<p><a routerLink="/checkbox">Checkbox</a></p>
+<p><a routerLink="/chips">Chips</a></p>
+<p><a href="/dialog">Dialog</a></p>
+<p><a routerLink="/menu">Menu</a></p>
+<p><a href="/navigation-drawer">Navigation Drawer</a></p>
+<p><a href="/navigation-rail">Navigation Rail</a></p>
+
+<p><a routerLink="/progress-indicators">Progress Indicators</a></p>
+
+<p><a routerLink="/switch">Switch (Slide toggle)</a></p>
+<p><a routerLink="/select">Select</a></p>
+<p><a routerLink="/sidesheet">Sidesheet</a></p>
+<p><a routerLink="/tabs">Tabs</a></p>
+<p><a routerLink="/input">Text field, Textarea, input</a></p>
+<p><a routerLink="/form-field">Form Field</a></p>
+<p><a routerLink="/table">Table</a></p>
+
+<p><a routerLink="/tooltip">Tooltip</a></p>
+<p><a href="/top-app-bar">Top App Bar</a></p>
+<p><a routerLink="/user-profile">User Profile</a></p>

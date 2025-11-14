@@ -49,3 +49,40 @@
     <span matTextSuffix>lbs</span>
   </mat-form-field>
 </form>
+
+<h1 class="heading-low">Input</h1>
+<p><code>matInput</code> is a directive that allows native <code>input</code> and <code>textarea</code> elements to work with <code>mat-form-field</code>.</p>
+
+<h5>With placeholder</h5>
+<form>
+  <mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi">
+      <mat-hint>Supporting text</mat-hint>
+  </mat-form-field>
+
+
+<h5>Without placeholder</h5>
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <input matInput>
+    <mat-hint>Supporting text</mat-hint>
+</mat-form-field>
+
+
+<h5>Disabled</h5>
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <input matInput disabled>
+    <mat-hint>Supporting text</mat-hint>
+</mat-form-field>
+
+
+<h5>Input: text area</h5>
+<mat-form-field>
+  <mat-label>Leave a comment</mat-label>
+  <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    <mat-hint>Supporting text</mat-hint>
+</mat-form-field>
+
+</form>

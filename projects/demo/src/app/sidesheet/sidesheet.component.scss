@@ -1,0 +1,49 @@
+// Using CSS custom properties from global styles instead of importing SCSS variables
+
+:host {
+  mat-sidenav-container {
+    // height: 100vh;
+    height: 400px
+  }
+  mat-sidenav {
+    background-color: var(--color-ui-background-lowest);
+    display: flex;
+    flex-direction: column;
+
+    mat-toolbar {
+      justify-content: space-between;
+      background-color: var(--color-ui-background-lowest);
+      padding-top: var(--size-spacing-s);
+      padding-right: var(--size-spacing-s);
+      padding-bottom: var(--spacing-s);
+      padding-left: var(--spacing-xl);
+    }
+
+    .sidesheet-content {
+      flex-grow: 1;
+      padding: var(--spacing-s);
+    }
+
+    &.mat-drawer-over {
+      background-color: var(--color-ui-glass-surface-thick);
+      mat-toolbar {
+        background-color: var(--color-ui-glass-surface-thick);
+      }
+    }
+  }
+
+  .sidesheet-footer {
+    position: absolute;
+    padding: var(--spacing-m) var(--spacing-xl);
+    bottom: var(--spacing-none);
+    right: var(--spacing-none);
+    width: 100%;
+
+    .footer-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+  }
+}
