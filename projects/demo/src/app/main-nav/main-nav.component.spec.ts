@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimePickerComponent } from './time-picker.component';
+import { MainNavComponent } from './main-nav.component';
 
-describe('TimePickerComponent', () => {
-  let component: TimePickerComponent;
-  let fixture: ComponentFixture<TimePickerComponent>;
+describe('MainNavComponent', () => {
+  let component: MainNavComponent;
+  let fixture: ComponentFixture<MainNavComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TimePickerComponent]
+      imports: [MainNavComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TimePickerComponent);
+    fixture = TestBed.createComponent(MainNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
