@@ -78,8 +78,6 @@ mat-sidenav {
         background-color: var(--color-interactive-primary-background-hovered);
 
         .mat-icon {
-          overflow: visible;
-
           svg {
             filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
           }

@@ -76,18 +76,21 @@ mat-sidenav {
 
         .mdc-list-item__primary-text {
           text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
-          overflow: visible;
         }
 
         .mat-icon.mat-mdc-list-item-icon {
-          overflow: visible;
           filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
         }
       }
     }
 
     .mdc-list-item__primary-text {
-      font-weight: vars.$content-base-font-weight-medium;
+      /* Use the Material (`--mat-...`) custom properties which the Angular
+         Material list styles actually read for font-size/line-height/weight. */
+
+      --mat-list-list-item-label-text-size: #{vars.$responsive-type-label-low-size-m};
+      --mat-list-list-item-label-text-weight: #{vars.$content-base-font-weight-medium};
+      --mat-list-list-item-label-text-line-height: #{vars.$responsive-type-label-low-height-m};
     }
   }
 
