@@ -9,6 +9,12 @@
 body {
   background-color: var(--color-ui-background-lowest);
   font-family: 'Boeing Meso', sans-serif;
+  margin: 0;
+  overflow: hidden;
+}
+
+html, body {
+  height: 100%;
 }
 
 mat-sidenav-content {
