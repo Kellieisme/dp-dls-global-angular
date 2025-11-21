@@ -41,7 +41,7 @@ $ npm install
 
 ## Local development
 
-The Atmoshphere DLS Global Angular Component Library has a dependency on the Atmoshpere DLS Global Assets Library (`@jeppesen-foreflight/dp-dls-global-assets`). 
+The Atmosphere DLS Global Angular Component Library has a dependency on the Atmosphere DLS Global Assets Library (`@jeppesen-foreflight/dp-dls-global-assets`). 
 
 The package `@jeppesen-foreflight/dp-dls-global-assets` will be downloaded from the Github package registry, as long as the `.npmrc` file is present, as described above.
 
