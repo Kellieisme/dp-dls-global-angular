@@ -78,8 +78,6 @@ mat-sidenav {
         background-color: var(--color-interactive-primary-background-hovered);
 
         .mat-icon {
-          overflow: visible;
-
           svg {
             filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
           }
@@ -90,10 +88,9 @@ mat-sidenav {
         /* Use the Material (`--mat-...`) custom properties which the Angular
            Material list styles actually read for font-size/line-height/weight. */
 
-        --mat-list-list-item-label-text-size: #{vars.$responsive-type-label-medium-size-m};
-   //     --mat-list-list-item-label-text-tracking: #{vars.$content-base-font-tracking-medium};
+        --mat-list-list-item-label-text-size: #{vars.$responsive-type-label-low-size-m};
         --mat-list-list-item-label-text-weight: #{vars.$content-base-font-weight-medium};
-        --mat-list-list-item-label-text-line-height: #{vars.$responsive-type-label-medium-height-m};
+        --mat-list-list-item-label-text-line-height: #{vars.$responsive-type-label-low-height-m};
       }
     }
   }
