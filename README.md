@@ -5,10 +5,10 @@
 This README is for using the Angular libraries in your application. 
 
 ### Using
-How to consume the library in your Angular application, please refer to the documentation [here](https://github.com/dasdigitalplatform/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#using-the-global-angular-component-library-in-your-angular-project)
+How to consume the library in your Angular application, please refer to the documentation [here](https://github.com/jeppesen-foreflight/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#using-the-global-angular-component-library-in-your-angular-project)
 
 ### Contributing
-If you are interested in contributing to the UX Design System, please refer to the [library README](https://github.com/dasdigitalplatform/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#contributing-to-the-global-angular-component-library) for more in-depth instruction on contributing to the library.
+If you are interested in contributing to the UX Design System, please refer to the [library README](https://github.com/jeppesen-foreflight/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#contributing-to-the-global-angular-component-library) for more in-depth instruction on contributing to the library.
 
 ## Installation
 
@@ -20,16 +20,16 @@ npm install -g @angular/cli
 
 ### Create an .npmrc
 
-Public NPM packages will be installed from the Boeing SRES package repository (Jfrog Artifactory) and private NPM packages (`@jeppesen-foreflight/dls-global-assets`) will be downloaded from the Boeing Github package registry. To enable this, create a new filed named `.npmrc` in the project root. The content should be:
+Public NPM packages will be installed from private NPM packages (`@jeppesen-foreflight/dp-dls-global-assets`). To enable this, create a new filed named `.npmrc` in the project root. The content should be:
 
 ```
 @jeppesen-foreflight:registry=https://npm.pkg.github.com/
-//npm.pkg.github.com/:_authToken=GITLAB_AUTH_TOKEN
+//npm.pkg.github.com/:_authToken=GITHUB_AUTH_TOKEN
 
 ```
 
 Replace the folowing values:
-- GITLAB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
+- GITHUB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
 
 ### Install packages
 
@@ -37,19 +37,19 @@ Replace the folowing values:
 $ npm install
 ```
 
-> If npm install fails because it can't connect to Artifactory, it may help to first run `npm config set strict-ssl false`
+> If npm install fails, it may help to first run `npm config set strict-ssl false`
 
 ## Local development
 
-The Boeing DLS Global Angular Component Library has a dependency on the Boeing DLS Global Assets Library (`@jeppesen-foreflight/dls-global-assets`). 
+The Atmoshphere DLS Global Angular Component Library has a dependency on the Atmoshpere DLS Global Assets Library (`@jeppesen-foreflight/dp-dls-global-assets`). 
 
-The package `@jeppesen-foreflight/dls-global-assets` will be downloaded from the Github package registry, as long as the `.npmrc` file is present, as described above.
+The package `@jeppesen-foreflight/dp-dls-global-assets` will be downloaded from the Github package registry, as long as the `.npmrc` file is present, as described above.
 
-During ongoing development, it may be useful to have local changes made to the `@jeppesen-foreflight/dls-global-assets` package reflect immediately in the `dp-dls-global-angular`project. To enable this, create a NPM symlink.
+During ongoing development, it may be useful to have local changes made to the `@jeppesen-foreflight/dp-dls-global-assets` package reflect immediately in the `dp-dls-global-angular`project. To enable this, create a NPM symlink.
 
 1. In the `dls-global-assets` directory, run `npm link`. This command creates a global symlink to the package.
 
-2. In the `dp-dls-global-angular` directory, run `npm link @jeppesen-foreflight/dls-global-assets` to link the local version of `@jeppesen-foreflight/dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immeidately without publishing a new version to the NPM registry.
+2. In the `dp-dls-global-angular` directory, run `npm link @jeppesen-foreflight/dp-dls-global-assets` to link the local version of `@jeppesen-foreflight/dp-dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immeidately without publishing a new version to the NPM registry.
 
 *Note:* If you run `npm install` after creating the symlink, you need to recreate it by doing step 2 above.
 
@@ -59,7 +59,7 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The 
 
 ## Storybook server
 
-Run `npm run storybook` to start Storybook. Navigate to `http://localhost:6006/`. Storybook will automatically reload if you change any of the source files.
+Run `npm run storybook` to start Storybook. Storybook will automatically reload if you change any of the source files.
 
 ## Build
 
