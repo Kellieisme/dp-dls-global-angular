@@ -28,7 +28,7 @@ jobs:
     uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/lint.yml@spark-fix
     with:
       lint-yaml: true
-      node-version: 20
+      node-version: '22.14.0'
     secrets: inherit
   predict-version-number:
     name: Predict next version number
@@ -50,7 +50,7 @@ jobs:
           scheme: semver
           token: ${{ secrets.GITHUB_TOKEN }}
           increment: patch
-          release_branch: angular-19
+          release_branch: main
   codeql-scan:
     name: Run CodeQL scan
     permissions:
