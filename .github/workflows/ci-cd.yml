@@ -47,9 +47,9 @@ jobs:
         uses: jeppesen-foreflight/dp-actions-version-increment@v1.2
         id: version
         with:
-          scheme: ${{ inputs.version-scheme }}
+          scheme: semver
           token: ${{ secrets.GITHUB_TOKEN }}
-          increment: ${{ inputs.increment }}
+          increment: patch
           release_branch: angular-19
   # predict-version-number:
   #   name: Predict version number
