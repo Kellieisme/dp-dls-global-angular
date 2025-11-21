@@ -49,7 +49,7 @@ During ongoing development, it may be useful to have local changes made to the `
 
 1. In the `dls-global-assets` directory, run `npm link`. This command creates a global symlink to the package.
 
-2. In the `dp-dls-global-angular` directory, run `npm link @jeppesen-foreflight/dp-dls-global-assets` to link the local version of `@jeppesen-foreflight/dp-dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immeidately without publishing a new version to the NPM registry.
+2. In the `dp-dls-global-angular` directory, run `npm link @jeppesen-foreflight/dp-dls-global-assets` to link the local version of `@jeppesen-foreflight/dp-dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immediately without publishing a new version to the NPM registry.
 
 *Note:* If you run `npm install` after creating the symlink, you need to recreate it by doing step 2 above.
 
