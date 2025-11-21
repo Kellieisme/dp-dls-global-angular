@@ -29,7 +29,7 @@ Public NPM packages will be installed from private NPM packages (`@jeppesen-fore
 ```
 
 Replace the folowing values:
-- GITHUB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
+- GITHUB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITHUB_AUTH_TOKEN.
 
 ### Install packages
 
