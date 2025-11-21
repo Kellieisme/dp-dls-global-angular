@@ -20,7 +20,7 @@ npm install -g @angular/cli
 
 ### Create an .npmrc
 
-Public NPM packages will be installed from private NPM packages (`@jeppesen-foreflight/dp-dls-global-assets`). To enable this, create a new filed named `.npmrc` in the project root. The content should be:
+Public NPM packages will be installed from private NPM packages (`@jeppesen-foreflight/dp-dls-global-assets`). To enable this, create a new file named `.npmrc` in the project root. The content should be:
 
 ```
 @jeppesen-foreflight:registry=https://npm.pkg.github.com/
