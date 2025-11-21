@@ -8,20 +8,10 @@
 @use '@atmosphere/tokens/dist/scss/foundation-color' as color;
 @use '@atmosphere/tokens/dist/scss/fonts';
 
-$_initialized: false;
-
-@mixin initialize () {
-	@if not $_initialized {
-		@include density.generateDensityVariables();
-		@include color.generateColorThemeVariables();
-		@include breakpoints.generateBreakpointVariables();
-		@include fonts.boeing-meso('/assets/fonts');
-		$_initialized: true !global;
-	}
-}
-
-@include initialize();
-
+@include density.generateDensityVariables();
+@include color.generateColorThemeVariables();
+@include breakpoints.generateBreakpointVariables();
+@include fonts.boeing-meso('/assets/fonts');
 /* Icon styles */
 [class^="icon-"], [class*=" icon-"] { 
   display: inline-block;
