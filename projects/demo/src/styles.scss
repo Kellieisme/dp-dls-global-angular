@@ -1,10 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
-@use '../../design/dp-dls-global-angular/styles/material/core';
+@use '../../design/dp-dls-global-angular/styles/global.scss';
+@use '../../design/dp-dls-global-angular/styles/fonts.scss';
+
+// @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+// @use '../../design/dp-dls-global-angular/styles/material/core';
 
 body {
   background-color: var(--color-ui-background-lowest);
+  font-family: 'Boeing Meso', sans-serif;
 }
 
 mat-sidenav-content {
