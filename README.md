@@ -20,7 +20,7 @@ npm install -g @angular/cli
 
 ### Create an .npmrc
 
-The private NPM package (`@jeppesen-foreflight/dp-dls-global-assets`) will be installed from the GitHub package registry. To enable this, create a new file named `.npmrc` in the project root. The content should be:
+The private NPM package (`@jeppesen-foreflight/dls-global-assets`) will be installed from the GitHub package registry. To enable this, create a new file named `.npmrc` in the project root. The content should be:
 
 ```
 @jeppesen-foreflight:registry=https://npm.pkg.github.com/
@@ -41,15 +41,15 @@ $ npm install
 
 ## Local development
 
-The Atmosphere DLS Global Angular Component Library has a dependency on the Atmosphere DLS Global Assets Library (`@jeppesen-foreflight/dp-dls-global-assets`). 
+The Atmosphere DLS Global Angular Component Library has a dependency on the Atmosphere DLS Global Assets Library (`@jeppesen-foreflight/dls-global-assets`). 
 
-The package `@jeppesen-foreflight/dp-dls-global-assets` will be downloaded from the Github package registry, as long as the `.npmrc` file is present, as described above.
+The package `@jeppesen-foreflight/dls-global-assets` will be downloaded from the Github package registry, as long as the `.npmrc` file is present, as described above.
 
-During ongoing development, it may be useful to have local changes made to the `@jeppesen-foreflight/dp-dls-global-assets` package reflect immediately in the `dp-dls-global-angular`project. To enable this, create a NPM symlink.
+During ongoing development, it may be useful to have local changes made to the `@jeppesen-foreflight/dls-global-assets` package reflect immediately in the `dp-dls-global-angular`project. To enable this, create a NPM symlink.
 
 1. In the `dls-global-assets` directory, run `npm link`. This command creates a global symlink to the package.
 
-2. In the `dp-dls-global-angular` directory, run `npm link @jeppesen-foreflight/dp-dls-global-assets` to link the local version of `@jeppesen-foreflight/dp-dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immediately without publishing a new version to the NPM registry.
+2. In the `dp-dls-global-angular` directory, run `npm link @jeppesen-foreflight/dls-global-assets` to link the local version of `@jeppesen-foreflight/dls-global-assets` to the project. This allows you to work with the package locally and have your changes reflected immediately without publishing a new version to the NPM registry.
 
 *Note:* If you run `npm install` after creating the symlink, you need to recreate it by doing step 2 above.
 
