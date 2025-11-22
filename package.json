@@ -45,7 +45,7 @@
     "@angular/platform-server": "^20.3.13",
     "@angular/router": "^20.3.13",
     "@angular/ssr": "^20.3.11",
-    "@jeppesen-foreflight/dls-global-assets": "^4.0.2",
+    "@jeppesen-foreflight/dls-global-assets": "4.0.2",
     "bootstrap": "^5.3.8",
     "express": "^5.1.0",
     "release-please": "^17.1.3",
