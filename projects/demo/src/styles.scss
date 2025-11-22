@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 @use '../../design/dp-dls-global-angular/styles/global.scss';
-@use '../../design/dp-dls-global-angular/styles/material/core';
+
+// @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+// @use '../../design/dp-dls-global-angular/styles/material/core';
 
 /* Load fonts from assets package */
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/fonts' as fonts;
