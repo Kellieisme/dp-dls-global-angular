@@ -1,7 +1,6 @@
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation';
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color';
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints';
-@forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/fonts';
 
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/density';
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color' as color;
@@ -9,7 +8,6 @@
 @include density.generateDensityVariables();
 @include color.generateColorThemeVariables();
 @include breakpoints.generateBreakpointVariables();
-@include fonts.boeing-meso('/assets/fonts');
 
 /* Icon styles */
 [class^="icon-"], [class*=" icon-"] { 
