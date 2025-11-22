@@ -28,7 +28,7 @@ The private NPM package (`@jeppesen-foreflight/dls-global-assets`) will be insta
 
 ```
 
-Replace the folowing values:
+Replace the following values:
 - GITHUB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITHUB_AUTH_TOKEN.
 
 ### Install packages
