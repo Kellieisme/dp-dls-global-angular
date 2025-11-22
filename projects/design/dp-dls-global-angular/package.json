@@ -11,7 +11,7 @@
     "@angular/material": "^20.2.13",
     "@angular/platform-browser": "^20.3.12",
     "@angular/platform-server": "^20.3.12",
-    "@jeppesen-foreflight/dls-global-assets": "^2.1.5",
+    "@jeppesen-foreflight/dls-global-assets": "^4.0.0",
     "zone.js": "^0.15.1"
   },
   "dependencies": {
