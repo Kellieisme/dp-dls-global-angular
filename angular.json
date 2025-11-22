@@ -119,7 +119,6 @@
               { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
-              "projects/design/dp-dls-global-angular/styles/fonts.scss",
               "projects/design/dp-dls-global-angular/styles/global.scss",
               "projects/design/dp-dls-global-angular/styles/material.scss",
               "projects/demo/src/styles.scss"
@@ -190,7 +189,6 @@
               { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
-              "projects/design/dp-dls-global-angular/styles/fonts.scss",
               "projects/design/dp-dls-global-angular/styles/global.scss",
               "projects/design/dp-dls-global-angular/styles/material.scss",
               "projects/demo/src/styles.scss"
