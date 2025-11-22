@@ -3,11 +3,8 @@
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints';
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/fonts';
 
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints';
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/density';
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color' as color;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/fonts';
-
 @include density.generateDensityVariables();
 @include color.generateColorThemeVariables();
 @include breakpoints.generateBreakpointVariables();
