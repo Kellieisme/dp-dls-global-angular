@@ -5,6 +5,7 @@
 
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/density';
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color' as color;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints' as breakpoints;
 @include density.generateDensityVariables();
 @include color.generateColorThemeVariables();
 @include breakpoints.generateBreakpointVariables();
