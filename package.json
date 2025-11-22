@@ -1,6 +1,6 @@
 {
   "name": "@jeppesen-foreflight/dp-dls-global-angular",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "main": "dist/design/dp-dls-global-angular/index.d.ts",
   "workspaces": [
     "projects/design/dp-dls-global-angular"
