@@ -167,15 +167,12 @@ The first step in customizing an Angular Material component is initializing its 
 
 ```
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '../m3-theme.scss' as m3;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as foundation;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '../m3-theme.scss' as m3;
 ```
 
-All design tokens used in the style customizations should be referenced from `_variables.scss`, `_compositionMixins.scss`, `_typographyMixins.scss`, or `_bootstrapMixins.scss`. Do not hard code CSS properties. This ensures that when tokens change in Tokens Studio, the values will be reflected downstream without the need for code updates.
+All design tokens used in the style customizations should be referenced from the new `external-tokens` structure (foundation, component, density tokens), `_compositionMixins.scss`, `_typographyMixins.scss`, or `_linkMixins.scss`. Do not hard code CSS properties. This ensures that when tokens change in Tokens Studio, the values will be reflected downstream without the need for code updates.
 
 4. Apply the dark theme as the default theme. 
 

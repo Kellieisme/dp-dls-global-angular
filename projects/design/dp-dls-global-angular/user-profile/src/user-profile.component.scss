@@ -1,6 +1,3 @@
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss' as varsbase;
-
 .user-profile {
   display: flex;
   justify-content: center;
@@ -9,23 +6,23 @@
   overflow: hidden;
 
   &--display-only {
-    width: vars.$size-base-sizing-48px;
-    height: vars.$size-base-sizing-48px;
-    font-size: vars.$size-base-font-size-22px;
+    width: var(--size-base-sizing-48);
+    height: var(--size-base-sizing-48);
+    font-size: var(--size-base-font-size-22);
     cursor: default;
   }
 
   &--display-only-small {
-    width: vars.$size-base-sizing-24px;
-    height: vars.$size-base-sizing-24px;
-    font-size: vars.$size-base-font-size-14px;
+    width: var(--size-base-sizing-24);
+    height: var(--size-base-sizing-24);
+    font-size: var(--size-base-font-size-14);
     cursor: default;
   }
 
   &--clickable {
-    width: vars.$size-base-sizing-40px;
-    height: vars.$size-base-sizing-40px;
-    font-size: vars.$size-base-font-size-14px;
+    width: var(--size-base-sizing-40);
+    height: var(--size-base-sizing-40);
+    font-size: var(--size-base-font-size-14);
     cursor: pointer;
   }
 
@@ -39,8 +36,8 @@
     height: 100%;
 
     .user-profile--clickable & {
-      width: vars.$size-base-sizing-32px;
-      height: vars.$size-base-sizing-32px;
+      width: var(--size-base-sizing-32);
+      height: var(--size-base-sizing-32);
     }
   }
 
@@ -51,10 +48,10 @@
   }
 
   &__letter {
-    background-color: var(--color-static-gray);
-    color: var(--color-static-white);
-    font-family: vars.$content-base-font-family-boeing-meso;
-    font-weight: vars.$content-base-font-weight-medium;
+    background-color: var(--foundation-static-gray);
+    color: var(--foundation-static-white);
+    font-family: var(--content-base-font-family-boeing-meso);
+    font-weight: var(--content-base-font-weight-medium);
     font-style: normal;
     display: flex;
     justify-content: center;

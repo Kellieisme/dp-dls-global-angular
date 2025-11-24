@@ -1,6 +1,4 @@
 @use "@angular/material" as mat;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss";
 @use "../m3-theme" as m3;
 
 :root {
@@ -15,15 +13,15 @@
 
 .mat-mdc-tab {
   &:hover {
-    background: var(--color-interactive-primary-background-hovered);
+    background: var(--foundation-interactive-primary-background-hovered);
   }
 
   &:active {
-    background: var(--color-interactive-primary-background-selected);
+    background: var(--foundation-interactive-primary-background-selected);
   }
 
   &:focus {
-    background: var(--color-interactive-primary-background-enabled-tonal);
+    background: var(--foundation-interactive-primary-background-enabled-tonal);
   }
 
   .mdc-tab__text-label {
@@ -31,7 +29,7 @@
   }
 
   &.mdc-tab--active .mdc-tab__text-label {
-    font-weight: #{vars.$content-base-font-weight-bold};
+    font-weight: #{var(--content-base-font-weight-bold)};
   }
 }
 
@@ -42,18 +40,18 @@ html .theme-dark {
 
   .mat-mdc-tab-group,
   .mat-mdc-tab-nav-bar {
-    --mat-tab-active-indicator-color: var(--color-ui-embellishment);
-    --mat-tab-active-focus-indicator-color: var(--color-ui-embellishment);
+    --mat-tab-active-indicator-color: var(--foundation-ui-embellishment);
+    --mat-tab-active-focus-indicator-color: var(--foundation-ui-embellishment);
     // --mat-tab-disabled-ripple-color: rgba(201, 27, 27, 0.38);
     // --mat-tab-pagination-icon-color: black;
-    --mat-tab-inactive-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mat-tab-active-label-text-color: var(--color-interactive-primary-textandicon-selected);
-    --mat-tab-active-ripple-color: var(--color-interactive-primary-background-selected);
-    --mat-tab-inactive-ripple-color: var(--color-interactive-primary-background-primary-default);
+    --mat-tab-inactive-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+    --mat-tab-active-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+    --mat-tab-active-ripple-color: var(--foundation-interactive-primary-background-selected);
+    --mat-tab-inactive-ripple-color: var(--foundation-interactive-primary-background-primary-default);
     //--mat-tab-inactive-focus-label-text-color: rgba(0, 0, 0, 0.6);
-    --mat-tab-inactive-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
-    --mat-tab-active-focus-label-text-color: var(--color-interactive-primary-textandicon-selected);
-    --mat-tab-active-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
+    --mat-tab-inactive-hover-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+    --mat-tab-active-focus-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+    --mat-tab-active-hover-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
   }
 }
 
@@ -118,5 +116,5 @@ html .theme-dark {
   //--mat-tab-label-text-tracking: 0.0892857143em;
   //--mat-tab-label-text-line-height: 20px;
   // --mat-tab-container-height: $size-base-sizing-64px;
-  --mat-tab-label-text-weight: #{vars.$content-base-font-weight-medium};
+  --mat-tab-label-text-weight: #{var(--content-base-font-weight-medium)};
 }

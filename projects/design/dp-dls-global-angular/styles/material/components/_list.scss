@@ -1,5 +1,4 @@
 @use "@angular/material" as mat;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
 @use "../m3-theme" as m3;
 
@@ -30,11 +29,11 @@ mat-list-option.mat-mdc-list-option {
   }
 
   &.interactive:hover {
-    background-color: var(--color-interactive-primary-background-hovered);
+    background-color: var(--foundation-interactive-primary-background-hovered);
   }
 
   &.enableEmphasis {
-    background-color: var(--color-ui-background-high);
+    background-color: var(--foundation-ui-background-high);
   }
 
   &.mdc-list-item--with-trailing-meta .mdc-list-item__end {
@@ -57,8 +56,8 @@ mat-list-option.mat-mdc-list-option {
   }
 
   .overline {
-    font-size: vars.$responsive-type-label-low-size-s;
-    color: var(--color-ui-textandicon-low);
+    font-size: var(--responsive-type-label-low-size-s);
+    color: var(--foundation-ui-textandicon-low);
     display: flex;
   }
 
@@ -77,29 +76,29 @@ mat-list-option.mat-mdc-list-option {
   border-radius: var(--size-spacing-none) !important;
 
   .overline {
-    font-size: vars.$responsive-type-label-low-size-s;
-    color: var(--color-ui-textandicon-low);
+    font-size: var(--responsive-type-label-low-size-s);
+    color: var(--foundation-ui-textandicon-low);
   }
 }
 
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-list-list-item-label-text-color: var(--color-ui-textandicon-high);
-  --mat-list-list-item-hover-label-text-color: var(--color-interactive-primary-textandicon-selected);
-  --mat-list-list-item-focus-label-text-color: var(--color-interactive-primary-textandicon-selected);
-  --mat-list-list-item-container-color: var(--color-ui-background-medium);
-  --mat-list-list-item-hover-state-layer-color: var(--color-interactive-primary-background-hovered);
-  --mat-list-list-item-hover-state-layer-opacity: #{vars.$opacity-base-5};
-  --mat-list-list-item-focus-state-layer-color: var(--color-interactive-primary-background-selected);
-  --mat-list-list-item-focus-state-layer-opacity: #{vars.$opacity-base-12};
-  --mat-list-active-indicator-shape: #{vars.$size-relaxed-radius-full};
-  --mat-list-list-item-leading-icon-color: var(--color-interactive-primary-textandicon-secondary-default);
+  --mat-list-list-item-label-text-color: var(--foundation-ui-textandicon-high);
+  --mat-list-list-item-hover-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+  --mat-list-list-item-focus-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+  --mat-list-list-item-container-color: var(--foundation-ui-background-medium);
+  --mat-list-list-item-hover-state-layer-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-list-list-item-hover-state-layer-opacity: #{var(--opacity-base-5)};
+  --mat-list-list-item-focus-state-layer-color: var(--foundation-interactive-primary-background-selected);
+  --mat-list-list-item-focus-state-layer-opacity: #{var(--opacity-base-12)};
+  --mat-list-active-indicator-shape: #{var(--size-relaxed-radius-full)};
+  --mat-list-list-item-leading-icon-color: var(--foundation-interactive-primary-textandicon-secondary-default);
   // --mat-list-list-item-leading-icon-end-space: var(--size-spacing-m);
   // --mat-list-list-item-leading-icon-start-space: var(--size-spacing-none);
   --mat-list-list-item-hover-leading-icon-color: var(--box-shadow-interactive-primary-glow-backlit);
-  --mat-list-list-item-selected-container-color: var(--color-interactive-primary-background-selected);
-  --mat-list-list-item-supporting-text-color: var(--color-ui-textandicon-medium);
+  --mat-list-list-item-selected-container-color: var(--foundation-interactive-primary-background-selected);
+  --mat-list-list-item-supporting-text-color: var(--foundation-ui-textandicon-medium);
   --mat-radio-state-layer-size: var(--size-spacing-5xl);
   --mat-checkbox-state-layer-size: var(--size-spacing-5xl);
 }

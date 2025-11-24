@@ -1,29 +1,40 @@
-<ba-navigation-rail >
-
-    <ba-user-profile clickable class="avatar" userFirstName="William" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
-    <mat-menu #menuUserLetter="matMenu">
-      <button mat-menu-item class="user-info-menu-item">
-          <ba-user-profile variant="display-only" userFirstName="William"></ba-user-profile>
-          <div class="user-info">
-          <span class="user-name">Name</span>
-          <span class="additional-info">Additional info</span>
-          </div>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-          <span>Profile</span>
-      </button>
-      <button mat-menu-item>
-          <span>Preferences</span>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-          <mat-icon svgIcon="icon-question-mark">question-mark</mat-icon>
-          <span>Help and tutorials</span>
-      </button>
-      <button mat-menu-item>
-          <mat-icon svgIcon="icon-power-settings-new">power-settings-new</mat-icon>
-          <span>Sign out</span>
-      </button>
-    </mat-menu>
+<ba-navigation-rail
+  [hideLabels]="false"
+  [menuItems]="menuItems"
+  [wide]="true"
+  homeRoute="/"
+  appLogo="boeing-logomark"
+  [disableSidenavContent]="true"
+  [navRailBottomComponent1]="userProfile">
 </ba-navigation-rail>
+
+<ng-template #userProfile>
+  <ba-user-profile clickable class="avatar" userFirstName="William" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
+  <mat-menu #menuUserLetter="matMenu">
+    <button mat-menu-item class="user-info-menu-item">
+      <ba-user-profile variant="display-only" userFirstName="William"></ba-user-profile>
+      <div class="user-info">
+        <span class="user-name">William Smith</span>
+        <span class="additional-info">william.smith@example.com</span>
+      </div>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>
+      <mat-icon svgIcon="icon-person"></mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon svgIcon="icon-settings"></mat-icon>
+      <span>Preferences</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>
+      <mat-icon svgIcon="icon-help"></mat-icon>
+      <span>Help and tutorials</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon svgIcon="icon-logout"></mat-icon>
+      <span>Sign out</span>
+    </button>
+  </mat-menu>
+</ng-template>

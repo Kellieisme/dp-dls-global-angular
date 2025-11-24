@@ -1,11 +1,11 @@
 h6 {
-  color: var(--color-ui-textandicon-high);
+  color: var(--foundation-ui-textandicon-high);
   margin-bottom: 1rem;
 }
 
 ::ng-deep {
   .table-container {
     padding: 30px;
-    background-color: var(--color-ui-glass-surface-thick);
+    background-color: var(--foundation-ui-glass-surface-thick);
   }
 }

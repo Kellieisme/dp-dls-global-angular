@@ -1,23 +1,22 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 @use '../typography' as typography;
 @use '../m3-theme.scss' as m3;
 
 // Map to: xl-body-low-highlight
-$table-subtitle-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-body-low-size-xl,
-    $line-height: vars.$responsive-type-body-low-height-xl,
-    $font-weight: vars.$content-base-font-weight-bold,
-    $letter-spacing: vars.$responsive-type-body-low-letter-xl,
+$table-subtitle-2: mat.m2-define-typography-level($font-size: var(--responsive-type-body-low-size-xl),
+    $line-height: var(--responsive-type-body-low-height-xl),
+    $font-weight: var(--content-base-font-weight-bold),
+    $letter-spacing: var(--responsive-type-body-low-letter-xl),
   );
 
 // Map to: xl-body-low-default
-$table-body-2: mat.m2-define-typography-level($font-size: vars.$responsive-type-body-low-size-xl,
-    $line-height: vars.$responsive-type-body-low-height-xl,
-    $font-weight: vars.$content-base-font-weight-regular,
-    $letter-spacing: vars.$responsive-type-body-low-letter-xl,
+$table-body-2: mat.m2-define-typography-level($font-size: var(--responsive-type-body-low-size-xl),
+    $line-height: var(--responsive-type-body-low-height-xl),
+    $font-weight: var(--content-base-font-weight-regular),
+    $letter-spacing: var(--responsive-type-body-low-letter-xl),
   );
 
-$table-typography-config: mat.m2-define-typography-config($font-family: vars.$content-base-font-family-boeing-meso,
+$table-typography-config: mat.m2-define-typography-config($font-family: var(--content-base-font-family-boeing-meso),
     $headline-1: typography.$dls-headline-1,
     $headline-2: typography.$dls-headline-2,
     $headline-3: typography.$dls-headline-3,
@@ -72,11 +71,11 @@ $table-typography-config: mat.m2-define-typography-config($font-family: vars.$co
 
     th,
     .mat-mdc-header-cell {
-      background-color: var(--color-ui-background-medium);
+      background-color: var(--foundation-ui-background-medium);
     }
 
     td {
-      background-color: var(--color-ui-background-medium);
+      background-color: var(--foundation-ui-background-medium);
     }
 
     th:first-of-type {
@@ -109,9 +108,9 @@ html,
 html .theme-light,
 html .theme-dark {
   --mat-table-background-color: transparent;
-  --mat-table-row-item-label-text-color: var(--color-interactive-primary-textandicon-selected);
-  --mat-table-row-item-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-table-row-item-outline-color: var(--color-ui-divider-flat-high);
+  --mat-table-row-item-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+  --mat-table-row-item-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-table-row-item-outline-color: var(--foundation-ui-divider-flat-high);
 }
 
 html,
