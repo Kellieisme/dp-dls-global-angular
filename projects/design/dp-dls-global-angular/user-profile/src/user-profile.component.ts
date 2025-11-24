@@ -8,17 +8,19 @@ import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/i
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
- * The Atmosphere User Profile Component provides a means for an application to
- * display the currently logged-in user. It is configurable to use either an
- * image or a generic initial (similar in concept to MS Teams, Slack, etc.), and
- * is also configurable to be either clickable or static. In the clickable
- * presentation, a panel is opened allowing access to further controls such as
- * profile settings and logging out.
- *
- * At present, the component accepts three properties: the `clickable` flag,
- * a url/path for a user avatar image, and the user's first name. A possible
- * future state could condense the avatar image and first name inputs into a
- * single user object which could be used consistently between components.
+ * User Profile Component
+ * 
+ * Displays user avatar or monogram initial. Supports three display modes:
+ * - Display-only: 48x48px static avatar
+ * - Display-only-small: 24x24px static avatar  
+ * - Clickable: 40x40px interactive avatar with 32x32px inner content
+ * 
+ * Uses DLS foundation-ui tokens for theming and size-base tokens for dimensions.
+ * 
+ * @Input clickable - When true, renders in clickable/interactive mode
+ * @Input small - When true, renders in small display-only mode
+ * @Input userAvatarSource - URL/path to user image. Falls back to monogram if invalid
+ * @Input userFirstName - Required. User's first name, used to generate monogram initial
  */
 @Component({
     selector: 'ba-user-profile',
@@ -37,53 +39,51 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 export class UserProfileComponent {
 
   /**
-   * A flag denoting whether or not an instance of the User Profile component is
-   * clickable or is static. When the `clickable` property is present, the
-   * component will render in its actionable/clickable state.
-   *
+   * Renders component in interactive/clickable mode (40x40px with 32x32px inner content)
+   * Defaults to false (display-only mode at 48x48px)
    */
   @Input({ transform: coerceBooleanProperty }) clickable: boolean = false;
-  // I feel like there should be some way to infer ^this from the DOM. The
-  // component contains the class `mat-mdc-menu-trigger` when it is set up to be
-  // expandable. We should be able to use that directly, but I need to work out
-  // the syntax.
 
+  /**
+   * Renders component in small display-only mode (24x24px)
+   * Only applicable when clickable is false
+   */
   @Input({ transform: coerceBooleanProperty }) small: boolean = false;
 
   /**
-   * A string for an image source to use in rendering the User Profile
-   * component. If the string is either absent or fails a quick validation
-   * check, then the component will default to the monogram presentation.
+   * URL or path to user avatar image
+   * Falls back to monogram if absent or invalid (validates for image extensions or http URLs)
    */
   @Input() userAvatarSource: string = '';
 
   /**
-   * We'll pass the logged-in user's first name, and let the component determine
-   * the monogram from there.
-   *
-   * This input is REQUIRED.
+   * User's first name - REQUIRED
+   * Used to generate single-letter monogram when no valid image is provided
    */
   @Input({ required: true }) userFirstName!: string;
 
 
   /**
-   * Returns a boolean denoting whether or not the string supplied in the
-   * `imageSource` input represents an image file or not.
+   * Validates if userAvatarSource contains a valid image URL or path
+   * Checks for http/https URLs or common image file extensions
    */
   hasValidImageSource(): boolean {
     const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg'];
     return typeof this.userAvatarSource === 'string' &&
       (this.userAvatarSource.startsWith('http') || imageExtensions.some(ext => this.userAvatarSource.endsWith(ext)));
-  };
+  }
 
   /**
-   * Returns a single-initial monogram based on the logged-in user's first name.
-   * THe first name is passed into the component as the `userFirstName` input.
+   * Generates uppercase single-letter monogram from userFirstName
    */
   getMonogram(): string {
     return this.userFirstName.charAt(0).toUpperCase();
   }
 
+  /**
+   * Determines CSS class based on display mode
+   * Priority: clickable > small > default
+   */
   getProfileClass(): string {
     if (this.clickable) {
       return 'user-profile--clickable';

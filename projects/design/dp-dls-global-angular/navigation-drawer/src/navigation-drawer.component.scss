@@ -46,7 +46,7 @@ mat-sidenav {
   flex-direction: column;
   height: 100%;
   width: $side-nav-width;
-  backdrop-filter: blur(var(--size-base-shadow-blur-100));
+  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
   box-shadow: none;
   border-right-color: var(--mat-sidenav-container-divider-color, transparent);
   border-right-width: 1px;
@@ -170,8 +170,8 @@ html {
 }
 
 .hide-app-name {
-  opacity: var(--size-base-spacing--0px);
-  height: var(--size-base-spacing--0px);
+  opacity: 0;
+  height: 0;
   display: none;
 }
 

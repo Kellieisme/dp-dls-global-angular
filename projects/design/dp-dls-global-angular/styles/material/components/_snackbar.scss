@@ -12,7 +12,7 @@
 }
 
 .mat-mdc-snack-bar-container {
-  backdrop-filter: blur(var(--size-base-shadow-blur-100));
+  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
   
   .mdc-snackbar__label {
     padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-m);

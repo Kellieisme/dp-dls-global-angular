@@ -52,8 +52,8 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  backdrop-filter: blur(var(--size-base-shadow-blur-100));
-  border-right: var(--size-base-border-width-1) solid var(--foundation-ui-divider-flat-high);
+  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
+  border-right: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
   padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-xs);
 
   mat-list-item {

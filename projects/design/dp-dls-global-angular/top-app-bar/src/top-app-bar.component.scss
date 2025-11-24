@@ -236,7 +236,7 @@ mat-toolbar h1 {
     right: var(--size-spacing-s);
     top: var(--size-spacing-s);
     bottom: var(--size-spacing-s);
-    border-left: var(--size-base-border-width-1) solid var(--foundation-ui-divider-flat-high);
+    border-left: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
     height: 100%;
   }
 }

@@ -75,12 +75,12 @@ $composition-dark-ui-glass-border-specular-menu: rgba(255, 255, 255, 0.17);
       justify-content: center;
 
       .user-name {
-        font-size: var(--size-base-font-size-18);
+        font-size: var(--foundation-icon-xs, 18px);
         font-weight: var(--content-base-font-weight-medium);
       }
 
       .additional-info {
-        font-size: var(--size-base-font-size-12);
+        font-size: 12px;
         font-weight: var(--content-base-font-weight-regular);
         color: var(--foundation-interactive-primary-textandicon-secondary-default);
       }

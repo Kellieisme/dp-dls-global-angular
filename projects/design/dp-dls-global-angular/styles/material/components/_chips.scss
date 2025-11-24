@@ -52,7 +52,7 @@ html .theme-dark {
 		// --mat-chip-with-avatar-avatar-shape-radius: 14px 14px 14px 14px;
 		// --mat-chip-with-avatar-avatar-size: 28px;
 		// --mat-chip-with-icon-icon-size: 18px;
-		--mat-chip-outline-width: #{var(--size-base-border-width-1)};
+		--mat-chip-outline-width: #{var(--foundation-border-regular-width, 1px)};
 		--mat-chip-outline-color: var(--foundation-interactive-primary-border-enabled);
 		--mat-chip-disabled-outline-color: transparent;
 		--mat-chip-focus-outline-color: transparent;
