@@ -93,6 +93,11 @@ mat-sidenav {
 ::ng-deep .mat-drawer-inner-container {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+}
+
+mat-nav-list {
+  overflow: visible;
 }
 
 .sidenav-header {
