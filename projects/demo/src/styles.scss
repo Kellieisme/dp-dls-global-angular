@@ -2,9 +2,6 @@
 
 @use '../../design/dp-dls-global-angular/styles/global.scss';
 
-// @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
-// @use '../../design/dp-dls-global-angular/styles/material/core';
-
 /* Load fonts from assets package */
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/fonts' as fonts;
 @include fonts.boeing-meso('/assets/fonts');
@@ -20,17 +17,13 @@ html, body {
   height: 100%;
 }
 
-mat-sidenav-content {
-  padding: 1.25rem !important;
-}
-
 h6, h5 {
   color: var(--color-ui-textandicon-high);
   margin-bottom: 1rem;
   margin-top: 2rem;
 }
 
-p,h1,h2,div {
+p, h1, h2, div {
   color: var(--color-ui-textandicon-high);
 }
 

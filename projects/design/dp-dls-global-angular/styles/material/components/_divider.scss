@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/vars-divider' as divider;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '../m3-theme.scss' as m3;
 
@@ -38,5 +38,5 @@ html,
 html .theme-light,
 html .theme-dark {
   --mat-divider-color: var(--color-ui-divider-flat-high);
-  --mat-divider-width: #{vars.$size-base-border-width-1};
+  --mat-divider-width: #{divider.$component-divider-weight};
 }

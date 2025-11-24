@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/vars-topappbar' as topappbar;
 @use '../m3-theme.scss' as m3;
 
 
@@ -21,8 +21,8 @@ html .theme-dark {
 }
 
 html {
-	--mat-toolbar-standard-height: $size-base-sizing-64px;
-	--mat-toolbar-mobile-height: $size-base-sizing-48px;
+	--mat-toolbar-standard-height: topappbar.$component-top-app-bar-large-height;
+	--mat-toolbar-mobile-height: topappbar.$component-top-app-bar-compact-height;
 }
 
 html {

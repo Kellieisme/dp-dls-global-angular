@@ -1,17 +1,19 @@
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as foundation;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_linkMixins.scss' as links;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 body {
   background: var(--color-ui-background-lowest);
+  font-family: 'Boeing Meso', sans-serif;
+  color: var(--color-ui-textandicon-high);
 }
 
 .col {
-  margin-bottom: vars.$size-relaxed-spacing-2xl;
+  margin-bottom: var(--foundation-spacing-2xl);
 }
 
 .table-container {
-  padding: vars.$size-relaxed-spacing-2xl;
+  padding: var(--foundation-spacing-2xl);
   background-color: var(--color-ui-background-low);
 }
 

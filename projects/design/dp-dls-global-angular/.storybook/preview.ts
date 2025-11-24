@@ -14,7 +14,7 @@ const decorators: Preview['decorators'] = [
       relaxed: 'theme-relaxed',
       condensed: 'theme-condensed',
     },
-    defaultTheme: 'relaxed', // Default layout theme
+    defaultTheme: 'relaxed',
     parentSelector: 'body',
   }),
 ];

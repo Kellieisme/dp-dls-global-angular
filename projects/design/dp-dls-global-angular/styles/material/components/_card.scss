@@ -1,20 +1,10 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as foundation;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/vars-card' as card;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
-
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_media-breakpoints.scss' as mediabreakpoints;
 @use '../media-breakpointMixins' as breakpointMixin;
-
-// Use values from your local bootstrap module / mediabreakpoints module
-$grid-breakpoints: mediabreakpoints.$custom-grid-breakpoints !default;
-$container-max-widths : mediabreakpoints.$container-max-widths !default;
-$grid-gutter-width: 1.5rem !default;
-$gutters: breakpointMixin.$gutters !default;
-
-// NOTE: removed Bootstrap @import statements (functions/variables/mixins/grid)
-// They are not required; using local bootstrap helpers instead.
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
@@ -246,7 +236,7 @@ mat-card-actions {
 }
 
 .mat-mdc-card-subtitle {
-  text-transform: vars.$content-base-text-transform-uppercase;
+  text-transform: uppercase;
   color: var(--color-ui-textandicon-medium);
 }
 
