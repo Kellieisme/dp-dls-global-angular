@@ -59,6 +59,11 @@ mat-sidenav {
   }
 }
 
+::ng-deep .mat-sidenav-content {
+  padding: var(--size-relaxed-spacing-xl) !important;
+  overflow-y: auto;
+}
+
 // Apply padding to the inner container using ::ng-deep
 ::ng-deep mat-sidenav .mat-drawer-inner-container {
   padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-s) !important;
