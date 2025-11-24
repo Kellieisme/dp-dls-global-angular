@@ -79,7 +79,8 @@ const navRailTemplate = `
 type SidenavStory = StoryObj<NavigationRailComponent>;
 
 const baseArgs = {
-  appLogo: 'boeing',
+  appLogo: 'boeing-logomark',
+  homeRoute: '/',
   menuItems: MockSideRailMenuData
 };
 

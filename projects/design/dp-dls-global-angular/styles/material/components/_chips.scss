@@ -1,38 +1,10 @@
 @use '@angular/material' as mat;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
-@use '../typography' as typography;
-
-// Map to: xl-label-medium
-$chip-body-2: mat.m2-define-typography-level($font-size: var(--responsive-type-label-medium-size-xl),
-		$line-height: var(--responsive-type-label-medium-height-xl),
-		$font-weight: var(--content-base-font-weight-medium),
-		$letter-spacing: var(--responsive-type-label-medium-letter-xl),
-	);
-
-$chips-typography-config: mat.m2-define-typography-config($font-family: var(--content-base-font-family-boeing-meso),
-		$headline-1: typography.$dls-headline-1,
-		$headline-2: typography.$dls-headline-2,
-		$headline-3: typography.$dls-headline-3,
-		$headline-4: typography.$dls-headline-4,
-		$headline-5: typography.$dls-headline-5,
-		$headline-6: typography.$dls-headline-6,
-		$subtitle-1: typography.$dls-subtitle-1,
-		$subtitle-2: typography.$dls-subtitle-2,
-		$body-1: typography.$dls-body-1,
-		$body-2: $chip-body-2,
-		$caption: typography.$dls-caption,
-		$button: typography.$dls-button,
-	);
 
 :root {
-	// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-	// @include mat.checkbox-theme(m3.$dark-theme);
-	// If needed use the single dimension mixins to override particular aspects
-	// @include mat.button-base($dark-theme);
+	// Material 3 theme includes typography configuration from m3-theme.scss
 	@include mat.chips-theme(m3.$dark-theme);
-	@include mat.chips-typography($chips-typography-config);
-	// @include mat.button-density(m3.$dark-theme);
-
 }
 
 // Apply the light theme only when the user prefers light themes.

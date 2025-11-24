@@ -1,3 +1,5 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+
 // Constants
 $section-label-max-width: 82%;
 $side-nav-width: 360px;
@@ -82,12 +84,7 @@ mat-sidenav {
     }
 
     .mdc-list-item__primary-text {
-      /* Use the Material (`--mat-...`) custom properties which the Angular
-         Material list styles actually read for font-size/line-height/weight. */
-
-      --mat-list-list-item-label-text-size: #{var(--responsive-type-label-low-size-m)};
-      --mat-list-list-item-label-text-weight: #{var(--content-base-font-weight-medium)};
-      --mat-list-list-item-label-text-line-height: #{var(--responsive-type-label-low-height-m)};
+      @include typography.typography-m-label-low;
     }
   }
 
@@ -186,7 +183,7 @@ html {
   align-items: center;
 
   .section-header-label {
-    font-size: var(--responsive-type-label-medium-size-m);
+    @include typography.typography-m-label-medium;
     padding-left: var(--size-relaxed-spacing-m);
     color: var(--foundation-ui-textandicon-low);
     text-align: left;

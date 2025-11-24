@@ -1,4 +1,6 @@
-.sidenav-container {
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+
+mat-sidenav-container {
   .app-home-link {
     display: block;
 
@@ -82,12 +84,7 @@ mat-sidenav {
       }
 
       .mdc-list-item__primary-text {
-        /* Use the Material (`--mat-...`) custom properties which the Angular
-           Material list styles actually read for font-size/line-height/weight. */
-
-        --mat-list-list-item-label-text-size: #{var(--responsive-type-label-low-size-m)};
-        --mat-list-list-item-label-text-weight: #{var(--content-base-font-weight-medium)};
-        --mat-list-list-item-label-text-line-height: #{var(--responsive-type-label-low-height-m)};
+        @include typography.typography-m-label-medium;
       }
     }
   }
