@@ -6,23 +6,23 @@
   overflow: hidden;
 
   &--display-only {
-    width: var(--size-base-sizing-48);
-    height: var(--size-base-sizing-48);
-    font-size: var(--size-base-font-size-22);
+    width: var(--size-base-sizing-48px);
+    height: var(--size-base-sizing-48px);
+    font-size: var(--size-base-font-size-22px);
     cursor: default;
   }
 
   &--display-only-small {
-    width: var(--size-base-sizing-24);
-    height: var(--size-base-sizing-24);
-    font-size: var(--size-base-font-size-14);
+    width: var(--size-base-sizing-24px);
+    height: var(--size-base-sizing-24px);
+    font-size: var(--size-base-font-size-14px);
     cursor: default;
   }
 
   &--clickable {
-    width: var(--size-base-sizing-40);
-    height: var(--size-base-sizing-40);
-    font-size: var(--size-base-font-size-14);
+    width: var(--size-base-sizing-40px);
+    height: var(--size-base-sizing-40px);
+    font-size: var(--size-base-font-size-14px);
     cursor: pointer;
   }
 
@@ -36,8 +36,8 @@
     height: 100%;
 
     .user-profile--clickable & {
-      width: var(--size-base-sizing-32);
-      height: var(--size-base-sizing-32);
+      width: var(--size-base-sizing-32px);
+      height: var(--size-base-sizing-32px);
     }
   }
 
@@ -50,8 +50,8 @@
   &__letter {
     background-color: var(--foundation-static-gray);
     color: var(--foundation-static-white);
-    font-family: var(--content-base-font-family-boeing-meso);
-    font-weight: var(--content-base-font-weight-medium);
+    font-family: 'Boeing Meso', sans-serif;
+    font-weight: 500;
     font-style: normal;
     display: flex;
     justify-content: center;

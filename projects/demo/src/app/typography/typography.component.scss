@@ -1,5 +1,3 @@
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-
 mat-card {
   padding: 20px;
 }
@@ -10,23 +8,6 @@ mat-divider {
   position: relative;
 }
 
-// Typography styles
-.display-high { @include typography.typography-l-display-high; }
-.display-medium { @include typography.typography-l-display-medium; }
-.heading-high { @include typography.typography-l-heading-high; }
-.heading-medium { @include typography.typography-l-heading-medium; }
-.heading-low { @include typography.typography-l-heading-low; }
-.title-high { 
-  @include typography.typography-l-title-high;
+.title-high {
   margin: 1rem 0;
 }
-.title-medium { @include typography.typography-l-title-medium; }
-.title-low { @include typography.typography-l-title-low; }
-.body-high-default { @include typography.typography-l-body-high-default; }
-.body-medium-default { @include typography.typography-l-body-medium-default; }
-.body-low-default { @include typography.typography-l-body-low-default; }
-.label-high { @include typography.typography-m-label-high; }
-.label-medium { @include typography.typography-m-label-medium; }
-.label-low { @include typography.typography-m-label-low; }
-.label-lowest { @include typography.typography-m-label-lowest; }
-.label-lowest2 { @include typography.typography-m-label-lowest2; }

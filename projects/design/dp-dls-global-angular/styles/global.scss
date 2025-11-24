@@ -1,18 +1,38 @@
+// Forward DLS tokens and utilities
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation';
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color';
 @forward '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints';
+@forward 'typography-utilities';
 
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/density';
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color' as color;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints' as breakpoints;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/fonts' as fonts;
+
+// Initialize DLS variables
 @include density.generateDensityVariables();
 @include color.generateColorThemeVariables();
 @include breakpoints.generateBreakpointVariables();
+@include fonts.boeing-meso('/assets/fonts');
 
-/* Icon styles */
+// Icon styles
 [class^="icon-"], [class*=" icon-"] { 
   display: inline-block;
   width: 1em;
   height: 1em;
   fill: currentColor;
 }
+
+// Base element styles
+html, body { height: 100%; }
+
+body {
+  background-color: var(--foundation-ui-background-page);
+  color: var(--foundation-ui-textandicon-high);
+  font-family: 'Boeing Meso', sans-serif;
+  font-size: 12px;
+  margin: 0;
+  overflow: hidden;
+}
+
+h1 { color: var(--foundation-ui-textandicon-medium); }
