@@ -19,6 +19,28 @@
   @include mat.list-density(-2);
 }
 
+// Global override for navigation drawer list items
+mat-sidenav {
+  .mat-mdc-nav-list {
+    padding: 0 !important;
+  }
+
+  .mat-mdc-list-item.mdc-list-item {
+    height: auto !important;
+    min-height: 48px !important;
+    padding: var(--size-spacing-s) var(--size-spacing-m) !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+// Navigation rail specific overrides (narrower, centered layout)
+mat-sidenav-container:not(.labels-visible) mat-sidenav {
+  .mat-mdc-list-item.mdc-list-item {
+    padding: var(--size-spacing-s) var(--size-spacing-xs) !important;
+    justify-content: center;
+  }
+}
+
 .mat-mdc-list-item.mdc-list-item.list-item,
 mat-list-option.mat-mdc-list-option {
   border-radius: var(--size-spacing-none);

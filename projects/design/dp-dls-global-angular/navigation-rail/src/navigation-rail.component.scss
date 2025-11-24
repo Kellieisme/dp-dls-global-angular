@@ -84,7 +84,7 @@ mat-sidenav {
       }
 
       .mdc-list-item__primary-text {
-        @include typography.typography-m-label-medium;
+        @include typography.typography-m-label-low;
       }
     }
   }

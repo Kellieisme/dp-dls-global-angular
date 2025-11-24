@@ -47,55 +47,70 @@ mat-sidenav {
   height: 100%;
   width: $side-nav-width;
   backdrop-filter: blur(var(--size-base-shadow-blur-100));
-  padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-s);
   box-shadow: none;
   border-right-color: var(--mat-sidenav-container-divider-color, transparent);
   border-right-width: 1px;
   border-right-style: solid;
-  backdrop-filter: blur(var(--size-base-shadow-blur-100));
-  padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-s);
-
-  mat-list-item {
-    .mdc-list-item__content {
-      overflow: visible;
-    }
-    &.mat-mdc-list-item {
-      background-color: transparent;
-
-      &:focus {
-        background-color: var(--foundation-interactive-primary-background-enabled-tonal);
-      }
-
-      &:active {
-        background-color: var(--foundation-interactive-primary-background-selected);
-      }
-
-      &:hover:not(:disabled), &.mat-list-item--toggle-on {
-        background-color: var(--foundation-interactive-primary-background-hovered);
-
-        .mdc-list-item__primary-text {
-          text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
-        }
-
-        .mat-icon.mat-mdc-list-item-icon {
-          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
-        }
-      }
-    }
-
-    .mdc-list-item__primary-text {
-      @include typography.typography-m-label-low;
-    }
-  }
-
-  .mat-mdc-nav-list {
-    padding: var(--size-relaxed-spacing-none);
-  }
-
+  
   ba-user-profile {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+// Apply padding to the inner container using ::ng-deep
+::ng-deep mat-sidenav .mat-drawer-inner-container {
+  padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-s) !important;
+  
+  // Override Material's CSS custom properties at the container level
+  --mat-list-list-item-leading-icon-start-space: 0px;
+  --mat-list-list-item-leading-icon-end-space: 16px;
+  --mat-list-list-item-one-line-container-height: auto;
+}
+
+::ng-deep .mat-mdc-nav-list {
+  padding: 0 !important;
+}
+
+// Use the actual MDC class that Material renders
+::ng-deep mat-sidenav .mat-mdc-list-item.mdc-list-item {
+  background-color: transparent;
+  height: auto !important;
+  min-height: 48px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin-bottom: 4px !important;
+
+  .mdc-list-item__content {
+    overflow: visible;
+  }
+
+  .mdc-list-item__primary-text {
+    @include typography.typography-m-label-low;
+  }
+
+  &:focus {
+    background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  }
+
+  &:active {
+    background-color: var(--foundation-interactive-primary-background-selected);
+  }
+
+  &:hover:not(:disabled), 
+  &.mat-list-item--toggle-on {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+
+    .mdc-list-item__primary-text {
+      text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
+    }
+
+    .mat-icon.mat-mdc-list-item-icon {
+      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+    }
   }
 }
 
