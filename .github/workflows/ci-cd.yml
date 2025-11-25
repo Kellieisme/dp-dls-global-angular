@@ -29,6 +29,7 @@ jobs:
     with:
       lint-yaml: true
       node-version: '22.14.0'
+      cache-key: node-${{ runner.os }}-20251125-${{ hashFiles('**/package-lock.json') }}
     secrets: inherit
   predict-version-number:
     name: Predict next version number
@@ -60,7 +61,8 @@ jobs:
       packages: read
     uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/codeql-node-scan.yml@spark-fix
     with:
-      node-version: '22.14.0' 
+      node-version: '22.14.0'
+      cache-key: node-${{ runner.os }}-20251125-${{ hashFiles('**/package-lock.json') }}
     secrets: inherit
   publish-package:
     name: Publish package
@@ -75,6 +77,7 @@ jobs:
       node-version: '22.14.0'
       package-version: ${{ needs.predict-version-number.outputs.version }}
       project-path: dist/design/dp-dls-global-angular
+      cache-key: node-${{ runner.os }}-20251125-${{ hashFiles('**/package-lock.json') }}
     secrets: inherit
   create-release:
     name: Create release
