@@ -11,7 +11,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class IconRegistryModule {
   constructor(matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    console.log('IconRegistryModule: Registering SVG icon set from ./assets/svgSet.svg');
     matIconRegistry.addSvgIconSet(
       sanitizer.bypassSecurityTrustResourceUrl('./assets/svgSet.svg')
     );
