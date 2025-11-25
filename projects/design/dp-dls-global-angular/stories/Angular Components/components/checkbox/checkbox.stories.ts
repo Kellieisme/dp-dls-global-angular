@@ -28,7 +28,7 @@ export const Single: Story = {
   name: 'Single Checkbox',
   render: (args) => ({
     template: `
-      <div style="{background:var(--color-ui-background-low)}">
+      <div style="{background:var(--foundation-ui-background-low)}">
         <mat-checkbox
           [id]="id"
           [checked]="checked"
@@ -132,7 +132,7 @@ export const Nested: Story = {
         \`
 
         .example {
-          background: var(--color-ui-background-low);
+          background: var(--foundation-ui-background-low);
         }
         
         .example-list-section ul {

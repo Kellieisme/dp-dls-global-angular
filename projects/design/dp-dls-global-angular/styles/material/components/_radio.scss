@@ -1,5 +1,4 @@
 @use "@angular/material" as mat;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
 @use "../m3-theme" as m3;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins" as typographymixin;
@@ -91,14 +90,14 @@ html .theme-dark {
     // --mat-radio-disabled-selected-icon-color: black;
     // --mat-radio-disabled-unselected-icon-color: black;
     // --mat-radio-unselected-hover-icon-color: #212121;
-    --mat-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mat-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mat-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mat-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mat-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
-    --mat-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
-    // --mat-radio-ripple-color: var(--color-interactive-accent-textandicon-selected};
-    --mat-radio-checked-ripple-color: var(--color-interactive-accent-textandicon-selected);
+    --mat-radio-unselected-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+    --mat-radio-unselected-pressed-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+    --mat-radio-selected-focus-icon-color: var(--foundation-interactive-accent-textandicon-selected);
+    --mat-radio-selected-hover-icon-color: var(--foundation-interactive-accent-textandicon-selected);
+    --mat-radio-selected-icon-color: var(--foundation-interactive-accent-textandicon-default);
+    --mat-radio-selected-pressed-icon-color: var(--foundation-interactive-accent-textandicon-selected);
+    // --mat-radio-ripple-color: var(--foundation-interactive-accent-textandicon-selected};
+    --mat-radio-checked-ripple-color: var(--foundation-interactive-accent-textandicon-selected);
     // --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38)
   }
 
@@ -106,14 +105,14 @@ html .theme-dark {
     //   --mat-radio-disabled-selected-icon-color: black;
     //   --mat-radio-disabled-unselected-icon-color: black;
     //   --mat-radio-unselected-hover-icon-color: #212121;
-    --mat-radio-unselected-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mat-radio-unselected-pressed-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-    --mat-radio-selected-focus-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mat-radio-selected-hover-icon-color: var(--color-interactive-accent-textandicon-selected);
-    --mat-radio-selected-icon-color: var(--color-interactive-accent-textandicon-default);
-    --mat-radio-selected-pressed-icon-color: var(--color-interactive-accent-textandicon-selected);
-    // --mat-radio-ripple-color: var(--color-interactive-accent-textandicon-selected};
-    --mat-radio-checked-ripple-color: var(--color-interactive-accent-textandicon-selected);
+    --mat-radio-unselected-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+    --mat-radio-unselected-pressed-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+    --mat-radio-selected-focus-icon-color: var(--foundation-interactive-accent-textandicon-selected);
+    --mat-radio-selected-hover-icon-color: var(--foundation-interactive-accent-textandicon-selected);
+    --mat-radio-selected-icon-color: var(--foundation-interactive-accent-textandicon-default);
+    --mat-radio-selected-pressed-icon-color: var(--foundation-interactive-accent-textandicon-selected);
+    // --mat-radio-ripple-color: var(--foundation-interactive-accent-textandicon-selected};
+    --mat-radio-checked-ripple-color: var(--foundation-interactive-accent-textandicon-selected);
     // --mat-radio-disabled-label-color: #00000000;
   }
 }

@@ -140,7 +140,7 @@ const navDrawerTemplate = `
   [navBarBottomComponent1] = "sideNavNotificationsButton"
   [navBarBottomComponent2] = "sideNavProfileButton"
   [appName]="'Boeing App'"
-  [appLogo]="'boeing'"
+  [appLogo]="'boeing-logomark'"
   opened
   ></ba-navigation-drawer>
   ${bottomIcons}
@@ -336,7 +336,7 @@ const navRailAndDrawerTemplate = `
 
 const baseArgs = {
   appName: 'Boeing App',
-  appLogo: 'boeing',
+  appLogo: 'boeing-logomark',
   opened: true,
   sectionHeaderLabel: 'Main navigation',
   menuItems: [

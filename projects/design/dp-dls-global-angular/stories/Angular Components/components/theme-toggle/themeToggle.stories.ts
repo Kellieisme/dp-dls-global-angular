@@ -29,13 +29,13 @@ import { MatButtonModule } from '@angular/material/button';
     justify-content: space-evenly;"
     >
       <mat-slide-toggle (change)="onToggle()"></mat-slide-toggle>
-      <p style="color: var(--color-ui-textandicon-high);">
+      <p style="color: var(--foundation-ui-textandicon-high);">
         The theme captured through observable in ThemeToggleService is:</p> 
-      <h1 style="color: var(--color-ui-textandicon-high);">{{ themetext }}</h1>
+      <h1 style="color: var(--foundation-ui-textandicon-high);">{{ themetext }}</h1>
       <button mat-flat-button (click)="buttonClick()">
         Show Current Theme
       </button>
-      <p style="color: var(--color-ui-textandicon-high);">the current theme is : {{ buttonText }}</p>
+      <p style="color: var(--foundation-ui-textandicon-high);">the current theme is : {{ buttonText }}</p>
     </div>
   `,
 })
@@ -82,7 +82,7 @@ export const Default: StoryObj = {
   name: 'Default',
   render: (args: any) => ({
     props: args,
-    template: `<p style="color:var(--color-ui-textandicon-high)"> Click the toggle theme button to change between light and dark<p> <ba-theme-toggle></ba-theme-toggle>`,
+    template: `<p style="color:var(--foundation-ui-textandicon-high)"> Click the toggle theme button to change between light and dark<p> <ba-theme-toggle></ba-theme-toggle>`,
   }),
 };
 

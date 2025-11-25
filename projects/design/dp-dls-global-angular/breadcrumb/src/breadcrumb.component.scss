@@ -8,6 +8,6 @@
     content: '/';
     padding: 0 var(--size-spacing-2xs);
     @include typography.typography-s-body-medium-default;
-    color: var(--color-ui-divider-flat-high);
+    color: var(--foundation-ui-divider-flat-high);
   }
 }

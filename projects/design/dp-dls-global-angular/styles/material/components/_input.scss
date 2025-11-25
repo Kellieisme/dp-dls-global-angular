@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
@@ -92,37 +91,37 @@ html .theme-dark {
     }
 
     .mdc-floating-label--float-above {
-      --mat-form-field-filled-label-text-color: var(--color-interactive-primary-textandicon-secondary-default);
+      --mat-form-field-filled-label-text-color: var(--foundation-interactive-primary-textandicon-secondary-default);
     }
   }
 
   // Error state overrides
   .mat-mdc-form-field.mat-form-field-invalid {
-    --mat-form-field-filled-focus-label-text-color: var(--color-semantic-textandicon-error);
-    --mat-form-field-filled-label-text-color: var(--color-semantic-textandicon-error);
-    --mat-form-field-filled-hover-label-text-color: var(--color-semantic-textandicon-error);
+    --mat-form-field-filled-focus-label-text-color: var(--foundation-semantic-textandicon-error);
+    --mat-form-field-filled-label-text-color: var(--foundation-semantic-textandicon-error);
+    --mat-form-field-filled-hover-label-text-color: var(--foundation-semantic-textandicon-error);
 
     .mdc-text-field--invalid {
-      border: 1px solid var(--color-semantic-border-error);
+      border: 1px solid var(--foundation-semantic-border-error);
 
       &:hover {
-        border: 1px solid var(--color-semantic-border-error);
+        border: 1px solid var(--foundation-semantic-border-error);
       }
     }
 
     .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-      border: 1px solid var(--color-semantic-border-error);
+      border: 1px solid var(--foundation-semantic-border-error);
 
       &.mdc-text-field--focused {
-        border: 1px solid var(--color-semantic-border-error);
+        border: 1px solid var(--foundation-semantic-border-error);
       }
 
       &:hover {
-        border: 1px solid var(--color-semantic-border-error);
+        border: 1px solid var(--foundation-semantic-border-error);
       }
 
       .mdc-floating-label--float-above {
-        --mat-form-field-filled-label-text-color: var(--color-semantic-textandicon-error);
+        --mat-form-field-filled-label-text-color: var(--foundation-semantic-textandicon-error);
       }
     }
 
@@ -138,10 +137,10 @@ html .theme-dark {
     }
 
     &.mdc-text-field--focused {
-      border: 1px solid var(--color-interactive-primary-border-focused);
+      border: 1px solid var(--foundation-interactive-primary-border-focused);
 
       &:hover {
-        border: 1px solid var(--color-interactive-primary-border-focused);
+        border: 1px solid var(--foundation-interactive-primary-border-focused);
       }
     }
 
@@ -181,18 +180,18 @@ html .theme-dark {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-form-field-filled-caret-color: var(--color-interactive-accent-textandicon-default);
+  --mat-form-field-filled-caret-color: var(--foundation-interactive-accent-textandicon-default);
   // --mat-form-field-filled-focus-active-indicator-color: green; // underline below input
-  --mat-form-field-filled-focus-label-text-color: var(--color-interactive-accent-textandicon-default);
-  --mat-form-field-filled-container-color: var(--color-ui-glass-surface-thick);
-  --mat-form-field-filled-disabled-container-color: var(--color-interactive-primary-background-disabled);
-  --mat-form-field-filled-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-form-field-filled-hover-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-form-field-filled-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
-  --mat-form-field-filled-input-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-form-field-filled-disabled-input-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-form-field-filled-focus-label-text-color: var(--foundation-interactive-accent-textandicon-default);
+  --mat-form-field-filled-container-color: var(--foundation-ui-glass-surface-thick);
+  --mat-form-field-filled-disabled-container-color: var(--foundation-interactive-primary-background-disabled);
+  --mat-form-field-filled-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-form-field-filled-hover-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-form-field-filled-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
+  --mat-form-field-filled-input-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-form-field-filled-disabled-input-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   //   --mat-form-field-filled-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
-  --mat-form-field-filled-error-hover-label-text-color: var(--color-semantic-textandicon-error);
-  --mat-form-field-filled-error-focus-label-text-color: var(--color-semantic-textandicon-error);
-  --mat--filled-text-field-error-label-text-color: var(--color-semantic-textandicon-error);
+  --mat-form-field-filled-error-hover-label-text-color: var(--foundation-semantic-textandicon-error);
+  --mat-form-field-filled-error-focus-label-text-color: var(--foundation-semantic-textandicon-error);
+  --mat--filled-text-field-error-label-text-color: var(--foundation-semantic-textandicon-error);
 }

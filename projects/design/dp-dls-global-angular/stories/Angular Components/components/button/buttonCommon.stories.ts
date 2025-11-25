@@ -32,7 +32,7 @@ export default {
 } as Meta;
 
 const getTemplate = (type: string): string => `
-  <div style="background:var(--color-ui-background-low); padding: 20px">
+  <div style="background:var(--foundation-ui-background-low); padding: 20px">
     <button ${type} [disabled]="disabled" [color]="color">
       {{ text | titlecase }}
     </button>
@@ -99,7 +99,7 @@ const ButtonIconTemplate: StoryObj = {
   render: ({ color, disabled }) => ({
     props: { color, disabled },
     template: `
-    <div style="background:var(--color-ui-background-low); padding: 20px">
+    <div style="background:var(--foundation-ui-background-low); padding: 20px">
       <button 
         mat-icon-button 
         [disabled]="disabled"

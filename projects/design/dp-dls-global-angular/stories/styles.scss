@@ -1,22 +1,36 @@
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as foundation;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color' as color;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/density' as density;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_linkMixins.scss' as links;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
-body {
-  background: var(--color-ui-background-lowest);
+// Generate CSS custom properties for color theme variables
+@include color.generateColorThemeVariables();
+@include density.generateDensityVariables();
+
+html, body {
+  background: var(--foundation-ui-background-page);
+  font-family: 'Boeing Meso', sans-serif;
+  color: var(--foundation-ui-textandicon-high);
+  min-height: 100vh;
+}
+
+#storybook-root {
+  background: var(--foundation-ui-background-page);
+  min-height: 100vh;
 }
 
 .col {
-  margin-bottom: vars.$size-relaxed-spacing-2xl;
+  margin-bottom: var(--foundation-spacing-2xl);
 }
 
 .table-container {
-  padding: vars.$size-relaxed-spacing-2xl;
-  background-color: var(--color-ui-background-low);
+  padding: var(--foundation-spacing-2xl);
+  background-color: var(--foundation-ui-background-low);
 }
 
 div.link-sheet {
-  border: 1px solid var(--color-interactive-primary-border-focused);
+  border: 1px solid var(--foundation-interactive-primary-border-focused);
   margin-bottom: 20px;
   padding: 20px;
 
@@ -49,7 +63,7 @@ div.usage {
 
   code {
     font-family: 'Courier New', monospace;
-    color: var(--color-interactive-accent-textandicon-default);
+    color: var(--foundation-interactive-accent-textandicon-default);
   }
 }
 
@@ -81,12 +95,12 @@ div.link-sheet.accent.underlined.visited>a {
 div.link-sheet.accent.visited>a:visited {
   mat-icon {
     // THIS TOKEN IS NOT CURRENTLY BEING EXPORTED FROM THE TOKEN SERVICE
-    color: var(--color-interactive-accent-textandicon-visited, #DB8BFF);
+    color: var(--foundation-interactive-accent-textandicon-visited, #DB8BFF);
   }
 
   &.disabled {
     mat-icon {
-      color: var(--color-interactive-primary-textandicon-disabled);
+      color: var(--foundation-interactive-primary-textandicon-disabled);
     }
   }
 }

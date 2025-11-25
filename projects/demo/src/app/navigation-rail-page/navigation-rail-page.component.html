@@ -1,29 +1,24 @@
-<ba-navigation-rail >
+<div class="navigation-rail-demo">
+  <div class="demo-content">
+    <h1>Navigation Rail Component</h1>
+    <p>The navigation rail is displayed on the left side of this application.</p>
+    
+    <h2>Features</h2>
+    <ul>
+      <li>Slim vertical navigation (80px narrow, 100px wide)</li>
+      <li>Icon-based navigation with optional labels</li>
+      <li>Support for up to 4 bottom components (user profile, notifications, etc.)</li>
+      <li>Integrated with Angular Router</li>
+      <li>Theme-aware (light/dark mode support)</li>
+    </ul>
 
-    <ba-user-profile clickable class="avatar" userFirstName="William" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
-    <mat-menu #menuUserLetter="matMenu">
-      <button mat-menu-item class="user-info-menu-item">
-          <ba-user-profile variant="display-only" userFirstName="William"></ba-user-profile>
-          <div class="user-info">
-          <span class="user-name">Name</span>
-          <span class="additional-info">Additional info</span>
-          </div>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-          <span>Profile</span>
-      </button>
-      <button mat-menu-item>
-          <span>Preferences</span>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-          <mat-icon svgIcon="icon-question-mark">question-mark</mat-icon>
-          <span>Help and tutorials</span>
-      </button>
-      <button mat-menu-item>
-          <mat-icon svgIcon="icon-power-settings-new">power-settings-new</mat-icon>
-          <span>Sign out</span>
-      </button>
-    </mat-menu>
-</ba-navigation-rail>
+    <h2>Configuration</h2>
+    <p>The navigation rail in this demo is configured with:</p>
+    <ul>
+      <li><strong>Wide mode:</strong> 100px width</li>
+      <li><strong>Labels visible:</strong> Menu item labels shown</li>
+      <li><strong>App logo:</strong> Boeing logomark</li>
+      <li><strong>Bottom component:</strong> User profile with menu</li>
+    </ul>
+  </div>
+</div>

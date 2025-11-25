@@ -1,5 +1,4 @@
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss" as varsbase;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 // Constants
 $section-label-max-width: 82%;
@@ -27,7 +26,7 @@ mat-sidenav-container {
   mat-sidenav:not(.mat-drawer-opened) {
     transform: translate3d(0, 0, 0) !important;
     visibility: visible !important;
-    width: vars.$size-relaxed-spacing-8xl !important;
+    width: var(--size-relaxed-spacing-8xl) !important;
     overflow: hidden;
   }
 
@@ -47,57 +46,12 @@ mat-sidenav {
   flex-direction: column;
   height: 100%;
   width: $side-nav-width;
-  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
-  padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-s;
+  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
   box-shadow: none;
   border-right-color: var(--mat-sidenav-container-divider-color, transparent);
   border-right-width: 1px;
   border-right-style: solid;
-  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
-  padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-s;
-
-  mat-list-item {
-    .mdc-list-item__content {
-      overflow: visible;
-    }
-    &.mat-mdc-list-item {
-      background-color: transparent;
-
-      &:focus {
-        background-color: var(--color-interactive-primary-background-enabled-tonal);
-      }
-
-      &:active {
-        background-color: var(--color-interactive-primary-background-selected);
-      }
-
-      &:hover:not(:disabled), &.mat-list-item--toggle-on {
-        background-color: var(--color-interactive-primary-background-hovered);
-
-        .mdc-list-item__primary-text {
-          text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
-        }
-
-        .mat-icon.mat-mdc-list-item-icon {
-          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
-        }
-      }
-    }
-
-    .mdc-list-item__primary-text {
-      /* Use the Material (`--mat-...`) custom properties which the Angular
-         Material list styles actually read for font-size/line-height/weight. */
-
-      --mat-list-list-item-label-text-size: #{vars.$responsive-type-label-low-size-m};
-      --mat-list-list-item-label-text-weight: #{vars.$content-base-font-weight-medium};
-      --mat-list-list-item-label-text-line-height: #{vars.$responsive-type-label-low-height-m};
-    }
-  }
-
-  .mat-mdc-nav-list {
-    padding: vars.$size-relaxed-spacing-none;
-  }
-
+  
   ba-user-profile {
     display: flex;
     justify-content: center;
@@ -105,9 +59,69 @@ mat-sidenav {
   }
 }
 
+::ng-deep .mat-sidenav-content {
+  padding: var(--size-relaxed-spacing-xl) !important;
+  overflow-y: auto;
+}
+
+// Apply padding to the inner container using ::ng-deep
+::ng-deep mat-sidenav .mat-drawer-inner-container {
+  padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-s) !important;
+  
+  // Override Material's CSS custom properties at the container level
+  --mat-list-list-item-leading-icon-start-space: 0px;
+  --mat-list-list-item-leading-icon-end-space: 16px;
+  --mat-list-list-item-one-line-container-height: auto;
+}
+
+::ng-deep .mat-mdc-nav-list {
+  padding: 0 !important;
+}
+
+// Use the actual MDC class that Material renders
+::ng-deep mat-sidenav .mat-mdc-list-item.mdc-list-item {
+  background-color: transparent;
+  height: auto !important;
+  min-height: 48px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin-bottom: 4px !important;
+
+  .mdc-list-item__content {
+    overflow: visible;
+  }
+
+  .mdc-list-item__primary-text {
+    @include typography.typography-m-label-low;
+  }
+
+  &:focus {
+    background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  }
+
+  &:active {
+    background-color: var(--foundation-interactive-primary-background-selected);
+  }
+
+  &:hover:not(:disabled), 
+  &.mat-list-item--toggle-on {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+
+    .mdc-list-item__primary-text {
+      text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
+    }
+
+    .mat-icon.mat-mdc-list-item-icon {
+      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+    }
+  }
+}
+
 html .theme-condensed {
     .mat-sidenav {
-      padding: vars.$size-relaxed-spacing-m vars.$size-relaxed-spacing-s;
+      padding: var(--size-relaxed-spacing-m) var(--size-relaxed-spacing-s);
     }
 }
 
@@ -116,14 +130,14 @@ html {
     --mat-sidenav-container-width: #{$side-nav-width};
 
     .mdc-list-item--with-leading-icon.mdc-list-item {
-      padding-left: vars.$size-relaxed-spacing-none;
-      padding-right: vars.$size-relaxed-spacing-none;
+      padding-left: var(--size-relaxed-spacing-none);
+      padding-right: var(--size-relaxed-spacing-none);
     }
     .level2-nav,
     .level3-nav {
         .mat-list-item.mat-mdc-list-item,
         .mdc-list-item--with-leading-icon.mdc-list-item {
-          padding-left: vars.$size-relaxed-spacing-2xl;
+          padding-left: var(--size-relaxed-spacing-2xl);
         }
       }
   }
@@ -135,8 +149,8 @@ html {
 
   .divider {
     transform: rotate(36deg);
-    margin-left: vars.$size-relaxed-sizing-m;
-    margin-right: vars.$size-relaxed-sizing-m;
+    margin-left: var(--size-relaxed-sizing-m);
+    margin-right: var(--size-relaxed-sizing-m);
   }
 
   .app-home-link {
@@ -150,14 +164,14 @@ html {
 }
 
 .app-name {
-  color: var(--color-ui-textandicon-high);
+  color: var(--foundation-ui-textandicon-high);
   display: flex;
   align-items: center;
 }
 
 .hide-app-name {
-  opacity: vars.$size-base-spacing-0px;
-  height: vars.$size-base-spacing-0px;
+  opacity: 0;
+  height: 0;
   display: none;
 }
 
@@ -168,14 +182,14 @@ html {
 .navigation__app-icon--dark {
   display: block;
   &.letter-mark {
-    padding-left: vars.$size-relaxed-sizing-m;
+    padding-left: var(--size-relaxed-sizing-m);
   }
 }
 
 .theme-light .navigation__app-icon--light {
   display: block;
   &.letter-mark {
-    padding-left: vars.$size-relaxed-sizing-m;
+    padding-left: var(--size-relaxed-sizing-m);
   }
 }
 
@@ -189,9 +203,9 @@ html {
   align-items: center;
 
   .section-header-label {
-    font-size: vars.$responsive-type-label-medium-size-m;
-    padding-left: vars.$size-relaxed-spacing-m;
-    color: var(--color-ui-textandicon-low);
+    @include typography.typography-m-label-medium;
+    padding-left: var(--size-relaxed-spacing-m);
+    color: var(--foundation-ui-textandicon-low);
     text-align: left;
   }
 }
@@ -200,11 +214,11 @@ html {
   display: flex;
   flex-shrink: 0;
   position: absolute;
-  bottom: vars.$size-relaxed-spacing-s;
+  bottom: var(--size-relaxed-spacing-s);
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 vars.$size-relaxed-spacing-xs !important;
+  padding: 0 var(--size-relaxed-spacing-xs) !important;
 }
 
 .dropdown-icon {
@@ -215,7 +229,6 @@ html {
 
 mat-nav-list {
   flex: 1 1 auto;
-  overflow-y: auto;
   // padding: 0;
 }
 
@@ -229,8 +242,8 @@ mat-nav-list {
 }
 
 .mat-sidenav .mat-divider {
-  margin-top: vars.$size-relaxed-spacing-s;
-  margin-bottom: vars.$size-relaxed-spacing-s;
+  margin-top: var(--size-relaxed-spacing-s);
+  margin-bottom: var(--size-relaxed-spacing-s);
   &.sidenav-drag-handle {
     position: absolute;
     height: 100%;
@@ -238,7 +251,7 @@ mat-nav-list {
     right: 0;
     bottom: 0;
     margin: 0;
-    padding-left: vars.$size-relaxed-sizing-s;
+    padding-left: var(--size-relaxed-sizing-s);
 
     &.enabled {
       cursor: ew-resize;
@@ -246,19 +259,19 @@ mat-nav-list {
       &:hover,
       &:focus,
       &:active {
-        border-right-width: vars.$size-relaxed-spacing-2xs;
+        border-right-width: var(--size-relaxed-spacing-2xs);
       }
 
       &:hover {
-        border-color: var(--color-interactive-accent-border-hovered);
+        border-color: var(--foundation-interactive-accent-border-hovered);
       }
 
       &:focus {
-        border-color: var(--color-interactive-accent-border-selected);
+        border-color: var(--foundation-interactive-accent-border-selected);
       }
 
       &:active {
-        border-color: var(--color-interactive-accent-border-enabled);
+        border-color: var(--foundation-interactive-accent-border-enabled);
       }
     }
   }
