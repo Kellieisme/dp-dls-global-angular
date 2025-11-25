@@ -8,12 +8,20 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation-color' as color;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints' as breakpoints;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/fonts' as fonts;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_themeMixins.scss' as theme;
 
 // Initialize DLS variables
 @include density.generateDensityVariables();
 @include color.generateColorThemeVariables();
 @include breakpoints.generateBreakpointVariables();
 @include fonts.boeing-meso('/assets/fonts');
+
+// Output DLS color tokens at html level for dark theme by default
+html {
+  @include theme.theme-dark-color();
+  @include theme.theme-dark-box-shadow();
+  @include theme.theme-relaxed-size();
+}
 
 // Icon styles
 [class^="icon-"], [class*=" icon-"] { 

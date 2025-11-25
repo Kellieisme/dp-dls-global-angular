@@ -14,15 +14,42 @@
   @include mat.dialog-color(m3.$light-theme);
 }
 
-html,
-html .theme-light {
-  mat-dialog-container {
-    &.mat-mdc-dialog-container {
-      --mat-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+html mat-dialog-container.mat-mdc-dialog-container {
+  --mat-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  
+  // Set icon button defaults for dialog context
+  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-icon-button-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
 
-      p { margin-bottom: var(--size-spacing-s); }
+  p { margin-bottom: var(--size-spacing-s); }
 
-      .title-medium { margin-bottom: var(--size-spacing-s); }
+  .title-medium { margin-bottom: var(--size-spacing-s); }
+
+  // Ensure icons in dialog content inherit proper colors
+  mat-dialog-content {
+    .mat-icon {
+      color: var(--foundation-interactive-primary-textandicon-primary-default);
+    }
+
+    // Icon button sizing to prevent jumping on hover
+    .mat-mdc-icon-button {
+      width: var(--size-sizing-3xl, 40px);
+      height: var(--size-sizing-3xl, 40px);
+      padding: 0;
+
+      .mat-mdc-button-touch-target {
+        width: 100%;
+        height: 100%;
+      }
+
+      .mat-icon {
+        overflow: visible;
+      }
+    }
+    
+    // Accent icon buttons in dialogs
+    .mat-mdc-icon-button.mat-accent {
+      --mat-icon-button-color: var(--foundation-interactive-accent-textandicon-default);
     }
   }
 }

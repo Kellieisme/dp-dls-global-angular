@@ -421,10 +421,8 @@ html .theme-condensed {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
-  //   --mat-icon-button-icon-color: inherit;
+html {
+  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-icon-button-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-icon-button-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
@@ -433,14 +431,40 @@ html .theme-dark {
   //   --mat-icon-button-pressed-state-layer-opacity: 0.12
 }
 
-html .mat-mdc-icon-button.mat-primary,
-html .theme-light .mat-mdc-icon-button.mat-primary {
-  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+// Base icon button (no color attribute) - apply primary styling
+// Updated: 2025-11-25 - Added glow effects and proper color tokens
+html .mat-mdc-icon-button:hover:not([disabled]):not(.mat-accent):not(.mat-warn) {
+  background-color: var(--foundation-interactive-primary-background-hovered) !important;
+  
+  .mat-icon svg {
+    filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+  }
+}
+
+// Icon buttons with mat-unthemed class (new matIconButton syntax without color attribute)
+html .mat-mdc-icon-button.mat-unthemed {
+  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered) !important;
+    
+    .mat-icon svg {
+      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+    }
+  }
+}
+
+html .mat-mdc-icon-button.mat-primary {
+  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
   
   &:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-primary-background-hovered);
+    background-color: var(--foundation-interactive-primary-background-hovered) !important;
+    
+    .mat-icon svg {
+      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+    }
   }
 
   &.filled-primary {
@@ -455,13 +479,16 @@ html .theme-light .mat-mdc-icon-button.mat-primary {
   }
 }
 
-html .mat-mdc-icon-button.mat-accent,
-html .theme-light .mat-mdc-icon-button.mat-accent {
-  --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-default);
+html .mat-mdc-icon-button.mat-accent {
+  --mat-icon-button-color: var(--foundation-interactive-accent-textandicon-default);
   --mat-icon-button-state-layer-color: var(--foundation-interactive-accent-background-hovered);
   
   &:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-accent-background-hovered);
+    background-color: var(--foundation-interactive-accent-background-hovered) !important;
+    
+    .mat-icon svg {
+      filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
+    }
   }
 
   //   --mat-icon-button-ripple-color: rgba(255, 64, 129, 0.1)
@@ -478,7 +505,7 @@ html .theme-light .mat-mdc-icon-button.mat-accent {
 }
 
 html .mat-mdc-icon-button.mat-warn {
-  --mat-icon-button-icon-color: var(--foundation-semantic-textandicon-error);
+  --mat-icon-button-color: var(--foundation-semantic-textandicon-error);
   --mat-icon-button-state-layer-color: var(--foundation-semantic-background-error-tonal);
   --mat-icon-button-ripple-color: var(--foundation-semantic-background-error-tonal);
 

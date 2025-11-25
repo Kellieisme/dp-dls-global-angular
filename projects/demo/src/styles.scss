@@ -1,1 +1,28 @@
 @use '../../design/dp-dls-global-angular/styles/global.scss';
+
+// Import all Material component overrides
+@use '../../design/dp-dls-global-angular/styles/material/core';
+@use '../../design/dp-dls-global-angular/styles/material/components/autocomplete';
+@use '../../design/dp-dls-global-angular/styles/material/components/button';
+@use '../../design/dp-dls-global-angular/styles/material/components/sidenav';
+@use '../../design/dp-dls-global-angular/styles/material/components/menu';
+@use '../../design/dp-dls-global-angular/styles/material/components/card';
+@use '../../design/dp-dls-global-angular/styles/material/components/dialog';
+@use '../../design/dp-dls-global-angular/styles/material/components/list';
+@use '../../design/dp-dls-global-angular/styles/material/components/toolbar';
+@use '../../design/dp-dls-global-angular/styles/material/components/tabs';
+@use '../../design/dp-dls-global-angular/styles/material/components/chips';
+@use '../../design/dp-dls-global-angular/styles/material/components/divider';
+@use '../../design/dp-dls-global-angular/styles/material/components/icon';
+@use '../../design/dp-dls-global-angular/styles/material/components/table';
+@use '../../design/dp-dls-global-angular/styles/material/components/radio';
+@use '../../design/dp-dls-global-angular/styles/material/components/checkbox';
+@use '../../design/dp-dls-global-angular/styles/material/components/form-field';
+@use '../../design/dp-dls-global-angular/styles/material/components/input';
+@use '../../design/dp-dls-global-angular/styles/material/components/select';
+@use '../../design/dp-dls-global-angular/styles/material/components/snackbar';
+@use '../../design/dp-dls-global-angular/styles/material/components/datepicker';
+@use '../../design/dp-dls-global-angular/styles/material/components/slide-toggle';
+@use '../../design/dp-dls-global-angular/styles/material/components/tooltip';
+@use '../../design/dp-dls-global-angular/styles/material/components/progress-bar';
+@use '../../design/dp-dls-global-angular/styles/material/components/progress-spinner';
