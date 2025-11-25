@@ -3,13 +3,13 @@
 
 .col {
   // 2xl spacing for vertical rhythm between card columns
-  margin-bottom: var(--foundation-spacing-2xl);
+  margin-bottom: var(--size-spacing-2xl);
 }
 
 .card-grid {
   display: grid;
   // Using card padding for consistent gap between cards
-  gap: var(--foundation-spacing-m);
+  gap: var(--size-spacing-m);
   width: 100%;
   align-items: stretch;
 }
