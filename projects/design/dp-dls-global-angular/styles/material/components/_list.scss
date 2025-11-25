@@ -112,9 +112,9 @@ html .theme-dark {
   --mat-list-list-item-focus-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
   --mat-list-list-item-container-color: var(--foundation-ui-background-medium);
   --mat-list-list-item-hover-state-layer-color: var(--foundation-interactive-primary-background-hovered);
-  --mat-list-list-item-hover-state-layer-opacity: #{var(--opacity-base-5)};
+  --mat-list-list-item-hover-state-layer-opacity: 0.05;
   --mat-list-list-item-focus-state-layer-color: var(--foundation-interactive-primary-background-selected);
-  --mat-list-list-item-focus-state-layer-opacity: #{var(--opacity-base-12)};
+  --mat-list-list-item-focus-state-layer-opacity: 0.12;
   --mat-list-active-indicator-shape: #{var(--size-relaxed-radius-full)};
   --mat-list-list-item-leading-icon-color: var(--foundation-interactive-primary-textandicon-secondary-default);
   // --mat-list-list-item-leading-icon-end-space: var(--size-spacing-m);

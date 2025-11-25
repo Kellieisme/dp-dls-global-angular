@@ -12,18 +12,16 @@
   @include mat.icon-button-color(m3.$light-theme);
 }
 
-// Define state layer colors and opacities
-// Base are tokens used because Material needs color and opacity as seperate properties,
-// but our alias tokens combine them into a single 8-character hex color
+// Define state layer opacities for Material components
 html {
-  --state-layer-background-opacity-hovered: yellow;
-  --state-layer-background-opacity-selected: green;
+  --state-layer-background-opacity-hovered: 0.05;
+  --state-layer-background-opacity-selected: 0.12;
 }
 
 // Add glow effects to hovered and pressed buttons
 .mat-mdc-button,
 .mat-mdc-outlined-button,
-.mat-mdc-icon-button {
+.mat-mdc-unelevated-button {
 
   &:hover,
   &:focus {
@@ -39,6 +37,13 @@ html {
 
       svg {
         filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+      }
+    }
+    
+    // Add state layer hover for text and outlined buttons
+    &:not(.mat-mdc-unelevated-button):not([disabled]) {
+      .mat-mdc-button-persistent-ripple::before {
+        opacity: var(--state-layer-background-opacity-hovered);
       }
     }
 
@@ -109,19 +114,52 @@ html {
   }
 }
 
+// Add hover background color for text buttons (but not icon buttons)
+.mat-mdc-button:not(.mat-mdc-icon-button) {
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-primary:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-accent:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-accent-background-hovered);
+  }
+}
+
+// Add hover background color for filled buttons
+.mat-mdc-unelevated-button {
+  &:hover:not([disabled]) {
+    background-color: color-mix(in srgb, var(--foundation-interactive-primary-background-hovered), var(--mat-button-filled-container-color));
+  }
+  
+  &.mat-primary:hover:not([disabled]) {
+    background-color: color-mix(in srgb, var(--foundation-interactive-primary-background-hovered), var(--mat-button-filled-container-color));
+  }
+  
+  &.mat-accent:hover:not([disabled]) {
+    background-color: color-mix(in srgb, var(--foundation-interactive-accent-background-hovered), var(--mat-button-filled-container-color));
+  }
+}
+
 // Border color customizations for outlined button
 .mat-mdc-outlined-button {
 
-  &:hover,
-  &:focus {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
     border-color: var(--foundation-interactive-primary-border-hovered-flat);
+    background-color: var(--foundation-interactive-primary-background-hovered);
 
     &.mat-primary {
       border-color: var(--foundation-interactive-primary-border-hovered-flat);
+      background-color: var(--foundation-interactive-primary-background-hovered);
     }
 
     &.mat-accent {
       border-color: var(--foundation-interactive-accent-border-hovered);
+      background-color: var(--foundation-interactive-accent-background-hovered);
     }
   }
 
@@ -280,7 +318,6 @@ html .theme-dark {
 .mat-mdc-unelevated-button.mat-warn {
   --mat-button-filled-container-color: var(--foundation-semantic-background-error-filled);
   --mat-button-filled-state-layer-color: var(--foundation-semantic-background-error-tonal);
-  --mat-button-filled-ripple-color: rgba(255, 255, 255, 0.1);
   --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
 }
 
@@ -325,7 +362,6 @@ html .theme-dark {
   --mat-button-outlined-label-text-color: var(--foundation-semantic-textandicon-error);
   --mat-button-outlined-outline-color: var(--foundation-semantic-background-error-filled);
   --mat-button-outlined-state-layer-color: var(--foundation-semantic-background-error-tonal);
-  --mat-button-outlined-ripple-color: var(--foundation-semantic-background-error-tonal)
 }
 
 html,
@@ -338,6 +374,51 @@ html .theme-condensed {
   //   --mat-button-filled-touch-target-display: block;
   //   --mat-button-protected-touch-target-display: block;
   //   --mat-button-outlined-touch-target-display: block
+}
+
+// Fix icon button size to prevent jumping on hover
+.mat-mdc-icon-button {
+  width: var(--size-sizing-3xl, 40px);
+  height: var(--size-sizing-3xl, 40px);
+  padding: 0;
+  
+  .mat-mdc-button-touch-target {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mat-icon {
+    overflow: visible;
+  }
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    .mat-mdc-button-persistent-ripple::before {
+      opacity: var(--state-layer-background-opacity-hovered);
+    }
+    
+    .mat-icon {
+      svg {
+        filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+      }
+    }
+
+    &.mat-primary {
+      .mat-icon {
+        svg {
+          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+        }
+      }
+    }
+
+    &.mat-accent {
+      .mat-icon {
+        svg {
+          filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
+        }
+      }
+    }
+  }
 }
 
 html,
@@ -357,6 +438,10 @@ html .theme-light .mat-mdc-icon-button.mat-primary {
   --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
 
   &.filled-primary {
     background-color: var(--foundation-interactive-primary-background-enabled-filled);
@@ -374,6 +459,10 @@ html .mat-mdc-icon-button.mat-accent,
 html .theme-light .mat-mdc-icon-button.mat-accent {
   --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-default);
   --mat-icon-button-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-accent-background-hovered);
+  }
 
   //   --mat-icon-button-ripple-color: rgba(255, 64, 129, 0.1)
   &.filled-accent {

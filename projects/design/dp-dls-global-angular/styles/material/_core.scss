@@ -2,10 +2,7 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_themeMixins.scss' as theme;
 @use './m3-theme.scss' as m3;
 
-
-
 :root {
-
   @include mat.elevation-classes();
   @include mat.app-background();
 

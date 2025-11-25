@@ -40,11 +40,8 @@ html .theme-condensed {
   --mat-slide-toggle-track-width: var(--size-sizing-5xl);
   --mat-slide-toggle-unselected-icon-size: 18px;
 
-  // --mat-slide-toggle-selected-focus-state-layer-opacity: 0.12;
-  --mat-slide-toggle-selected-hover-state-layer-opacity: #{var(--opacity-base-5)};
-  // --mat-slide-toggle-selected-pressed-state-layer-opacity: 0.1;
-  // --mat-slide-toggle-unselected-focus-state-layer-opacity: 0.12;
-  --mat-slide-toggle-unselected-hover-state-layer-opacity: #{var(--opacity-base-5)};
+  --mat-slide-toggle-selected-hover-state-layer-opacity: 0.05;
+  --mat-slide-toggle-unselected-hover-state-layer-opacity: 0.05;
   // --mat-slide-toggle-unselected-pressed-state-layer-opacity: 0.1;
   // --mat-slide-toggle-disabled-selected-handle-opacity: 0.38;
   // --mat-slide-toggle-disabled-unselected-handle-opacity: 0.38;

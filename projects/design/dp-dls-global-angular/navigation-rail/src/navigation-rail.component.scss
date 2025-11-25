@@ -56,6 +56,11 @@ mat-sidenav {
   border-right: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
   padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-xs);
 
+  .theme-relaxed & {
+    padding-left: var(--foundation-spacing-xs, 8px);
+    padding-right: var(--foundation-spacing-xs, 8px);
+  }
+
   mat-list-item {
     &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
       height: var(--size-relaxed-spacing-5xl);
@@ -90,19 +95,9 @@ mat-sidenav {
   }
 }
 
-::ng-deep .mat-sidenav-content {
-  padding: var(--size-relaxed-spacing-xl) !important;
-  overflow-y: auto;
-}
-
 ::ng-deep .mat-drawer-inner-container {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-}
-
-mat-nav-list {
-  overflow: visible;
 }
 
 .sidenav-header {
