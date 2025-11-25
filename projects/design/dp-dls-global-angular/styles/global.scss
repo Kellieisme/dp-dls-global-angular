@@ -38,7 +38,7 @@ body {
   background-color: var(--foundation-ui-background-page);
   color: var(--foundation-ui-textandicon-high);
   font-family: 'Boeing Meso', sans-serif;
-  font-size: 12px;
+  font-size: var(--foundation-font-size-base);
   margin: 0;
   overflow: hidden;
 }

@@ -4,26 +4,26 @@
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  background-color: var(--foundation-ui-background-medium, #23313d);
+  background-color: var(--foundation-ui-background-medium);
 
   &--display-only {
     width: var(--foundation-sizing-6xl-fixed, 48px);
     height: var(--foundation-sizing-6xl-fixed, 48px);
-    font-size: 22px;
+    font-size: var(--foundation-sizing-2xl-fixed, 22px);
     cursor: default;
   }
 
   &--display-only-small {
     width: var(--foundation-sizing-3xl-fixed, 24px);
     height: var(--foundation-sizing-3xl-fixed, 24px);
-    font-size: 14px;
+    font-size: var(--foundation-sizing-s-fixed, 14px);
     cursor: default;
   }
 
   &--clickable {
     width: var(--foundation-sizing-5xl-fixed, 40px);
     height: var(--foundation-sizing-5xl-fixed, 40px);
-    font-size: 14px;
+    font-size: var(--foundation-sizing-s-fixed, 14px);
     cursor: pointer;
   }
 

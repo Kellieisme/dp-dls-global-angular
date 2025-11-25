@@ -64,13 +64,15 @@ export class DensityToggleService {
       if (savedDensity) {
         initDensity = savedDensity;
       }
+    }
+    this.document.body.classList.remove(Density.RELAXED, Density.CONDENSED);
+    this.document.body.classList.add(initDensity);
+    if (isPlatformBrowser(platformId)) {
       this.updateCurrentDensity(initDensity);
     }
     else {
       this.updateCurrentDensity(initDensity, true);
     }
-    this.document.body.classList.remove(Density.RELAXED, Density.CONDENSED);
-    this.document.body.classList.add(this.currentDensity);
   }
 
   /**
