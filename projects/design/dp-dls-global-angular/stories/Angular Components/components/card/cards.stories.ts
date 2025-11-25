@@ -471,7 +471,7 @@ const gridCSS = `
 }
 
 .example-card-footer {
-  padding: 16px;
+  padding: var(--size-spacing-s);
 }
 
 .cols-1 { grid-template-columns: 1fr; }

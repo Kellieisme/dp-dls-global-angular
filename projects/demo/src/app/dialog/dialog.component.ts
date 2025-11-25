@@ -17,18 +17,18 @@ import { MatButtonModule } from '@angular/material/button';
         IconRegistryModule,
     ],
     template: `
-     <div class="dialog-header">
-      <div>
+     <div style="display: flex;">
+      <div style="padding: var(--size-spacing-l) 0 0 var(--size-spacing-l); margin-bottom: 0;">
         <mat-icon svgIcon="icon-warning"></mat-icon>
       </div>
-      <div class="dialog-header-actions">
-        <button mat-icon-button mat-dialog-close="true">
+      <div style="padding: var(--size-spacing-2xs) var(--size-spacing-2xs) 0 0; margin-bottom: 0; margin-left: auto;">
+        <button matIconButton mat-dialog-close="true">
           <mat-icon svgIcon="icon-close"></mat-icon>
         </button>
       </div>
     </div>
 
-    <h2 mat-dialog-title>Dialog Title</h2>
+    <h2 mat-dialog-title style="padding-top: var(--size-spacing-none); margin-top: var(--size-spacing-none);">Dialog Title</h2>
 
     <mat-dialog-content>
       <p>
@@ -136,11 +136,9 @@ import { MatButtonModule } from '@angular/material/button';
 </div>
 
 
-    </mat-dialog-content>
-
-    <mat-dialog-actions>
-      <button mat-stroked-button color="primary" mat-dialog-close>Cancel</button>
-      <button mat-flat-button color="primary" cdkFocusInitial mat-dialog-close>Accept</button>
+    <mat-dialog-actions style="display: flex; gap: var(--size-spacing-xs);">
+      <button matButton="outlined" color="primary" mat-dialog-close>Cancel</button>
+      <button matButton="filled" color="primary" cdkFocusInitial mat-dialog-close>Accept</button>
     </mat-dialog-actions>
   `,
     styleUrl: './dialog-page.component.scss'

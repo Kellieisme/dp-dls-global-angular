@@ -4,5 +4,5 @@
   <h1>{{ crumbs[breadcrumbData - 1].label }}</h1>
   <p>Welcome to {{ crumbs[breadcrumbData - 1].label }}. Click the button below to go to the next level.</p>
   <br>
-  <button mat-flat-button (click)="goToNextLevel()" [disabled]="breadcrumbData >= crumbs.length">Next Level</button>
+  <button matButton="filled" (click)="goToNextLevel()" [disabled]="breadcrumbData >= crumbs.length">Next Level</button>
 </div>

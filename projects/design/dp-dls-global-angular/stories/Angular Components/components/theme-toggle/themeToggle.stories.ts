@@ -32,7 +32,7 @@ import { MatButtonModule } from '@angular/material/button';
       <p style="color: var(--foundation-ui-textandicon-high);">
         The theme captured through observable in ThemeToggleService is:</p> 
       <h1 style="color: var(--foundation-ui-textandicon-high);">{{ themetext }}</h1>
-      <button mat-flat-button (click)="buttonClick()">
+      <button matButton="filled" (click)="buttonClick()">
         Show Current Theme
       </button>
       <p style="color: var(--foundation-ui-textandicon-high);">the current theme is : {{ buttonText }}</p>

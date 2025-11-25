@@ -32,7 +32,7 @@ export default {
 } as Meta;
 
 const getTemplate = (type: string): string => `
-  <div style="background:var(--foundation-ui-background-low); padding: 20px">
+  <div style="background:var(--foundation-ui-background-low); padding: var(--size-spacing-m)">
     <button ${type} [disabled]="disabled" [color]="color">
       {{ text | titlecase }}
     </button>
@@ -50,7 +50,7 @@ const getTemplate = (type: string): string => `
   </div>
   <style>
     button {
-      margin: 10px;
+      margin: var(--size-spacing-xs);
     }
   </style>
 `;
@@ -68,7 +68,7 @@ export const Text: StoryObj = {
   ...ButtonTemplate,
   render: ({ color, text, disabled }) => ({
     props: { color, text, disabled },
-    template: getTemplate('mat-button'),
+    template: getTemplate('matButton'),
   }),
   name: 'Text',
 };
@@ -77,7 +77,7 @@ export const Outlined: StoryObj = {
   ...ButtonTemplate,
   render: ({ color, text, disabled }) => ({
     props: { color, text, disabled },
-    template: getTemplate('mat-stroked-button'),
+    template: getTemplate('matButton="outlined"'),
   }),
   name: 'Outlined',
 };
@@ -86,7 +86,7 @@ export const Filled: StoryObj = {
   ...ButtonTemplate,
   render: ({ color, text, disabled }) => ({
     props: { color, text, disabled },
-    template: getTemplate('mat-flat-button'),
+    template: getTemplate('matButton="filled"'),
   }),
   name: 'Filled',
 };
@@ -99,45 +99,15 @@ const ButtonIconTemplate: StoryObj = {
   render: ({ color, disabled }) => ({
     props: { color, disabled },
     template: `
-    <div style="background:var(--foundation-ui-background-low); padding: 20px">
+    <div style="background:var(--foundation-ui-background-low); padding: var(--size-spacing-m)">
       <button 
-        mat-icon-button 
+        matIconButton
         [disabled]="disabled"
         [color]="color"
       >
         <mat-icon svgIcon="icon-favorite"></mat-icon>
       </button>
-
-      <button 
-      mat-icon-button
-      class='filled-${color}' 
-      [disabled]="disabled"
-      [color]="color"
-    >
-      <mat-icon svgIcon="icon-favorite"></mat-icon>
-    </button>
-
     </div>
-    <style>
-    .filled-primary {
-      background-color: var(--color-interactive-primary-background-enabled-filled); 
-      color: var(--color-interactive-primary-textandicon-inverse);
-    }
-    .filled-accent {
-      background-color: var(--color-interactive-accent-background-enabled-filled); 
-      color: var(--color-interactive-accent-textandicon-inverse);
-      &hovered: {
-        background-color:var(--color-interactive-accent-background-hovered);
-      }
-    }
-    .filled-warn {
-      background-color: var(--color-interactive-warn-background); 
-      color: var(--color-interactive-warn-textandicon-inverse);
-      &hovered: {
-        background-color:var(--color-interactive-warn-background-hovered);
-      }
-    }
-  </style>
     `,
   }),
 };

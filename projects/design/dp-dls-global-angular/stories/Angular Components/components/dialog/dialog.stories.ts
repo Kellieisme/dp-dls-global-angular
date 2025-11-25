@@ -11,7 +11,7 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
     selector: 'storybook-dialog-page',
     template: `
     <div>
-      <button mat-stroked-button color="primary" (click)="openBasicDialog()">
+      <button matButton="outlined" color="primary" (click)="openBasicDialog()">
         Open Dialog
       </button>
     </div>
@@ -21,14 +21,14 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
       <div style="display: flex;">
     
         @if (args.withIcon) {
-          <div style="padding: 24px 0 0 24px;margin-bottom: 0;">
+          <div style="padding: var(--size-spacing-l) 0 0 var(--size-spacing-l); margin-bottom: 0;">
             <mat-icon svgIcon="icon-warning"></mat-icon>
           </div>
         }
     
         @if (args.closeButton) {
-          <div  style="padding: 4px 4px 0 0; margin-bottom: 0; margin-left: auto;">
-            <button mat-icon-button mat-dialog-close="true">
+          <div style="padding: var(--size-spacing-2xs) var(--size-spacing-2xs) 0 0; margin-bottom: 0; margin-left: auto;">
+            <button matIconButton mat-dialog-close="true">
               <mat-icon svgIcon="icon-close"></mat-icon>
             </button>
           </div>
@@ -37,11 +37,10 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
       </div>
     
     
-      <!-- 6px 24px 13px -->
-      <h2 mat-dialog-title style="padding-top: 0px; margin-top: 0px;">Dialog Title</h2>
+      <h2 mat-dialog-title style="padding-top: var(--size-spacing-none); margin-top: var(--size-spacing-none);">Dialog Title</h2>
       <mat-dialog-content>
 
-      <mat-flat-button color="accent">Flat button</mat-flat-button>
+      <button matButton="filled" color="accent">Filled button</button>
         <p>
           A dialog is a type of modal window that appears in front of app
           content to provide critical information, or prompt for a decision to
@@ -75,21 +74,21 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
         </p>
       </mat-dialog-content>
     
-      <mat-dialog-actions class="d-flex">
+      <mat-dialog-actions style="display: flex; gap: var(--size-spacing-xs);">
         @if (args.tertiaryButton) {
           <button
             [closeButton]="closeButton"
-            style="margin-right: auto;"
-            mat-button
+            style="margin-inline-end: auto;"
+            matButton
             color="primary"
             mat-dialog-close="true"
             >
             Tertiary
           </button>
         }
-        <button mat-stroked-button mat-dialog-close>Cancel</button>
+        <button matButton="outlined" mat-dialog-close>Cancel</button>
         <button
-          mat-flat-button
+          matButton="filled"
           color="primary"
           mat-dialog-close
           cdkFocusInitial
@@ -109,7 +108,7 @@ class DialogPageComponent {
 
   openBasicDialog() {
     this.dialog.open(this.basicDialog, {
-      width: '400px',
+      width: 'var(--foundation-sizing-6xl-fixed)',
       data: this.args,
     });
   }

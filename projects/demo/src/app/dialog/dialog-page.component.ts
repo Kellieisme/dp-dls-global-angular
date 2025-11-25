@@ -11,8 +11,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     template: `
   <h6>Dialogs</h6>
   <div>
-    <button mat-stroked-button color="primary" (click)="openBasicDialog()">Open This Dialog</button>
-    <button mat-stroked-button color="primary" (click)="openScrollableDialog()">Open Scrollable Dialog</button>
+    <button matButton="outlined" color="primary" (click)="openBasicDialog()">Open This Dialog</button>
+    <button matButton="outlined" color="primary" (click)="openScrollableDialog()">Open Scrollable Dialog</button>
   </div>
   `,
     styleUrl: './dialog-page.component.scss'

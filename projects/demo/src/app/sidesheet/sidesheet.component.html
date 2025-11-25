@@ -8,7 +8,7 @@
     >
     <mat-toolbar>
       <span>Sheet title</span>
-      <button mat-icon-button (click)="sidenav.close()">
+      <button matIconButton (click)="sidenav.close()">
         <mat-icon svgIcon="icon-close"></mat-icon>
       </button>
     </mat-toolbar>
@@ -31,7 +31,7 @@
             }
             @if (button.buttonType === 'stroked') {
               <button
-                mat-stroked-button
+                matButton="outlined"
                 (click)="button.onClick()"
                 >
                 {{ button.text }}
@@ -39,7 +39,7 @@
             }
             @if (button.buttonType === 'flat') {
               <button
-                mat-flat-button
+                matButton="filled"
                 (click)="button.onClick()"
                 >
                 {{ button.text }}

@@ -136,7 +136,7 @@ export const Nested: Story = {
         }
         
         .example-list-section ul {
-            padding: 20px; /* Apply left padding */
+            padding: var(--size-spacing-m); /* Apply left padding */
           }
         \`],
       template: \`

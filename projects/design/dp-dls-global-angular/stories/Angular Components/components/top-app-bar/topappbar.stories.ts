@@ -62,15 +62,15 @@ export const Default: Story = {
         [homeRoute]="homeRoute"
       >
         <div class="actions large-screen">
-          <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
+          <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
             <mat-icon svgIcon="icon-notifications"></mat-icon>
           </button>
-          <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
+          <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
             <mat-icon svgIcon="icon-settings"></mat-icon>
           </button>
         </div>
         <div class="actions small-screen">
-          <button mat-icon-button matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
+          <button matIconButton matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
             <mat-icon svgIcon="icon-more-vert"></mat-icon>
           </button>
           <mat-menu #overflowMenu="matMenu">
@@ -145,18 +145,18 @@ export const HamburgerOnly: Story = {
         (hamburgerMenuClick)="console.log('Hamburger Menu is working')"
       >
         <div class="actions large-screen">
-          <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a help icon">
+          <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a help icon">
             <mat-icon svgIcon="icon-help"></mat-icon>
           </button>
-          <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
+          <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
             <mat-icon svgIcon="icon-notifications"></mat-icon>
           </button>
-          <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
+          <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
             <mat-icon svgIcon="icon-settings"></mat-icon>
           </button>
         </div>
         <div class="actions small-screen">
-          <button mat-icon-button matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
+          <button matIconButton matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
             <mat-icon svgIcon="icon-more-vert"></mat-icon>
           </button>
           <mat-menu #overflowMenu="matMenu">
