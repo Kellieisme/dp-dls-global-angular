@@ -17,130 +17,37 @@ import { MatButtonModule } from '@angular/material/button';
         IconRegistryModule,
     ],
     template: `
-     <div class="dialog-header">
-      <div>
+     <div style="position: absolute; top: 0; left: 0; right: 0; height: 0; z-index: 1;">
+      <div style="position: absolute; top: calc(var(--size-spacing-m) + 16px); left: var(--size-spacing-xl);">
         <mat-icon svgIcon="icon-warning"></mat-icon>
       </div>
-      <div class="dialog-header-actions">
-        <button mat-icon-button mat-dialog-close="true">
+      <div style="position: absolute; top: calc(var(--size-spacing-2xs) + 2px); right: var(--size-spacing-2xs);">
+        <button matIconButton mat-dialog-close="true">
           <mat-icon svgIcon="icon-close"></mat-icon>
         </button>
       </div>
     </div>
 
-    <h2 mat-dialog-title>Dialog Title</h2>
+    <h2 mat-dialog-title style="padding-top: calc(var(--base-dimension-dynamic-s12) - 4px); margin-top: var(--size-spacing-none);">Dialog Title</h2>
 
     <mat-dialog-content>
       <p>
-        A dialog is a type of modal window that appears in front of app content
-        to provide critical information, or prompt for a decision to be made.
+        A dialog is a type of modal window that appears in front of app
+        content to provide critical information, or prompt for a decision to
+        be made.
       </p>
-
-
-<div class="example-button-row">
-        <button matButton>Primary</button>
-
-        <button matButton>Primary
-                <mat-icon svgIcon="icon-add"></mat-icon>
-        </button>
-
-        <button matButton>Primary<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-        <button matButton color="accent">Accent</button>
-        <button matButton color="accent">Accent<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton color="accent">Accent<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-        <button matButton color="warn">Warn</button>
-        <button matButton color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-        <button matButton disabled>Disabled</button>
-        <button matButton disabled>Disabled<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton disabled>Disabled<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-</div>
-
-<h6>Stroked/outlined buttons</h6>
-<div class="example-button-row">
-        <button matButton="outlined">Primary</button>
-        <button matButton="outlined" color="primary">Primary
-                <mat-icon svgIcon="icon-add"></mat-icon>
-        </button>
-        <button matButton="outlined" color="primary">Primary
-                <mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon>
-        </button>
-
-        <button matButton="outlined" color="accent">Accent</button>
-        <button matButton="outlined" color="accent">Accent
-                <mat-icon svgIcon="icon-add"></mat-icon>
-        </button>
-        <button matButton="outlined" color="accent">Accent<mat-icon svgIcon="icon-add"
-                        iconPositionEnd></mat-icon></button>
-
-        <button matButton="outlined" color="warn">Warn</button>
-        <button matButton="outlined" color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="outlined" color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-
-        <button matButton="outlined" disabled>Disabled</button>
-
-        <button matButton="outlined" disabled>
-                <mat-icon svgIcon="icon-add"></mat-icon>Disabled
-        </button>
-
-        <button matButton="outlined" disabled>
-                <mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon>Disabled</button>
-</div>
-
-<h6>Flat/filled buttons</h6>
-<div class="example-button-row">
-        <button matButton="filled">default</button>
-        <button matButton="filled" color="primary">Primary<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="filled" color="accent">Accent</button>
-        <button matButton="filled" color="accent">Accent<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="filled" color="accent">Accent<mat-icon svgIcon="icon-add"iconPositionEnd></mat-icon></button>
-        <button matButton="filled" color="warn">Warn</button>
-        <button matButton="filled" color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="filled" color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-        <button matButton="filled" disabled>Disabled</button>
-        <button matButton="filled" disabled>Disabled<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="filled" disabled>Disabled<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-</div>
-
-<h6>Icon Buttons</h6>
-<p>Hover does not display when "toggle on" class is applied in light mode.</p>
-
-<div class="example-button-row">
-
-        <button matIconButton aria-label="Example icon button with a vertical three dot icon">
-                <mat-icon svgIcon="icon-more-vert"></mat-icon>
-        </button>
-
-        <button matIconButton color="primary" aria-label="Example icon-button with a bookmark icon">
-                <mat-icon svgIcon="icon-more-vert"></mat-icon>
-        </button>
-
-        <button matIconButton color="accent" aria-label="Example icon-button with a favorite filled icon">
-                <mat-icon svgIcon="icon-favorite-filled"></mat-icon>
-        </button>
-
-             <button matIconButton color="warn" aria-label="Example icon-button with a favorite filled icon">
-                <mat-icon svgIcon="icon-favorite-filled"></mat-icon>
-        </button>
-
-        <button matIconButton disabled aria-label="Example icon-button with a home icon">
-                <mat-icon svgIcon="icon-home-filled"></mat-icon>
-        </button>
-
-        <p>Toggled (?)</p>
-
-        <button matIconButton aria-label="Example icon button with a vertical three dot icon"
-                class="mat-mdc-icon-button--toggle-on">
-                <mat-icon svgIcon="icon-more-vert"></mat-icon>
-        </button>
-</div>
-
-
     </mat-dialog-content>
 
-    <mat-dialog-actions>
-      <button mat-stroked-button color="primary" mat-dialog-close>Cancel</button>
-      <button mat-flat-button color="primary" cdkFocusInitial mat-dialog-close>Accept</button>
+    <mat-dialog-actions style="display: flex; gap: var(--size-spacing-xs);">
+      <button matButton="outlined" mat-dialog-close>Cancel</button>
+      <button
+        matButton="filled"
+        color="primary"
+        mat-dialog-close
+        cdkFocusInitial
+        >
+        Accept
+      </button>
     </mat-dialog-actions>
   `,
     styleUrl: './dialog-page.component.scss'
