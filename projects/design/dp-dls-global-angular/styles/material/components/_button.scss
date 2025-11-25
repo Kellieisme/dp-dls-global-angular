@@ -2,7 +2,6 @@
 @use '../m3-theme.scss' as m3;
 
 :root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
   @include mat.button-theme(m3.$dark-theme);
   @include mat.icon-button-theme(m3.$dark-theme);
 }
@@ -12,17 +11,70 @@
   @include mat.icon-button-color(m3.$light-theme);
 }
 
-// Define state layer opacities for Material components
+// ===========================
+// Global State Configuration
+// ===========================
+
 html {
   --state-layer-background-opacity-hovered: 0.05;
   --state-layer-background-opacity-selected: 0.12;
+  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
 }
 
-// Add glow effects to hovered and pressed buttons
+// ===========================
+// Icon Colors for Regular Buttons (Text, Outlined, Filled)
+// ===========================
+
 .mat-mdc-button,
 .mat-mdc-outlined-button,
 .mat-mdc-unelevated-button {
+  .mat-icon {
+    color: inherit;
+  }
+  
+  &.mat-primary .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-primary-default);
+  }
+  
+  &.mat-accent .mat-icon {
+    color: var(--foundation-interactive-accent-textandicon-default);
+  }
+  
+  &.mat-warn .mat-icon {
+    color: var(--foundation-semantic-textandicon-error);
+  }
+  
+  &[disabled] .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-disabled);
+  }
+}
 
+// Filled buttons use inverse colors (light text on dark background)
+.mat-mdc-unelevated-button {
+  .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-inverse);
+  }
+  
+  &.mat-primary .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-inverse);
+  }
+  
+  &.mat-accent .mat-icon {
+    color: var(--foundation-interactive-accent-textandicon-inverse);
+  }
+  
+  &.mat-warn .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-inverse);
+  }
+}
+
+// ===========================
+// Hover Effects for Regular Buttons
+// ===========================
+
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button {
   &:hover,
   &:focus {
     --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
@@ -40,7 +92,6 @@ html {
       }
     }
     
-    // Add state layer hover for text and outlined buttons
     &:not(.mat-mdc-unelevated-button):not([disabled]) {
       .mat-mdc-button-persistent-ripple::before {
         opacity: var(--state-layer-background-opacity-hovered);
@@ -55,12 +106,8 @@ html {
         text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
       }
 
-      .mat-icon {
-        overflow: visible;
-
-        svg {
-          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
-        }
+      .mat-icon svg {
+        filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
       }
     }
 
@@ -72,49 +119,28 @@ html {
         text-shadow: var(--box-shadow-interactive-accent-glow-backlit);
       }
 
-      .mat-icon {
-        overflow: visible;
-
-        svg {
-          filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
-        }
+      .mat-icon svg {
+        filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
       }
     }
   }
 
-  // Turn off text shadow on pressed button
   &:active {
     .mdc-button__label {
       text-shadow: inherit;
-
-      .theme-light & {
-        text-shadow: inherit;
-      }
     }
 
-    &.mat-primary {
-      .mdc-button__label {
-        text-shadow: inherit;
-
-        .theme-light & {
-          text-shadow: inherit;
-        }
-      }
-    }
-
-    &.mat-accent {
-      .mdc-button__label {
-        text-shadow: inherit;
-
-        .theme-light & {
-          text-shadow: inherit;
-        }
-      }
+    &.mat-primary .mdc-button__label,
+    &.mat-accent .mdc-button__label {
+      text-shadow: inherit;
     }
   }
 }
 
-// Add hover background color for text buttons (but not icon buttons)
+// ===========================
+// Button Hover Backgrounds
+// ===========================
+
 .mat-mdc-button:not(.mat-mdc-icon-button) {
   &:hover:not([disabled]) {
     background-color: var(--foundation-interactive-primary-background-hovered);
@@ -129,7 +155,6 @@ html {
   }
 }
 
-// Add hover background color for filled buttons
 .mat-mdc-unelevated-button {
   &:hover:not([disabled]) {
     background-color: color-mix(in srgb, var(--foundation-interactive-primary-background-hovered), var(--mat-button-filled-container-color));
@@ -144,9 +169,7 @@ html {
   }
 }
 
-// Border color customizations for outlined button
 .mat-mdc-outlined-button {
-
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     border-color: var(--foundation-interactive-primary-border-hovered-flat);
@@ -176,22 +199,27 @@ html {
   }
 }
 
-[mat-icon-button] {
-  &.mat-mdc-icon-button--toggle-on {
-    .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--foundation-interactive-primary-background-enabled-tonal);
-      opacity: var(--state-layer-background-opacity-hovered);
-    }
+// ===========================
+// Icon Button Toggle State
+// ===========================
 
-    &:focus,
-    &:active {
-      .mat-mdc-button-persistent-ripple::before {
-        opacity: var(--state-layer-background-opacity-selected);
-      }
+[mat-icon-button].mat-mdc-icon-button--toggle-on {
+  .mat-mdc-button-persistent-ripple::before {
+    background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+    opacity: var(--state-layer-background-opacity-hovered);
+  }
+
+  &:focus,
+  &:active {
+    .mat-mdc-button-persistent-ripple::before {
+      opacity: var(--state-layer-background-opacity-selected);
     }
   }
 }
 
+// ===========================
+// Icon Size Inheritance
+// ===========================
 
 .mat-mdc-button>.mat-icon,
 .mat-mdc-unelevated-button>.mat-icon,
@@ -200,35 +228,25 @@ html {
   font-size: inherit !important;
 }
 
-
-// The CSS custom properties emitted by the theme mixins are derived from M3's design tokens. 
-// To further customize your UI beyond the define-theme API, you can manually set these custom properties in your styles.
+// ===========================
+// Button Shape & Sizing
+// ===========================
 
 html,
 html .theme-condensed {
   --mat-button-text-container-shape: var(--size-radius-full);
-  //   --mat-button-text-keep-touch-target: false;
   --mat-button-filled-container-shape: var(--size-radius-full);
-  //   --mat-button-filled-keep-touch-target: false;
   --mat-button-protected-container-shape: var(--size-radius-full);
-  //   --mat-button-protected-keep-touch-target: false;
-  //   --mat-button-outlined-keep-touch-target: false;
-  //   --mat-button-outlined-outline-width: 1px;
   --mat-button-outlined-container-shape: var(--size-radius-full);
-  //   --mat-button-text-horizontal-padding: 8px;
-  //   --mat-button-text-with-icon-horizontal-padding: 8px;
-  //   --mat-button-text-icon-spacing: 8px;
-  //   --mat-button-text-icon-offset: 0;
-  //   --mat-button-filled-horizontal-padding: 16px;
-  //   --mat-button-filled-icon-spacing: 8px;
-  //   --mat-button-filled-icon-offset: -4px;
-  //   --mat-button-protected-horizontal-padding: 16px;
-  //   --mat-button-protected-icon-spacing: 8px;
-  //   --mat-button-protected-icon-offset: -4px;
-  //   --mat-button-outlined-horizontal-padding: 15px;
-  //   --mat-button-outlined-icon-spacing: 8px;
-  //   --mat-button-outlined-icon-offset: -4px
+  --mat-button-text-container-height: var(--size-sizing-3xl);
+  --mat-button-filled-container-height: var(--size-sizing-3xl);
+  --mat-button-outlined-container-height: var(--size-sizing-3xl);
+  --mat-button-protected-container-height: var(--size-sizing-3xl);
 }
+
+// ===========================
+// Button Color Tokens
+// ===========================
 
 html,
 html .theme-light,
@@ -237,66 +255,30 @@ html .theme-dark {
   --mat-button-text-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-button-text-disabled-state-layer-color: var(--foundation-interactive-primary-textandicon-disabled);
-  //   --mat-button-text-ripple-color: rgba(0, 0, 0, 0.1);
   --mat-button-text-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-button-text-focus-state-layer-opacity: 0.12;
-  //   --mat-button-text-pressed-state-layer-opacity: 0.12;
+  
   --mat-button-filled-container-color: var(--foundation-interactive-primary-background-enabled-filled);
   --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
   --mat-button-filled-disabled-container-color: var(--foundation-interactive-primary-background-disabled);
   --mat-button-filled-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-button-filled-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  //   --mat-button-filled-ripple-color: rgba(0, 0, 0, 0.1);
   --mat-button-filled-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-button-filled-focus-state-layer-opacity: 0.12;
-  //   --mat-button-filled-pressed-state-layer-opacity: 0.12;
-  //   --mat-button-protected-container-color: white;
-  //   --mat-button-protected-label-text-color: black;
-  //   --mat-button-protected-disabled-container-color: rgba(0, 0, 0, 0.12);
-  //   --mat-button-protected-disabled-label-text-color: rgba(0, 0, 0, 0.38);
-  //   --mat-button-protected-container-elevation-shadow: 
-  //   --mat-button-protected-disabled-container-elevation-shadow: 
-  //   --mat-button-protected-focus-container-elevation-shadow: 
-  //   --mat-button-protected-hover-container-elevation-shadow: 
-  //   --mat-button-protected-pressed-container-elevation-shadow: 
-  //   --mat-button-protected-container-shadow-color: #000;
-  //   --mat-button-protected-state-layer-color: black;
-  //   --mat-button-protected-disabled-state-layer-color: black;
-  //   --mat-button-protected-ripple-color: rgba(0, 0, 0, 0.1);
-  //   --mat-button-protected-hover-state-layer-opacity: 0.04;
-  //   --mat-button-protected-focus-state-layer-opacity: 0.12;
-  //   --mat-button-protected-pressed-state-layer-opacity: 0.12;
+  
   --mat-button-outlined-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
   --mat-button-outlined-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
   --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-button-outlined-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  //   --mat-button-outlined-ripple-color: rgba(0, 0, 0, 0.1);
   --mat-button-outlined-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-button-outlined-focus-state-layer-opacity: 0.12;
-  //   --mat-button-outlined-pressed-state-layer-opacity: 0.12
 }
 
+// Primary button colors
 .mat-mdc-button.mat-primary,
 .theme-light .mat-mdc-button.mat-primary {
   --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  //   --mat-button-text-ripple-color: rgba(63, 81, 181, 0.1)
-}
-
-.mat-mdc-button.mat-accent,
-.theme-light .mat-mdc-button.mat-accent {
-  --mat-button-text-label-text-color: var(--foundation-interactive-accent-textandicon-default);
-  --mat-button-text-state-layer-color: var(--foundation-interactive-accent-background-hovered);
-  //   --mat-button-text-ripple-color: rgba(255, 64, 129, 0.1)
-}
-
-.mat-mdc-button.mat-warn {
-  --mat-button-text-label-text-color: var(--foundation-semantic-textandicon-error);
-  --mat-button-text-state-layer-color: var(--foundation-semantic-background-error-tonal);
-  --mat-button-text-ripple-color: var(--foundation-semantic-background-error-tonal);
 }
 
 .mat-mdc-unelevated-button.mat-primary,
@@ -304,7 +286,20 @@ html .theme-dark {
   --mat-button-filled-container-color: var(--foundation-interactive-primary-background-enabled-filled);
   --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
   --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  //   --mat-button-filled-ripple-color: rgba(255, 255, 255, 0.1)
+}
+
+.mat-mdc-outlined-button.mat-primary,
+.theme-light .mat-mdc-outlined-button.mat-primary {
+  --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
+  --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+}
+
+// Accent button colors
+.mat-mdc-button.mat-accent,
+.theme-light .mat-mdc-button.mat-accent {
+  --mat-button-text-label-text-color: var(--foundation-interactive-accent-textandicon-default);
+  --mat-button-text-state-layer-color: var(--foundation-interactive-accent-background-hovered);
 }
 
 .mat-mdc-unelevated-button.mat-accent,
@@ -312,7 +307,20 @@ html .theme-dark {
   --mat-button-filled-container-color: var(--foundation-interactive-accent-background-enabled-filled);
   --mat-button-filled-label-text-color: var(--foundation-interactive-accent-textandicon-inverse);
   --mat-button-filled-state-layer-color: var(--foundation-interactive-accent-background-hovered);
-  //   --mat-button-filled-ripple-color: rgba(255, 255, 255, 0.1)
+}
+
+.mat-mdc-outlined-button.mat-accent,
+.theme-light .mat-mdc-outlined-button.mat-accent {
+  --mat-button-outlined-label-text-color: var(--foundation-interactive-accent-textandicon-default);
+  --mat-button-outlined-outline-color: var(--foundation-interactive-accent-border-enabled);
+  --mat-button-outlined-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+}
+
+// Warn button colors
+.mat-mdc-button.mat-warn {
+  --mat-button-text-label-text-color: var(--foundation-semantic-textandicon-error);
+  --mat-button-text-state-layer-color: var(--foundation-semantic-background-error-tonal);
+  --mat-button-text-ripple-color: var(--foundation-semantic-background-error-tonal);
 }
 
 .mat-mdc-unelevated-button.mat-warn {
@@ -321,41 +329,11 @@ html .theme-dark {
   --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
 }
 
-// .mat-mdc-raised-button.mat-primary {
-//   --mat-button-protected-container-color: #3f51b5;
-//   --mat-button-protected-label-text-color: white;
-//   --mat-button-protected-state-layer-color: white;
-//   --mat-button-protected-ripple-color: rgba(255, 255, 255, 0.1)
-// }
-
-// .mat-mdc-raised-button.mat-accent {
-//   --mat-button-protected-container-color: #ff4081;
-//   --mat-button-protected-label-text-color: white;
-//   --mat-button-protected-state-layer-color: white;
-//   --mat-button-protected-ripple-color: rgba(255, 255, 255, 0.1)
-// }
-
 .mat-mdc-raised-button.mat-warn {
   --mat-button-protected-container-color: var(--foundation-semantic-background-error-filled);
   --mat-button-protected-label-text-color: var(--foundation-semantic-textandicon-error);
   --mat-button-protected-state-layer-color: var(--foundation-semantic-textandicon-error);
   --mat-button-protected-ripple-color: var(--foundation-semantic-background-error-tonal);
-}
-
-.mat-mdc-outlined-button.mat-primary,
-.theme-light .mat-mdc-outlined-button.mat-primary {
-  --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
-  --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  //   --mat-button-outlined-ripple-color: rgba(63, 81, 181, 0.1)
-}
-
-.mat-mdc-outlined-button.mat-accent,
-.theme-light .mat-mdc-outlined-button.mat-accent {
-  --mat-button-outlined-label-text-color: var(--foundation-interactive-accent-textandicon-default);
-  --mat-button-outlined-outline-color: var(--foundation-interactive-accent-border-enabled);
-  --mat-button-outlined-state-layer-color: var(--foundation-interactive-accent-background-hovered);
-  //   --mat-button-outlined-ripple-color: rgba(255, 64, 129, 0.1)
 }
 
 .mat-mdc-outlined-button.mat-warn {
@@ -364,19 +342,10 @@ html .theme-dark {
   --mat-button-outlined-state-layer-color: var(--foundation-semantic-background-error-tonal);
 }
 
-html,
-html .theme-condensed {
-  --mat-button-text-container-height: var(--size-sizing-3xl);
-  --mat-button-filled-container-height: var(--size-sizing-3xl);
-  --mat-button-outlined-container-height: var(--size-sizing-3xl);
-  --mat-button-protected-container-height: var(--size-sizing-3xl);
-  //   --mat-button-text-touch-target-display: block;
-  //   --mat-button-filled-touch-target-display: block;
-  //   --mat-button-protected-touch-target-display: block;
-  //   --mat-button-outlined-touch-target-display: block
-}
+// ===========================
+// Icon Button Styling
+// ===========================
 
-// Fix icon button size to prevent jumping on hover
 .mat-mdc-icon-button {
   width: var(--size-sizing-3xl, 40px);
   height: var(--size-sizing-3xl, 40px);
@@ -396,28 +365,6 @@ html .theme-condensed {
     .mat-mdc-button-persistent-ripple::before {
       opacity: var(--state-layer-background-opacity-hovered);
     }
-    
-    .mat-icon {
-      svg {
-        filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
-      }
-    }
-
-    &.mat-primary {
-      .mat-icon {
-        svg {
-          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
-        }
-      }
-    }
-
-    &.mat-accent {
-      .mat-icon {
-        svg {
-          filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
-        }
-      }
-    }
   }
 }
 
@@ -427,23 +374,16 @@ html {
   --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-icon-button-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
   --mat-icon-button-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-icon-button-focus-state-layer-opacity: 0.12;
-  //   --mat-icon-button-pressed-state-layer-opacity: 0.12
 }
 
-// Base icon button (no color attribute) - apply primary styling
-// Updated: 2025-11-25 - Added glow effects and proper color tokens
-html .mat-mdc-icon-button:hover:not([disabled]):not(.mat-accent):not(.mat-warn) {
-  background-color: var(--foundation-interactive-primary-background-hovered) !important;
+// Icon button without color attribute or with mat-unthemed class
+html .mat-mdc-icon-button.mat-unthemed,
+html .mat-mdc-icon-button:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
+  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
   
-  .mat-icon svg {
-    filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+  .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-primary-default);
   }
-}
-
-// Icon buttons with mat-unthemed class (new matIconButton syntax without color attribute)
-html .mat-mdc-icon-button.mat-unthemed {
-  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
   
   &:hover:not([disabled]) {
     background-color: var(--foundation-interactive-primary-background-hovered) !important;
@@ -452,36 +392,51 @@ html .mat-mdc-icon-button.mat-unthemed {
       filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
     }
   }
-}
-
-html .mat-mdc-icon-button.mat-primary {
-  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
   
-  &:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-primary-background-hovered) !important;
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
     
-    .mat-icon svg {
-      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
-    }
-  }
-
-  &.filled-primary {
-    background-color: var(--foundation-interactive-primary-background-enabled-filled);
-    color: var(--foundation-interactive-primary-textandicon-inverse);
-    --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
-
-    &.mat-mdc-icon-button.mat-mdc-button-disabled {
-      background-color: var(--foundation-interactive-primary-background-disabled);
+    .mat-icon {
       color: var(--foundation-interactive-primary-textandicon-disabled);
     }
   }
 }
 
+// Primary icon buttons
+html .mat-mdc-icon-button.mat-primary {
+  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
+  
+  .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-primary-default);
+  }
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered) !important;
+    
+    .mat-icon svg {
+      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+    }
+  }
+  
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+    
+    .mat-icon {
+      color: var(--foundation-interactive-primary-textandicon-disabled);
+    }
+  }
+}
+
+// Accent icon buttons
 html .mat-mdc-icon-button.mat-accent {
-  --mat-icon-button-color: var(--foundation-interactive-accent-textandicon-default);
+  --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-default);
   --mat-icon-button-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+  
+  .mat-icon {
+    color: var(--foundation-interactive-accent-textandicon-default);
+  }
   
   &:hover:not([disabled]) {
     background-color: var(--foundation-interactive-accent-background-hovered) !important;
@@ -490,31 +445,38 @@ html .mat-mdc-icon-button.mat-accent {
       filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
     }
   }
-
-  //   --mat-icon-button-ripple-color: rgba(255, 64, 129, 0.1)
-  &.filled-accent {
-    background-color: var(--foundation-interactive-accent-background-enabled-filled);
-    color: var(--foundation-interactive-accent-textandicon-inverse);
-    --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
-
-    &.mat-mdc-icon-button.mat-mdc-button-disabled {
-      background-color: var(--foundation-interactive-primary-background-disabled);
-      color: var(--foundation-interactive-primary-textandicon-disabled);
+  
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-disabled);
+    
+    .mat-icon {
+      color: var(--foundation-interactive-accent-textandicon-disabled);
     }
   }
 }
 
+// Warn icon buttons
 html .mat-mdc-icon-button.mat-warn {
-  --mat-icon-button-color: var(--foundation-semantic-textandicon-error);
+  --mat-icon-button-icon-color: var(--foundation-semantic-textandicon-error);
   --mat-icon-button-state-layer-color: var(--foundation-semantic-background-error-tonal);
   --mat-icon-button-ripple-color: var(--foundation-semantic-background-error-tonal);
-
-  &.filled-warn {
-    background-color: var(--foundation-semantic-background-error-filled);
-    color: var(--foundation-interactive-primary-textandicon-inverse);
-
-    &.mat-mdc-icon-button.mat-mdc-button-disabled {
-      background-color: var(--foundation-interactive-primary-background-disabled);
+  
+  .mat-icon {
+    color: var(--foundation-semantic-textandicon-error);
+  }
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-semantic-background-error-tonal) !important;
+    
+    .mat-icon svg {
+      filter: drop-shadow(0 0 10px var(--foundation-semantic-textandicon-error));
+    }
+  }
+  
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+    
+    .mat-icon {
       color: var(--foundation-interactive-primary-textandicon-disabled);
     }
   }

@@ -139,14 +139,13 @@ $light-theme: mat.define-theme((
     system-variables-prefix: 'atmosphere-light'
   ),
   typography: (
-    brand-family: var(--content-base-font-family-boeing-meso),
-    plain-family: var(--content-base-font-family-boeing-meso),
-    bold-weight: var(--content-base-font-weight-bold),
-    medium-weight: var(--content-base-font-weight-medium),
-    regular-weight:var(--content-base-font-weight-regular),
-    use-system-variables:false)
-
-
+    brand-family: 'Boeing Meso',
+    plain-family: 'Boeing Meso',
+    bold-weight: 700,
+    medium-weight: 500,
+    regular-weight: 400,
+    use-system-variables: false
+  )
 ));
 $dark-theme: mat.define-theme((
   color: (
@@ -157,12 +156,11 @@ $dark-theme: mat.define-theme((
     system-variables-prefix: 'atmosphere-dark'
   ),
   typography: (
-    brand-family: var(--content-base-font-family-boeing-meso),
-    plain-family: var(--content-base-font-family-boeing-meso),
-    bold-weight: var(--content-base-font-weight-bold),
-    medium-weight: var(--content-base-font-weight-medium),
-    regular-weight: var(--content-base-font-weight-regular),
-    use-system-variables:false
+    brand-family: 'Boeing Meso',
+    plain-family: 'Boeing Meso',
+    bold-weight: 700,
+    medium-weight: 500,
+    regular-weight: 400,
+    use-system-variables: false
   )
-
 ));

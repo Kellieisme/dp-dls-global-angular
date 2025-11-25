@@ -2,57 +2,30 @@
 @use '../m3-theme.scss' as m3;
 
 :root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
   @include mat.dialog-theme(m3.$dark-theme);
-
-  // If needed use the single dimension mixins to override particular aspects
-
 }
 
-// Apply the light theme only when the user prefers light themes.
 .theme-light {
   @include mat.dialog-color(m3.$light-theme);
 }
 
+// ===========================
+// Dialog Container Styling
+// ===========================
+
 html mat-dialog-container.mat-mdc-dialog-container {
-  --mat-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  
-  // Set icon button defaults for dialog context
-  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-icon-button-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+  p {
+    margin-bottom: var(--size-spacing-s);
+  }
 
-  p { margin-bottom: var(--size-spacing-s); }
-
-  .title-medium { margin-bottom: var(--size-spacing-s); }
-
-  // Ensure icons in dialog content inherit proper colors
-  mat-dialog-content {
-    .mat-icon {
-      color: var(--foundation-interactive-primary-textandicon-primary-default);
-    }
-
-    // Icon button sizing to prevent jumping on hover
-    .mat-mdc-icon-button {
-      width: var(--size-sizing-3xl, 40px);
-      height: var(--size-sizing-3xl, 40px);
-      padding: 0;
-
-      .mat-mdc-button-touch-target {
-        width: 100%;
-        height: 100%;
-      }
-
-      .mat-icon {
-        overflow: visible;
-      }
-    }
-    
-    // Accent icon buttons in dialogs
-    .mat-mdc-icon-button.mat-accent {
-      --mat-icon-button-color: var(--foundation-interactive-accent-textandicon-default);
-    }
+  .title-medium {
+    margin-bottom: var(--size-spacing-s);
   }
 }
+
+// ===========================
+// Dialog Shape & Sizing
+// ===========================
 
 html,
 html .theme-condensed {
@@ -66,6 +39,10 @@ html .theme-condensed {
   --mat-dialog-with-actions-content-padding: 0 var(--size-spacing-xl);
   --mat-dialog-headline-padding: var(--size-spacing-m) var(--size-spacing-xl) var(--size-spacing-xl) var(--size-relaxed-spacing-xl);
 }
+
+// ===========================
+// Dialog Color Tokens
+// ===========================
 
 html,
 html .theme-light,
