@@ -1,15 +1,11 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/vars-divider' as divider;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '../m3-theme.scss' as m3;
 
 :root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
   @include mat.divider-theme(m3.$dark-theme);
-  // If needed use the single dimension mixins to override particular aspects
 }
 
-// Apply the light theme only when the user prefers light themes.
 .theme-light {
   @include mat.divider-color(m3.$light-theme);
 }
@@ -38,5 +34,5 @@ html,
 html .theme-light,
 html .theme-dark {
   --mat-divider-color: var(--foundation-ui-divider-flat-high);
-  --mat-divider-width: #{divider.$component-divider-weight};
+  --mat-divider-width: 1px;
 }
