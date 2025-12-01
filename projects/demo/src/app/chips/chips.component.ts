@@ -172,29 +172,3 @@ readonly vegetables = signal<Vegetable[]>([
 //         return labelExamples;
 //       }
 
-//       labelExamples.splice(index, 1);
-//       this.announcer.announce(`Removed ${labelExample.name}`);
-//       return [...labelExamples];
-//     });
-//   }
-
-//   edit(labelExample: LabelExample, event: MatChipEditedEvent) {
-//     const value = event.value.trim();
-
-//     // Remove label if it no longer has a name
-//     if (!value) {
-//       this.remove(labelExample);
-//       return;
-//     }
-
-//     // Edit existing label
-//     this.labelExamples.update(labelExamples => {
-//       const index = labelExamples.indexOf(labelExample);
-//       if (index >= 0) {
-//         labelExamples[index].name = value;
-//         return [...labelExamples];
-//       }
-//       return labelExamples;
-//     });
-//   }
-// }
