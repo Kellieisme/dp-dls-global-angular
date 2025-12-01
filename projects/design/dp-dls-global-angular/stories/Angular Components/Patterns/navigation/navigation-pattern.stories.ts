@@ -295,7 +295,7 @@ const navRailAndDrawerTemplate = `
   ${bottomIcons}
   <mat-sidenav-container style="flex-grow: 1;">
     <mat-sidenav #level2Sidenav mode="over" position="start" [opened]="isSidenavOpen"
-                 style="width: 360px; padding: var(--size-spacing-m);">
+                 style="width: 360px; padding: var(--foundation-spacing-m);">
       <div class="section-header">
         <h6 class="section-header-label">
          Level 2 destination

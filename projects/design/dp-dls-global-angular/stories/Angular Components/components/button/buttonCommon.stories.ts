@@ -32,7 +32,7 @@ export default {
 } as Meta;
 
 const getTemplate = (type: string): string => `
-  <div style="background:var(--foundation-ui-background-low); padding: var(--size-spacing-m)">
+  <div style="background:var(--foundation-ui-background-low); padding: var(--foundation-spacing-m)">
     <button ${type} [disabled]="disabled" [color]="color">
       {{ text | titlecase }}
     </button>
@@ -50,7 +50,7 @@ const getTemplate = (type: string): string => `
   </div>
   <style>
     button {
-      margin: var(--size-spacing-xs);
+      margin: var(--foundation-spacing-xs);
     }
   </style>
 `;
@@ -99,7 +99,7 @@ const ButtonIconTemplate: StoryObj = {
   render: ({ color, disabled }) => ({
     props: { color, disabled },
     template: `
-    <div style="background:var(--foundation-ui-background-low); padding: var(--size-spacing-m)">
+    <div style="background:var(--foundation-ui-background-low); padding: var(--foundation-spacing-m)">
       <button 
         matIconButton
         [disabled]="disabled"

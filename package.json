@@ -67,6 +67,7 @@
     "@storybook/addon-themes": "^9.1.16",
     "@storybook/angular": "^9.1.16",
     "@types/express": "^5.0.5",
+    "@types/hammerjs": "^2.0.46",
     "@types/jasmine": "^5.1.12",
     "@types/node": "^24.10.1",
     "angular-eslint": "^20.6.0",

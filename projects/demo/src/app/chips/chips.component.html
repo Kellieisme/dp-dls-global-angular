@@ -1,258 +1,210 @@
-<h4>Input Chips</h4>
-<h5>Outlined</h5>
-<h6>label only</h6>
+<div class="container-xxl">
 
-<mat-form-field class="example-chip-list">
-  <mat-label>Example Labels</mat-label>
-  <mat-chip-grid #chipGrid aria-label="Enter labels">
-    @for (labelExample of labelExamples(); track labelExample.name) {
-      <mat-chip-row
-        (removed)="remove(labelExample)"
-        [editable]="true"
-        (edited)="edit(labelExample, $event)"
-        [aria-description]="'press enter to edit ' + labelExample.name"
-      >
-        {{labelExample.name}}
-        <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
-          <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
-        </button>
-      </mat-chip-row>
-    }
-    <input
-      placeholder="New label..."
-      [matChipInputFor]="chipGrid"
-      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-      [matChipInputAddOnBlur]="addOnBlur"
-      (matChipInputTokenEnd)="add($event)"
-    />
-  </mat-chip-grid>
-</mat-form-field>
 
-<h6>label & leading icon</h6>
-<mat-form-field class="example-chip-list">
-  <mat-label>Example Labels</mat-label>
-  <mat-chip-grid #chipGridIcon aria-label="Enter labels">
-    @for (labelExample of labelExamples(); track labelExample.name) {
-      <mat-chip-row
-        (removed)="remove(labelExample)"
-        [editable]="true"
-        (edited)="edit(labelExample, $event)"
-        [aria-description]="'press enter to edit ' + labelExample.name"
-      >
-        <mat-icon svgIcon="icon-folder" matChipAvatar>folder</mat-icon>
-        {{labelExample.name}}
-        <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
-          <mat-icon svgIcon="icon-clear"></mat-icon>
-        </button>
-      </mat-chip-row>
-    }
-    <input
-      placeholder="New label..."
-      [matChipInputFor]="chipGridIcon"
-      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-      [matChipInputAddOnBlur]="addOnBlur"
-      (matChipInputTokenEnd)="add($event)"
-    />
-  </mat-chip-grid>
-</mat-form-field>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+  <!-- Basic/static chips -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Basic/static</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-set aria-label="Color selection outlined">
+          <mat-chip>Red</mat-chip>
+          <mat-chip>Green</mat-chip>
+          <mat-chip>Blue</mat-chip>
+          <mat-chip disabled>Yellow</mat-chip>
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Filter chips -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Selection</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Flat</p>
+        <mat-chip-listbox aria-label="Labels examples">
+          @for (labelExample of labelExamples; track labelExample) {
+          <mat-chip-option>
+            {{labelExample}}
+          </mat-chip-option>
+          }
+        </mat-chip-listbox>
+      </mat-card-content>
+    </mat-card>
+  </div>
+    <!-- elevated selection no icon -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Selection</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Elevated</p>
+        <mat-chip-listbox aria-label="Labels examples">
+          @for (labelExample of labelExamples; track labelExample) {
+          <mat-chip-option class="elevated">
+            {{labelExample}}
+          </mat-chip-option>
+          }
+        </mat-chip-listbox>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- With leading icon -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>With leading icon</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-listbox aria-label="Labels examples">
+          @for (labelExample of labelExamples; track labelExample) {
+          <mat-chip-option>
+            <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
+            {{labelExample}}
+          </mat-chip-option>
+          }
+        </mat-chip-listbox>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Avatar -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Avatar</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-set aria-label="Tool selection">
+          <mat-chip>
+            <img matChipAvatar src="./assets/card-img-1.png" alt="Photo of a blue thing" />
+            One
+          </mat-chip>
+          <mat-chip>
+            <img matChipAvatar src="./assets/card-img-1.png" alt="Photo of a blue thing" />
+            Two
+          </mat-chip>
+          <mat-chip>
+            <img matChipAvatar src="./assets/card-img-1.png" alt="Photo of a blue thing" />
+            Three
+          </mat-chip>
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Stacked chips -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Stacked</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-label="Cutest dog breeds">
+          @for (dog of bestBoys; track dog) {
+          <mat-chip-option selected>{{dog}}</mat-chip-option>
+          }
+        </mat-chip-listbox>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Drag and drop -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Drag and drop</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-set cdkDropList cdkDropListOrientation="horizontal"
+          (cdkDropListDropped)="drop($event)">
+          @for (vegetable of vegetables(); track vegetable.name) {
+          <mat-chip  cdkDrag>{{vegetable.name}}</mat-chip>
+          }
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Autocomplete -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Autocomplete</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <mat-form-field class="example-chip-list">
+            <mat-label>Favorite Fruits</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Fruit selection">
+              @for (fruit of fruits(); track $index) {
+              <mat-chip-row (removed)="remove(fruit)">
+                {{fruit}}
+                <button matChipRemove [attr.aria-label]="'remove ' + fruit">
+                  <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
+                </button>
+              </mat-chip-row>
+              }
+            </mat-chip-grid>
+            <input name="currentFruit" placeholder="New chip..." #fruitInput [(ngModel)]="currentFruit"
+              [matChipInputFor]="chipGrid" [matAutocomplete]="auto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)" />
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event); fruitInput.value = ''">
+              @for (fruit of filteredFruits(); track fruit) {
+              <mat-option [value]="fruit">{{fruit}}</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Template-driven form -->
+  <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>In template-driven form</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="example-form-field">
+          <mat-label>Video keywords</mat-label>
+          <mat-chip-grid #templateChipGrid aria-label="Enter template form keywords" [(ngModel)]="templateKeywords">
+            @for (keyword of templateKeywords(); track keyword) {
+            <mat-chip-row (removed)="removeTemplateKeyword(keyword)">
+              {{keyword}}
+              <button matChipRemove [attr.aria-label]="'remove template form' + keyword">
+                <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
+              </button>
+            </mat-chip-row>
+            }
+          </mat-chip-grid>
+          <input placeholder="Add new..." [matChipInputFor]="templateChipGrid"
+            (matChipInputTokenEnd)="addTemplateKeyword($event)" />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-<h6>label & avatar</h6>
-<mat-form-field class="example-chip-list">
-  <mat-label>Example Labels</mat-label>
-  <mat-chip-grid #chipGridAvatar aria-label="Enter labels">
-    @for (labelExample of labelExamples(); track labelExample.name) {
-      <mat-chip-row
-        (removed)="remove(labelExample)"
-        [editable]="true"
-        (edited)="edit(labelExample, $event)"
-        [aria-description]="'press enter to edit ' + labelExample.name"
-        class="avatar-chip"
-      >
-        <ba-user-profile userFirstName="William" [small]="true" userAvatarSource="./assets/card-img-1.png" />
-        {{labelExample.name}}
-        <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
-          <mat-icon svgIcon="icon-clear"></mat-icon>
-        </button>
-      </mat-chip-row>
-    }
-    <input
-      placeholder="New label..."
-      [matChipInputFor]="chipGridAvatar"
-      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-      [matChipInputAddOnBlur]="addOnBlur"
-      (matChipInputTokenEnd)="add($event)"
-    />
-  </mat-chip-grid>
-</mat-form-field>
+  <!-- elevated selection with icon -->
+  <!-- <div class="col">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Elevated selection </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-listbox aria-label="Labels examples">
+          @for (labelExample of labelExamples; track labelExample) {
+          <mat-chip-option class="elevated">
+            <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
+            {{labelExample}}
+          </mat-chip-option>
+          }
+        </mat-chip-listbox>
+      </mat-card-content>
+    </mat-card>
+  </div> 
+</div>-->
 
-<h4>Assistive Chips</h4>
-<h5>Outlined</h5>
-<h6>label only</h6>
-<mat-chip-set
-  class="example-chip"
-  cdkDropList
-  cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="drop($event)"
->
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip class="example-box assistive" cdkDrag>
-      {{labelExample.name}}
-    </mat-chip>
-  }
-</mat-chip-set>
-<h6>label & leading icon</h6>
-<mat-chip-set
-  class="example-chip"
-  cdkDropList
-  cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="drop($event)"
->
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip class="example-box assistive" cdkDrag>
-      <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-      {{labelExample.name}}
-    </mat-chip>
-  }
-</mat-chip-set>
-
-<h6>label & favicon</h6>
-<mat-chip-set
-  class="example-chip"
-  cdkDropList
-  cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="drop($event)"
->
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip class="example-box assistive" cdkDrag>
-      <img
-        matChipAvatar
-        src="./assets/card-img-1.png"
-        alt="Example photo"
-      />
-      {{labelExample.name}}
-    </mat-chip>
-  }
-</mat-chip-set>
-<h5>Elevated</h5>
-<h6>label only</h6>
-<mat-chip-set
-  class="example-chip"
-  cdkDropList
-  cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="drop($event)"
->
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip class="example-box assistive elevated" cdkDrag>
-      {{labelExample.name}}
-    </mat-chip>
-  }
-</mat-chip-set>
-<h6>label & leading icon</h6>
-<mat-chip-set
-  class="example-chip"
-  cdkDropList
-  cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="drop($event)"
->
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip class="example-box assistive elevated" cdkDrag>
-      <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-      {{labelExample.name}}
-    </mat-chip>
-  }
-</mat-chip-set>
-
-<h6>label & favicon</h6>
-<mat-chip-set
-  class="example-chip"
-  cdkDropList
-  cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="drop($event)"
->
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip class="example-box assistive elevated" cdkDrag>
-      <img
-        matChipAvatar
-        src="./assets/card-img-1.png"
-        alt="Example photo"
-      />
-      {{labelExample.name}}
-    </mat-chip>
-  }
-</mat-chip-set>
-
-<h4>Filter Chips</h4>
-<h5>Outlined</h5>
-<h6>label only</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option>
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
-<h6>label & leading icon</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option>
-      <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
-<h5>Elevated</h5>
-<h6>label only</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option class="elevated">
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
-<h6>label & leading icon</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option class="elevated">
-      <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
-
-<h4>Suggestion Chips</h4>
-<h5>Outlined</h5>
-<h6>label only</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option>
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
-<h6>label & leading icon</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option>
-      <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
-<h5>Elevated</h5>
-<h6>label only</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option class="elevated">
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
-<h6>label & leading icon</h6>
-<mat-chip-listbox aria-label="Labels examples">
-  @for (labelExample of labelExamples(); track labelExample.name) {
-    <mat-chip-option class="elevated">
-      <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-     {{labelExample.name}}
-    </mat-chip-option>
-  }
-</mat-chip-listbox>
+</div>
+</div>
