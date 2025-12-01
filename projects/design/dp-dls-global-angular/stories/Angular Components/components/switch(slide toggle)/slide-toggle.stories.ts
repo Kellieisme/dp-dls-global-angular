@@ -111,7 +111,7 @@ standalone: true,
 imports: [MatSlideToggleModule, MatIconModule, IconRegistryModule, CommonModule, FormsModule, MatButtonModule],
 template: '
   <form #form="ngForm" (ngSubmit)="onSubmit(form)" style="display: flex;flex-direction: column;">
-    <p style="margin: var(--size-spacing-m) 0; color: var(--foundation-ui-textandicon-high);">
+    <p style="margin: var(--foundation-spacing-m) 0; color: var(--foundation-ui-textandicon-high);">
       Lorem ipsum dolor sit amet, consectetur
       adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
       nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
@@ -127,10 +127,10 @@ template: '
       You must accept to continue.
     </div>
   
-    <button matButton="filled" type="submit" color="primary" style="width: 100px;margin-top: var(--size-spacing-m);">Submit</button>
+    <button matButton="filled" type="submit" color="primary" style="width: 100px;margin-top: var(--foundation-spacing-m);">Submit</button>
   </form>
       
-  <div style="color: var(--foundation-ui-textandicon-high);margin: var(--size-spacing-xs) 0;">
+  <div style="color: var(--foundation-ui-textandicon-high);margin: var(--foundation-spacing-xs) 0;">
     <li *ngFor="let item of printText">The {{ item[0] }} to {{item[1].checked}}</li>
   </div>
 ',

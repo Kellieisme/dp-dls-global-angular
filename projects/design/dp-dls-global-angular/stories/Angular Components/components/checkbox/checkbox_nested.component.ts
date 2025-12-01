@@ -22,6 +22,10 @@ export interface Task {
       .example-list-section ul {
         padding-left: 20px; /* Apply left padding */
       }
+      ul {
+        list-style-type: none;
+        margin-top: 4px;
+}
     `
     ],
     template: `
