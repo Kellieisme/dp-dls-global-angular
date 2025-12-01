@@ -60,7 +60,7 @@ import { FormsModule } from '@angular/forms';
         </mat-radio-button>
       }
     </mat-radio-group>
-    <p class="mt-2" style="color:var(--color-ui-textandicon-high)">You selected: {{ choice }}</p>
+    <p class="mt-2" style="color:var(--foundation-ui-textandicon-high)">You selected: {{ choice }}</p>
     `,
 })
 class RadioInteractiveExample {

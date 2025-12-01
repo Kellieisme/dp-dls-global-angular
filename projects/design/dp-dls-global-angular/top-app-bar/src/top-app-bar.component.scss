@@ -1,12 +1,11 @@
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins' as typography;
 @use '../../styles/material/media-breakpointMixins' as breakpointMixin;
 
 
 .top-app-bar {
   align-items: center;
-  border-bottom: 1px solid var(--color-ui-divider-flat-high);
-  background: var(--color-ui-glass-surface-thin);
+  border-bottom: 1px solid var(--foundation-ui-divider-flat-high);
+  background: var(--foundation-ui-glass-surface-thin);
 }
 
 
@@ -100,7 +99,7 @@ mat-toolbar h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: vars.$size-relaxed-spacing-s;
+  gap: var(--size-relaxed-spacing-s);
   position: relative;
   z-index: 1;
 }
@@ -110,21 +109,21 @@ mat-toolbar h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: vars.$size-relaxed-spacing-xs;
+    gap: var(--size-relaxed-spacing-xs);
     text-decoration: none;
 
     &:focus {
       outline: none;
     }
 
-    color: var(--color-ui-textandicon-high);
+    color: var(--foundation-ui-textandicon-high);
   }
 }
 
 .top-app-bar__app-icon {
-  margin-left: vars.$size-relaxed-spacing-l;
-  height: vars.$size-relaxed-sizing-xl;
-  width: vars.$size-relaxed-sizing-2xl;
+  margin-left: var(--size-relaxed-spacing-l);
+  height: var(--size-relaxed-sizing-xl);
+  width: var(--size-relaxed-sizing-2xl);
   color: white;
 }
 
@@ -137,7 +136,7 @@ mat-toolbar h1 {
 }
 
 .app-icon-padding-left{
-  padding-left: vars.$size-relaxed-spacing-s;
+  padding-left: var(--size-relaxed-spacing-s);
 }
 
 ::ng-deep .theme-light .top-app-bar__app-icon--light {
@@ -172,7 +171,7 @@ mat-toolbar h1 {
 //   flex-grow: 1;
 //   display: flex;
 //   justify-content: flex-start;
-//   margin-left: vars.$size-relaxed-spacing-xl;
+//   margin-left: var(--size-relaxed-spacing-xl);
 // }
 
 // .top-app-bar__tabs--centered {
@@ -199,9 +198,9 @@ mat-toolbar h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: vars.$size-relaxed-spacing-s;
+  gap: var(--size-relaxed-spacing-s);
   height: 100%;
-  padding-left: vars.$size-relaxed-spacing-m;
+  padding-left: var(--size-relaxed-spacing-m);
 }
 
 ::ng-deep .actions {
@@ -237,7 +236,7 @@ mat-toolbar h1 {
     right: var(--size-spacing-s);
     top: var(--size-spacing-s);
     bottom: var(--size-spacing-s);
-    border-left: vars.$size-base-border-width-1 solid var(--color-ui-divider-flat-high);
+    border-left: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
     height: 100%;
   }
 }
@@ -252,7 +251,7 @@ mat-toolbar h1 {
   display: flex;
   align-items: center;
   z-index: 1;
-  padding: 0 vars.$size-relaxed-spacing-xs;
+  padding: 0 var(--size-relaxed-spacing-xs);
 }
 
 @include breakpointMixin.media-down(md) {

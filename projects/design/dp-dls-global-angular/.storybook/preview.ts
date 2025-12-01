@@ -9,12 +9,21 @@ const decorators: Preview['decorators'] = [
   applicationConfig({
     providers: [importProvidersFrom(HttpClientModule)]
   }),
+  (story) => {
+    // Ensure body always has theme-dark class by default
+    if (typeof document !== 'undefined') {
+      if (!document.body.classList.contains('theme-dark') && !document.body.classList.contains('theme-light')) {
+        document.body.classList.add('theme-dark');
+      }
+    }
+    return story();
+  },
   withThemeByClassName({
     themes: {
       relaxed: 'theme-relaxed',
       condensed: 'theme-condensed',
     },
-    defaultTheme: 'relaxed', // Default layout theme
+    defaultTheme: 'relaxed',
     parentSelector: 'body',
   }),
 ];

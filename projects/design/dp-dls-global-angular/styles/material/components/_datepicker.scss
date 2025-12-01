@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
@@ -43,9 +42,9 @@ html,
 html .theme-light,
 html .theme-dark {
   .mat-mdc-form-field.mat-form-field-invalid {
-    --mat-datepicker-toggle-icon-color: var(--color-semantic-textandicon-error);
-    --mat-datepicker-toggle-active-state-icon-color: var(--color-semantic-textandicon-error);
-    --mat-datepicker-toggle-active-state-icon-color: var(--color-semantic-textandicon-error);
+    --mat-datepicker-toggle-icon-color: var(--foundation-semantic-textandicon-error);
+    --mat-datepicker-toggle-active-state-icon-color: var(--foundation-semantic-textandicon-error);
+    --mat-datepicker-toggle-active-state-icon-color: var(--foundation-semantic-textandicon-error);
   }
 }
 
@@ -83,13 +82,13 @@ html .theme-condensed {
 
 html,
 html .theme-light {
-  --mat-datepicker-calendar-date-selected-state-text-color: var(--color-ui-textandicon-inverse);
-  --mat-datepicker-calendar-date-selected-state-background-color: var(--color-interactive-accent-background-enabled-filled);
-  --mat-datepicker-calendar-date-selected-disabled-state-background-color: var(--color-interactive-primary-background-disabled);
-  --mat-datepicker-calendar-date-today-selected-state-outline-color: var(--color-interactive-primary-border-focused);
-  --mat-datepicker-calendar-date-focus-state-background-color: var(--color-interactive-primary-background-selected);
-  --mat-datepicker-calendar-date-hover-state-background-color: var(--color-interactive-primary-background-hovered);
-  --mat-datepicker-toggle-active-state-icon-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-datepicker-calendar-date-selected-state-text-color: var(--foundation-ui-textandicon-inverse);
+  --mat-datepicker-calendar-date-selected-state-background-color: var(--foundation-interactive-accent-background-enabled-filled);
+  --mat-datepicker-calendar-date-selected-disabled-state-background-color: var(--foundation-interactive-primary-background-disabled);
+  --mat-datepicker-calendar-date-today-selected-state-outline-color: var(--foundation-interactive-primary-border-focused);
+  --mat-datepicker-calendar-date-focus-state-background-color: var(--foundation-interactive-primary-background-selected);
+  --mat-datepicker-calendar-date-hover-state-background-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-datepicker-toggle-active-state-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
   //   --mat-datepicker-calendar-date-in-range-state-background-color: rgba(103, 58, 183, 0.2);
   //   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: rgba(249, 171, 0, 0.2);
   //   --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
@@ -101,15 +100,15 @@ html .theme-light {
   //   --mat-datepicker-calendar-navigation-button-icon-color: rgba(0, 0, 0, 0.54);
   //   --mat-datepicker-calendar-header-divider-color: rgba(0, 0, 0, 0.12);
   //   --mat-datepicker-calendar-header-text-color: rgba(0, 0, 0, 0.54);
-  --mat-datepicker-calendar-date-today-outline-color: var(--color-interactive-primary-border-focused);
+  --mat-datepicker-calendar-date-today-outline-color: var(--foundation-interactive-primary-border-focused);
   //   --mat-datepicker-calendar-date-today-disabled-state-outline-color: rgba(0, 0, 0, 0.18);
   //   --mat-datepicker-calendar-date-text-color: rgba(0, 0, 0, 0.87);
   //   --mat-datepicker-calendar-date-outline-color: transparent;
-  --mat-datepicker-calendar-date-disabled-state-text-color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-datepicker-calendar-date-disabled-state-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   //   --mat-datepicker-calendar-date-preview-state-outline-color: rgba(0, 0, 0, 0.24);
   //   --mat-datepicker-range-input-separator-color: rgba(0, 0, 0, 0.87);
   //   --mat-datepicker-range-input-disabled-state-separator-color: rgba(0, 0, 0, 0.38);
   //   --mat-datepicker-range-input-disabled-state-text-color: rgba(0, 0, 0, 0.38);
-  --mat-datepicker-calendar-container-background-color: var(--color-ui-glass-surface-regular);
+  --mat-datepicker-calendar-container-background-color: var(--foundation-ui-glass-surface-regular);
   //   --mat-datepicker-calendar-container-text-color: rgba(0, 0, 0, 0.87)
 }

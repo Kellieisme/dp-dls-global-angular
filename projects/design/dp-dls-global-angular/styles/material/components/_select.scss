@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
@@ -61,9 +60,9 @@ html .theme-light,
 html .theme-dark {
   div.mat-mdc-select-panel {
     // overall select panel color
-    --mat-select-panel-background-color: var(--color-ui-glass-surface-regular);
+    --mat-select-panel-background-color: var(--foundation-ui-glass-surface-regular);
     // selected item background color
-    --mat-option-selected-state-layer-color: var(--color-interactive-primary-background-selected);
+    --mat-option-selected-state-layer-color: var(--foundation-interactive-primary-background-selected);
   }
 }
 
@@ -183,7 +182,7 @@ html {
 
       // default option text dcolor
       .mdc-list-item__primary-text {
-        color: var(--color-interactive-primary-textandicon-primary-default);
+        color: var(--foundation-interactive-primary-textandicon-primary-default);
       }
     }
 
@@ -192,7 +191,7 @@ html {
 
       // selected option text color
       .mdc-list-item__primary-text {
-        color: var(--color-interactive-primary-textandicon-selected);
+        color: var(--foundation-interactive-primary-textandicon-selected);
       }
 
       // turn off the default checkbox on the selected option
@@ -216,12 +215,12 @@ html {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-select-panel-background-color: var(--color-ui-glass-surface-regular);
+  --mat-select-panel-background-color: var(--foundation-ui-glass-surface-regular);
   //     --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
   //     --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.38);
   //     --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.6);
-  --mat-select-enabled-arrow-color: var(--color-interactive-primary-textandicon-selected);
-  --mat-select-disabled-arrow-color: var(--color-interactive-primary-textandicon-disabled);
-  --mat-select-focused-arrow-color: var(--color-interactive-primary-textandicon-selected);
-  --mat-select-invalid-arrow-color: var(--color-semantic-textandicon-error);
+  --mat-select-enabled-arrow-color: var(--foundation-interactive-primary-textandicon-selected);
+  --mat-select-disabled-arrow-color: var(--foundation-interactive-primary-textandicon-disabled);
+  --mat-select-focused-arrow-color: var(--foundation-interactive-primary-textandicon-selected);
+  --mat-select-invalid-arrow-color: var(--foundation-semantic-textandicon-error);
 }

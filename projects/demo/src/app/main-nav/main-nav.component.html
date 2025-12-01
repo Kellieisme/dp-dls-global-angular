@@ -1,8 +1,10 @@
-<ba-top-app-bar homeRoute="/" appLogo="boeing-logomark" appName="Atmosphere sandbox v20.*">
+<ba-top-app-bar homeRoute="/" appLogo="" appName="Atmosphere sandbox v20.*">
 
   <div class="actions large-screen">
 
     <ba-theme-toggle></ba-theme-toggle>
+    
+    <ba-density-toggle></ba-density-toggle>
 
     <button mat-icon-button aria-label="Help">
       <mat-icon svgIcon="icon-help" aria-hidden="true"></mat-icon>
@@ -19,6 +21,7 @@
 
   <div class="actions small-screen" role="toolbar" aria-label="Secondary actions">
     <ba-theme-toggle></ba-theme-toggle>
+    <ba-density-toggle></ba-density-toggle>
 
     <button mat-icon-button
            [matMenuTriggerFor]="overflowMenu"

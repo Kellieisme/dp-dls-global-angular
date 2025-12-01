@@ -70,7 +70,7 @@ type Story = StoryObj;
 const bottomIcons = `
 <ng-template #sideNavNotificationsButton let-data="data">
   <button 
-    mat-icon-button 
+    matIconButton 
     [ngClass]="{
       'mat-mdc-icon-button--toggle-on': toggled === true
     }"
@@ -140,7 +140,7 @@ const navDrawerTemplate = `
   [navBarBottomComponent1] = "sideNavNotificationsButton"
   [navBarBottomComponent2] = "sideNavProfileButton"
   [appName]="'Boeing App'"
-  [appLogo]="'boeing'"
+  [appLogo]="'boeing-logomark'"
   opened
   ></ba-navigation-drawer>
   ${bottomIcons}
@@ -152,15 +152,15 @@ const navDrawerandTopAppBarTemplate = `
   isNavigationDrawer
 >
   <div class="actions large-screen">
-    <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
+    <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
       <mat-icon svgIcon="icon-notifications"></mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
+    <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
       <mat-icon svgIcon="icon-settings"></mat-icon>
     </button>
   </div>
   <div class="actions small-screen">
-    <button mat-icon-button matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
+    <button matIconButton matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
       <mat-icon svgIcon="icon-more-vert"></mat-icon>
     </button>
     <mat-menu #overflowMenu="matMenu">
@@ -222,15 +222,15 @@ const navRailandTopAppBarTemplate = `
   isNavigationDrawer
 >
   <div class="actions large-screen">
-    <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
+    <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
       <mat-icon svgIcon="icon-notifications"></mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
+    <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
       <mat-icon svgIcon="icon-settings"></mat-icon>
     </button>
   </div>
   <div class="actions small-screen">
-    <button mat-icon-button matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
+    <button matIconButton matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
       <mat-icon svgIcon="icon-more-vert"></mat-icon>
     </button>
     <mat-menu #overflowMenu="matMenu">
@@ -295,7 +295,7 @@ const navRailAndDrawerTemplate = `
   ${bottomIcons}
   <mat-sidenav-container style="flex-grow: 1;">
     <mat-sidenav #level2Sidenav mode="over" position="start" [opened]="isSidenavOpen"
-                 style="width: 360px; padding: 20px;">
+                 style="width: 360px; padding: var(--size-spacing-m);">
       <div class="section-header">
         <h6 class="section-header-label">
          Level 2 destination
@@ -336,7 +336,7 @@ const navRailAndDrawerTemplate = `
 
 const baseArgs = {
   appName: 'Boeing App',
-  appLogo: 'boeing',
+  appLogo: 'boeing-logomark',
   opened: true,
   sectionHeaderLabel: 'Main navigation',
   menuItems: [
@@ -471,15 +471,15 @@ export const NavigationDrawerandTopAppBar: Story = {
   (hamburgerMenuClick)="opened = !opened"
 >
   <div class="actions large-screen">
-    <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
+    <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a notifications icon">
       <mat-icon svgIcon="icon-notifications"></mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
+    <button matIconButton matTooltip="Primary" color="primary" aria-label="icon-button with a settings icon">
       <mat-icon svgIcon="icon-settings"></mat-icon>
     </button>
   </div>
   <div class="actions small-screen">
-    <button mat-icon-button matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
+    <button matIconButton matTooltip="Primary" color="primary" [matMenuTriggerFor]="overflowMenu" aria-label="icon-button with a more vertical icon">
       <mat-icon svgIcon="icon-more-vert"></mat-icon>
     </button>
     <mat-menu #overflowMenu="matMenu">

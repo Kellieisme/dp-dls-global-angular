@@ -1,5 +1,4 @@
 @use "@angular/material" as mat;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss" as vars;
 @use "../m3-theme" as m3;
 
 :root {
@@ -13,7 +12,7 @@
 }
 
 .mat-mdc-snack-bar-container {
-  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
+  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
   
   .mdc-snackbar__label {
     padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-m);
@@ -37,8 +36,8 @@ html .theme-condensed {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-snackbar-container-color: var(--color-ui-glass-surface-thickest);
-  --mat-snackbar-supporting-text-color: var(--color-ui-textandicon-high);
+  --mat-snackbar-container-color: var(--foundation-ui-glass-surface-thickest);
+  --mat-snackbar-supporting-text-color: var(--foundation-ui-textandicon-high);
   //--mat-snack-bar-button-color: #ffd740
 }
 

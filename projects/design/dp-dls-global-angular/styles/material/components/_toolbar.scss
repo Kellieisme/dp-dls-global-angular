@@ -1,13 +1,9 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
 @use '../m3-theme.scss' as m3;
 
-
 :root {
-	// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
 	@include mat.toolbar-theme(m3.$dark-theme);
 }
-
 
 .theme-light {
 	@include mat.toolbar-color(m3.$light-theme);
@@ -16,13 +12,27 @@
 html,
 html .theme-light,
 html .theme-dark {
-	--mat-toolbar-container-background-color: var(--color-ui-glass-surface-thinnest);
-	--mat-toolbar-container-text-color: var(--color-ui-textandicon-high);
+	--mat-toolbar-container-background-color: var(--foundation-ui-glass-surface-thinnest);
+	--mat-toolbar-container-text-color: var(--foundation-ui-textandicon-high);
 }
 
 html {
-	--mat-toolbar-standard-height: $size-base-sizing-64px;
-	--mat-toolbar-mobile-height: $size-base-sizing-48px;
+	--mat-toolbar-standard-height: var(--base-dimension-dynamic-s12);
+	--mat-toolbar-mobile-height: var(--base-dimension-dynamic-s11);
+}
+
+// Force toolbar to use the height variable
+mat-toolbar,
+.mat-toolbar {
+	height: var(--mat-toolbar-standard-height);
+	min-height: var(--mat-toolbar-standard-height);
+}
+
+// Override toolbar height for condensed density
+html.theme-condensed,
+.theme-condensed {
+	--mat-toolbar-standard-height: var(--base-dimension-dynamic-s12);
+	--mat-toolbar-mobile-height: var(--base-dimension-dynamic-s11);
 }
 
 html {
