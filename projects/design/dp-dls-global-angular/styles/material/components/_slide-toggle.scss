@@ -3,17 +3,11 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
 :root {
-  @include mat.button-theme(m3.$dark-theme);
-  @include mat.icon-button-theme(m3.$dark-theme);
 }
 
 .theme-light {
-  @include mat.button-color(m3.$light-theme);
-  @include mat.icon-button-color(m3.$light-theme);
 }
 .theme-dark {
-  @include mat.button-color(m3.$dark-theme);
-  @include mat.icon-button-color(m3.$dark-theme);
 }
 
 
