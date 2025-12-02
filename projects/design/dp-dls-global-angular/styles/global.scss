@@ -9,6 +9,7 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/breakpoints' as breakpoints;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/fonts' as fonts;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_themeMixins.scss' as theme;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as foundationTokens;
 
 // Initialize DLS variables
 @include density.generateDensityVariables();
@@ -16,11 +17,104 @@
 @include breakpoints.generateBreakpointVariables();
 @include fonts.boeing-meso('/assets/fonts');
 
+// Bridge foundation spacing/sizing tokens to density-aware base dimensions
+$foundation-dynamic-map: (
+  foundation-spacing-none: '--base-dimension-dynamic-s00',
+  foundation-spacing-3xs: '--base-dimension-dynamic-s01',
+  foundation-spacing-2xs: '--base-dimension-dynamic-s02',
+  foundation-spacing-xs: '--base-dimension-dynamic-s03',
+  foundation-spacing-s: '--base-dimension-dynamic-s04',
+  foundation-spacing-m: '--base-dimension-dynamic-s05',
+  foundation-spacing-l: '--base-dimension-dynamic-s06',
+  foundation-spacing-xl: '--base-dimension-dynamic-s07',
+  foundation-spacing-2xl: '--base-dimension-dynamic-s08',
+  foundation-spacing-3xl: '--base-dimension-dynamic-s09',
+  foundation-spacing-4xl: '--base-dimension-dynamic-s10',
+  foundation-spacing-5xl: '--base-dimension-dynamic-s11',
+  foundation-spacing-6xl: '--base-dimension-dynamic-s12',
+  foundation-spacing-7xl: '--base-dimension-dynamic-s13',
+  foundation-spacing-8xl: '--base-dimension-dynamic-s14',
+  foundation-spacing-9xl: '--base-dimension-dynamic-s15',
+  foundation-spacing-10xl: '--base-dimension-dynamic-s16',
+  foundation-spacing-11xl: '--base-dimension-dynamic-s17',
+  foundation-sizing-none: '--base-dimension-dynamic-s00',
+  foundation-sizing-3xs: '--base-dimension-dynamic-s01',
+  foundation-sizing-2xs: '--base-dimension-dynamic-s02',
+  foundation-sizing-xs: '--base-dimension-dynamic-s03',
+  foundation-sizing-s: '--base-dimension-dynamic-s04',
+  foundation-sizing-m: '--base-dimension-dynamic-s05',
+  foundation-sizing-l: '--base-dimension-dynamic-s06',
+  foundation-sizing-xl: '--base-dimension-dynamic-s07',
+  foundation-sizing-2xl: '--base-dimension-dynamic-s08',
+  foundation-sizing-3xl: '--base-dimension-dynamic-s09',
+  foundation-sizing-4xl: '--base-dimension-dynamic-s10',
+  foundation-sizing-5xl: '--base-dimension-dynamic-s11',
+  foundation-sizing-6xl: '--base-dimension-dynamic-s12',
+  foundation-sizing-7xl: '--base-dimension-dynamic-s13',
+  foundation-sizing-8xl: '--base-dimension-dynamic-s14',
+  foundation-sizing-9xl: '--base-dimension-dynamic-s15',
+  foundation-sizing-10xl: '--base-dimension-dynamic-s16',
+  foundation-sizing-11xl: '--base-dimension-dynamic-s17'
+);
+
+$foundation-fixed-map: (
+  foundation-spacing-3xs-fixed: foundationTokens.$foundation-spacing-3xs-fixed,
+  foundation-spacing-2xs-fixed: foundationTokens.$foundation-spacing-2xs-fixed,
+  foundation-spacing-xs-fixed: foundationTokens.$foundation-spacing-xs-fixed,
+  foundation-spacing-s-fixed: foundationTokens.$foundation-spacing-s-fixed,
+  foundation-spacing-m-fixed: foundationTokens.$foundation-spacing-m-fixed,
+  foundation-spacing-l-fixed: foundationTokens.$foundation-spacing-l-fixed,
+  foundation-spacing-xl-fixed: foundationTokens.$foundation-spacing-xl-fixed,
+  foundation-spacing-2xl-fixed: foundationTokens.$foundation-spacing-2xl-fixed,
+  foundation-spacing-3xl-fixed: foundationTokens.$foundation-spacing-3xl-fixed,
+  foundation-spacing-4xl-fixed: foundationTokens.$foundation-spacing-4xl-fixed,
+  foundation-spacing-5xl-fixed: foundationTokens.$foundation-spacing-5xl-fixed,
+  foundation-spacing-6xl-fixed: foundationTokens.$foundation-spacing-6xl-fixed,
+  foundation-spacing-7xl-fixed: foundationTokens.$foundation-spacing-7xl-fixed,
+  foundation-spacing-8xl-fixed: foundationTokens.$foundation-spacing-8xl-fixed,
+  foundation-spacing-9xl-fixed: foundationTokens.$foundation-spacing-9xl-fixed,
+  foundation-spacing-10xl-fixed: foundationTokens.$foundation-spacing-10xl-fixed,
+  foundation-spacing-11xl-fixed: foundationTokens.$foundation-spacing-11xl-fixed,
+  foundation-sizing-3xs-fixed: foundationTokens.$foundation-sizing-3xs-fixed,
+  foundation-sizing-2xs-fixed: foundationTokens.$foundation-sizing-2xs-fixed,
+  foundation-sizing-xs-fixed: foundationTokens.$foundation-sizing-xs-fixed,
+  foundation-sizing-s-fixed: foundationTokens.$foundation-sizing-s-fixed,
+  foundation-sizing-m-fixed: foundationTokens.$foundation-sizing-m-fixed,
+  foundation-sizing-l-fixed: foundationTokens.$foundation-sizing-l-fixed,
+  foundation-sizing-xl-fixed: foundationTokens.$foundation-sizing-xl-fixed,
+  foundation-sizing-2xl-fixed: foundationTokens.$foundation-sizing-2xl-fixed,
+  foundation-sizing-3xl-fixed: foundationTokens.$foundation-sizing-3xl-fixed,
+  foundation-sizing-4xl-fixed: foundationTokens.$foundation-sizing-4xl-fixed,
+  foundation-sizing-5xl-fixed: foundationTokens.$foundation-sizing-5xl-fixed,
+  foundation-sizing-6xl-fixed: foundationTokens.$foundation-sizing-6xl-fixed,
+  foundation-sizing-7xl-fixed: foundationTokens.$foundation-sizing-7xl-fixed,
+  foundation-sizing-8xl-fixed: foundationTokens.$foundation-sizing-8xl-fixed,
+  foundation-sizing-9xl-fixed: foundationTokens.$foundation-sizing-9xl-fixed,
+  foundation-sizing-10xl-fixed: foundationTokens.$foundation-sizing-10xl-fixed,
+  foundation-sizing-11xl-fixed: foundationTokens.$foundation-sizing-11xl-fixed,
+  foundation-radius-none: foundationTokens.$foundation-radius-none,
+  foundation-radius-xs: foundationTokens.$foundation-radius-xs,
+  foundation-radius-s: foundationTokens.$foundation-radius-s,
+  foundation-radius-m: foundationTokens.$foundation-radius-m,
+  foundation-radius-l: foundationTokens.$foundation-radius-l,
+  foundation-radius-xl: foundationTokens.$foundation-radius-xl,
+  foundation-radius-full: foundationTokens.$foundation-radius-full
+);
+
+:root {
+  @each $token, $base-var in $foundation-dynamic-map {
+    --#{$token}: var(#{$base-var});
+  }
+
+  @each $token, $value in $foundation-fixed-map {
+    --#{$token}: #{$value};
+  }
+}
+
 // Output DLS color tokens at html level for dark theme by default
 html {
   @include theme.theme-dark-color();
   @include theme.theme-dark-box-shadow();
-  @include theme.theme-relaxed-size();
 }
 
 // Icon styles

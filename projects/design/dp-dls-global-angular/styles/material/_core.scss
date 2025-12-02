@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_themeMixins.scss' as theme;
-@use './m3-theme.scss' as m3;
+@use './m3-theme' as m3;
 
 :root {
   @include mat.elevation-classes();
@@ -9,7 +9,7 @@
   // Apply the dark theme by default
   // The core-theme Sass mixin emits prerequisite styles for common features used by multiple components, such as ripples. 
   // This mixin must be included once per theme.
-  @include mat.all-component-typographies(m3.$dark-theme);
+  @include mat.all-component-themes(m3.$dark-theme);
 }
 
 html {

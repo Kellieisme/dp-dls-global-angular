@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
 :root {
@@ -219,15 +219,28 @@ html {
 // Button Shape & Sizing
 // ===========================
 
-html {
-  --mat-button-text-container-shape: #{dls.$foundation-radius-full};
-  --mat-button-filled-container-shape: #{dls.$foundation-radius-full};
-  --mat-button-protected-container-shape: #{dls.$foundation-radius-full};
-  --mat-button-outlined-container-shape: #{dls.$foundation-radius-full};
-  --mat-button-text-container-height: var(--foundation-sizing-4xl);
-  --mat-button-filled-container-height: var(--foundation-sizing-4xl);
-  --mat-button-outlined-container-height: var(--foundation-sizing-4xl);
-  --mat-button-protected-container-height: var(--foundation-sizing-4xl);
+:root {
+  --mat-button-text-container-shape: var(--foundation-radius-full);
+  --mat-button-filled-container-shape: var(--foundation-radius-full);
+  --mat-button-protected-container-shape: var(--foundation-radius-full);
+  --mat-button-outlined-container-shape: var(--foundation-radius-full);
+  --mat-button-text-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-filled-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-outlined-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-protected-container-height: var(--base-dimension-dynamic-s09);
+}
+
+// Ensure button elements respect density-aware height tokens
+// Using multiple class selectors for higher specificity
+.mat-mdc-button.mat-mdc-button,
+.mat-mdc-unelevated-button.mat-mdc-unelevated-button,
+.mat-mdc-raised-button.mat-mdc-raised-button,
+.mat-mdc-outlined-button.mat-mdc-outlined-button {
+  height: var(--base-dimension-dynamic-s09);
+  
+  .mat-mdc-button-touch-target {
+    height: 100%;
+  }
 }
 
 // ===========================
@@ -330,8 +343,8 @@ html .theme-dark {
 // ===========================
 
 .mat-mdc-icon-button {
-  width: var(--foundation-sizing-3xl, 40px);
-  height: var(--foundation-sizing-3xl, 40px);
+  width: var(--base-dimension-dynamic-s09);
+  height: var(--base-dimension-dynamic-s09);
   padding: 0;
   
   .mat-mdc-button-touch-target {
