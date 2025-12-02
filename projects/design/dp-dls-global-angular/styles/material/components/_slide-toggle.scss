@@ -1,10 +1,18 @@
-@use "@angular/material" as mat;
-@use "../m3-theme" as m3;
+@use '@angular/material' as mat;
+@use '../m3-theme' as m3;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
+
+:root {
+}
+
+.theme-light {
+}
+.theme-dark {
+}
 
 
 mat-slide-toggle:not(.mat-warn) {
   .mdc-switch--checked:not(.mdc-switch--disabled) {
-
     .mdc-switch__track::after,
     .mdc-switch__track::before {
       border-color: var(--foundation-interactive-accent-background-enabled-filled);
@@ -13,20 +21,15 @@ mat-slide-toggle:not(.mat-warn) {
 }
 
 .mdc-switch--disabled.mdc-switch--checked {
-
   .mdc-switch__track::after,
   .mdc-switch__track::before {
     border-color: var(--foundation-interactive-primary-border-disabled);
   }
 }
 
-.mdc-switch__handle::before,
-.mdc-switch__handle::after {
-  left: 5px;
-}
-
 html,
-html .theme-condensed {
+html .theme-light,
+html .theme-dark {
   // --mat-slide-toggle-disabled-selected-icon-opacity: 0.38;
   // --mat-slide-toggle-disabled-track-opacity: 0.12;
   // --mat-slide-toggle-disabled-unselected-icon-opacity: 0.38;
@@ -38,10 +41,10 @@ html .theme-condensed {
   --mat-slide-toggle-track-height: var(--size-sizing-2xl);
   --mat-slide-toggle-track-shape: var(--size-radius-full);
   --mat-slide-toggle-track-width: var(--size-sizing-5xl);
-  --mat-slide-toggle-unselected-icon-size: 18px;
+  --mat-slide-toggle-unselected-icon-size: var(--size-sizing-l);
 
-  --mat-slide-toggle-selected-hover-state-layer-opacity: 0.05;
-  --mat-slide-toggle-unselected-hover-state-layer-opacity: 0.05;
+  --mat-slide-toggle-selected-hover-state-layer-opacity: 0;
+  --mat-slide-toggle-unselected-hover-state-layer-opacity: 0;
   // --mat-slide-toggle-unselected-pressed-state-layer-opacity: 0.1;
   // --mat-slide-toggle-disabled-selected-handle-opacity: 0.38;
   // --mat-slide-toggle-disabled-unselected-handle-opacity: 0.38;
@@ -51,21 +54,21 @@ html .theme-condensed {
   --mat-slide-toggle-pressed-handle-size: var(--size-sizing-xl);
   --mat-slide-toggle-with-icon-handle-size: var(--size-sizing-xl);
 
-  // --mat-slide-toggle-selected-handle-horizontal-margin: 0
-  --mat-slide-toggle-selected-with-icon-handle-horizontal-margin: 0 -6px;
-  // --mat-slide-toggle-selected-pressed-handle-horizontal-margin: 0
-  --mat-slide-toggle-unselected-handle-horizontal-margin: 0 0 0 var(--size-sizing-2xs);
-  --mat-slide-toggle-unselected-with-icon-handle-horizontal-margin: 0 0 0 var(--size-sizing-2xs);
-  --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0 0 0 var(--size-sizing-2xs);
+  --mat-slide-toggle-selected-handle-horizontal-margin: 0;
+  --mat-slide-toggle-selected-with-icon-handle-horizontal-margin: 0;
+  --mat-slide-toggle-selected-pressed-handle-horizontal-margin: 0;
+  --mat-slide-toggle-unselected-handle-horizontal-margin: 0;
+  --mat-slide-toggle-unselected-with-icon-handle-horizontal-margin: 0;
+  --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0;
 
   // --mat-slide-toggle-visible-track-opacity: 1;
   // --mat-slide-toggle-hidden-track-opacity: 1;
   // --mat-slide-toggle-visible-track-transition: transform 75ms 0ms cubic-bezier(0, 0, 0.2, 1);
   // --mat-slide-toggle-hidden-track-transition: transform 75ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 
-  --mat-slide-toggle-track-outline-width: 2px;
+  --mat-slide-toggle-track-outline-width: var(--size-border-width-s);
   --mat-slide-toggle-selected-track-outline-width: var(--size-sizing-3xs);
-  --mat-slide-toggle-disabled-unselected-track-outline-width: 2px;
+  --mat-slide-toggle-disabled-unselected-track-outline-width: var(--size-border-width-s);
 }
 
 html,
@@ -158,8 +161,13 @@ html .mat-mdc-slide-toggle.mat-warn {
   }
 
 }
+// Prevent handle width change during transition to eliminate swing
+.mdc-switch .mdc-switch__handle {
+  width: var(--size-sizing-xl) !important;
+}
 
-html,
-html .theme-condensed {
-  --mat-slide-toggle-state-layer-size: var(--size-sizing-xl);
+// Prevent track border width change from causing visual swing
+.mdc-switch__track::before,
+.mdc-switch__track::after {
+  border-width: var(--size-sizing-3xs) !important;
 }
