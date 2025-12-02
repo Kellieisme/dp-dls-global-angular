@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @use '../m3-theme.scss' as m3;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
 :root {
   @include mat.button-theme(m3.$dark-theme);
@@ -218,16 +219,15 @@ html {
 // Button Shape & Sizing
 // ===========================
 
-html,
-html .theme-condensed {
-  --mat-button-text-container-shape: var(--foundation-radius-full);
-  --mat-button-filled-container-shape: var(--foundation-radius-full);
-  --mat-button-protected-container-shape: var(--foundation-radius-full);
-  --mat-button-outlined-container-shape: var(--foundation-radius-full);
-  --mat-button-text-container-height: var(--foundation-sizing-3xl);
-  --mat-button-filled-container-height: var(--foundation-sizing-3xl);
-  --mat-button-outlined-container-height: var(--foundation-sizing-3xl);
-  --mat-button-protected-container-height: var(--foundation-sizing-3xl);
+html {
+  --mat-button-text-container-shape: #{dls.$foundation-radius-full};
+  --mat-button-filled-container-shape: #{dls.$foundation-radius-full};
+  --mat-button-protected-container-shape: #{dls.$foundation-radius-full};
+  --mat-button-outlined-container-shape: #{dls.$foundation-radius-full};
+  --mat-button-text-container-height: var(--foundation-sizing-4xl);
+  --mat-button-filled-container-height: var(--foundation-sizing-4xl);
+  --mat-button-outlined-container-height: var(--foundation-sizing-4xl);
+  --mat-button-protected-container-height: var(--foundation-sizing-4xl);
 }
 
 // ===========================
