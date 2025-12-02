@@ -14,6 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
+import { LandingPageComponent } from '../landing-page/landing-page.component';
 
 @Component({
   selector: 'app-main-nav',
@@ -33,7 +34,8 @@ import { MatChipsModule } from '@angular/material/chips';
     UserProfileComponent,
     TopAppBarComponent,
     ThemeToggleModule,
-    DensityToggleModule
+    DensityToggleModule,
+    LandingPageComponent
   ],
   encapsulation: ViewEncapsulation.None,
   templateUrl: './main-nav.component.html'
@@ -135,6 +137,11 @@ export class MainNavComponent {
       label: 'Typography',
       icon: 'type-specimen',
       route: '/typography',
+    },
+    {
+      label: 'landing pg',
+      icon: 'verified',
+      route: '/landing-page',
     }
   ];
 
