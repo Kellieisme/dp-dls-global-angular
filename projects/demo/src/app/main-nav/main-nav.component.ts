@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 import { MatIconModule } from '@angular/material/icon';
 import { ThemeToggleModule } from '@jeppesen-foreflight/dp-dls-global-angular/theme-toggle';
+import { DensityToggleModule } from '../../../../design/dp-dls-global-angular/density-toggle/src/density-toggle.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { UserProfileComponent } from '@jeppesen-foreflight/dp-dls-global-angular/user-profile';
 import { MatMenuModule } from '@angular/material/menu';
@@ -31,7 +32,8 @@ import { MatChipsModule } from '@angular/material/chips';
     RouterModule,
     UserProfileComponent,
     TopAppBarComponent,
-    ThemeToggleModule
+    ThemeToggleModule,
+    DensityToggleModule
   ],
   encapsulation: ViewEncapsulation.None,
   templateUrl: './main-nav.component.html'

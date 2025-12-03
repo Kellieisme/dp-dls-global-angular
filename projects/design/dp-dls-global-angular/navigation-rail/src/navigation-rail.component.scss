@@ -1,5 +1,4 @@
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss' as varsbase;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 mat-sidenav-container {
   .app-home-link {
@@ -26,17 +25,17 @@ mat-sidenav-container {
     mat-sidenav {
       mat-list-item {
         overflow: visible;
-        margin-bottom: vars.$size-relaxed-spacing-2xl;
-        padding-top: var(--size-spacing-2xs);
-        padding-right: vars.$size-relaxed-sizing-none;
-        height: vars.$size-relaxed-spacing-2xl;
+        margin-bottom: var(--foundation-spacing-2xl);
+        padding-top: var(--foundation-spacing-2xs);
+        padding-right: var(--foundation-spacing-none);
+        height: var(--foundation-sizing-2xl);
         &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
-          height: var(--size-spacing-2xl);
+          height: var(--foundation-sizing-2xl);
         }
 
         ::ng-deep .mdc-list-item__content {
           position: relative;
-          bottom: -(vars.$size-relaxed-spacing-2xs);
+          bottom: -(var(--foundation-spacing-2xs));
           cursor: pointer;
         }
       }
@@ -46,40 +45,44 @@ mat-sidenav-container {
   &:not(.labels-visible) {
     mat-sidenav {
       mat-list-item {
-        --mdc-list-list-item-leading-icon-size: 24px;
+        --mdc-list-list-item-leading-icon-size: var(--foundation-sizing-xl);
       }
     }
   }
 }
 
 mat-sidenav {
-  backdrop-filter: blur(vars.$size-base-shadow-blur-100);
-  border-right: vars.$size-base-border-width-1 solid var(--color-ui-divider-flat-high);
-  padding: vars.$size-relaxed-spacing-l vars.$size-relaxed-spacing-xs;
+  -webkit-backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
+  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
+  border-right: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
+  padding: var(--foundation-spacing-l) var(--foundation-spacing-xs);
+
+  .theme-relaxed & {
+    padding-left: var(--foundation-spacing-xs, 8px);
+    padding-right: var(--foundation-spacing-xs, 8px);
+  }
 
   mat-list-item {
     &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
-      height: vars.$size-relaxed-spacing-5xl;
+      height: var(--foundation-spacing-5xl);
     }
 
     &.mat-mdc-list-item {
       background-color: transparent;
 
       &:focus {
-        background-color: var(--color-interactive-primary-background-enabled-tonal);
+        background-color: var(--foundation-interactive-primary-background-enabled-tonal);
       }
 
       &:active {
-        background-color: var(--color-interactive-primary-background-selected);
+        background-color: var(--foundation-interactive-primary-background-selected);
       }
 
       &:hover:not(:disabled),
       &.mat-list-item--toggle-on {
-        background-color: var(--color-interactive-primary-background-hovered);
+        background-color: var(--foundation-interactive-primary-background-hovered);
 
         .mat-icon {
-          overflow: visible;
-
           svg {
             filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
           }
@@ -87,13 +90,7 @@ mat-sidenav {
       }
 
       .mdc-list-item__primary-text {
-        /* Use the Material (`--mat-...`) custom properties which the Angular
-           Material list styles actually read for font-size/line-height/weight. */
-
-        --mat-list-list-item-label-text-size: #{vars.$responsive-type-label-medium-size-m};
-   //     --mat-list-list-item-label-text-tracking: #{vars.$content-base-font-tracking-medium};
-        --mat-list-list-item-label-text-weight: #{vars.$content-base-font-weight-medium};
-        --mat-list-list-item-label-text-line-height: #{vars.$responsive-type-label-medium-height-m};
+        @include typography.typography-m-label-low;
       }
     }
   }
@@ -128,16 +125,16 @@ mat-sidenav {
 mat-list-item.narrow {
   display: flex;
   .mat-mdc-list-item-icon {
-    margin-left: vars.$size-relaxed-sizing-m;
-    margin-right: vars.$size-relaxed-sizing-m;
+    margin-left: var(--foundation-spacing-m);
+    margin-right: var(--foundation-spacing-m);
   }
 }
 
 mat-list-item {
   display: block;
   text-align: center;
-  padding-right: vars.$size-relaxed-sizing-none;
-  margin-top: vars.$size-relaxed-spacing-s;
+  padding-right: var(--foundation-spacing-none);
+  margin-top: var(--foundation-spacing-s);
   .mat-mdc-list-item-icon {
     margin: 0;
   }
@@ -149,7 +146,7 @@ mat-list-item {
 
 .bottom-icons {
   display: flex;
-  bottom: vars.$size-relaxed-spacing-none;
+  bottom: var(--foundation-spacing-none);
   flex-direction: column;
   text-align: center;
   align-items: center;

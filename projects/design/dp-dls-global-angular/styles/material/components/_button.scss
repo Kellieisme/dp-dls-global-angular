@@ -1,9 +1,8 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
 :root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
   @include mat.button-theme(m3.$dark-theme);
   @include mat.icon-button-theme(m3.$dark-theme);
 }
@@ -13,23 +12,72 @@
   @include mat.icon-button-color(m3.$light-theme);
 }
 
-// Define state layer colors and opacities
-// Base are tokens used because Material needs color and opacity as seperate properties,
-// but our alias tokens combine them into a single 8-character hex color
+// ===========================
+// Global State Configuration
+// ===========================
+
 html {
-  --state-layer-background-opacity-hovered: yellow;
-  --state-layer-background-opacity-selected: green;
+  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
 }
 
-// Add glow effects to hovered and pressed buttons
+// ===========================
+// Icon Colors for Regular Buttons (Text, Outlined, Filled)
+// ===========================
+
 .mat-mdc-button,
 .mat-mdc-outlined-button,
-.mat-mdc-icon-button {
+.mat-mdc-unelevated-button {
+  .mat-icon {
+    color: inherit;
+  }
+  
+  &.mat-primary .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-primary-default);
+  }
+  
+  &.mat-accent .mat-icon {
+    color: var(--foundation-interactive-accent-textandicon-default);
+  }
+  
+  &.mat-warn .mat-icon {
+    color: var(--foundation-semantic-textandicon-error);
+  }
+  
+  &[disabled] .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-disabled);
+  }
+}
 
+// Filled buttons use inverse colors (light text on dark background)
+.mat-mdc-unelevated-button {
+  .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-inverse);
+  }
+  
+  &.mat-primary .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-inverse);
+  }
+  
+  &.mat-accent .mat-icon {
+    color: var(--foundation-interactive-accent-textandicon-inverse);
+  }
+  
+  &.mat-warn .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-inverse);
+  }
+}
+
+// ===========================
+// Hover Effects for Regular Buttons
+// ===========================
+
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button {
   &:hover,
   &:focus {
-    --mat-button-text-label-text-color: var(--color-interactive-primary-textandicon-selected);
-    --mat-button-outlined-label-text-color: var(--color-interactive-primary-textandicon-selected);
+    --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+    --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
 
     .mdc-button__label {
       text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
@@ -42,119 +90,123 @@ html {
         filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
       }
     }
+    
+    &:not(.mat-mdc-unelevated-button):not([disabled]) {
+      .mat-mdc-button-persistent-ripple::before {
+        background-color: var(--foundation-interactive-primary-background-hovered);
+        opacity: 1;
+      }
+    }
 
     &.mat-primary {
-      --mat-button-text-label-text-color: var(--color-interactive-primary-textandicon-selected);
-      --mat-button-outlined-label-text-color: var(--color-interactive-primary-textandicon-selected);
+      --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+      --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
 
       .mdc-button__label {
         text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
       }
 
-      .mat-icon {
-        overflow: visible;
-
-        svg {
-          filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
-        }
+      .mat-icon svg {
+        filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
       }
     }
 
     &.mat-accent {
-      --mat-button-text-label-text-color: var(--color-interactive-accent-textandicon-selected);
-      --mat-button-outlined-label-text-color: var(--color-interactive-accent-textandicon-selected);
+      --mat-button-text-label-text-color: var(--foundation-interactive-accent-textandicon-selected);
+      --mat-button-outlined-label-text-color: var(--foundation-interactive-accent-textandicon-selected);
 
       .mdc-button__label {
         text-shadow: var(--box-shadow-interactive-accent-glow-backlit);
       }
 
-      .mat-icon {
-        overflow: visible;
-
-        svg {
-          filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
-        }
+      .mat-icon svg {
+        filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
       }
     }
   }
 
-  // Turn off text shadow on pressed button
   &:active {
     .mdc-button__label {
+      text-shadow: inherit;
+    }
+
+    &.mat-primary .mdc-button__label,
+    &.mat-accent .mdc-button__label {
       text-shadow: inherit;
-
-      .theme-light & {
-        text-shadow: inherit;
-      }
-    }
-
-    &.mat-primary {
-      .mdc-button__label {
-        text-shadow: inherit;
-
-        .theme-light & {
-          text-shadow: inherit;
-        }
-      }
-    }
-
-    &.mat-accent {
-      .mdc-button__label {
-        text-shadow: inherit;
-
-        .theme-light & {
-          text-shadow: inherit;
-        }
-      }
     }
   }
 }
 
-// Border color customizations for outlined button
-.mat-mdc-outlined-button {
+// ===========================
+// Button Hover Backgrounds
+// ===========================
 
-  &:hover,
-  &:focus {
-    border-color: var(--color-interactive-primary-border-hovered-flat);
+.mat-mdc-button:not(.mat-mdc-icon-button) {
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-primary:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-accent:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-accent-background-hovered);
+  }
+}
+
+.mat-mdc-outlined-button {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    border-color: var(--foundation-interactive-primary-border-hovered-flat);
+    background-color: var(--foundation-interactive-primary-background-hovered);
 
     &.mat-primary {
-      border-color: var(--color-interactive-primary-border-hovered-flat);
+      border-color: var(--foundation-interactive-primary-border-hovered-flat);
+      background-color: var(--foundation-interactive-primary-background-hovered);
     }
 
     &.mat-accent {
-      border-color: var(--color-interactive-accent-border-hovered);
+      border-color: var(--foundation-interactive-accent-border-hovered);
+      background-color: var(--foundation-interactive-accent-background-hovered);
     }
   }
 
   &:active {
-    border-color: var(--color-interactive-primary-border-selected);
+    border-color: var(--foundation-interactive-primary-border-selected);
 
     &.mat-primary {
-      border-color: var(--color-interactive-primary-border-selected);
+      border-color: var(--foundation-interactive-primary-border-selected);
     }
 
     &.mat-accent {
-      border-color: var(--color-interactive-accent-border-selected);
+      border-color: var(--foundation-interactive-accent-border-selected);
     }
   }
 }
 
-[mat-icon-button] {
-  &.mat-mdc-icon-button--toggle-on {
+// ===========================
+// Icon Button Toggle State
+// ===========================
+
+[mat-icon-button].mat-mdc-icon-button--toggle-on {
+  .mat-mdc-button-persistent-ripple::before {
+    background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+    opacity: 1;
+  }
+
+  &:focus,
+  &:active {
     .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--color-interactive-primary-background-enabled-tonal);
-      opacity: var(--state-layer-background-opacity-hovered);
-    }
-
-    &:focus,
-    &:active {
-      .mat-mdc-button-persistent-ripple::before {
-        opacity: var(--state-layer-background-opacity-selected);
-      }
+      background-color: var(--foundation-interactive-primary-background-selected);
+      opacity: 1;
     }
   }
 }
 
+// ===========================
+// Icon Size Inheritance
+// ===========================
 
 .mat-mdc-button>.mat-icon,
 .mat-mdc-unelevated-button>.mat-icon,
@@ -163,244 +215,265 @@ html {
   font-size: inherit !important;
 }
 
+// ===========================
+// Button Shape & Sizing
+// ===========================
 
-// The CSS custom properties emitted by the theme mixins are derived from M3's design tokens. 
-// To further customize your UI beyond the define-theme API, you can manually set these custom properties in your styles.
-
-html,
-html .theme-condensed {
-  --mat-button-text-container-shape: var(--size-radius-full);
-  //   --mat-button-text-keep-touch-target: false;
-  --mat-button-filled-container-shape: var(--size-radius-full);
-  //   --mat-button-filled-keep-touch-target: false;
-  --mat-button-protected-container-shape: var(--size-radius-full);
-  //   --mat-button-protected-keep-touch-target: false;
-  //   --mat-button-outlined-keep-touch-target: false;
-  //   --mat-button-outlined-outline-width: 1px;
-  --mat-button-outlined-container-shape: var(--size-radius-full);
-  //   --mat-button-text-horizontal-padding: 8px;
-  //   --mat-button-text-with-icon-horizontal-padding: 8px;
-  //   --mat-button-text-icon-spacing: 8px;
-  //   --mat-button-text-icon-offset: 0;
-  //   --mat-button-filled-horizontal-padding: 16px;
-  //   --mat-button-filled-icon-spacing: 8px;
-  //   --mat-button-filled-icon-offset: -4px;
-  //   --mat-button-protected-horizontal-padding: 16px;
-  //   --mat-button-protected-icon-spacing: 8px;
-  //   --mat-button-protected-icon-offset: -4px;
-  //   --mat-button-outlined-horizontal-padding: 15px;
-  //   --mat-button-outlined-icon-spacing: 8px;
-  //   --mat-button-outlined-icon-offset: -4px
+:root {
+  --mat-button-text-container-shape: var(--foundation-radius-full);
+  --mat-button-filled-container-shape: var(--foundation-radius-full);
+  --mat-button-protected-container-shape: var(--foundation-radius-full);
+  --mat-button-outlined-container-shape: var(--foundation-radius-full);
+  --mat-button-text-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-filled-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-outlined-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-protected-container-height: var(--base-dimension-dynamic-s09);
 }
+
+// Ensure button elements respect density-aware height tokens
+// Using multiple class selectors for higher specificity
+.mat-mdc-button.mat-mdc-button,
+.mat-mdc-unelevated-button.mat-mdc-unelevated-button,
+.mat-mdc-raised-button.mat-mdc-raised-button,
+.mat-mdc-outlined-button.mat-mdc-outlined-button {
+  height: var(--base-dimension-dynamic-s09);
+  
+  .mat-mdc-button-touch-target {
+    height: 100%;
+  }
+}
+
+// ===========================
+// Button Color Tokens
+// ===========================
 
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-button-text-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-button-text-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
-  --mat-button-text-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  --mat-button-text-disabled-state-layer-color: var(--color-interactive-primary-textandicon-disabled);
-  //   --mat-button-text-ripple-color: rgba(0, 0, 0, 0.1);
-  --mat-button-text-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-button-text-focus-state-layer-opacity: 0.12;
-  //   --mat-button-text-pressed-state-layer-opacity: 0.12;
-  --mat-button-filled-container-color: var(--color-interactive-primary-background-enabled-filled);
-  --mat-button-filled-label-text-color: var(--color-interactive-primary-textandicon-inverse);
-  --mat-button-filled-disabled-container-color: var(--color-interactive-primary-background-disabled);
-  --mat-button-filled-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
-  --mat-button-filled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  --mat-button-filled-disabled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  //   --mat-button-filled-ripple-color: rgba(0, 0, 0, 0.1);
-  --mat-button-filled-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-button-filled-focus-state-layer-opacity: 0.12;
-  //   --mat-button-filled-pressed-state-layer-opacity: 0.12;
-  //   --mat-button-protected-container-color: white;
-  //   --mat-button-protected-label-text-color: black;
-  //   --mat-button-protected-disabled-container-color: rgba(0, 0, 0, 0.12);
-  //   --mat-button-protected-disabled-label-text-color: rgba(0, 0, 0, 0.38);
-  //   --mat-button-protected-container-elevation-shadow: 
-  //   --mat-button-protected-disabled-container-elevation-shadow: 
-  //   --mat-button-protected-focus-container-elevation-shadow: 
-  //   --mat-button-protected-hover-container-elevation-shadow: 
-  //   --mat-button-protected-pressed-container-elevation-shadow: 
-  //   --mat-button-protected-container-shadow-color: #000;
-  //   --mat-button-protected-state-layer-color: black;
-  //   --mat-button-protected-disabled-state-layer-color: black;
-  //   --mat-button-protected-ripple-color: rgba(0, 0, 0, 0.1);
-  //   --mat-button-protected-hover-state-layer-opacity: 0.04;
-  //   --mat-button-protected-focus-state-layer-opacity: 0.12;
-  //   --mat-button-protected-pressed-state-layer-opacity: 0.12;
-  --mat-button-outlined-disabled-outline-color: var(--color-interactive-primary-border-disabled);
-  --mat-button-outlined-disabled-label-text-color: var(--color-interactive-primary-textandicon-disabled);
-  --mat-button-outlined-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-button-outlined-outline-color: var(--color-interactive-primary-border-enabled);
-  --mat-button-outlined-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  --mat-button-outlined-disabled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  //   --mat-button-outlined-ripple-color: rgba(0, 0, 0, 0.1);
-  --mat-button-outlined-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-button-outlined-focus-state-layer-opacity: 0.12;
-  //   --mat-button-outlined-pressed-state-layer-opacity: 0.12
+  --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-button-text-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
+  --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-button-text-disabled-state-layer-color: var(--foundation-interactive-primary-textandicon-disabled);
+  
+  --mat-button-filled-container-color: var(--foundation-interactive-primary-background-enabled-filled);
+  --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
+  --mat-button-filled-disabled-container-color: var(--foundation-interactive-primary-background-disabled);
+  --mat-button-filled-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
+  --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-button-filled-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  
+  --mat-button-outlined-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
+  --mat-button-outlined-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
+  --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
+  --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-button-outlined-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
 }
 
+// Primary button colors
 .mat-mdc-button.mat-primary,
 .theme-light .mat-mdc-button.mat-primary {
-  --mat-button-text-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-button-text-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  //   --mat-button-text-ripple-color: rgba(63, 81, 181, 0.1)
-}
-
-.mat-mdc-button.mat-accent,
-.theme-light .mat-mdc-button.mat-accent {
-  --mat-button-text-label-text-color: var(--color-interactive-accent-textandicon-default);
-  --mat-button-text-state-layer-color: var(--color-interactive-accent-background-hovered);
-  //   --mat-button-text-ripple-color: rgba(255, 64, 129, 0.1)
-}
-
-.mat-mdc-button.mat-warn {
-  --mat-button-text-label-text-color: var(--color-semantic-textandicon-error);
-  --mat-button-text-state-layer-color: var(--color-semantic-background-error-tonal);
-  --mat-button-text-ripple-color: var(--color-semantic-background-error-tonal);
+  --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
 }
 
 .mat-mdc-unelevated-button.mat-primary,
 .theme-light .mat-mdc-unelevated-button.mat-primary {
-  --mat-button-filled-container-color: var(--color-interactive-primary-background-enabled-filled);
-  --mat-button-filled-label-text-color: var(--color-interactive-primary-textandicon-inverse);
-  --mat-button-filled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  //   --mat-button-filled-ripple-color: rgba(255, 255, 255, 0.1)
-}
-
-.mat-mdc-unelevated-button.mat-accent,
-.theme-light .mat-mdc-unelevated-button.mat-accent {
-  --mat-button-filled-container-color: var(--color-interactive-accent-background-enabled-filled);
-  --mat-button-filled-label-text-color: var(--color-interactive-accent-textandicon-inverse);
-  --mat-button-filled-state-layer-color: var(--color-interactive-accent-background-hovered);
-  //   --mat-button-filled-ripple-color: rgba(255, 255, 255, 0.1)
-}
-
-.mat-mdc-unelevated-button.mat-warn {
-  --mat-button-filled-container-color: var(--color-semantic-background-error-filled);
-  --mat-button-filled-state-layer-color: var(--color-semantic-background-error-tonal);
-  --mat-button-filled-ripple-color: rgba(255, 255, 255, 0.1);
-  --mat-button-filled-label-text-color: var(--color-interactive-primary-textandicon-inverse);
-}
-
-// .mat-mdc-raised-button.mat-primary {
-//   --mat-button-protected-container-color: #3f51b5;
-//   --mat-button-protected-label-text-color: white;
-//   --mat-button-protected-state-layer-color: white;
-//   --mat-button-protected-ripple-color: rgba(255, 255, 255, 0.1)
-// }
-
-// .mat-mdc-raised-button.mat-accent {
-//   --mat-button-protected-container-color: #ff4081;
-//   --mat-button-protected-label-text-color: white;
-//   --mat-button-protected-state-layer-color: white;
-//   --mat-button-protected-ripple-color: rgba(255, 255, 255, 0.1)
-// }
-
-.mat-mdc-raised-button.mat-warn {
-  --mat-button-protected-container-color: var(--color-semantic-background-error-filled);
-  --mat-button-protected-label-text-color: var(--color-semantic-textandicon-error);
-  --mat-button-protected-state-layer-color: var(--color-semantic-textandicon-error);
-  --mat-button-protected-ripple-color: var(--color-semantic-background-error-tonal);
+  --mat-button-filled-container-color: var(--foundation-interactive-primary-background-enabled-filled);
+  --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
+  --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
 }
 
 .mat-mdc-outlined-button.mat-primary,
 .theme-light .mat-mdc-outlined-button.mat-primary {
-  --mat-button-outlined-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-button-outlined-outline-color: var(--color-interactive-primary-border-enabled);
-  --mat-button-outlined-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  //   --mat-button-outlined-ripple-color: rgba(63, 81, 181, 0.1)
+  --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
+  --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+}
+
+// Accent button colors
+.mat-mdc-button.mat-accent,
+.theme-light .mat-mdc-button.mat-accent {
+  --mat-button-text-label-text-color: var(--foundation-interactive-accent-textandicon-default);
+  --mat-button-text-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+}
+
+.mat-mdc-unelevated-button.mat-accent,
+.theme-light .mat-mdc-unelevated-button.mat-accent {
+  --mat-button-filled-container-color: var(--foundation-interactive-accent-background-enabled-filled);
+  --mat-button-filled-label-text-color: var(--foundation-interactive-accent-textandicon-inverse);
+  --mat-button-filled-state-layer-color: var(--foundation-interactive-accent-background-hovered);
 }
 
 .mat-mdc-outlined-button.mat-accent,
 .theme-light .mat-mdc-outlined-button.mat-accent {
-  --mat-button-outlined-label-text-color: var(--color-interactive-accent-textandicon-default);
-  --mat-button-outlined-outline-color: var(--color-interactive-accent-border-enabled);
-  --mat-button-outlined-state-layer-color: var(--color-interactive-accent-background-hovered);
-  //   --mat-button-outlined-ripple-color: rgba(255, 64, 129, 0.1)
+  --mat-button-outlined-label-text-color: var(--foundation-interactive-accent-textandicon-default);
+  --mat-button-outlined-outline-color: var(--foundation-interactive-accent-border-enabled);
+  --mat-button-outlined-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+}
+
+// Warn button colors
+.mat-mdc-button.mat-warn {
+  --mat-button-text-label-text-color: var(--foundation-semantic-textandicon-error);
+  --mat-button-text-state-layer-color: var(--foundation-semantic-background-error-tonal);
+  --mat-button-text-ripple-color: var(--foundation-semantic-background-error-tonal);
+}
+
+.mat-mdc-unelevated-button.mat-warn {
+  --mat-button-filled-container-color: var(--foundation-semantic-background-error-filled);
+  --mat-button-filled-state-layer-color: var(--foundation-semantic-background-error-tonal);
+  --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
+}
+
+.mat-mdc-raised-button.mat-warn {
+  --mat-button-protected-container-color: var(--foundation-semantic-background-error-filled);
+  --mat-button-protected-label-text-color: var(--foundation-semantic-textandicon-error);
+  --mat-button-protected-state-layer-color: var(--foundation-semantic-textandicon-error);
+  --mat-button-protected-ripple-color: var(--foundation-semantic-background-error-tonal);
 }
 
 .mat-mdc-outlined-button.mat-warn {
-  --mat-button-outlined-label-text-color: var(--color-semantic-textandicon-error);
-  --mat-button-outlined-outline-color: var(--color-semantic-background-error-filled);
-  --mat-button-outlined-state-layer-color: var(--color-semantic-background-error-tonal);
-  --mat-button-outlined-ripple-color: var(--color-semantic-background-error-tonal)
+  --mat-button-outlined-label-text-color: var(--foundation-semantic-textandicon-error);
+  --mat-button-outlined-outline-color: var(--foundation-semantic-background-error-filled);
+  --mat-button-outlined-state-layer-color: var(--foundation-semantic-background-error-tonal);
 }
 
-html,
-html .theme-condensed {
-  --mat-button-text-container-height: var(--size-sizing-3xl);
-  --mat-button-filled-container-height: var(--size-sizing-3xl);
-  --mat-button-outlined-container-height: var(--size-sizing-3xl);
-  --mat-button-protected-container-height: var(--size-sizing-3xl);
-  //   --mat-button-text-touch-target-display: block;
-  //   --mat-button-filled-touch-target-display: block;
-  //   --mat-button-protected-touch-target-display: block;
-  //   --mat-button-outlined-touch-target-display: block
-}
+// ===========================
+// Icon Button Styling
+// ===========================
 
-html,
-html .theme-light,
-html .theme-dark {
-  //   --mat-icon-button-icon-color: inherit;
-  --mat-icon-button-disabled-icon-color: var(--color-interactive-primary-textandicon-disabled);
-  --mat-icon-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  --mat-icon-button-disabled-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  --mat-icon-button-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
-  //   --mat-icon-button-focus-state-layer-opacity: 0.12;
-  //   --mat-icon-button-pressed-state-layer-opacity: 0.12
-}
+.mat-mdc-icon-button {
+  width: var(--base-dimension-dynamic-s09);
+  height: var(--base-dimension-dynamic-s09);
+  padding: 0;
+  
+  .mat-mdc-button-touch-target {
+    width: 100%;
+    height: 100%;
+  }
 
-html .mat-mdc-icon-button.mat-primary,
-html .theme-light .mat-mdc-icon-button.mat-primary {
-  --mat-icon-button-icon-color: var(--color-interactive-primary-textandicon-primary-default);
-  --mat-icon-button-state-layer-color: var(--color-interactive-primary-background-enabled-tonal);
-  --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
+  .mat-icon {
+    overflow: visible;
+  }
 
-  &.filled-primary {
-    background-color: var(--color-interactive-primary-background-enabled-filled);
-    color: var(--color-interactive-primary-textandicon-inverse);
-    --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
-
-    &.mat-mdc-icon-button.mat-mdc-button-disabled {
-      background-color: var(--color-interactive-primary-background-disabled);
-      color: var(--color-interactive-primary-textandicon-disabled);
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    .mat-mdc-button-persistent-ripple::before {
+      background-color: var(--foundation-interactive-primary-background-hovered);
+      opacity: 1;
     }
   }
 }
 
-html .mat-mdc-icon-button.mat-accent,
-html .theme-light .mat-mdc-icon-button.mat-accent {
-  --mat-icon-button-icon-color: var(--color-interactive-accent-textandicon-default);
-  --mat-icon-button-state-layer-color: var(--color-interactive-accent-background-hovered);
+html {
+  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-icon-button-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+  --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-icon-button-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+}
 
-  //   --mat-icon-button-ripple-color: rgba(255, 64, 129, 0.1)
-  &.filled-accent {
-    background-color: var(--color-interactive-accent-background-enabled-filled);
-    color: var(--color-interactive-accent-textandicon-inverse);
-    --mat-icon-button-ripple-color: var(--color-interactive-primary-background-ripple);
-
-    &.mat-mdc-icon-button.mat-mdc-button-disabled {
-      background-color: var(--color-interactive-primary-background-disabled);
-      color: var(--color-interactive-primary-textandicon-disabled);
+// Icon button without color attribute or with mat-unthemed class
+html .mat-mdc-icon-button.mat-unthemed,
+html .mat-mdc-icon-button:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
+  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  
+  .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-primary-default);
+  }
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+    
+    .mat-icon svg {
+      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+    }
+  }
+  
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+    
+    .mat-icon {
+      color: var(--foundation-interactive-primary-textandicon-disabled);
     }
   }
 }
 
+// Primary icon buttons
+html .mat-mdc-icon-button.mat-primary {
+  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
+  
+  .mat-icon {
+    color: var(--foundation-interactive-primary-textandicon-primary-default);
+  }
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+    
+    .mat-icon svg {
+      filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
+    }
+  }
+  
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+    
+    .mat-icon {
+      color: var(--foundation-interactive-primary-textandicon-disabled);
+    }
+  }
+}
+
+// Accent icon buttons
+html .mat-mdc-icon-button.mat-accent {
+  --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-default);
+  --mat-icon-button-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+  
+  .mat-icon {
+    color: var(--foundation-interactive-accent-textandicon-default);
+  }
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-accent-background-hovered);
+    
+    .mat-icon svg {
+      filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
+    }
+  }
+  
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-disabled);
+    
+    .mat-icon {
+      color: var(--foundation-interactive-accent-textandicon-disabled);
+    }
+  }
+}
+
+// Warn icon buttons
 html .mat-mdc-icon-button.mat-warn {
-  --mat-icon-button-icon-color: var(--color-semantic-textandicon-error);
-  --mat-icon-button-state-layer-color: var(--color-semantic-background-error-tonal);
-  --mat-icon-button-ripple-color: var(--color-semantic-background-error-tonal);
-
-  &.filled-warn {
-    background-color: var(--color-semantic-background-error-filled);
-    color: var(--color-interactive-primary-textandicon-inverse);
-
-    &.mat-mdc-icon-button.mat-mdc-button-disabled {
-      background-color: var(--color-interactive-primary-background-disabled);
-      color: var(--color-interactive-primary-textandicon-disabled);
+  --mat-icon-button-icon-color: var(--foundation-semantic-textandicon-error);
+  --mat-icon-button-state-layer-color: var(--foundation-semantic-background-error-tonal);
+  --mat-icon-button-ripple-color: var(--foundation-semantic-background-error-tonal);
+  
+  .mat-icon {
+    color: var(--foundation-semantic-textandicon-error);
+  }
+  
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-semantic-background-error-tonal);
+    
+    .mat-icon svg {
+      filter: drop-shadow(0 0 10px var(--foundation-semantic-textandicon-error));
+    }
+  }
+  
+  &[disabled] {
+    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+    
+    .mat-icon {
+      color: var(--foundation-interactive-primary-textandicon-disabled);
     }
   }
 }

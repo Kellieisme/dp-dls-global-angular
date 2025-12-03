@@ -6,6 +6,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { routes } from './app.routes';
 import { ThemeToggleService } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.service';
 import { ThemeLocalStorageService, THEME_STORAGE_SERVICE } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-storage.service';
+import { DensityToggleService } from '../../../design/dp-dls-global-angular/density-toggle/src/density-toggle.service';
+import { LocalStorageDensityStorage, DENSITY_STORAGE_SERVICE } from '../../../design/dp-dls-global-angular/density-toggle/src/density-storage.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +18,11 @@ export const appConfig: ApplicationConfig = {
     {
       provide: THEME_STORAGE_SERVICE,
       useClass: ThemeLocalStorageService,
+    },
+    DensityToggleService,
+    {
+      provide: DENSITY_STORAGE_SERVICE,
+      useClass: LocalStorageDensityStorage,
     },
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,

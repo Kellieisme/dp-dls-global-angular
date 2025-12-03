@@ -3,9 +3,6 @@
 
 @use 'sass:map';
 @use '@angular/material' as mat;
-
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variablesBase.scss' as varsBase;
 @use './typography';
 
 // Note: Color palettes are generated from primary: #2B3D4C, secondary: #009CEB, tertiary: #AE44E0, neutral: #E3E2E4
@@ -142,14 +139,13 @@ $light-theme: mat.define-theme((
     system-variables-prefix: 'atmosphere-light'
   ),
   typography: (
-    brand-family: vars.$content-base-font-family-boeing-meso,
-    plain-family: vars.$content-base-font-family-boeing-meso,
-    bold-weight: vars.$content-base-font-weight-bold,
-    medium-weight: vars.$content-base-font-weight-medium,
-    regular-weight:vars.$content-base-font-weight-regular,
-    use-system-variables:false)
-
-
+    brand-family: 'Boeing Meso',
+    plain-family: 'Boeing Meso',
+    bold-weight: 700,
+    medium-weight: 500,
+    regular-weight: 400,
+    use-system-variables: false
+  )
 ));
 $dark-theme: mat.define-theme((
   color: (
@@ -160,12 +156,11 @@ $dark-theme: mat.define-theme((
     system-variables-prefix: 'atmosphere-dark'
   ),
   typography: (
-    brand-family: vars.$content-base-font-family-boeing-meso,
-    plain-family: vars.$content-base-font-family-boeing-meso,
-    bold-weight: vars.$content-base-font-weight-bold,
-    medium-weight: vars.$content-base-font-weight-medium,
-    regular-weight: vars.$content-base-font-weight-regular,
-    use-system-variables:false
+    brand-family: 'Boeing Meso',
+    plain-family: 'Boeing Meso',
+    bold-weight: 700,
+    medium-weight: 500,
+    regular-weight: 400,
+    use-system-variables: false
   )
-
 ));

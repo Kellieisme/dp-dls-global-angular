@@ -28,7 +28,7 @@ jobs:
     uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/lint.yml@spark-fix
     with:
       lint-yaml: true
-      node-version: 20
+      node-version: '22.14.0'
     secrets: inherit
   predict-version-number:
     name: Predict next version number
@@ -47,31 +47,10 @@ jobs:
         uses: jeppesen-foreflight/dp-actions-version-increment@v1.2
         id: version
         with:
-          scheme: ${{ inputs.version-scheme }}
+          scheme: semver
           token: ${{ secrets.GITHUB_TOKEN }}
-          increment: ${{ inputs.increment }}
-          release_branch: angular-19
-  # predict-version-number:
-  #   name: Predict version number
-  #   permissions:
-  #     contents: read
-  #     packages: read
-  #   uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/predict-version-number.yml@spark-fix
-  #   with:
-  #     version-scheme: semver
-  #     increment: patch
-  #     release_branch: angular-19
-  # run-tests:
-  #   name: Run tests
-  #   permissions:
-  #     contents: read
-  #     attestations: write
-  #     id-token: write
-  #     packages: read
-  #   uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/npm-tests.yml@spark-fix
-  #   with:
-  #     node-version: 20
-  #   secrets: inherit
+          increment: patch
+          release_branch: main
   codeql-scan:
     name: Run CodeQL scan
     permissions:
@@ -81,7 +60,7 @@ jobs:
       packages: read
     uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/codeql-node-scan.yml@spark-fix
     with:
-      node-version: 20
+      node-version: '22.14.0'
     secrets: inherit
   publish-package:
     name: Publish package
@@ -93,7 +72,7 @@ jobs:
       id-token: write
     uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/build-and-publish-npm-package.yml@spark-fix
     with:
-      node-version: 20
+      node-version: '22.14.0'
       package-version: ${{ needs.predict-version-number.outputs.version }}
       project-path: dist/design/dp-dls-global-angular
     secrets: inherit

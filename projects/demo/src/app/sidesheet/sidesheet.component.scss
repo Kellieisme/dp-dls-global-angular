@@ -2,17 +2,16 @@
 
 :host {
   mat-sidenav-container {
-    // height: 100vh;
-    height: 400px;
+    height: 100vh;
   }
   mat-sidenav {
-    background-color: var(--color-ui-background-lowest);
+    background-color: var(--foundation-ui-background-page);
     display: flex;
     flex-direction: column;
 
     mat-toolbar {
       justify-content: space-between;
-      background-color: var(--color-ui-background-lowest);
+      background-color: var(--foundation-ui-background-page);
       padding-top: var(--spacing-s);
       padding-right: var(--spacing-s);
       padding-bottom: var(--spacing-s);
@@ -25,9 +24,9 @@
     }
 
     &.mat-drawer-over {
-      background-color: var(--color-ui-glass-surface-thick);
+      background-color: var(--foundation-ui-glass-surface-thick);
       mat-toolbar {
-        background-color: var(--color-ui-glass-surface-thick);
+        background-color: var(--foundation-ui-glass-surface-thick);
       }
     }
   }

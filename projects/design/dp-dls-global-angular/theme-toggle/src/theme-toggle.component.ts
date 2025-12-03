@@ -14,6 +14,7 @@ import { MatIcon } from '@angular/material/icon';
  */
 @Component({
   selector: "ba-theme-toggle",
+  standalone: true,
   imports: [MatIconButton, MatTooltip, MatIcon],
   templateUrl: "theme-toggle.component.html",
   styleUrls: ["theme-toggle.component.scss"]

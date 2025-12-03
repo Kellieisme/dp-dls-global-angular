@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '../m3-theme.scss' as m3;
 
@@ -26,7 +25,7 @@ $composition-dark-ui-glass-border-specular-menu: rgba(255, 255, 255, 0.17);
   // max-width: 280px; Not necessary to set a max-width
   min-width: 112px;
   @include composition.composition-dark-ui-glass-background-blur;
-  background: var(--color-ui-glass-surface-thick) !important;
+  background: var(--foundation-ui-glass-surface-thick) !important;
   // @include composition-dark-interactive-primary-border-hovered-specular;
   border: 1px solid $composition-dark-ui-glass-border-specular-menu;
 
@@ -76,14 +75,14 @@ $composition-dark-ui-glass-border-specular-menu: rgba(255, 255, 255, 0.17);
       justify-content: center;
 
       .user-name {
-        font-size: vars.$size-base-font-size-18px;
-        font-weight: vars.$content-base-font-weight-medium;
+        font-size: var(--foundation-icon-xs, 18px);
+        font-weight: var(--content-base-font-weight-medium);
       }
 
       .additional-info {
-        font-size: vars.$size-base-font-size-12px;
-        font-weight: vars.$content-base-font-weight-regular;
-        color: var(--color-interactive-primary-textandicon-secondary-default);
+        font-size: 12px;
+        font-weight: var(--content-base-font-weight-regular);
+        color: var(--foundation-interactive-primary-textandicon-secondary-default);
       }
     }
   }
@@ -118,10 +117,10 @@ html .theme-condensed {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-menu-item-label-text-color: var(--color-interactive-primary-textandicon-primary-default);
+  --mat-menu-item-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   //     --mat-menu-item-icon-color: rgba(0, 0, 0, 0.87);
-  --mat-menu-item-hover-state-layer-color: var(--color-interactive-primary-background-hovered);
-  --mat-menu-item-focus-state-layer-color: var(--color-interactive-primary-background-selected);
-  --mat-menu-container-color: var(--color-ui-glass-surface-regular);
+  --mat-menu-item-hover-state-layer-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-menu-item-focus-state-layer-color: var(--foundation-interactive-primary-background-selected);
+  --mat-menu-container-color: var(--foundation-ui-glass-surface-regular);
   //     --mat-menu-divider-color: rgba(0, 0, 0, 0.12)
 }

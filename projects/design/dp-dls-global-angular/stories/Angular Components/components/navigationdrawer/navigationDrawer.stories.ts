@@ -45,7 +45,7 @@ const basicTemplate = (type: string): string =>
 
     <ng-template #sideNavNotificationsButton let-data="data">
       <button
-        mat-icon-button
+        matIconButton
         [ngClass]="{
           'mat-mdc-icon-button--toggle-on': toggled === true
         }"

@@ -26,7 +26,7 @@
       <mat-progress-bar mode="determinate" value="80"></mat-progress-bar>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color="accent">View Details</button>
+      <button matButton="filled" color="accent">View Details</button>
     </mat-card-actions>
   </mat-card>
 
@@ -41,7 +41,7 @@
         <span class="spinner-value">70%</span>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-flat-button color="accent">View Report</button>
+        <button matButton="filled" color="accent">View Report</button>
       </mat-card-actions>
     </mat-card>
 
@@ -55,7 +55,7 @@
         <span class="spinner-value">50%</span>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-flat-button color="accent">View Certificates</button>
+        <button matButton="filled" color="accent">View Certificates</button>
       </mat-card-actions>
     </mat-card>
 
@@ -70,7 +70,7 @@
         <mat-checkbox>Flight Crew 3</mat-checkbox>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-flat-button color="accent">Manage Schedule</button>
+        <button matButton="filled" color="accent">Manage Schedule</button>
       </mat-card-actions>
     </mat-card>
 
@@ -85,12 +85,12 @@
         <mat-checkbox>Advisor 3</mat-checkbox>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-flat-button color="accent">Get Advice</button>
+        <button matButton="filled" color="accent">Get Advice</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="table-container" style="margin-top: 10px;">
+  <div class="table-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="flightNumber">
         <th mat-header-cell *matHeaderCellDef> Flight Number </th>

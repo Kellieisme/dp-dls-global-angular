@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss';
 @use '../m3-theme.scss' as m3;
 
 :root {
@@ -15,8 +14,8 @@
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-tooltip-container-color: var(--color-ui-glass-surface-thick);
-  --mat-tooltip-supporting-text-color: var(--color-ui-textandicon-medium);
+  --mat-tooltip-container-color: var(--foundation-ui-glass-surface-thick);
+  --mat-tooltip-supporting-text-color: var(--foundation-ui-textandicon-medium);
 
   .mdc-tooltip__surface {
     white-space: pre-line;

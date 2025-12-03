@@ -17,11 +17,15 @@ export interface Task {
     styles: [
         `
       .example {
-        background: var(--color-ui-background-low);
+        background: var(--foundation-ui-background-low);
       }
       .example-list-section ul {
         padding-left: 20px; /* Apply left padding */
       }
+      ul {
+        list-style-type: none;
+        margin-top: 4px;
+}
     `
     ],
     template: `

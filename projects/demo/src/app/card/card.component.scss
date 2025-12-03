@@ -1,21 +1,15 @@
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
-
-.padding-extra{
-  padding: 0 vars.$size-relaxed-sizing-m;
-}
+// Using CSS custom properties for theme-aware styling
+// Foundation tokens are applied via global styles
 
 .col {
-    margin-bottom: vars.$size-relaxed-spacing-2xl;
-}
-
-h6 {
-  color: var(--color-ui-textandicon-high);
-  margin-bottom: vars.$size-relaxed-sizing-m;
+  // 2xl spacing for vertical rhythm between card columns
+  margin-bottom: var(--size-spacing-2xl);
 }
 
 .card-grid {
   display: grid;
-  gap: vars.$size-relaxed-sizing-m;
+  // Using card padding for consistent gap between cards
+  gap: var(--size-spacing-m);
   width: 100%;
   align-items: stretch;
 }

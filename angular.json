@@ -116,10 +116,10 @@
               "projects/demo/src/favicon.ico",
               "projects/demo/src/assets",
               { "glob": "svgSet.svg", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/icons/", "output": "./assets" },
-              { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/content", "output": "./assets" }
+              { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/content", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/fonts/", "output": "./assets/fonts" }
             ],
             "styles": [
-              "projects/design/dp-dls-global-angular/styles/fonts.scss",
               "projects/design/dp-dls-global-angular/styles/global.scss",
               "projects/design/dp-dls-global-angular/styles/material.scss",
               "projects/demo/src/styles.scss"
@@ -190,7 +190,6 @@
               { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
-              "projects/design/dp-dls-global-angular/styles/fonts.scss",
               "projects/design/dp-dls-global-angular/styles/global.scss",
               "projects/design/dp-dls-global-angular/styles/material.scss",
               "projects/demo/src/styles.scss"

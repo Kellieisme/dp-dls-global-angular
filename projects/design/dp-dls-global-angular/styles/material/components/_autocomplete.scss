@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_variables.scss' as vars;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
@@ -31,9 +30,9 @@ html .theme-light,
 html .theme-dark {
   div.mat-mdc-autocomplete-panel {
     // overall autocomplete panel color
-    --mat-autocomplete-background-color: var(--color-ui-glass-surface-regular);
+    --mat-autocomplete-background-color: var(--foundation-ui-glass-surface-regular);
     // selected item background color
-    --mat-option-selected-state-layer-color: var(--color-interactive-primary-background-selected);
+    --mat-option-selected-state-layer-color: var(--foundation-interactive-primary-background-selected);
   }
 }
 
@@ -84,7 +83,7 @@ html {
 
       // default option text dcolor
       .mdc-list-item__primary-text {
-        color: var(--color-interactive-primary-textandicon-primary-default);
+        color: var(--foundation-interactive-primary-textandicon-primary-default);
       }
     }
 
@@ -93,7 +92,7 @@ html {
 
       // selected option text color
       .mdc-list-item__primary-text {
-        color: var(--color-interactive-primary-textandicon-selected);
+        color: var(--foundation-interactive-primary-textandicon-selected);
       }
 
       // turn off the default checkbox on the selected option
@@ -115,5 +114,5 @@ html {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-autocomplete-background-color: var(--color-ui-glass-surface-regular);
+  --mat-autocomplete-background-color: var(--foundation-ui-glass-surface-regular);
 }
