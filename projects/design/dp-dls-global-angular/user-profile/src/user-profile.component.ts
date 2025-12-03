@@ -35,8 +35,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
     templateUrl: './user-profile.component.html',
     styleUrls: ['./user-profile.component.scss'],
     host: {
-        'class': 'user-profile-host',
-        'style': 'position: relative; display: inline-block;'
+        'class': 'user-profile-host'
     }
 })
 
