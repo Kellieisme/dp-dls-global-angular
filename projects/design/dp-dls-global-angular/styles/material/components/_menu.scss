@@ -40,10 +40,10 @@
 // Specific fix for ba-user-profile when used as menu trigger
 ba-user-profile.mat-mdc-menu-trigger {
   display: inline-block !important;
-  width: 40px !important;
-  height: 40px !important;
+  width: var(--foundation-sizing-5xl-fixed) !important;
+  height: var(--foundation-sizing-5xl-fixed) !important;
   min-height: 0 !important;
-  max-height: 40px !important;
+  max-height: var(--foundation-sizing-5xl-fixed) !important;
   overflow: hidden !important;
 }
 
