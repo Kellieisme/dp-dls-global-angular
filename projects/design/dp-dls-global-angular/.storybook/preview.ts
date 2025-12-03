@@ -5,32 +5,64 @@ import { applicationConfig, type Preview } from "@storybook/angular";
 import { themes } from 'storybook/theming';
 import 'zone.js';
 
+// Custom decorator to handle color theme switching
+const withColorTheme = (story: any, context: any) => {
+  const colorTheme = context.globals.colorTheme || 'dark';
+  
+  if (typeof document !== 'undefined') {
+    document.body.classList.remove('theme-dark', 'theme-light');
+    document.body.classList.add(`theme-${colorTheme}`);
+    document.body.style.backgroundColor = colorTheme === 'dark' ? '#131c24' : '#eef1f3';
+  }
+  
+  return story();
+};
+
+// Custom decorator to handle density theme switching
+const withDensityTheme = (story: any, context: any) => {
+  const densityTheme = context.globals.densityTheme || 'relaxed';
+  
+  if (typeof document !== 'undefined') {
+    document.body.classList.remove('theme-relaxed', 'theme-condensed');
+    document.body.classList.add(`theme-${densityTheme}`);
+  }
+  
+  return story();
+};
+
 const decorators: Preview['decorators'] = [
   applicationConfig({
     providers: [importProvidersFrom(HttpClientModule)]
   }),
-  (story) => {
-    // Ensure body always has theme-dark class by default
-    if (typeof document !== 'undefined') {
-      if (!document.body.classList.contains('theme-dark') && !document.body.classList.contains('theme-light')) {
-        document.body.classList.add('theme-dark');
-      }
-    }
-    return story();
-  },
-  withThemeByClassName({
-    themes: {
-      relaxed: 'theme-relaxed',
-      condensed: 'theme-condensed',
-    },
-    defaultTheme: 'relaxed',
-    parentSelector: 'body',
-  }),
+  withColorTheme,
+  withDensityTheme,
 ];
 
 
 const preview: Preview = {
   decorators: decorators,
+  globalTypes: {
+    colorTheme: {
+      description: 'Switch between light and dark color themes',
+      defaultValue: 'dark',
+      toolbar: {
+        title: 'Toggle Theme',
+        icon: 'circlehollow',
+        items: ['dark', 'light'],
+        dynamicTitle: false,
+      },
+    },
+    densityTheme: {
+      description: 'Switch between relaxed and condensed density',
+      defaultValue: 'relaxed',
+      toolbar: {
+        title: 'Toggle Density',
+        icon: 'grow',
+        items: ['relaxed', 'condensed'],
+        dynamicTitle: false,
+      },
+    },
+  },
   parameters: {
     options: {
       storySort: {
@@ -38,22 +70,22 @@ const preview: Preview = {
           'GET STARTED',
           [
             'Introduction to Atmosphere',
-            'Guides for non angular usage',
+            'Guides for non-Angular apps',
           ],
 
-          'INSTALLATION',
+          'Installation',
           [
             'Get Node',
-            'Create an Angular Project',
-            'Configure an Angular Project',
+            'Create an Angular project',
+            'Configure an Angular project',
             'Install Atmosphere',
-            'Setting Global Styles and Fonts',
+            'Setting global styles and fonts',
           ],
 
-          'PRODUCTION',
+          'Production',
           ['Local Pipeline'],
 
-          'FOUNDATION',
+          'Foundations',
           [
             'Color Sytem',
             'Typography',
@@ -64,13 +96,19 @@ const preview: Preview = {
             'Custom Components',
           ],
           
-          'COMPONENTS',
-          'SERVICES',
-          'PATTERNS',
+          'Components',
+          'Services',
+          'Patterns',
         ],
       },
     },
-    backgrounds: { disabled: true },
+    backgrounds: { 
+      default: 'dark',
+      values: [
+        { name: 'dark', value: '#131c24' },
+        { name: 'light', value: '#eef1f3' },
+      ],
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -82,7 +120,9 @@ const preview: Preview = {
       darkClass: 'theme-dark',
       lightClass: 'theme-light',
       stylePreview: true,
-      parentSelector: 'body',
+      classTarget: 'body',
+      dark: { ...themes.dark, appBg: '#131c24', appContentBg: '#131c24', appPreviewBg: '#131c24' },
+      light: { ...themes.light, appBg: '#eef1f3', appContentBg: '#eef1f3', appPreviewBg: '#eef1f3' },
     },
     docs: {
       theme: themes.light, // Default docs theme
