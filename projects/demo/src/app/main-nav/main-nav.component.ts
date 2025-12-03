@@ -135,6 +135,11 @@ export class MainNavComponent {
       label: 'Typography',
       icon: 'type-specimen',
       route: '/typography',
+    },
+    {
+      label: 'landing pg',
+      icon: 'verified',
+      route: '/landing-page',
     }
   ];
 
