@@ -14,7 +14,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
-import { LandingPageComponent } from '../landing-page/landing-page.component';
 
 @Component({
   selector: 'app-main-nav',
@@ -34,8 +33,7 @@ import { LandingPageComponent } from '../landing-page/landing-page.component';
     UserProfileComponent,
     TopAppBarComponent,
     ThemeToggleModule,
-    DensityToggleModule,
-    LandingPageComponent
+    DensityToggleModule
   ],
   encapsulation: ViewEncapsulation.None,
   templateUrl: './main-nav.component.html'
