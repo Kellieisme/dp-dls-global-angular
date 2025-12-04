@@ -85,4 +85,3 @@ jobs:
     uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/create-release.yml@spark-fix
     with:
       release-version-number: ${{ needs.predict-version-number.outputs.v-version }}
-      prerelease: true
