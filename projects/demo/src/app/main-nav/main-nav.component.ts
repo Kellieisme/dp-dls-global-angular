@@ -14,6 +14,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
+import { Template2Component } from '../template-2/template-2.component';
+import { Template3Component } from '../template-3/template-3.component';
+import { Template4Component } from '../template-4/template-4.component';
 
 @Component({
   selector: 'app-main-nav',
@@ -117,6 +120,10 @@ export class MainNavComponent {
       //     route: '/components//switch',
       //   },
       //   {
+      //     label: 'Snackbar',
+      //     route: '/components//snackbar',
+      //   },
+      //   {
       //     label: 'Table',
       //     route: '/components//table',
       //   },
@@ -136,6 +143,20 @@ export class MainNavComponent {
       icon: 'type-specimen',
       route: '/typography',
     },
+    { label: 'template-2',
+      icon: 'verified',
+      route: '/template-2',
+    },
+      { 
+        label: 'template-3',
+        icon: 'verified',
+        route: '/template-3',
+      },
+      { 
+        label: 'template-4',
+        icon: 'verified',
+        route: '/template-4',
+      },
     {
       label: 'landing pg',
       icon: 'verified',

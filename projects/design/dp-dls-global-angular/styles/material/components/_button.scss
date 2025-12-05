@@ -2,10 +2,12 @@
 @use '../m3-theme' as m3;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
-:root {
-  @include mat.button-theme(m3.$dark-theme);
-  @include mat.icon-button-theme(m3.$dark-theme);
-}
+// ===========================
+// Global Button Theme (for app)
+// ===========================
+
+@include mat.button-theme(m3.$dark-theme);
+@include mat.icon-button-theme(m3.$dark-theme);
 
 .theme-light {
   @include mat.button-color(m3.$light-theme);
@@ -16,7 +18,7 @@
 // Global State Configuration
 // ===========================
 
-html {
+:root {
   --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
 }
 
@@ -247,9 +249,9 @@ html {
 // Button Color Tokens
 // ===========================
 
-html,
-html .theme-light,
-html .theme-dark {
+#storybook-root,
+.theme-light,
+.theme-dark {
   --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-button-text-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-hovered);

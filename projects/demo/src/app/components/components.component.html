@@ -5,7 +5,7 @@
     <a mat-button color="accent" routerLink="/">
       <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma
     </a>
-    <a mat-button color="accent" routerLink="/">
+    <a mat-button color="accent"routerLink="/">
       <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Angular Code
     </a>
 
@@ -14,25 +14,13 @@
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
 
-    <!-- <div class="col">
-      <mat-card appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>card.title</mat-card-title>
-          <mat-card-subtitle>subtitle</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>content</p>
-        </mat-card-content>
-      </mat-card>
-    </div> -->
-
-    <!-- <div class="col">
+    <div class="col">
     <mat-card appearance="outlined">
       <mat-card-content>
-        <app-badge></app-badge>
+        <ba-badge></ba-badge>
       </mat-card-content>
     </mat-card>
-  </div> -->
+  </div>
 
     <div class="col">
       <mat-card appearance="outlined">
@@ -274,6 +262,24 @@
       </mat-card>
     </div>
 
+
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+          <mat-card-title>Snackbar</mat-card-title>
+          <div class="ms-auto">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <app-snackbar></app-snackbar>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
     <div class="col">
       <mat-card appearance="outlined">
         <div class="d-flex align-items-center" style="padding: 12px 16px;">
@@ -312,6 +318,7 @@
   <hr>
 
   <p class="body-medium-default">Components</p>
+  <p><a href="/badge">Badge</a></p>
   <p><a href="/button">Button</a></p>
   <p><a href="/radio">Radio button</a></p>
 

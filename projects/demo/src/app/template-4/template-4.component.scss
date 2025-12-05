@@ -1,0 +1,43 @@
+
+
+// Using CSS custom properties from global styles instead of importing SCSS variables
+
+.padding-extra{
+  padding: 0 var(--foundation-sizing-m);
+}
+
+.col {
+    margin-bottom: var(--foundation-spacing-2xl);
+}
+
+h6 {
+  color: var(--foundation-ui-textandicon-high);
+  margin-bottom: var(--foundation-sizing-m);
+}
+
+.card-grid {
+  display: grid;
+  gap: var(--foundation-sizing-m);
+  width: 100%;
+  align-items: stretch;
+}
+
+.cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.example-footer-card {
+  max-width: 400px;
+}
