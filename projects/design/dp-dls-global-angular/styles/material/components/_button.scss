@@ -28,7 +28,10 @@
 
 .mat-mdc-button,
 .mat-mdc-outlined-button,
-.mat-mdc-unelevated-button {
+.mat-mdc-unelevated-button,
+[matButton],
+[matButton="outlined"],
+[matButton="filled"] {
   .mat-icon {
     color: inherit;
   }
@@ -51,7 +54,8 @@
 }
 
 // Filled buttons use inverse colors (light text on dark background)
-.mat-mdc-unelevated-button {
+.mat-mdc-unelevated-button,
+[matButton="filled"] {
   .mat-icon {
     color: var(--foundation-interactive-primary-textandicon-inverse);
   }
@@ -75,7 +79,10 @@
 
 .mat-mdc-button,
 .mat-mdc-outlined-button,
-.mat-mdc-unelevated-button {
+.mat-mdc-unelevated-button,
+[matButton],
+[matButton="outlined"],
+[matButton="filled"] {
   &:hover,
   &:focus {
     --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
@@ -143,7 +150,8 @@
 // Button Hover Backgrounds
 // ===========================
 
-.mat-mdc-button:not(.mat-mdc-icon-button) {
+.mat-mdc-button:not(.mat-mdc-icon-button),
+[matButton]:not([mat-icon-button]) {
   &:hover:not([disabled]) {
     background-color: var(--foundation-interactive-primary-background-hovered);
   }
@@ -157,7 +165,8 @@
   }
 }
 
-.mat-mdc-outlined-button {
+.mat-mdc-outlined-button,
+[matButton="outlined"] {
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     border-color: var(--foundation-interactive-primary-border-hovered-flat);
@@ -213,8 +222,13 @@
 .mat-mdc-button>.mat-icon,
 .mat-mdc-unelevated-button>.mat-icon,
 .mat-mdc-raised-button>.mat-icon,
-.mat-mdc-outlined-button>.mat-icon {
+.mat-mdc-outlined-button>.mat-icon,
+[matButton]>.mat-icon,
+[matButton="outlined"]>.mat-icon,
+[matButton="filled"]>.mat-icon {
   font-size: inherit !important;
+  position: relative;
+  top: var(--foundation-spacing-3xs);
 }
 
 // ===========================
@@ -237,7 +251,10 @@
 .mat-mdc-button.mat-mdc-button,
 .mat-mdc-unelevated-button.mat-mdc-unelevated-button,
 .mat-mdc-raised-button.mat-mdc-raised-button,
-.mat-mdc-outlined-button.mat-mdc-outlined-button {
+.mat-mdc-outlined-button.mat-mdc-outlined-button,
+[matButton],
+[matButton="outlined"],
+[matButton="filled"] {
   height: var(--base-dimension-dynamic-s09);
   
   .mat-mdc-button-touch-target {
@@ -249,7 +266,6 @@
 // Button Color Tokens
 // ===========================
 
-#storybook-root,
 .theme-light,
 .theme-dark {
   --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);

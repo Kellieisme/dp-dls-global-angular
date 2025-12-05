@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * Badge Component
@@ -12,7 +14,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 @Component({
   selector: 'ba-badge',
   standalone: true,
-  imports: [MatBadgeModule],
+  imports: [MatBadgeModule, MatButtonModule, MatIconModule],
   templateUrl: './badge.component.html',
   styleUrls: ['./badge.component.scss']
 })
