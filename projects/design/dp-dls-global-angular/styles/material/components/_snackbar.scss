@@ -41,7 +41,9 @@
   flex-shrink: 0;
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
   --mat-snackbar-container-shape: var(--foundation-radius-xs);
   --mat-snackbar-container-color: var(--foundation-ui-glass-surface-thickest);
   --mat-snackbar-supporting-text-color: var(--foundation-ui-textandicon-high);

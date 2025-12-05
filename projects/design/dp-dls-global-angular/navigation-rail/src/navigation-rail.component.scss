@@ -13,6 +13,21 @@ mat-sidenav-container {
 
   mat-sidenav {
     width: 80px;
+    overflow-y: auto;
+  }
+
+  mat-sidenav-content {
+    padding: var(--foundation-spacing-m);
+    padding-bottom: var(--foundation-spacing-5xl);
+    overflow-y: auto;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .page-content-wrapper {
+    max-width: 1128px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &.wide {

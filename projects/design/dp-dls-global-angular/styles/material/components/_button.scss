@@ -405,7 +405,9 @@
   }
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
   --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-icon-button-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-hovered);

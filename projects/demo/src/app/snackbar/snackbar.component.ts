@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
   selector: 'app-snackbar',
-  imports: [MatSnackBarModule],
+  imports: [MatSnackBarModule, MatButtonModule],
   templateUrl: './snackbar.component.html',
   styleUrls: ['./snackbar.component.scss'],
 })

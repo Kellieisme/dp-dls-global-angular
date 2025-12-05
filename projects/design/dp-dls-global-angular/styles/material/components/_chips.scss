@@ -41,7 +41,9 @@
 	gap: var(--foundation-spacing-xs);
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
 	.mat-mdc-standard-chip {
 		// Shape and borders
 		--mat-chip-container-shape-radius: var(--foundation-radius-s);
@@ -82,7 +84,9 @@ html {
 	}
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
 	// Primary selected chips
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
@@ -91,7 +95,9 @@ html {
 	}
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
 	// Accent selected chips
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {

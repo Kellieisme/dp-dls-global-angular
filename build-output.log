@@ -1,0 +1,1155 @@
+
+> @jeppesen-foreflight/dp-dls-global-angular@4.0.2 start
+> npm-run-all clean --parallel lib:watch demo:start-waiton
+
+
+> @jeppesen-foreflight/dp-dls-global-angular@4.0.2 clean
+> rimraf dist
+
+
+> @jeppesen-foreflight/dp-dls-global-angular@4.0.2 lib:watch
+> ng build @jeppesen-foreflight/dp-dls-global-angular --watch --configuration development
+
+
+> @jeppesen-foreflight/dp-dls-global-angular@4.0.2 demo:start-waiton
+> wait-on dist/design/dp-dls-global-angular/package.json --delay 5000 && npm run demo:start
+
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+- Copying assets
+✔ Copying assets
+- Writing package manifest
+ℹ Removing devDependencies section in package.json.
+✔ Writing package manifest
+✔ Built @jeppesen-foreflight/dp-dls-global-angular
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/badge'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/badge
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/breadcrumb'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/breadcrumb
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/density-toggle'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/density-toggle
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/icon-registry'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/icon-registry
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/navigation-rail'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/navigation-rail
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/navigation-drawer'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/navigation-drawer
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/sidesheet'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/sidesheet
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/snackbar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/snackbar
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/theme-toggle'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/theme-toggle
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/user-profile'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/user-profile
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular/top-app-bar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @jeppesen-foreflight/dp-dls-global-angular/top-app-bar
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/projects/design/dp-dls-global-angular
+- to:   /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/dist/design/dp-dls-global-angular
+------------------------------------------------------------------------------
+
+Build at: 2025-12-05T21:24:38.940Z - Time: 1290ms
+
+
+Compilation complete. Watching for file changes...
+
+> @jeppesen-foreflight/dp-dls-global-angular@4.0.2 demo:start
+> ng serve demo
+
+❯ Building...
+✔ Building...
+Initial chunk files | Names         |  Raw size
+styles.css          | styles        | 790.92 kB | 
+main.js             | main          | 752.06 kB | 
+polyfills.js        | polyfills     |  95 bytes | 
+
+                    | Initial total |   1.54 MB
+
+Application bundle generation complete. [1.544 seconds] - 2025-12-05T21:24:45.158Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:65:4:
+[37m      65 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:65:4:
+[37m      65 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:66:4:
+[37m      66 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:66:4:
+[37m      66 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:67:4:
+[37m      67 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:67:4:
+[37m      67 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:68:4:
+[37m      68 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:68:4:
+[37m      68 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:71:4:
+[37m      71 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bord...
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_autocomplete.scss:71:4:
+[37m      71 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bord...
+         ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m5 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.[0m [1m[35m[plugin angular-sass][0m
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  null
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m5 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.[0m [1m[35m[plugin angular-sass][0m
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  null
+
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/
+  ➜  press h + enter to show help
+
+File change detected. Starting incremental compilation...
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Copying assets
+✔ Copying assets
+- Writing package manifest
+ℹ Removing devDependencies section in package.json.
+✔ Writing package manifest
+✔ Built @jeppesen-foreflight/dp-dls-global-angular
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/projects/design/dp-dls-global-angular
+- to:   /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/dist/design/dp-dls-global-angular
+------------------------------------------------------------------------------
+
+Build at: 2025-12-05T21:25:10.176Z - Time: 30ms
+
+
+Compilation complete. Watching for file changes...
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names  |  Raw size
+styles.css          | styles | 790.57 kB | 
+
+Application bundle generation complete. [0.663 seconds] - 2025-12-05T21:25:11.020Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:163:4:
+[37m      163 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:163:4:
+[37m      163 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:164:4:
+[37m      164 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:164:4:
+[37m      164 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:165:4:
+[37m      165 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:165:4:
+[37m      165 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:166:4:
+[37m      166 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:166:4:
+[37m      166 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:169:4:
+[37m      169 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bor...
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:169:4:
+[37m      169 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bor...
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Stylesheet update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.841 seconds] - 2025-12-05T21:27:17.810Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:163:4:
+[37m      163 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:163:4:
+[37m      163 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:164:4:
+[37m      164 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:164:4:
+[37m      164 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:165:4:
+[37m      165 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:165:4:
+[37m      165 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:166:4:
+[37m      166 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:166:4:
+[37m      166 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:169:4:
+[37m      169 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bor...
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:169:4:
+[37m      169 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bor...
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFile 'projects/design/dp-dls-global-angular/theme-toggle/src/theme-toggle.component.ts' is missing from the TypeScript compilation.[0m [1m[35m[plugin angular-compiler][0m
+
+    projects/demo/src/app/main-nav/main-nav.component.ts:29:21:
+[37m      29 │ ... i12 from [32m"../../../../design/dp-dls-global-angular/theme-toggl[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Ensure the file is part of the TypeScript program via the 'files' or 'include' property.
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.134 seconds] - 2025-12-05T21:27:18.919Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:163:4:
+[37m      163 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:163:4:
+[37m      163 │     [32m[37mborder-top-left-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:164:4:
+[37m      164 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:164:4:
+[37m      164 │     [32m[37mborder-top-right-radius: var(--size-radius-none);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:165:4:
+[37m      165 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:165:4:
+[37m      165 │     [32m[37mborder-bottom-left-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:166:4:
+[37m      166 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:166:4:
+[37m      166 │     [32m[37mborder-bottom-right-radius: var(--size-radius-s);
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:169:4:
+[37m      169 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bor...
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:3:8:
+[37m      3 │ @import [32m'projects/demo/src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+
+    projects/design/dp-dls-global-angular/styles/material/components/_select.scss:169:4:
+[37m      169 │     [32m[37mborder: 1px solid #{$composition-dark-interactive-primary-bor...
+          ╵     [32m^[0m
+
+
+  Sass's behavior for declarations that appear after nested
+  rules will be changing to match the behavior specified by CSS in an upcoming
+  version. To keep the existing behavior, move the declaration above the nested
+  rule. To opt into the new behavior, wrap the declaration in `& {}`.
+  
+  More info: [4mhttps://sass-lang.com/d/mixed-decls[0m
+
+  The plugin "angular-sass" was triggered by this import
+
+    angular:styles/global:styles:2:8:
+[37m      2 │ @import [32m'projects/design/dp-dls-global-angular/styles/material.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFile 'projects/design/dp-dls-global-angular/theme-toggle/src/theme-toggle.component.ts' is missing from the TypeScript compilation.[0m [1m[35m[plugin angular-compiler][0m
+
+    projects/demo/src/app/main-nav/main-nav.component.ts:29:21:
+[37m      29 │ ... i12 from [32m"../../../../design/dp-dls-global-angular/theme-toggl[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Ensure the file is part of the TypeScript program via the 'files' or 'include' property.
+
+
+
+File change detected. Starting incremental compilation...
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Copying assets
+✔ Copying assets
+- Writing package manifest
+ℹ Removing devDependencies section in package.json.
+✔ Writing package manifest
+✔ Built @jeppesen-foreflight/dp-dls-global-angular
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/projects/design/dp-dls-global-angular
+- to:   /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/dist/design/dp-dls-global-angular
+------------------------------------------------------------------------------
+
+Build at: 2025-12-05T21:27:52.339Z - Time: 29ms
+
+
+Compilation complete. Watching for file changes...
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.691 seconds] - 2025-12-05T21:27:53.164Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFile 'projects/design/dp-dls-global-angular/theme-toggle/src/theme-toggle.component.ts' is missing from the TypeScript compilation.[0m [1m[35m[plugin angular-compiler][0m
+
+    projects/demo/src/app/main-nav/main-nav.component.ts:29:21:
+[37m      29 │ ... i12 from [32m"../../../../design/dp-dls-global-angular/theme-toggl[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Ensure the file is part of the TypeScript program via the 'files' or 'include' property.
+
+
+
+File change detected. Starting incremental compilation...
+
+------------------------------------------------------------------------------
+Building entry point '@jeppesen-foreflight/dp-dls-global-angular'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in full compilation mode.
+✔ Compiling with Angular sources in full compilation mode.
+- Copying assets
+✔ Copying assets
+- Writing package manifest
+ℹ Removing devDependencies section in package.json.
+✔ Writing package manifest
+✔ Built @jeppesen-foreflight/dp-dls-global-angular
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/projects/design/dp-dls-global-angular
+- to:   /Users/kellieverne/Documents/jeppffy/dp-dls-global-angular/dist/design/dp-dls-global-angular
+------------------------------------------------------------------------------
+
+Build at: 2025-12-05T21:28:29.445Z - Time: 29ms
+
+
+Compilation complete. Watching for file changes...
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.609 seconds] - 2025-12-05T21:28:30.186Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFile 'projects/design/dp-dls-global-angular/theme-toggle/src/theme-toggle.component.ts' is missing from the TypeScript compilation.[0m [1m[35m[plugin angular-compiler][0m
+
+    projects/demo/src/app/main-nav/main-nav.component.ts:29:21:
+[37m      29 │ ... i12 from [32m"../../../../design/dp-dls-global-angular/theme-toggl[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Ensure the file is part of the TypeScript program via the 'files' or 'include' property.
+
+

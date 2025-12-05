@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
 
 :root {
   // Material 3 theme includes typography configuration from m3-theme.scss
@@ -26,40 +26,40 @@
     }
 
     border-spacing: 0;
-    border-radius: var(--size-radius-l);
+    border-radius: var(--foundation-radius-l);
 
     .mdc-data-table__cell,
     .mdc-data-table__header-cell {
-      padding: 0 var(--size-spacing-xs) 0 var(--size-spacing-xs);
+      padding: 0 var(--foundation-spacing-xs) 0 var(--foundation-spacing-xs);
 
       &:first-child {
-        padding-left: var(--size-spacing-m);
+        padding-left: var(--foundation-spacing-m);
       }
     }
 
     th,
     .mat-mdc-header-cell {
-      background-color: var(--foundation-ui-background-medium);
+      background-color: var(--mat-table-header-background, var(--foundation-ui-background-high));
     }
 
     td {
-      background-color: var(--foundation-ui-background-medium);
+      background-color: var(--mat-table-row-background, var(--foundation-ui-background-medium));
     }
 
     th:first-of-type {
-      border-top-left-radius: var(--size-radius-l);
+      border-top-left-radius: var(--foundation-radius-l);
     }
 
     th:last-of-type {
-      border-top-right-radius: var(--size-radius-l);
+      border-top-right-radius: var(--foundation-radius-l);
     }
 
     tr:last-of-type td:first-of-type {
-      border-bottom-left-radius: var(--size-radius-l);
+      border-bottom-left-radius: var(--foundation-radius-l);
     }
 
     tr:last-of-type td:last-of-type {
-      border-bottom-right-radius: var(--size-radius-l);
+      border-bottom-right-radius: var(--foundation-radius-l);
     }
 
     .mdc-data-table__row:last-child {
@@ -76,14 +76,29 @@ html,
 html .theme-light,
 html .theme-dark {
   --mat-table-background-color: transparent;
-  --mat-table-row-item-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
   --mat-table-row-item-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-table-row-item-outline-color: var(--foundation-ui-divider-flat-high);
 }
 
+html .theme-light {
+  --mat-table-header-background: var(--foundation-ui-background-low);
+  --mat-table-row-background: var(--foundation-ui-background-medium);
+}
+
+html .theme-dark {
+  --mat-table-header-background: var(--foundation-ui-background-high);
+  --mat-table-row-background: var(--foundation-ui-background-medium);
+}
+
 html,
+html .theme-relaxed {
+  --mat-table-header-container-height: var(--foundation-spacing-5xl);
+  --mat-table-footer-container-height: var(--foundation-spacing-4xl);
+  --mat-table-row-item-container-height: var(--foundation-spacing-4xl);
+}
+
 html .theme-condensed {
-  --mat-table-header-container-height: var(--size-spacing-4xl);
-  --mat-table-footer-container-height: var(--size-spacing-3xl);
-  --mat-table-row-item-container-height: var(--size-spacing-3xl);
+  --mat-table-header-container-height: var(--foundation-spacing-4xl);
+  --mat-table-footer-container-height: var(--foundation-spacing-3xl);
+  --mat-table-row-item-container-height: var(--foundation-spacing-3xl);
 }
