@@ -107,7 +107,7 @@ jobs:
       branch-name-slug: ${{ github.ref_name }} 
       deploy-sub-directory: >
         ${{ 
-          (github.ref_name == 'main' && 'angular-20') || 
+          (github.ref_name == 'main' && 'main') || 
           (github.ref_name == 'angular-19' && 'angular-19') || 
           github.ref_name 
         }}
