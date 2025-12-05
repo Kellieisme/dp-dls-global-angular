@@ -23,20 +23,32 @@ mat-sidenav-container {
 
   &.labels-visible {
     mat-sidenav {
+      --mdc-list-list-item-leading-space: var(--size-sizing-s);
+      --mdc-list-list-item-trailing-space: var(--size-sizing-s);
+      
       mat-list-item {
         overflow: visible;
-        margin-bottom: var(--size-relaxed-spacing-2xl);
-        padding-top: var(--size-spacing-2xs);
-        padding-right: var(--size-relaxed-sizing-none);
-        height: var(--size-relaxed-spacing-2xl);
+        margin-bottom: var(--foundation-spacing-2xl);
+        padding-top: var(--foundation-spacing-none);
+        padding-left: var(--size-sizing-s) !important;
+        padding-right: var(--size-sizing-s) !important;
+        height: var(--foundation-sizing-2xl);
+        
+        .mdc-list-item__start {
+          margin-left: var(--foundation-spacing-none) !important;
+          margin-right: var(--foundation-spacing-none) !important;
+        }
+        
         &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
-          height: var(--size-spacing-2xl);
+          height: var(--foundation-sizing-2xl);
         }
 
         ::ng-deep .mdc-list-item__content {
           position: relative;
-          bottom: -(var(--size-relaxed-spacing-2xs));
+          bottom: -(var(--foundation-spacing-2xs));
           cursor: pointer;
+          padding-left: var(--foundation-spacing-none) !important;
+          padding-right: var(--foundation-spacing-none) !important;
         }
       }
     }
@@ -45,29 +57,32 @@ mat-sidenav-container {
   &:not(.labels-visible) {
     mat-sidenav {
       mat-list-item {
-        --mdc-list-list-item-leading-icon-size: 24px;
+        --mdc-list-list-item-leading-icon-size: var(--foundation-sizing-xl);
       }
     }
   }
 }
 
 mat-sidenav {
+  -webkit-backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
   backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
   border-right: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
-  padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-xs);
+  padding: var(--foundation-spacing-m) var(--foundation-spacing-none);
 
   .theme-relaxed & {
-    padding-left: var(--foundation-spacing-xs, 8px);
-    padding-right: var(--foundation-spacing-xs, 8px);
+    padding-left: var(--foundation-spacing-none);
+    padding-right: var(--foundation-spacing-none);
   }
 
   mat-list-item {
     &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
-      height: var(--size-relaxed-spacing-5xl);
+      height: var(--foundation-spacing-5xl);
     }
 
     &.mat-mdc-list-item {
       background-color: transparent;
+      padding-left: var(--foundation-spacing-none);
+      padding-right: var(--foundation-spacing-none);
 
       &:focus {
         background-color: var(--foundation-interactive-primary-background-enabled-tonal);
@@ -90,6 +105,15 @@ mat-sidenav {
 
       .mdc-list-item__primary-text {
         @include typography.typography-m-label-low;
+        padding-left: var(--foundation-spacing-none);
+        padding-right: var(--foundation-spacing-none);
+        white-space: normal;
+        word-break: break-word;
+        line-height: var(--foundation-line-height-tight);
+        max-width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }
@@ -124,18 +148,18 @@ mat-sidenav {
 mat-list-item.narrow {
   display: flex;
   .mat-mdc-list-item-icon {
-    margin-left: var(--size-relaxed-sizing-m);
-    margin-right: var(--size-relaxed-sizing-m);
+    margin-left: var(--foundation-spacing-2xs);
+    margin-right: var(--foundation-spacing-2xs);
   }
 }
 
 mat-list-item {
   display: block;
   text-align: center;
-  padding-right: var(--size-relaxed-sizing-none);
-  margin-top: var(--size-relaxed-spacing-s);
+  padding-right: var(--foundation-spacing-none);
+  margin-top: var(--foundation-spacing-2xs);
   .mat-mdc-list-item-icon {
-    margin: 0;
+    margin: var(--foundation-spacing-none);
   }
 }
 
@@ -145,7 +169,7 @@ mat-list-item {
 
 .bottom-icons {
   display: flex;
-  bottom: var(--size-relaxed-spacing-none);
+  bottom: var(--foundation-spacing-none);
   flex-direction: column;
   text-align: center;
   align-items: center;

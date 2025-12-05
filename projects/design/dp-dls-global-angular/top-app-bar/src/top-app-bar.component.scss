@@ -252,6 +252,16 @@ mat-toolbar h1 {
   align-items: center;
   z-index: 1;
   padding: 0 var(--size-relaxed-spacing-xs);
+
+  // Hide Material menu trigger touch target
+  &::before,
+  &::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
 }
 
 @include breakpointMixin.media-down(md) {

@@ -2,6 +2,7 @@
 
 <h6>Clickable Image</h6>
 <ba-user-profile clickable userFirstName="William" source="./assets/card-img-1.png" [matMenuTriggerFor]="menuUserImage"></ba-user-profile>
+
 <mat-menu #menuUserImage="matMenu">
   <button mat-menu-item class="user-info-menu-item">
     <ba-user-profile variant="display-only" userFirstName="William" source="./assets/card-img-1.png"></ba-user-profile>
@@ -34,6 +35,7 @@
 <h6>Clickable Letter</h6>
 
 <ba-user-profile clickable userFirstName="William" [matMenuTriggerFor]="menuUserLetter"></ba-user-profile>
+
 <mat-menu #menuUserLetter="matMenu">
   <button mat-menu-item class="user-info-menu-item">
     <ba-user-profile variant="display-only" userFirstName="William"></ba-user-profile>

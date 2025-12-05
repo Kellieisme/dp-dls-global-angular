@@ -1,5 +1,5 @@
 
- <mat-card appearance="outlined">
+ <mat-card>
   <mat-card-header>
     <mat-card-title>Shiba Inu</mat-card-title>
     <mat-card-subtitle>Dog Breed</mat-card-subtitle>
@@ -11,7 +11,7 @@
   <span class="body-medium">Medium emphasis text</span>
   <span class="label-low">Metadata label</span>
 </mat-card-content>
-  <mat-card-actions align="end"ß>
+  <mat-card-actions align="end">
     <button matButton>LIKE</button>
     <button matButton>SHARE</button>
   </mat-card-actions>
@@ -22,13 +22,13 @@
   <h6>Basic 2 cards side by side</h6>
   <div class="card-grid cols-2">
     @for (card of basicCards; track card) {
-      <mat-card appearance="raised">
+      <mat-card>
         <mat-card-header>
           <mat-card-title>{{ card.title }}</mat-card-title>
           <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p class="body-low-default">{{ card.content }}</p>
+          <p>{{ card.content }}</p>
         </mat-card-content>
       </mat-card>
     }
@@ -38,13 +38,13 @@
   <h6>Card with Actions - 3 cards</h6>
   <div class="card-grid cols-3">
     @for (card of cardsWithActions; track card) {
-      <mat-card appearance="raised">
+      <mat-card>
         <mat-card-header>
           <mat-card-title>{{ card.title }}</mat-card-title>
           <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p class="body-low-default">{{ card.content }}</p>
+          <p>{{ card.content }}</p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-stroked-button>Action 2</button>
@@ -59,13 +59,13 @@
   <div class="card-grid cols-4">
     @for (card of clickableCards; track card) {
       <a href="#">
-        <mat-card appearance="raised">
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{ card.title }}</mat-card-title>
             <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p class="body-low-default">{{ card.content }}</p>
+            <p>{{ card.content }}</p>
           </mat-card-content>
         </mat-card>
       </a>
@@ -76,14 +76,14 @@
   <h6>Card with Standard Image - 4 cards</h6>
   <div class="card-grid cols-4">
     @for (card of standardImageCards; track card) {
-      <mat-card appearance="raised">
+      <mat-card>
         <img mat-card-image [src]="card.image" alt="Card image" />
         <mat-card-header>
           <mat-card-title>{{ card.title }}</mat-card-title>
           <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p class="body-low-default">{{ card.content }}</p>
+          <p>{{ card.content }}</p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-flat-button>Action 1</button>
@@ -96,7 +96,7 @@
   <h6>Landscape layout - 2 cards</h6>
   <div class="card-grid cols-2">
     @for (card of landscapeCards; track card) {
-      <mat-card appearance="raised" class="mat-mdc-card--landscape">
+      <mat-card class="mat-mdc-card--landscape">
         <img mat-card-image [src]="card.image" alt="Card image" />
         <div>
           <mat-card-header>
@@ -114,7 +114,7 @@
   <!-- f. One card with footer containing chips -->
   <h6>One Card with Footer containing Chips</h6>
   <div class="card-grid cols-1">
-    <mat-card appearance="raised" class="example-footer-card">
+    <mat-card class="example-footer-card">
       <mat-card-header>
         <mat-card-title>{{ footerCard.title }}</mat-card-title>
         <mat-card-subtitle>{{ footerCard.subtitle }}</mat-card-subtitle>

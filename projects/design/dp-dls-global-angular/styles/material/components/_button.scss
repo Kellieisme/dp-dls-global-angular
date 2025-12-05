@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
 :root {
   @include mat.button-theme(m3.$dark-theme);
@@ -16,8 +17,6 @@
 // ===========================
 
 html {
-  --state-layer-background-opacity-hovered: 0.05;
-  --state-layer-background-opacity-selected: 0.12;
   --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
 }
 
@@ -94,7 +93,8 @@ html {
     
     &:not(.mat-mdc-unelevated-button):not([disabled]) {
       .mat-mdc-button-persistent-ripple::before {
-        opacity: var(--state-layer-background-opacity-hovered);
+        background-color: var(--foundation-interactive-primary-background-hovered);
+        opacity: 1;
       }
     }
 
@@ -155,20 +155,6 @@ html {
   }
 }
 
-.mat-mdc-unelevated-button {
-  &:hover:not([disabled]) {
-    background-color: color-mix(in srgb, var(--foundation-interactive-primary-background-hovered), var(--mat-button-filled-container-color));
-  }
-  
-  &.mat-primary:hover:not([disabled]) {
-    background-color: color-mix(in srgb, var(--foundation-interactive-primary-background-hovered), var(--mat-button-filled-container-color));
-  }
-  
-  &.mat-accent:hover:not([disabled]) {
-    background-color: color-mix(in srgb, var(--foundation-interactive-accent-background-hovered), var(--mat-button-filled-container-color));
-  }
-}
-
 .mat-mdc-outlined-button {
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
@@ -206,13 +192,14 @@ html {
 [mat-icon-button].mat-mdc-icon-button--toggle-on {
   .mat-mdc-button-persistent-ripple::before {
     background-color: var(--foundation-interactive-primary-background-enabled-tonal);
-    opacity: var(--state-layer-background-opacity-hovered);
+    opacity: 1;
   }
 
   &:focus,
   &:active {
     .mat-mdc-button-persistent-ripple::before {
-      opacity: var(--state-layer-background-opacity-selected);
+      background-color: var(--foundation-interactive-primary-background-selected);
+      opacity: 1;
     }
   }
 }
@@ -232,16 +219,28 @@ html {
 // Button Shape & Sizing
 // ===========================
 
-html,
-html .theme-condensed {
-  --mat-button-text-container-shape: var(--size-radius-full);
-  --mat-button-filled-container-shape: var(--size-radius-full);
-  --mat-button-protected-container-shape: var(--size-radius-full);
-  --mat-button-outlined-container-shape: var(--size-radius-full);
-  --mat-button-text-container-height: var(--size-sizing-3xl);
-  --mat-button-filled-container-height: var(--size-sizing-3xl);
-  --mat-button-outlined-container-height: var(--size-sizing-3xl);
-  --mat-button-protected-container-height: var(--size-sizing-3xl);
+:root {
+  --mat-button-text-container-shape: var(--foundation-radius-full);
+  --mat-button-filled-container-shape: var(--foundation-radius-full);
+  --mat-button-protected-container-shape: var(--foundation-radius-full);
+  --mat-button-outlined-container-shape: var(--foundation-radius-full);
+  --mat-button-text-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-filled-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-outlined-container-height: var(--base-dimension-dynamic-s09);
+  --mat-button-protected-container-height: var(--base-dimension-dynamic-s09);
+}
+
+// Ensure button elements respect density-aware height tokens
+// Using multiple class selectors for higher specificity
+.mat-mdc-button.mat-mdc-button,
+.mat-mdc-unelevated-button.mat-mdc-unelevated-button,
+.mat-mdc-raised-button.mat-mdc-raised-button,
+.mat-mdc-outlined-button.mat-mdc-outlined-button {
+  height: var(--base-dimension-dynamic-s09);
+  
+  .mat-mdc-button-touch-target {
+    height: 100%;
+  }
 }
 
 // ===========================
@@ -253,25 +252,22 @@ html .theme-light,
 html .theme-dark {
   --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-button-text-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-hovered);
   --mat-button-text-disabled-state-layer-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-button-text-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
   
   --mat-button-filled-container-color: var(--foundation-interactive-primary-background-enabled-filled);
   --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
   --mat-button-filled-disabled-container-color: var(--foundation-interactive-primary-background-disabled);
   --mat-button-filled-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-hovered);
   --mat-button-filled-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-button-filled-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
   
   --mat-button-outlined-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
   --mat-button-outlined-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
-  --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-hovered);
   --mat-button-outlined-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-button-outlined-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
 }
 
 // Primary button colors
@@ -347,8 +343,8 @@ html .theme-dark {
 // ===========================
 
 .mat-mdc-icon-button {
-  width: var(--size-sizing-3xl, 40px);
-  height: var(--size-sizing-3xl, 40px);
+  width: var(--base-dimension-dynamic-s09);
+  height: var(--base-dimension-dynamic-s09);
   padding: 0;
   
   .mat-mdc-button-touch-target {
@@ -363,7 +359,8 @@ html .theme-dark {
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     .mat-mdc-button-persistent-ripple::before {
-      opacity: var(--state-layer-background-opacity-hovered);
+      background-color: var(--foundation-interactive-primary-background-hovered);
+      opacity: 1;
     }
   }
 }
@@ -371,9 +368,8 @@ html .theme-dark {
 html {
   --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-icon-button-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-hovered);
   --mat-icon-button-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-icon-button-hover-state-layer-opacity: var(--state-layer-background-opacity-hovered);
 }
 
 // Icon button without color attribute or with mat-unthemed class
@@ -386,7 +382,7 @@ html .mat-mdc-icon-button:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
   }
   
   &:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-primary-background-hovered) !important;
+    background-color: var(--foundation-interactive-primary-background-hovered);
     
     .mat-icon svg {
       filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
@@ -413,7 +409,7 @@ html .mat-mdc-icon-button.mat-primary {
   }
   
   &:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-primary-background-hovered) !important;
+    background-color: var(--foundation-interactive-primary-background-hovered);
     
     .mat-icon svg {
       filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
@@ -439,7 +435,7 @@ html .mat-mdc-icon-button.mat-accent {
   }
   
   &:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-accent-background-hovered) !important;
+    background-color: var(--foundation-interactive-accent-background-hovered);
     
     .mat-icon svg {
       filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
@@ -466,7 +462,7 @@ html .mat-mdc-icon-button.mat-warn {
   }
   
   &:hover:not([disabled]) {
-    background-color: var(--foundation-semantic-background-error-tonal) !important;
+    background-color: var(--foundation-semantic-background-error-tonal);
     
     .mat-icon svg {
       filter: drop-shadow(0 0 10px var(--foundation-semantic-textandicon-error));
