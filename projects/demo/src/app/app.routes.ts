@@ -6,7 +6,6 @@ import { BreadcrumbPageComponent } from './breadcrumb/breadcrumb.component';
 import { MenuPageComponent } from './menu/menu.component';
 import { CardPageComponent } from './card/card.component';
 import { NavigationDrawerPageComponent } from './navigation-drawer-page/navigation-drawer-page.component';
-import { NavigationRailPageComponent } from './navigation-rail-page/navigation-rail-page.component';
 import { TopAppBarPageComponent } from './top-app-bar/top-app-bar.component';
 import { TabsPageComponent } from './tabs/tabs.component';
 import { DialogPageComponent } from './dialog/dialog-page.component';
@@ -32,7 +31,6 @@ export const routes: Routes = [
   { path: 'button', component: ButtonPageComponent},
   { path: 'breadcrumb', component: BreadcrumbPageComponent},
   { path: 'navigation-drawer', component: NavigationDrawerPageComponent},
-  { path: 'navigation-rail', component: NavigationRailPageComponent},
   { path: 'card', component: CardPageComponent},
   { path: 'top-app-bar', component: TopAppBarPageComponent},
   { path: 'tabs', component: TabsPageComponent},
