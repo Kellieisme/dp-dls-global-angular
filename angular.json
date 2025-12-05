@@ -85,7 +85,7 @@
               "projects/design/dp-dls-global-angular/styles/material.scss",
               "projects/design/dp-dls-global-angular/stories/styles.scss"
             ],
-            "outputDir": "public"
+            "outputDir": "dist/STORYBOOK_PLACEHOLDER"
           }
         }
       }

@@ -35,6 +35,7 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'angular-19')
     outputs:
       v-version: ${{ steps.version.outputs.v-version }}
       version: ${{ steps.version.outputs.version }}
@@ -47,9 +48,8 @@ jobs:
         uses: jeppesen-foreflight/dp-actions-version-increment@v1.2
         id: version
         with:
-          scheme: semver
+          scheme: conventional_commits
           token: ${{ secrets.GITHUB_TOKEN }}
-          increment: patch
           release_branch: main
   codeql-scan:
     name: Run CodeQL scan
@@ -85,3 +85,31 @@ jobs:
     uses: jeppesen-foreflight/dp-jcps-shared-workflows/.github/workflows/create-release.yml@spark-fix
     with:
       release-version-number: ${{ needs.predict-version-number.outputs.v-version }}
+
+  # Publishing Storybook branch wise.
+  # CRITICAL FIX: Job is now a pure workflow call (no runs-on, no steps, no outputs).
+  # The URL is printed inside the reusable workflow itself.
+  publish-storybook:
+    name: Deploy Storybook Pages
+    if: github.event_name == 'push'
+    permissions:
+      contents: write
+      packages: write
+      pages: write 
+      attestations: write
+      id-token: write
+
+    # REMOVED: No outputs needed, as the URL is printed inside the called workflow.
+    
+    uses: ./.github/workflows/publish-storybook.yml
+    with:
+      node-version: 20
+      branch-name-slug: ${{ github.ref_name }} 
+      deploy-sub-directory: >
+        ${{ 
+          (github.ref_name == 'main' && 'angular-20') || 
+          (github.ref_name == 'angular-19' && 'angular-19') || 
+          github.ref_name 
+        }}
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}

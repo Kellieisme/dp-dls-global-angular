@@ -9,8 +9,14 @@ import {
 
 <Meta title="FOUNDATION/Themes" />
 
-<div style={{backgroundColor:'var(--foundation-ui-background-low)',padding:'8px 15px', borderRadius:'8px'}}>
-<NoData />
+<div
+  style={{
+    backgroundColor: "var(--color-ui-background-medium)",
+    padding: "8px 15px",
+    borderRadius: "8px",
+  }}
+>
+  <NoData></NoData>
 
 {/* 
 # Understanding and Using Atmosphere Themes
@@ -32,3 +38,42 @@ Call the respected html selector in `app.component.ts` to display it in your bro
 Checkbox-Overview-example */}
 
 </div>
+
+<style>
+  {`
+    .sb-show-main{
+      overflow-y: scroll;
+    }
+    .sb-show-main.sb-main-fullscreen {
+      height: max-content;
+    }
+    .sbdocs{
+      background: var(--color-ui-background-lowest);
+      color: var(--color-ui-textandicon-high);
+    }
+    .css-x28zkw :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+    .css-x28zkw :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+      color: var(--color-ui-textandicon-medium) !important;
+    }
+
+    .css-x28zkw :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+    .css-x28zkw :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
+    .css-x28zkw :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
+    .css-x28zkw :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
+      color: var(--color-ui-textandicon-high) !important;
+    }
+    .css-x28zkw :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
+      color: var(--color-ui-textandicon-high);
+      background: var(--color-ui-background-medium);
+      border: 1px solid var(--color-ui-divider-flat-high);
+      
+    }
+    .css-x28zkw :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+    .css-x28zkw :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
+      color: var(--color-ui-textandicon-medium);
+      background: var(--color-ui-background-low);
+      border: 1px solid var(--color-ui-divider-flat-high);
+
+    }
+  `}
+</style>
