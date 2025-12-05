@@ -100,7 +100,15 @@
       }
     }
     
-    &:not(.mat-mdc-unelevated-button):not([disabled]) {
+    &:not(.mat-mdc-unelevated-button):not([matButton="filled"]):not([disabled]) {
+      .mat-mdc-button-persistent-ripple::before {
+        background-color: var(--foundation-interactive-primary-background-hovered);
+        opacity: 1;
+      }
+    }
+    
+    &.mat-mdc-unelevated-button:not([disabled]),
+    &[matButton="filled"]:not([disabled]) {
       .mat-mdc-button-persistent-ripple::before {
         background-color: var(--foundation-interactive-primary-background-hovered);
         opacity: 1;
@@ -196,6 +204,21 @@
   }
 }
 
+.mat-mdc-unelevated-button,
+[matButton="filled"] {
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-primary:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-accent:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-accent-background-hovered);
+  }
+}
+
 // ===========================
 // Icon Button Toggle State
 // ===========================
@@ -265,7 +288,6 @@
 // ===========================
 // Button Color Tokens
 // ===========================
-
 .theme-light,
 .theme-dark {
   --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
