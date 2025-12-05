@@ -16,7 +16,9 @@ html .theme-dark {
 	--mat-toolbar-container-text-color: var(--foundation-ui-textandicon-high);
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
 	--mat-toolbar-standard-height: var(--base-dimension-dynamic-s12);
 	--mat-toolbar-mobile-height: var(--base-dimension-dynamic-s11);
 }
@@ -35,7 +37,9 @@ html.theme-condensed,
 	--mat-toolbar-mobile-height: var(--base-dimension-dynamic-s11);
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
 	// --mat-toolbar-title-text-font: inherit;
 	--mat-toolbar-title-text-line-height: inherit;
 	--mat-toolbar-title-text-size: inherit;

@@ -5,7 +5,7 @@
     <a mat-button color="accent" routerLink="/">
       <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma
     </a>
-    <a mat-button color="accent"routerLink="/">
+    <a mat-button color="accent" routerLink="/">
       <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Angular Code
     </a>
 
@@ -15,23 +15,34 @@
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
 
     <div class="col">
-    <mat-card appearance="outlined">
-      <mat-card-content>
-        <ba-badge></ba-badge>
-      </mat-card-content>
-    </mat-card>
-  </div>
-
-    <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
-          <mat-card-title>Breadcrumb</mat-card-title>
-          <div class="ms-auto">
+        <div style="padding: 12px 16px;">
+          <mat-card-title>Badge</mat-card-title>
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/badge">page</a>
           </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <ba-badge></ba-badge>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div style="display: flex; align-items: center;" style="padding: 12px 16px;">
+          <mat-card-title>Breadcrumb</mat-card-title>
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+            <a mat-button color="accent" href="/breadcrumb">page
+            </a>
+          </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
 
@@ -50,12 +61,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Button</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/button">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -87,12 +99,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Checkbox</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/checkbox">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -104,12 +117,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Chip</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/chips">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -122,12 +136,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Date and time picker</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/time-picker">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -139,12 +154,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Dialog</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/dialog">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -167,12 +183,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Form field and input</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/form-field">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -185,29 +202,31 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>List</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/list">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
         <mat-card-content>
-  <app-list></app-list>
+          <app-list></app-list>
         </mat-card-content>
       </mat-card>
     </div>
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Menu</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/menu">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -230,12 +249,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Select</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/select">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -247,12 +267,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Sidesheet</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/sidesheet">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -265,12 +286,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Snackbar</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/snackbar">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -282,12 +304,13 @@
 
     <div class="col">
       <mat-card appearance="outlined">
-        <div class="d-flex align-items-center" style="padding: 12px 16px;">
+        <div style="padding: 12px 16px;">
           <mat-card-title>Switch / toggle</mat-card-title>
-          <div class="ms-auto">
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
             <a mat-button href="#" color="accent">
               <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
             </a>
+            <a mat-button color="accent" href="/switch">page</a>
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
@@ -300,12 +323,13 @@
 
 
   <mat-card appearance="outlined">
-    <div class="d-flex align-items-center" style="padding: 12px 16px;">
+    <div style="padding: 12px 16px;">
       <mat-card-title>Table</mat-card-title>
-      <div class="ms-auto">
+      <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
         <a mat-button href="#" color="accent">
           <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
         </a>
+        <a mat-button color="accent" href="/table">page</a>
       </div>
     </div>
     <mat-divider inset="true" style="margin-right: 16px;" />

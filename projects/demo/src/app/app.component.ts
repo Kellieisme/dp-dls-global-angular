@@ -1,4 +1,3 @@
-import { RouterOutlet } from '@angular/router';
 import { Component } from '@angular/core';
 import { ThemeToggleService } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.service';
 import { Subscription } from 'rxjs';
@@ -10,7 +9,7 @@ import { MainNavComponent } from "./main-nav/main-nav.component";
 @Component({
   selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, MainNavComponent],
+    imports: [MainNavComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

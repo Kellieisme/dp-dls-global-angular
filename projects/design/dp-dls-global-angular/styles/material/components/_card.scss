@@ -319,7 +319,9 @@ html .theme-condensed {
   --mat-card-outlined-container-shape: var(--size-radius-l);
 }
 
-html {
+html,
+html .theme-light,
+html .theme-dark {
   --mat-card-outlined-outline-color: var(--foundation-gradient-glass-specular-border-89);
   .theme-light {
     --mat-card-outlined-outline-color: var(--foundation-gradient-glass-specular-border-89);

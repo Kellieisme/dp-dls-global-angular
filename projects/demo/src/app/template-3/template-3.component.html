@@ -4,54 +4,40 @@
 
   <p class="body-medium-default">Features: Data visualizations, and tables with search/filter, sort, and select.</p>
 
-  <!-- <p class="body-low-default text-danger"></p>
-  <div class="d-flex align-items-center alert alert-warning" role="alert">
-  <mat-icon class="me-2" svgIcon="icon-warning-filled"></mat-icon>
- Tables do not display correctly when placed within cards
-  </div> -->
-
-
-
-  <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-4 mb-2">
+  <div class="row row-cols-1 row-cols-sm-3">
+    <div class="col">
       <mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title>Fleet</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div class="mx-auto">
-            <img src="../../assets/images/chart1.png" class="img-xl">
-          </div>
+          <img src="../../assets/images/chart1.png" style="display: block; margin: 0 auto;">
         </mat-card-content>
       </mat-card>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-4 mb-2">
+    <div class="col">
       <mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title>Half-year costs</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div class="mx-auto">
-            <img src="../../assets/images/chart2.png">
-          </div>
+          <img src="../../assets/images/chart2.png" style="display: block; margin: 0 auto;">
         </mat-card-content>
       </mat-card>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-4 mb-2">
-      <mat-card appearance="outlined">
+        <div class="col">
+          <mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title>YTD gains</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div class="mx-auto">
-            <img src="../../assets/images/chart3.png">
-          </div>
+          <img src="../../assets/images/chart3.png" style="display: block; margin: 0 auto;">
         </mat-card-content>
       </mat-card>
     </div>
   </div>
 
-  <mat-toolbar class="mt-5">
+  <mat-toolbar>
     <mat-toolbar-row>
       <form>
         <mat-form-field subscriptSizing="dynamic">
@@ -75,7 +61,7 @@
 
   </mat-toolbar>
 
-  <div class="tableScroll">
+ <div class="table-container">
 
     <table mat-table [dataSource]="dataSource" aria-label="Data Table" matSort>
 
@@ -153,7 +139,4 @@
 
     </table>
   </div>
-
-  <!-- <mat-paginator #paginator class="pt-3" [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="10"  [pageSizeOptions]="[20, 50, 100]" aria-label="Select page"></mat-paginator> -->
-
-</div>
+ </div> 
