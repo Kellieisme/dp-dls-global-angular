@@ -1,0 +1,15 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.byline {
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0;
+  font: var(body-low-default);
+  align-items: end;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.tab-icon {
+  margin-right: 4px;
+}

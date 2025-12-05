@@ -13,37 +13,45 @@
 
 .mat-mdc-snack-bar-container {
   backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
+  height: var(--base-dimension-dynamic-s09);
   
   .mdc-snackbar__label {
-    padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-m);
-
-    .theme-condensed & {
-      padding: var(--size-spacing-xs) var(--size-spacing-s) var(--size-spacing-xs) var(--size-spacing-s);
-    }
+    padding: var(--foundation-spacing-xs) var(--foundation-spacing-s) var(--foundation-spacing-xs) var(--foundation-spacing-m);
   }
 }
 
 .mdc-snackbar__surface {
-  padding: var(--size-spacing-none);
+  padding: var(--foundation-spacing-none);
 }
 
-
-html,
-html .theme-condensed {
-  --mat-snackbar-container-shape: var(--size-radius-xs);
+.ba-snackbar__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+.ba-snackbar__message {
+  white-space: pre-line;
+  padding-right: var(--foundation-spacing-m);
+}
+
+.ba-snackbar__actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+html {
+  --mat-snackbar-container-shape: var(--foundation-radius-xs);
   --mat-snackbar-container-color: var(--foundation-ui-glass-surface-thickest);
   --mat-snackbar-supporting-text-color: var(--foundation-ui-textandicon-high);
-  //--mat-snack-bar-button-color: #ffd740
+  --mat-snack-bar-button-color: var(--foundation-interactive-accent-textandicon-default);
 }
 
 // html {
-//   --mat-snackbar-supporting-text-font: Roboto, sans-serif;
+//   
 //   --mat-snackbar-supporting-text-line-height: 20px;
 //   --mat-snackbar-supporting-text-size: 14px;
 //   --mat-snackbar-supporting-text-weight: 400
 // }
+

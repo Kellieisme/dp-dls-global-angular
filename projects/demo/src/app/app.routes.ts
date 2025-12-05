@@ -23,15 +23,19 @@ import { ProgressIndicatorComponent } from './progress-indicator/progress-indica
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TypographyComponent } from './typography/typography.component';
 import { GlassExamplesComponent } from './glass-examples/glass-examples.component';
+import { Template3Component } from './template-3/template-3.component';
+import { Template2Component } from './template-2/template-2.component';
+import { Template4Component } from './template-4/template-4.component';
+import { BadgeComponent } from './badge/badge.component';
 import { ComponentsComponent } from './components/components.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent },
   { path: 'button', component: ButtonPageComponent},
-  { path: 'breadcrumb', component: BreadcrumbPageComponent},
   { path: 'navigation-drawer', component: NavigationDrawerPageComponent},
   { path: 'card', component: CardPageComponent},
+  { path: 'components', component: ComponentsComponent },
   { path: 'top-app-bar', component: TopAppBarPageComponent},
   { path: 'tabs', component: TabsPageComponent},
   { path: 'menu', component: MenuPageComponent},
@@ -46,10 +50,13 @@ export const routes: Routes = [
   { path: 'select', component: SelectComponent},
   { path: 'tooltip', component: TooltipPageComponent},
   { path: 'chips', component: ChipsPageComponent},
-  { path: 'components', component: ComponentsComponent},
   { path: 'progress-indicators', component: ProgressIndicatorComponent},
-  { path: 'landing-page', component: LandingPageComponent},
   { path: 'list', component: ListComponent},
+  { path: 'landing-page', component: LandingPageComponent},
+  { path: 'template-2', component: Template2Component},
+  { path: 'template-3', component: Template3Component},
+  { path: 'template-4', component: Template4Component},
+  { path: 'badge', component: BadgeComponent},
   { path: 'typography', component: TypographyComponent},
   { path: 'glass', component: GlassExamplesComponent},
   { path: 'breadcrumb', redirectTo: '/level-1', pathMatch: 'full' },

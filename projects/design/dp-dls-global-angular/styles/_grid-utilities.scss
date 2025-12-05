@@ -1,0 +1,77 @@
+// Grid column utilities extending dls-global-assets base grid
+// Provides Bootstrap-style row-cols-* classes for responsive layouts
+
+@mixin grid-utilities {
+  // Base: 1 column on all screens
+  .row-cols-1 > .col {
+    flex: 0 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  // sm breakpoint (600px+)
+  @media (min-width: 600px) {
+    .row-cols-sm-2 > .col {
+      flex: 0 0 auto;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .row-cols-sm-3 > .col {
+      flex: 0 0 auto;
+      width: 33.3333%;
+      box-sizing: border-box;
+    }
+    
+    .row-cols-sm-4 > .col {
+      flex: 0 0 auto;
+      width: 25%;
+      box-sizing: border-box;
+    }
+  }
+
+  // md breakpoint (840px+)
+  @media (min-width: 840px) {
+    .row-cols-md-2 > .col {
+      flex: 0 0 auto;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .row-cols-md-3 > .col {
+      flex: 0 0 auto;
+      width: 33.3333%;
+      box-sizing: border-box;
+    }
+    
+    .row-cols-md-4 > .col {
+      flex: 0 0 auto;
+      width: 25%;
+      box-sizing: border-box;
+    }
+  }
+
+  // lg breakpoint (1200px+)
+  @media (min-width: 1200px) {
+    .row-cols-lg-2 > .col {
+      flex: 0 0 auto;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .row-cols-lg-3 > .col {
+      flex: 0 0 auto;
+      width: 33.3333%;
+      box-sizing: border-box;
+    }
+    
+    .row-cols-lg-4 > .col {
+      flex: 0 0 auto;
+      width: 25%;
+      box-sizing: border-box;
+    }
+  }
+}
+
+// Auto-include the utilities when module is loaded
+@include grid-utilities;

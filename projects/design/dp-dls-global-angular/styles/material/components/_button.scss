@@ -2,10 +2,12 @@
 @use '../m3-theme' as m3;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
-:root {
-  @include mat.button-theme(m3.$dark-theme);
-  @include mat.icon-button-theme(m3.$dark-theme);
-}
+// ===========================
+// Global Button Theme (for app)
+// ===========================
+
+@include mat.button-theme(m3.$dark-theme);
+@include mat.icon-button-theme(m3.$dark-theme);
 
 .theme-light {
   @include mat.button-color(m3.$light-theme);
@@ -16,7 +18,7 @@
 // Global State Configuration
 // ===========================
 
-html {
+:root {
   --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
 }
 
@@ -26,7 +28,10 @@ html {
 
 .mat-mdc-button,
 .mat-mdc-outlined-button,
-.mat-mdc-unelevated-button {
+.mat-mdc-unelevated-button,
+[matButton],
+[matButton="outlined"],
+[matButton="filled"] {
   .mat-icon {
     color: inherit;
   }
@@ -49,7 +54,8 @@ html {
 }
 
 // Filled buttons use inverse colors (light text on dark background)
-.mat-mdc-unelevated-button {
+.mat-mdc-unelevated-button,
+[matButton="filled"] {
   .mat-icon {
     color: var(--foundation-interactive-primary-textandicon-inverse);
   }
@@ -73,7 +79,10 @@ html {
 
 .mat-mdc-button,
 .mat-mdc-outlined-button,
-.mat-mdc-unelevated-button {
+.mat-mdc-unelevated-button,
+[matButton],
+[matButton="outlined"],
+[matButton="filled"] {
   &:hover,
   &:focus {
     --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
@@ -91,7 +100,15 @@ html {
       }
     }
     
-    &:not(.mat-mdc-unelevated-button):not([disabled]) {
+    &:not(.mat-mdc-unelevated-button):not([matButton="filled"]):not([disabled]) {
+      .mat-mdc-button-persistent-ripple::before {
+        background-color: var(--foundation-interactive-primary-background-hovered);
+        opacity: 1;
+      }
+    }
+    
+    &.mat-mdc-unelevated-button:not([disabled]),
+    &[matButton="filled"]:not([disabled]) {
       .mat-mdc-button-persistent-ripple::before {
         background-color: var(--foundation-interactive-primary-background-hovered);
         opacity: 1;
@@ -141,7 +158,8 @@ html {
 // Button Hover Backgrounds
 // ===========================
 
-.mat-mdc-button:not(.mat-mdc-icon-button) {
+.mat-mdc-button:not(.mat-mdc-icon-button),
+[matButton]:not([mat-icon-button]) {
   &:hover:not([disabled]) {
     background-color: var(--foundation-interactive-primary-background-hovered);
   }
@@ -155,7 +173,8 @@ html {
   }
 }
 
-.mat-mdc-outlined-button {
+.mat-mdc-outlined-button,
+[matButton="outlined"] {
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     border-color: var(--foundation-interactive-primary-border-hovered-flat);
@@ -185,6 +204,21 @@ html {
   }
 }
 
+.mat-mdc-unelevated-button,
+[matButton="filled"] {
+  &:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-primary:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-primary-background-hovered);
+  }
+  
+  &.mat-accent:hover:not([disabled]) {
+    background-color: var(--foundation-interactive-accent-background-hovered);
+  }
+}
+
 // ===========================
 // Icon Button Toggle State
 // ===========================
@@ -211,8 +245,13 @@ html {
 .mat-mdc-button>.mat-icon,
 .mat-mdc-unelevated-button>.mat-icon,
 .mat-mdc-raised-button>.mat-icon,
-.mat-mdc-outlined-button>.mat-icon {
+.mat-mdc-outlined-button>.mat-icon,
+[matButton]>.mat-icon,
+[matButton="outlined"]>.mat-icon,
+[matButton="filled"]>.mat-icon {
   font-size: inherit !important;
+  position: relative;
+  top: var(--foundation-spacing-3xs);
 }
 
 // ===========================
@@ -235,7 +274,10 @@ html {
 .mat-mdc-button.mat-mdc-button,
 .mat-mdc-unelevated-button.mat-mdc-unelevated-button,
 .mat-mdc-raised-button.mat-mdc-raised-button,
-.mat-mdc-outlined-button.mat-mdc-outlined-button {
+.mat-mdc-outlined-button.mat-mdc-outlined-button,
+[matButton],
+[matButton="outlined"],
+[matButton="filled"] {
   height: var(--base-dimension-dynamic-s09);
   
   .mat-mdc-button-touch-target {
@@ -246,10 +288,8 @@ html {
 // ===========================
 // Button Color Tokens
 // ===========================
-
-html,
-html .theme-light,
-html .theme-dark {
+.theme-light,
+.theme-dark {
   --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
   --mat-button-text-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-hovered);
