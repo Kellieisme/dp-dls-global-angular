@@ -34,19 +34,19 @@
   @media (min-width: 840px) {
     .row-cols-md-2 > .col {
       flex: 0 0 auto;
-      width: 50% !important;
+      width: 50%;
       box-sizing: border-box;
     }
     
     .row-cols-md-3 > .col {
       flex: 0 0 auto;
-      width: 33.3333% !important;
+      width: 33.3333%;
       box-sizing: border-box;
     }
     
     .row-cols-md-4 > .col {
       flex: 0 0 auto;
-      width: 25% !important;
+      width: 25%;
       box-sizing: border-box;
     }
   }
@@ -56,16 +56,19 @@
     .row-cols-lg-2 > .col {
       flex: 0 0 auto;
       width: 50%;
+      box-sizing: border-box;
     }
     
     .row-cols-lg-3 > .col {
       flex: 0 0 auto;
       width: 33.3333%;
+      box-sizing: border-box;
     }
     
     .row-cols-lg-4 > .col {
       flex: 0 0 auto;
       width: 25%;
+      box-sizing: border-box;
     }
   }
 }
