@@ -1,5 +1,4 @@
 <div class="container-fluid">
-
   <div class="top-links">
     <h1 class="heading-low" style="flex:auto;">Components</h1>
     <a mat-button color="accent" routerLink="/">
@@ -8,8 +7,6 @@
     <a mat-button color="accent" routerLink="/">
       <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Angular Code
     </a>
-
-
   </div>
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
@@ -170,17 +167,6 @@
       </mat-card>
     </div>
 
-    <!-- <div class="col">
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Drag and drop</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <app-drag-n-drop></app-drag-n-drop>
-      </mat-card-content>
-    </mat-card>
-  </div> -->
-
     <div class="col">
       <mat-card appearance="outlined">
         <div style="padding: 12px 16px;">
@@ -195,7 +181,6 @@
         <mat-divider inset="true" style="margin-right: 16px;" />
         <mat-card-content>
           <app-form-field></app-form-field>
-          <app-input></app-input>
         </mat-card-content>
       </mat-card>
     </div>
@@ -236,16 +221,23 @@
       </mat-card>
     </div>
 
-    <!-- <div class="col">
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Tree</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <app-tree></app-tree>
-      </mat-card-content>
-    </mat-card>
-  </div> -->
+    <div class="col">
+      <mat-card appearance="outlined">
+        <div style="padding: 12px 16px;">
+          <mat-card-title>Radio button</mat-card-title>
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+            <a mat-button color="accent" href="/select">page</a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <app-radio></app-radio>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
     <div class="col">
       <mat-card appearance="outlined">
@@ -277,7 +269,7 @@
           </div>
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
-        <mat-card-content>
+        <mat-card-content style="max-height: 200px; overflow: hidden;">
           <ba-sidesheet></ba-sidesheet>
         </mat-card-content>
       </mat-card>
@@ -319,9 +311,8 @@
         </mat-card-content>
       </mat-card>
     </div>
-  </div>
 
-
+    <div class="col">
   <mat-card appearance="outlined">
     <div style="padding: 12px 16px;">
       <mat-card-title>Table</mat-card-title>
@@ -336,16 +327,15 @@
     <mat-card-content>
       <table-page></table-page>
     </mat-card-content>
-
   </mat-card>
-
+  </div>  
+  </div>
   <hr>
 
   <p class="body-medium-default">Components</p>
   <p><a href="/badge">Badge</a></p>
   <p><a href="/button">Button</a></p>
   <p><a href="/radio">Radio button</a></p>
-
   <p><a href="/breadcrumb">Breadcrumb</a></p>
   <p><a href="/card">Card</a></p>
   <p><a href="/checkbox">Checkbox</a></p>
@@ -354,9 +344,7 @@
   <p><a href="/menu">Menu</a></p>
   <p><a href="/navigation-drawer">Navigation Drawer</a></p>
   <p><a href="/navigation-rail">Navigation Rail</a></p>
-
   <p><a href="/progress-indicators">Progress Indicators</a></p>
-
   <p><a href="/switch">Switch (Slide toggle)</a></p>
   <p><a href="/select">Select</a></p>
   <p><a href="/sidesheet">Sidesheet</a></p>
@@ -364,7 +352,6 @@
   <p><a href="/input">Text field, Textarea, input</a></p>
   <p><a href="/form-field">Form Field</a></p>
   <p><a href="/table">Table</a></p>
-
   <p><a href="/tooltip">Tooltip</a></p>
   <p><a href="/top-app-bar">Top App Bar</a></p>
   <p><a href="/user-profile">User Profile</a></p>

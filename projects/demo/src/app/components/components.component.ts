@@ -20,13 +20,14 @@ import { SideSheetComponent } from "../sidesheet/sidesheet.component";
 import { ListComponent } from "../list/list.component";
 import { SnackbarComponent } from "../snackbar/snackbar.component";
 import { BadgeComponent } from "@jeppesen-foreflight/dp-dls-global-angular/badge";
+import { RadioComponent } from '../radio/radio.component';
 
 export interface LabelExample {
   name: string;
 }
 @Component({
   selector: 'app-components',
-  imports: [MatListModule, MatIcon, MatDividerModule, MatButtonModule, BreadcrumbComponent, MatCardModule, ChipsPageComponent, CheckboxComponent, ButtonPageComponent, DialogPageComponent, FormFieldComponent, MenuPageComponent, SelectComponent, SwitchPageComponent, InputComponent, TablePageComponent, TimePickerComponent, SideSheetComponent, ListComponent, SnackbarComponent, BadgeComponent],
+  imports: [RadioComponent, MatListModule, MatIcon, MatDividerModule, MatButtonModule, BreadcrumbComponent, MatCardModule, ChipsPageComponent, CheckboxComponent, ButtonPageComponent, DialogPageComponent, FormFieldComponent, MenuPageComponent, SelectComponent, SwitchPageComponent, InputComponent, TablePageComponent, TimePickerComponent, SideSheetComponent, ListComponent, SnackbarComponent, BadgeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './components.component.html',
   styleUrl: './components.component.scss',
