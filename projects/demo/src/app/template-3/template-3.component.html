@@ -1,0 +1,159 @@
+<div class="container-xxl">
+
+  <h1 class="title-high">Template 3</h1>
+
+  <p class="body-medium-default">Features: Data visualizations, and tables with search/filter, sort, and select.</p>
+
+  <!-- <p class="body-low-default text-danger"></p>
+  <div class="d-flex align-items-center alert alert-warning" role="alert">
+  <mat-icon class="me-2" svgIcon="icon-warning-filled"></mat-icon>
+ Tables do not display correctly when placed within cards
+  </div> -->
+
+
+
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4 mb-2">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Fleet</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="mx-auto">
+            <img src="../../assets/images/chart1.png" class="img-xl">
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 mb-2">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Half-year costs</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="mx-auto">
+            <img src="../../assets/images/chart2.png">
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 mb-2">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>YTD gains</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="mx-auto">
+            <img src="../../assets/images/chart3.png">
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <mat-toolbar class="mt-5">
+    <mat-toolbar-row>
+      <form>
+        <mat-form-field subscriptSizing="dynamic">
+          <mat-label>Search/filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" #input>
+          <mat-icon matSuffix svgIcon="icon-search"></mat-icon>
+        </mat-form-field>
+      </form>
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button color="accent" (click)="openCreateDialog()">
+        <mat-icon svgIcon="icon-add"></mat-icon>
+
+      </button>
+
+      <button mat-icon-button color="accent"  (click)="openDeleteReason()">
+        <mat-icon svgIcon="icon-delete"></mat-icon>
+      </button>
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+
+  <div class="tableScroll">
+
+    <table mat-table [dataSource]="dataSource" aria-label="Data Table" matSort>
+
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matCellDef="let element">{{element.status}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="content">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Content</th>
+        <td mat-cell *matCellDef="let element">{{element.content}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>User</th>
+        <td mat-cell *matCellDef="let element">{{element.user}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="application">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Application</th>
+        <td mat-cell *matCellDef="let element">{{element.application}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="group">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Group</th>
+        <td mat-cell *matCellDef="let element">{{element.group}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="platform">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Platform</th>
+        <td mat-cell *matCellDef="let element">{{element.platform}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="updated">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Updated</th>
+        <td mat-cell *matCellDef="let element">{{element.updated}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="serial">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Serial #</th>
+        <td mat-cell *matCellDef="let element">{{element.serial}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="12"><span class="body-medium-default ps-5 mt-5">No results for
+            "{{input.value}}"</span></td>
+      </tr>
+
+    </table>
+  </div>
+
+  <!-- <mat-paginator #paginator class="pt-3" [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="10"  [pageSizeOptions]="[20, 50, 100]" aria-label="Select page"></mat-paginator> -->
+
+</div>

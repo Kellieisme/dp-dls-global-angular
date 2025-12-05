@@ -1,0 +1,19 @@
+ <div class="ba-snackbar__content">
+      <span class="ba-snackbar__message">{{ data.message }}</span>
+      <div class="ba-snackbar__actions">
+        @if (data.action) {
+          <button
+            color="accent"
+            mat-button
+            (click)="onAction()"
+            >
+            {{ data.action }}
+          </button>
+        }
+        @if (data.showClose) {
+          <button mat-icon-button (click)="onClose()">
+            <mat-icon svgIcon="icon-close"></mat-icon>
+          </button>
+        }
+      </div>
+    </div>

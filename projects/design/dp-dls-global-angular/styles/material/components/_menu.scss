@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
@@ -14,6 +14,48 @@
 .theme-light {
   @include mat.menu-color(m3.$light-theme);
 }
+
+// Hide touch target overlay for menu triggers
+.mat-mdc-menu-trigger {
+  --mat-menu-trigger-touch-target-size: 0 !important;
+  --mdc-menu-trigger-touch-target-size: 0 !important;
+  
+  &::before,
+  &::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+  
+  .mat-mdc-button-touch-target,
+  .mat-mdc-menu-trigger-touch-target {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+}
+
+// Specific fix for ba-user-profile when used as menu trigger
+// Specific fix for ba-user-profile when used as menu trigger
+ba-user-profile.mat-mdc-menu-trigger {
+  display: inline-block !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-height: 0 !important;
+  max-height: 40px !important;
+  overflow: hidden !important;
+}
+
+// ba-user-profile.mat-mdc-menu-trigger {
+//   display: inline-block !important;
+//   width: var(--foundation-sizing-5xl-fixed) !important;
+//   height: var(--foundation-sizing-5xl-fixed) !important;
+//   min-height: 0 !important;
+//   max-height: var(--foundation-sizing-5xl-fixed) !important;
+//   overflow: hidden !important;
+// }
 
 // TODO: menuorary specular border values until we can fix the mixin
 // The mixin uses border-image-source to create a gradient border but

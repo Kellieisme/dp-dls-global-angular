@@ -33,7 +33,11 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
         IconRegistryModule
     ],
     templateUrl: './user-profile.component.html',
-    styleUrls: ['./user-profile.component.scss']
+    styleUrls: ['./user-profile.component.scss'],
+        host: {
+        'class': 'user-profile-host',
+        'style': 'position: relative; display: inline-block;'
+    }
 })
 
 export class UserProfileComponent {

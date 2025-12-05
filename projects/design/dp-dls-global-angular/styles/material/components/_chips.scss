@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
 :root {
 	// Material 3 theme includes typography configuration from m3-theme.scss
@@ -14,17 +14,17 @@
 
 .mat-mdc-standard-chip {
 	&.avatar-chip {
-		--mat-chip-container-shape-radius: #{var(--foundation-radius-full)} !important;
+		--mat-chip-container-shape-radius: var(--foundation-radius-full);
 
 		.mdc-evolution-chip__action {
-			padding-left: #{var(--foundation-spacing-2xs)} !important;
+			padding-left: var(--foundation-spacing-2xs);
 		}
 	}
 
 	&.elevated {
-		--mat-chip-elevated-container-color: var(--foundation-ui-background-high) !important;
-		--mat-chip-outline-width: 0 !important;
-		--mat-chip-outline-color: transparent !important;
+		--mat-chip-elevated-container-color: var(--foundation-ui-background-medium);
+		--mat-chip-outline-width: 0;
+		--mat-chip-outline-color: transparent;
 		box-shadow: var(--box-shadow-elevation-1);
 	}
 
@@ -38,19 +38,23 @@
 .mdc-evolution-chip__text-label {
 	display: flex;
 	align-items: center;
-	gap: #{var(--foundation-spacing-xs)};
+	gap: var(--foundation-spacing-xs);
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+html {
 	.mat-mdc-standard-chip {
 		// Shape and borders
-		--mat-chip-container-shape-radius: #{var(--foundation-radius-s)};
-		--mat-chip-outline-width: #{var(--foundation-border-regular-width, 1px)};
+		--mat-chip-container-shape-radius: var(--foundation-radius-s);
+		--mat-chip-outline-width: var(--foundation-border-regular-width, 1px);
 		--mat-chip-outline-color: var(--foundation-interactive-primary-border-enabled);
 		--mat-chip-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
 		--mat-chip-focus-outline-color: var(--foundation-interactive-primary-border-focused);
+		
+		// Density-specific sizing - default (condensed) 28px
+		--mat-chip-container-height: 28px;
+		--mat-chip-leading-icon-size: var(--foundation-sizing-l);
+		--mat-chip-trailing-icon-size: var(--foundation-sizing-l);
+		--mat-chip-with-avatar-leading-icon-size: var(--foundation-sizing-3xl);
 		
 		// Container colors
 		--mat-chip-elevated-container-color: transparent;
@@ -78,9 +82,7 @@ html .theme-dark {
 	}
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+html {
 	// Primary selected chips
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
@@ -89,9 +91,7 @@ html .theme-dark {
 	}
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+html {
 	// Accent selected chips
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
@@ -102,5 +102,13 @@ html .theme-dark {
 		--mat-chip-selected-label-text-color: var(--foundation-interactive-accent-textandicon-inverse);
 		--mat-chip-with-icon-selected-icon-color: var(--foundation-interactive-accent-textandicon-inverse);
 		--mat-chip-selected-trailing-icon-color: var(--foundation-interactive-accent-textandicon-inverse);
+	}
+}
+
+// Relaxed density - 32px height
+body.theme-relaxed,
+.theme-relaxed {
+	.mat-mdc-standard-chip {
+		--mat-chip-container-height: 32px !important;
 	}
 }

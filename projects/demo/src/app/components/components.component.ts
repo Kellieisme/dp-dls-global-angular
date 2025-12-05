@@ -17,14 +17,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import { TimePickerComponent } from "../time-picker/time-picker.component";
 import { MatListModule } from '@angular/material/list';
 import { SideSheetComponent } from "../sidesheet/sidesheet.component";
-
+import { ListComponent } from "../list/list.component";
+import { SnackbarComponent } from "../snackbar/snackbar.component";
+import { BadgeComponent } from "@jeppesen-foreflight/dp-dls-global-angular/badge";
 
 export interface LabelExample {
   name: string;
 }
 @Component({
   selector: 'app-components',
-  imports: [MatListModule, MatIcon, MatDividerModule, MatButtonModule, BreadcrumbComponent, MatCardModule, ChipsPageComponent, CheckboxComponent, ButtonPageComponent, DialogPageComponent, FormFieldComponent, MenuPageComponent, SelectComponent, SwitchPageComponent, InputComponent, TablePageComponent, TimePickerComponent, SideSheetComponent],
+  imports: [MatListModule, MatIcon, MatDividerModule, MatButtonModule, BreadcrumbComponent, MatCardModule, ChipsPageComponent, CheckboxComponent, ButtonPageComponent, DialogPageComponent, FormFieldComponent, MenuPageComponent, SelectComponent, SwitchPageComponent, InputComponent, TablePageComponent, TimePickerComponent, SideSheetComponent, ListComponent, SnackbarComponent, BadgeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './components.component.html',
   styleUrl: './components.component.scss',

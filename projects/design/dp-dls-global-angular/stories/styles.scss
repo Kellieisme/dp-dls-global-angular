@@ -4,19 +4,17 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_linkMixins.scss' as links;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
+// Import Material component overrides
+@use '../styles/material/components/button';
+
 // Generate CSS custom properties for color theme variables
 @include color.generateColorThemeVariables();
 @include density.generateDensityVariables();
 
-html, body {
+#storybook-root {
   background: var(--foundation-ui-background-page);
   font-family: 'Boeing Meso', sans-serif;
   color: var(--foundation-ui-textandicon-high);
-  min-height: 100vh;
-}
-
-#storybook-root {
-  background: var(--foundation-ui-background-page);
   min-height: 100vh;
 }
 

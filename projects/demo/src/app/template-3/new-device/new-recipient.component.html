@@ -1,0 +1,115 @@
+    
+
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 0; z-index: 1;">
+      <div style="position: absolute; top: calc(var(--size-spacing-m) + 16px); left: var(--size-spacing-xl);">
+        <mat-icon svgIcon="icon-warning"></mat-icon>
+      </div>
+      <div style="position: absolute; top: calc(var(--size-spacing-2xs) + 2px); right: var(--size-spacing-2xs);">
+        <button matIconButton mat-dialog-close="true">
+          <mat-icon svgIcon="icon-close"></mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <h2 mat-dialog-title style="padding-top: calc(var(--base-dimension-dynamic-s12) - 4px); margin-top: var(--size-spacing-none);">Dialog Title</h2>
+
+<mat-dialog-content>
+<div class="container-fluid">
+    <div class="row row-cols-1 row-cols-sm-2 g-1">  
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Device Name</mat-label>
+        <input matInput required>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select required>
+          <mat-option value="mobile" selected>Current</mat-option>
+          <mat-option value="desktop">Out of date</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput required>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput required>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+     <mat-form-field>
+        <mat-label>Serial #</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+        <mat-form-field>
+        <mat-label>Distribution Group</mat-label>
+        <mat-select>
+          <mat-option value="1">Group 1</mat-option>
+          <mat-option value="2">Group 2</mat-option>
+          <mat-option value="3">Group 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Asset Tag #</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Serial #</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+  </div>
+</div>
+</mat-dialog-content>
+
+   <mat-dialog-actions style="display: flex; gap: var(--foundation-spacing-xs);">
+      
+          <button
+           mat-dialog-close
+            style="margin-inline-end: auto;"
+            matButton
+            color="primary"
+            mat-dialog-close="true"
+            >
+            Tertiary
+          </button>
+     
+        <button matButton="outlined" mat-dialog-close>Cancel</button>
+        <button
+          matButton="filled"
+          color="primary"
+          mat-dialog-close
+          cdkFocusInitial
+          >
+          Install
+        </button>
+      </mat-dialog-actions>

@@ -127,6 +127,50 @@ export const appConfig: ApplicationConfig = {
 
 Angular Material components can be used according to the [Angular Material documentation](https://material.angular.dev/components/categories). If the stylesheets are included in the angular.json as described above, the components will be styled without any further action needed.
 
+### Using the responsive grid utilities
+
+The library includes Bootstrap-style responsive grid utilities that work with the dls-global-assets grid system. These utilities are automatically included when you import `global.scss`.
+
+The grid utilities provide responsive column layouts using the `row-cols-*` pattern:
+
+```html
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+  <div class="col">Column 1</div>
+  <div class="col">Column 2</div>
+  <div class="col">Column 3</div>
+</div>
+```
+
+Available breakpoints:
+- `row-cols-1`: 1 column (base, all screens)
+- `row-cols-sm-2`, `row-cols-sm-3`, `row-cols-sm-4`: 2, 3, or 4 columns at 600px+
+- `row-cols-md-2`, `row-cols-md-3`, `row-cols-md-4`: 2, 3, or 4 columns at 840px+
+- `row-cols-lg-2`, `row-cols-lg-3`, `row-cols-lg-4`: 2, 3, or 4 columns at 1200px+
+
+The example above creates:
+- 1 column on mobile (< 600px)
+- 2 columns on small screens (600px - 839px)
+- 3 columns on medium+ screens (840px+)
+
+**Important:** These utilities only work with the `.col` class (not `col-sm-3`, `col-md-6`, etc.). Use the `row-cols-*` pattern for equal-width responsive columns.
+
+### Using typography utilities
+
+The library includes typography utility classes that apply DLS typography styles. These utilities are automatically included when you import `global.scss`.
+
+Available typography classes:
+- Display: `.display-high`, `.display-medium`
+- Heading: `.heading-high`, `.heading-medium`, `.heading-low`
+- Title: `.title-high`, `.title-medium`, `.title-low`
+- Body: `.body-high-default`, `.body-medium-default`, `.body-low-default`
+- Label: `.label-high`, `.label-medium`, `.label-low`, `.label-lowest`, `.label-lowest2`
+
+Example:
+```html
+<h1 class="display-high">Display High</h1>
+<p class="body-medium-default">Body text with medium default style</p>
+```
+
 ### Using a custom Angular component
 
 Import the component as needed:

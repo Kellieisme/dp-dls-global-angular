@@ -3,42 +3,38 @@ import { create } from 'storybook/theming';
 
 
 addons.setConfig({
+  sidebar: {
+    showRoots: false,
+    collapsedRoots: ['get-started', 'installation', 'foundation', 'patterns', 'production','components', 'material-components', 'other']
+  },
   theme: create({
-    base: 'light', // Or 'dark'
-  // Typography
+    base: 'dark',
   fontBase: '"Open Sans", sans-serif',
   fontCode: 'monospace',
 
   brandTitle: 'ATMOSPHERE',
-  brandUrl: 'https://design.pages.boeing.com/design-system/dls-global-docs/home', // Add your branding link if needed
- // brandImage: "./assets/boeing-logomark_TopAppBar_dark.svg", // Add a logo if needed
-  // brandTarget: '_self',
+  brandUrl: '#',
  
-  //
-  colorPrimary: '#3A10E5',
-  colorSecondary: '#585C6D',
+  colorPrimary: '#FF4785',
+  colorSecondary: '#029CFD',
  
-  // UI
-  appBg: '#09090',
-  appContentBg: '#fffff',
-  appPreviewBg: '#fffff',
+  appBg: '#131c24',
+  appContentBg: '#131c24',
+  appPreviewBg: '#131c24',
   appBorderColor: '#585C6D',
   appBorderRadius: 4,
  
-  // Text colors
-  textColor: '#10162F',
-  textInverseColor: '#fffff',
+  textColor: '#dde2e7',
+  textInverseColor: '#1b1c1d',
  
-  // Toolbar default and active colors
-  barTextColor: '#9E9E9E',
-  barSelectedColor: '#585C6D',
-  barHoverColor: '#585C6D',
-  barBg: '#fffff',
+  barTextColor: '#9eadbb',
+  barSelectedColor: '#dde2e7',
+  barHoverColor: '#dde2e7',
+  barBg: '#1a2631',
  
-  // Form colors
-  inputBg: '#fffff',
-  inputBorder: '#10162F',
-  inputTextColor: '#10162F',
+  inputBg: '#23313d',
+  inputBorder: '#4e6071',
+  inputTextColor: '#dde2e7',
   inputBorderRadius: 2,
      }),
 });

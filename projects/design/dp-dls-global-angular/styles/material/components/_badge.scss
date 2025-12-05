@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+@use '../m3-theme' as m3;
+
+// Global badge theme
+@include mat.badge-theme(m3.$dark-theme);
+
+.theme-light {
+  @include mat.badge-color(m3.$light-theme);
+}
+
+// Badge color overrides using semantic error tokens
+.mat-badge-content {
+  background-color: var(--foundation-semantic-background-error-filled) !important;
+  color: var(--foundation-interactive-primary-textandicon-inverse) !important;
+}
