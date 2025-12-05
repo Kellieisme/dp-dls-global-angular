@@ -6,7 +6,6 @@ import { BreadcrumbPageComponent } from './breadcrumb/breadcrumb.component';
 import { MenuPageComponent } from './menu/menu.component';
 import { CardPageComponent } from './card/card.component';
 import { NavigationDrawerPageComponent } from './navigation-drawer-page/navigation-drawer-page.component';
-import { NavigationRailPageComponent } from './navigation-rail-page/navigation-rail-page.component';
 import { TopAppBarPageComponent } from './top-app-bar/top-app-bar.component';
 import { TabsPageComponent } from './tabs/tabs.component';
 import { DialogPageComponent } from './dialog/dialog-page.component';
@@ -24,44 +23,42 @@ import { ProgressIndicatorComponent } from './progress-indicator/progress-indica
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TypographyComponent } from './typography/typography.component';
 import { GlassExamplesComponent } from './glass-examples/glass-examples.component';
-import { ComponentsComponent } from './components/components.component';
 import { Template3Component } from './template-3/template-3.component';
 import { Template2Component } from './template-2/template-2.component';
 import { Template4Component } from './template-4/template-4.component';
 import { BadgeComponent } from './badge/badge.component';
+import { ComponentsComponent } from './components/components.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
-  { path: 'badge', component: BadgeComponent },
-  { path: 'button', component: ButtonPageComponent },
-  { path: 'breadcrumb', component: BreadcrumbPageComponent },
-  { path: 'navigation-drawer', component: NavigationDrawerPageComponent },
-  { path: 'navigation-rail', component: NavigationRailPageComponent },
-  { path: 'card', component: CardPageComponent },
-  { path: 'top-app-bar', component: TopAppBarPageComponent },
-  { path: 'tabs', component: TabsPageComponent },
-  { path: 'menu', component: MenuPageComponent },
-  { path: 'dialog', component: DialogPageComponent },
-  { path: 'radio', component: RadioComponent },
-  { path: 'table', component: TablePageComponent },
-  { path: 'user-profile', component: UserProfilePageComponent },
-  { path: 'checkbox', component: CheckboxComponent },
-  { path: 'switch', component: SwitchPageComponent },
-  { path: 'form-field', component: FormFieldComponent },
-  { path: 'input', component: InputComponent },
-  { path: 'select', component: SelectComponent },
-  { path: 'tooltip', component: TooltipPageComponent },
-  { path: 'chips', component: ChipsPageComponent },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomePageComponent },
+  { path: 'button', component: ButtonPageComponent},
+  { path: 'navigation-drawer', component: NavigationDrawerPageComponent},
+  { path: 'card', component: CardPageComponent},
   { path: 'components', component: ComponentsComponent },
-  { path: 'progress-indicators', component: ProgressIndicatorComponent },
-  { path: 'landing-page', component: LandingPageComponent },
-  { path: 'list', component: ListComponent },
-  { path: 'typography', component: TypographyComponent },
-  { path: 'glass', component: GlassExamplesComponent },
-  { path: 'template-2', component: Template2Component },
-  { path: 'template-3', component: Template3Component },
-  { path: 'template-4', component: Template4Component },
+  { path: 'top-app-bar', component: TopAppBarPageComponent},
+  { path: 'tabs', component: TabsPageComponent},
+  { path: 'menu', component: MenuPageComponent},
+  { path: 'dialog', component: DialogPageComponent},
+  { path: 'radio', component: RadioComponent},
+  { path: 'table', component: TablePageComponent},
+  { path: 'user-profile', component: UserProfilePageComponent},
+  { path: 'checkbox', component: CheckboxComponent},
+  { path: 'switch', component: SwitchPageComponent},
+  { path: 'form-field', component: FormFieldComponent},
+  { path: 'input', component: InputComponent},
+  { path: 'select', component: SelectComponent},
+  { path: 'tooltip', component: TooltipPageComponent},
+  { path: 'chips', component: ChipsPageComponent},
+  { path: 'progress-indicators', component: ProgressIndicatorComponent},
+  { path: 'list', component: ListComponent},
+  { path: 'landing-page', component: LandingPageComponent},
+  { path: 'template-2', component: Template2Component},
+  { path: 'template-3', component: Template3Component},
+  { path: 'template-4', component: Template4Component},
+  { path: 'badge', component: BadgeComponent},
+  { path: 'typography', component: TypographyComponent},
+  { path: 'glass', component: GlassExamplesComponent},
   { path: 'breadcrumb', redirectTo: '/level-1', pathMatch: 'full' },
   { path: 'breadcrumb/level-1', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 1' } },
   { path: 'breadcrumb/level-1/level-2', component: BreadcrumbPageComponent, data: { breadcrumb: 'Level 2' } },
