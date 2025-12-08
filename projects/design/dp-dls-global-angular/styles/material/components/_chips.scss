@@ -14,8 +14,8 @@
 .mat-mdc-standard-chip {
 	&.avatar-chip {
 		--mat-chip-container-shape-radius: var(--foundation-radius-full);
-		// Avatar chips need to accommodate the 32px avatar (--foundation-sizing-3xl-fixed)
-		--mat-chip-container-height: 32px;
+		// Avatar chips need to accommodate the 32px avatar (--foundation-sizing-2xl-fixed)
+		--mat-chip-container-height: var(--foundation-sizing-2xl-fixed);
 
 		.mdc-evolution-chip__action {
 			padding-left: var(--foundation-spacing-2xs);

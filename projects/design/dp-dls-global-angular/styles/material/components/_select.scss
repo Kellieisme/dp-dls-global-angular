@@ -21,31 +21,32 @@
 
 body.theme-relaxed,
 body:not(.theme-condensed) {
+  --select-value-offset-y: -2px;
+  --select-arrow-offset-y: -2px;
+
   .mdc-text-field {
     div.mat-mdc-select-value {
-      // These values are intentionally not tokenized
-      transform: translate(0px, -2px) !important;
+      transform: translate(0px, var(--select-value-offset-y));
     }
+  }
+
+  .mat-mdc-select-arrow {
+    transform: translateY(var(--select-arrow-offset-y));
   }
 }
 
 body.theme-condensed {
+  --select-value-offset-y: -4px;
+  --select-arrow-offset-y: -4px;
+
   .mdc-text-field {
     div.mat-mdc-select-value {
-      // These values are intentionally not tokenized
-      transform: translate(0px, -4px) !important;
+      transform: translate(0px, var(--select-value-offset-y));
     }
   }
 
   .mat-mdc-select-arrow {
-    transform: translateY(-4px) !important;
-  }
-}
-
-body.theme-relaxed,
-body:not(.theme-condensed) {
-  .mat-mdc-select-arrow {
-    transform: translateY(-2px) !important;
+    transform: translateY(var(--select-arrow-offset-y));
   }
 }
 

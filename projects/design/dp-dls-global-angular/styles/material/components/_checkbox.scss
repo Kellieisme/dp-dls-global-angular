@@ -33,14 +33,14 @@ body.theme-relaxed,
 body:not(.theme-condensed) {
   .mat-mdc-checkbox {
     // Relaxed density sizing - Material default (density 0)
-    --mdc-checkbox-state-layer-size: 40px;
+    --mdc-checkbox-state-layer-size: var(--size-sizing-3xl);
   }
 }
 
 body.theme-condensed {
   .mat-mdc-checkbox {
     // Condensed density sizing - equivalent to Material density -2
-    --mdc-checkbox-state-layer-size: 40px;
+    --mdc-checkbox-state-layer-size: var(--size-sizing-4xl);
   }
 }
 
