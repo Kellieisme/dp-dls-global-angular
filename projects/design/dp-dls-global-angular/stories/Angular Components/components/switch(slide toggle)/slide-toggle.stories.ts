@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { SwitchExampleComponent, CustomIconSwitchExampleComponent } from './switch-example/switch-example.component';
 import { CommonModule } from '@angular/common';
+import { DensityToggleComponent } from '@jeppesen-foreflight/dp-dls-global-angular/density-toggle';
 
 const meta: Meta = {
   title: 'Components/Switch (Slide toggle)',
@@ -15,7 +16,8 @@ const meta: Meta = {
         FormsModule,
         SwitchExampleComponent,
         CustomIconSwitchExampleComponent,
-        CommonModule
+        CommonModule,
+        DensityToggleComponent
       ]
     }),
   ],
@@ -23,7 +25,8 @@ const meta: Meta = {
 export default meta;
 
 const getTemplate = (args: any) => `
-  <div style="display: flex; align-items: center; gap: 12px;">
+  <ba-density-toggle></ba-density-toggle>
+  <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
     <mat-slide-toggle
       [color]="color"
       [disabled]="disabled"

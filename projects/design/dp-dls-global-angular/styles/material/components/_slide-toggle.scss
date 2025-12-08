@@ -44,13 +44,6 @@ html .theme-dark {
   --mat-slide-toggle-pressed-handle-size: var(--size-sizing-xl);
   --mat-slide-toggle-with-icon-handle-size: var(--size-sizing-xl);
 
-  --mat-slide-toggle-selected-handle-horizontal-margin: 0;
-  --mat-slide-toggle-selected-with-icon-handle-horizontal-margin: 0;
-  --mat-slide-toggle-selected-pressed-handle-horizontal-margin: 0;
-  --mat-slide-toggle-unselected-handle-horizontal-margin: 0;
-  --mat-slide-toggle-unselected-with-icon-handle-horizontal-margin: 0;
-  --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0;
-
   // --mat-slide-toggle-visible-track-opacity: 1;
   // --mat-slide-toggle-hidden-track-opacity: 1;
   // --mat-slide-toggle-visible-track-transition: transform 75ms 0ms cubic-bezier(0, 0, 0.2, 1);
@@ -58,6 +51,52 @@ html .theme-dark {
 
   --mat-slide-toggle-track-outline-width: var(--size-border-width-s);
   --mat-slide-toggle-selected-track-outline-width: var(--size-sizing-3xs);
+  --mat-slide-toggle-disabled-unselected-track-outline-width: var(--size-border-width-s);
+}
+
+// Density-aware horizontal margins for slide toggle
+body.theme-relaxed,
+body:not(.theme-condensed) {
+  --mat-slide-toggle-selected-handle-horizontal-margin: 0 -3px;
+  --mat-slide-toggle-selected-with-icon-handle-horizontal-margin: 0 -3px;
+  --mat-slide-toggle-selected-pressed-handle-horizontal-margin: 0 -3px;
+  --mat-slide-toggle-unselected-handle-horizontal-margin: 0 4px;
+  --mat-slide-toggle-unselected-with-icon-handle-horizontal-margin: 0 4px;
+  --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0 4px;
+}
+
+body.theme-condensed {
+  --mat-slide-toggle-selected-handle-horizontal-margin: 0 -3px;
+  --mat-slide-toggle-selected-with-icon-handle-horizontal-margin: 0 -3px;
+  --mat-slide-toggle-selected-pressed-handle-horizontal-margin: 0 -3px;
+  --mat-slide-toggle-unselected-handle-horizontal-margin: 0 4px;
+  --mat-slide-toggle-unselected-with-icon-handle-horizontal-margin: 0 4px;
+  --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0 4px;
+  
+  // Ensure outline is visible in condensed mode for unselected state
+  --mat-slide-toggle-track-outline-width: var(--size-border-width-s);
+  --mat-slide-toggle-selected-track-outline-width: var(--size-sizing-3xs);
+  --mat-slide-toggle-track-outline-color: var(--foundation-interactive-primary-textandicon-secondary-default);
+  --mat-slide-toggle-unselected-focus-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-unselected-hover-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-unselected-pressed-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-unselected-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
+}
+
+// Force outline visibility on unselected track in condensed mode
+body.theme-condensed {
+  .mdc-switch:not(.mdc-switch--selected) {
+    .mdc-switch__track::before,
+    .mdc-switch__track::after {
+      border-color: var(--foundation-interactive-primary-textandicon-secondary-default) !important;
+      border-width: var(--size-border-width-s) !important;
+    }
+  }
+}
+
+html,
+html .theme-light,
+html .theme-dark {
   --mat-slide-toggle-disabled-unselected-track-outline-width: var(--size-border-width-s);
 }
 
