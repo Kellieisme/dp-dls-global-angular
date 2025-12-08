@@ -153,14 +153,17 @@ html .mat-mdc-slide-toggle.mat-warn {
     }
   }
 
+
 }
-// Prevent handle width change during transition to eliminate swing
+
+// Global styles to prevent visual "swing" during state transitions
+// These apply regardless of density or theme to ensure smooth animations
 .mdc-switch .mdc-switch__handle {
   width: var(--size-sizing-xl) !important;
 }
 
-// Prevent track border width change from causing visual swing
 .mdc-switch__track::before,
 .mdc-switch__track::after {
   border-width: var(--size-sizing-3xs) !important;
 }
+
