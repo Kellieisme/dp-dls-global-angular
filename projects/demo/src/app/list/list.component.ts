@@ -12,13 +12,13 @@ export interface Section {
   updated: Date;
 }
 @Component({
-  selector: 'app-list',
+  selector: 'list-page',
   imports: [MatCardModule, MatListModule, MatIconModule, MatDividerModule, DatePipe],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
   standalone: true
 })
-export class ListComponent {
+export class ListPageComponent {
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   folders: Section[] = [
     {

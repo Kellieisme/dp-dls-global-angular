@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once

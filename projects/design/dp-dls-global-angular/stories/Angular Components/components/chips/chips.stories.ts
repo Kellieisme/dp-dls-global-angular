@@ -63,7 +63,7 @@ export interface LabelExample {
               [aria-description]="'press enter to edit ' + labelExample.name"
               class="avatar-chip"
               >
-              <ba-user-profile userFirstName="William" [small]="true" userAvatarSource="./assets/card-img-1.png" />
+              <ba-user-profile matChipAvatar userFirstName="William" [small]="true" userAvatarSource="./assets/card-img-1.png" />
               {{labelExample.name}}
               <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
                 <mat-icon svgIcon="icon-cancel-filled"></mat-icon>

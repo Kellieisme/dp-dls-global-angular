@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
 
 :root {
   @include mat.divider-theme(m3.$dark-theme);

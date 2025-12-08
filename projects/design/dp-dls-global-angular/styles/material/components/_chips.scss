@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 @use '../m3-theme' as m3;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
 :root {
 	// Material 3 theme includes typography configuration from m3-theme.scss
@@ -15,6 +14,8 @@
 .mat-mdc-standard-chip {
 	&.avatar-chip {
 		--mat-chip-container-shape-radius: var(--foundation-radius-full);
+		// Avatar chips need to accommodate the 32px avatar (--foundation-sizing-2xl-fixed)
+		--mat-chip-container-height: var(--foundation-sizing-2xl-fixed);
 
 		.mdc-evolution-chip__action {
 			padding-left: var(--foundation-spacing-2xs);
@@ -52,8 +53,9 @@ html .theme-dark {
 		--mat-chip-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
 		--mat-chip-focus-outline-color: var(--foundation-interactive-primary-border-focused);
 		
-		// Density-specific sizing - default (condensed) 28px
-		--mat-chip-container-height: 28px;
+		// Chip height should be consistent regardless of density
+		// Only the form field container adjusts for density
+		--mat-chip-container-height: 32px;
 		--mat-chip-leading-icon-size: var(--foundation-sizing-l);
 		--mat-chip-trailing-icon-size: var(--foundation-sizing-l);
 		--mat-chip-with-avatar-leading-icon-size: var(--foundation-sizing-3xl);
@@ -111,10 +113,7 @@ html .theme-dark {
 	}
 }
 
-// Relaxed density - 32px height
-body.theme-relaxed,
-.theme-relaxed {
-	.mat-mdc-standard-chip {
-		--mat-chip-container-height: 32px !important;
-	}
+// Add padding to chip grids to prevent chips from being cut off
+.mat-mdc-chip-grid {
+	padding: var(--foundation-spacing-2xs) 0;
 }

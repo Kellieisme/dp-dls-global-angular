@@ -31,10 +31,14 @@ mat-toolbar,
 }
 
 // Override toolbar height for condensed density
-html.theme-condensed,
-.theme-condensed {
-	--mat-toolbar-standard-height: var(--base-dimension-dynamic-s12);
-	--mat-toolbar-mobile-height: var(--base-dimension-dynamic-s11);
+html,
+html .theme-light,
+html .theme-dark {
+	&.theme-condensed,
+	.theme-condensed {
+		--mat-toolbar-standard-height: var(--base-dimension-dynamic-s12);
+		--mat-toolbar-mobile-height: var(--base-dimension-dynamic-s11);
+	}
 }
 
 html,

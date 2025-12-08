@@ -18,6 +18,49 @@
   @include mat.form-field-color(m3.$light-theme);
 }
 
+// Density-aware form field container height using design tokens
+html,
+html .theme-relaxed {
+  .mat-mdc-form-field {
+    --mdc-filled-text-field-container-height: var(--base-dimension-dynamic-s11) !important;
+  }
+
+  .mdc-text-field--filled {
+    height: var(--base-dimension-dynamic-s11) !important;
+  }
+
+  // Icon positioning for relaxed density
+  .mat-mdc-form-field-icon-suffix,
+  .mat-mdc-form-field-icon-prefix,
+  .mat-datepicker-toggle,
+  button[matIconButton][matSuffix],
+  button[matIconButton][matPrefix] {
+    transform: translateY(0px) !important;
+  }
+}
+
+html .theme-condensed {
+  .mat-mdc-form-field {
+    --mdc-filled-text-field-container-height: var(--base-dimension-dynamic-s11) !important;
+  }
+
+  .mdc-text-field--filled {
+    height: var(--base-dimension-dynamic-s11) !important;
+  }
+
+  // Icon positioning for condensed density
+  .mat-mdc-form-field-icon-suffix,
+  .mat-mdc-form-field-icon-prefix,
+  .mat-datepicker-toggle {
+    transform: translateY(-3px) !important;
+  }
+
+  button[matIconButton][matSuffix],
+  button[matIconButton][matPrefix] {
+    transform: translateY(-3px) !important;
+  }
+}
+
 html,
 html .theme-light,
 html .theme-dark {

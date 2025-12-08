@@ -2,15 +2,31 @@ import { Component } from '@angular/core';
 import { BreadcrumbComponent } from '../../../../design/dp-dls-global-angular/breadcrumb/src/breadcrumb.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'breadcrumb-page',
-    imports: [MatButtonModule, BreadcrumbComponent],
+    imports: [MatButtonModule, BreadcrumbComponent, MatIcon],
     templateUrl: './breadcrumb.component.html',
     styleUrl: './breadcrumb.component.scss'
 })
 export class BreadcrumbPageComponent {
   title = 'Breadcrumb';
+
+  breadcrumbsShort = [
+    { label: 'Home', path: './' },
+    { label: 'Level 1', path: './level-1' },
+    { label: 'Level 2', path: './level-1/level-2' },
+    { label: 'Level 3', path: './level-3/level-3' }
+  ];
+  breadcrumbsLong = [
+    { label: 'Home', path: './' },
+    { label: 'Level 1', path: './level-1' },
+    { label: 'Level 2', path: './level-1/level-2' },
+    { label: 'Level 3', path: './level-1/level-2/level-3' },
+    { label: 'Level 4', path: './level-1/level-2/level-3/level-4' },
+    { label: 'Level 5', path: './level-1/level-2/level-3/level-4/level-5' }
+  ];
 
   breadcrumbData: number = 1; // Start from Home (index 1 for `slice`)
   crumbs = [

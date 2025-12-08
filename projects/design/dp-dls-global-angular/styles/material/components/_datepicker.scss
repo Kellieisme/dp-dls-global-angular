@@ -20,11 +20,9 @@
 // Note that, due to the interdependency of form components on each other, any
 // changes to the density of the input element will impact other elements that
 // implement inputs. Examples include date pickers and selects.
-@include mat.datepicker-density(-2);
-
-.theme-condensed {
-  @include mat.datepicker-density(-4);
-}
+// Datepicker inherits density from form-field component via --mdc-filled-text-field-container-height
+// and icon positioning from form-field's .mat-datepicker-toggle selector.
+// No additional density configuration needed here as it's handled in _form-field.scss
 
 /*******************************************************************************
 *                                CUSTOM CSS

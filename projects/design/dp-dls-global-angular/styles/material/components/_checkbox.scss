@@ -28,15 +28,19 @@
   }
 }
 
-html .theme-condensed {
+// Density-aware sizing using design tokens instead of hardcoded Material density mixins
+body.theme-relaxed,
+body:not(.theme-condensed) {
   .mat-mdc-checkbox {
-    @include mat.checkbox-density(-2);
+    // Relaxed density sizing - Material default (density 0)
+    --mdc-checkbox-state-layer-size: var(--size-sizing-3xl);
   }
 }
 
-html .theme-relaxed {
+body.theme-condensed {
   .mat-mdc-checkbox {
-    @include mat.checkbox-density(0);
+    // Condensed density sizing - equivalent to Material density -2
+    --mdc-checkbox-state-layer-size: var(--size-sizing-4xl);
   }
 }
 

@@ -1,5 +1,20 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
+:host {
+  mat-sidenav {
+    .mat-icon {
+      width: var(--foundation-sizing-xl) !important;
+      height: var(--foundation-sizing-xl) !important;
+      font-size: var(--foundation-sizing-xl) !important;
+      
+      svg {
+        width: var(--foundation-sizing-xl) !important;
+        height: var(--foundation-sizing-xl) !important;
+      }
+    }
+  }
+}
+
 mat-sidenav-container {
   .app-home-link {
     display: block;
@@ -14,6 +29,7 @@ mat-sidenav-container {
   mat-sidenav {
     width: 80px;
     overflow-y: auto;
+    --mdc-list-list-item-leading-icon-size: var(--foundation-sizing-xl);
   }
 
   mat-sidenav-content {
@@ -45,8 +61,8 @@ mat-sidenav-container {
         overflow: visible;
         margin-bottom: var(--foundation-spacing-2xl);
         padding-top: var(--foundation-spacing-none);
-        padding-left: var(--size-sizing-s) !important;
-        padding-right: var(--size-sizing-s) !important;
+        padding-left: var(--foundation-spacing-2xs) !important;
+        padding-right: var(--foundation-spacing-2xs) !important;
         height: var(--foundation-sizing-2xl);
         
         .mdc-list-item__start {
@@ -57,22 +73,16 @@ mat-sidenav-container {
         &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
           height: var(--foundation-sizing-2xl);
         }
-
-        ::ng-deep .mdc-list-item__content {
-          position: relative;
-          bottom: -(var(--foundation-spacing-2xs));
-          cursor: pointer;
-          padding-left: var(--foundation-spacing-none) !important;
-          padding-right: var(--foundation-spacing-none) !important;
-        }
       }
     }
   }
 
   &:not(.labels-visible) {
     mat-sidenav {
-      mat-list-item {
-        --mdc-list-list-item-leading-icon-size: var(--foundation-sizing-xl);
+      .mat-mdc-list-item.mdc-list-item {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: center !important;
       }
     }
   }
@@ -161,7 +171,6 @@ mat-sidenav {
 }
 
 mat-list-item.narrow {
-  display: flex;
   .mat-mdc-list-item-icon {
     margin-left: var(--foundation-spacing-2xs);
     margin-right: var(--foundation-spacing-2xs);
@@ -169,7 +178,6 @@ mat-list-item.narrow {
 }
 
 mat-list-item {
-  display: block;
   text-align: center;
   padding-right: var(--foundation-spacing-none);
   margin-top: var(--foundation-spacing-2xs);
