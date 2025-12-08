@@ -2,15 +2,6 @@
 @use '../m3-theme' as m3;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as dls;
 
-:root {
-}
-
-.theme-light {
-}
-.theme-dark {
-}
-
-
 mat-slide-toggle:not(.mat-warn) {
   .mdc-switch--checked:not(.mdc-switch--disabled) {
     .mdc-switch__track::after,

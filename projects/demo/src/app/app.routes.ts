@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './home/home.component';
 import { ButtonPageComponent } from './button/button.component';
-import { ListComponent } from './list/list.component';
+import { ListPageComponent } from './list/list.component';
 import { BreadcrumbPageComponent } from './breadcrumb/breadcrumb.component';
 import { MenuPageComponent } from './menu/menu.component';
 import { CardPageComponent } from './card/card.component';
@@ -27,6 +27,7 @@ import { Template3Component } from './template-3/template-3.component';
 import { Template2Component } from './template-2/template-2.component';
 import { Template4Component } from './template-4/template-4.component';
 import { BadgeComponent } from './badge/badge.component';
+import { SnackbarPageComponent } from './snackbar/snackbar.component';    
 import { ComponentsComponent } from './components/components.component';
 
 export const routes: Routes = [
@@ -51,12 +52,13 @@ export const routes: Routes = [
   { path: 'tooltip', component: TooltipPageComponent},
   { path: 'chips', component: ChipsPageComponent},
   { path: 'progress-indicators', component: ProgressIndicatorComponent},
-  { path: 'list', component: ListComponent},
+  { path: 'list', component: ListPageComponent},
   { path: 'landing-page', component: LandingPageComponent},
   { path: 'template-2', component: Template2Component},
   { path: 'template-3', component: Template3Component},
   { path: 'template-4', component: Template4Component},
   { path: 'badge', component: BadgeComponent},
+  { path: 'snackbar', component: SnackbarPageComponent},
   { path: 'typography', component: TypographyComponent},
   { path: 'glass', component: GlassExamplesComponent},
   { path: 'breadcrumb', redirectTo: '/level-1', pathMatch: 'full' },

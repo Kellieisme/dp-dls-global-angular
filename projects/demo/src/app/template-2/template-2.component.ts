@@ -6,11 +6,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormComponent } from '../form/form.component';
-import { ListComponent } from '../list/list.component';
+import { ListPageComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-template-2',
-  imports: [ListComponent, FormComponent, MatTabsModule, MatIconModule, MatToolbarModule, MatListModule, MatFormFieldModule, MatInputModule],
+  imports: [ListPageComponent, FormComponent, MatTabsModule, MatIconModule, MatToolbarModule, MatListModule, MatFormFieldModule, MatInputModule],
   templateUrl: './template-2.component.html',
   styleUrl: './template-2.component.scss'
 })

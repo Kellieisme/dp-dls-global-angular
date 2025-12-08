@@ -19,33 +19,27 @@
 // Note that, due to the interdependency of form components on each other, any
 // changes to the density of the input element will impact other elements that
 // implement inputs. Examples include date pickers and selects.
+// Use design tokens for density-aware spacing instead of hardcoded Material density values.
 
-// Commenting out the relaxed density settings, as the defined relaxed
-// density is -2 in Material's density schema. At this size, in this version
-// of Angular Material, input labels are hidden.
-
-.mdc-text-field {
-  @include mat.form-field-density(-2);
-  @include mat.icon-button-density(-2);
-
-  input.mat-mdc-input-element,
-  .mat-mdc-form-field-text-prefix,
-  .mat-mdc-form-field-text-suffix,
-  textarea {
-    transform: translate(0px, 9px);
-  }
-}
-
-.theme-condensed {
+body.theme-relaxed,
+body:not(.theme-condensed) {
   .mdc-text-field {
-    @include mat.form-field-density(-4);
-    @include mat.icon-button-density(-4);
-
     input.mat-mdc-input-element,
     .mat-mdc-form-field-text-prefix,
     .mat-mdc-form-field-text-suffix,
     textarea {
-      transform: translate(0px, 7px);
+      transform: translate(0px, -2px) !important;
+    }
+  }
+}
+
+body.theme-condensed {
+  .mdc-text-field {
+    input.mat-mdc-input-element,
+    .mat-mdc-form-field-text-prefix,
+    .mat-mdc-form-field-text-suffix,
+    textarea {
+      transform: translate(0px, -4px) !important;
     }
   }
 }
@@ -67,7 +61,21 @@ body {
     @include typography.typography-xl-label-lowest2;
     // transform: translateY(-106%) scale(0.75); //<-- original
     // transform: translateY(-156%) scale(0.75); //<-- original
-    transform: translateY(-150%) scale(1);
+    transform: translateY(-160%) scale(1);
+  }
+}
+
+// Density-aware label positioning when NOT floating (no placeholder, no value)
+body.theme-relaxed,
+body:not(.theme-condensed) {
+  .mdc-text-field--filled .mdc-floating-label:not(.mdc-floating-label--float-above) {
+    transform: translate(0px, -12px) !important;
+  }
+}
+
+body.theme-condensed {
+  .mdc-text-field--filled .mdc-floating-label:not(.mdc-floating-label--float-above) {
+    transform: translate(0px, -14px) !important;
   }
 }
 

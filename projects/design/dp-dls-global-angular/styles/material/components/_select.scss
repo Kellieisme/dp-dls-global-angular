@@ -17,31 +17,36 @@
 // Note that, due to the interdependency of form components on each other, any
 // changes to the density of the input element will impact other elements that
 // implement inputs. Examples include date pickers and selects.
+// Use design tokens for density-aware spacing instead of hardcoded Material density values.
 
-@include mat.select-density(-2);
-
-.mdc-text-field {
-  div.mat-mdc-select-value {
-    // These values are intentionally not tokenized
-    transform: translate(0px, 12px);
-  }
-}
-
-.theme-condensed {
-  @include mat.select-density(-4);
-
+body.theme-relaxed,
+body:not(.theme-condensed) {
   .mdc-text-field {
     div.mat-mdc-select-value {
       // These values are intentionally not tokenized
-      transform: translate(0px, 7px);
+      transform: translate(0px, -2px) !important;
+    }
+  }
+}
+
+body.theme-condensed {
+  .mdc-text-field {
+    div.mat-mdc-select-value {
+      // These values are intentionally not tokenized
+      transform: translate(0px, -4px) !important;
     }
   }
 
-  // Adjust arrow positioning for condensed theme
-  .mat-mdc-select-arrow-wrapper {
-    top: 1px; // Adjusted for the 7px select value transform vs 12px in normal density
+  .mat-mdc-select-arrow {
+    transform: translateY(-4px) !important;
   }
+}
 
+body.theme-relaxed,
+body:not(.theme-condensed) {
+  .mat-mdc-select-arrow {
+    transform: translateY(-2px) !important;
+  }
 }
 
 // TODO: selectorary specular border values until we can fix the mixin
@@ -86,19 +91,6 @@ html .theme-dark {
     transform: rotate(180deg);
   }
 
-  // Proper arrow alignment and positioning
-  .mat-mdc-select-arrow-wrapper {
-    // Ensure proper alignment within the form field
-    transform: none;
-    // Match Angular Material's default positioning
-    height: 100%;
-    display: flex;
-    align-items: center;
-    // Account for the custom select value transform
-    position: relative;
-    top: 6px;
-  }
-
   .mat-mdc-select-arrow {
     // Center the arrow vertically and position it properly
     width: 24px;
@@ -113,90 +105,89 @@ html .theme-dark {
     position: relative;
   }
 
-  .mat-mdc-select-arrow svg {
-    // Ensure the SVG fills the container properly
-    width: 100%;
-    height: 100%;
-    // Center the actual icon
-    display: block;
+.mat-mdc-select-arrow svg {
+  // Ensure the SVG fills the container properly
+  width: 100%;
+  height: 100%;
+  // Center the actual icon
+  display: block;
+}
+
+.mat-mdc-select-value-text {
+  @include typography.typography-xl-label-medium;
+  text-transform: capitalize;
+}
+
+.mat-mdc-select-value {
+  padding-right: var(--size-spacing-xs);
+}
+
+// Ensure proper form field structure alignment
+.mat-mdc-form-field-type-mat-select {
+  .mat-mdc-form-field-infix {
+    // Ensure proper alignment with the arrow
+    padding-right: 0;
   }
 
-  .mat-mdc-select-value-text {
-    @include typography.typography-xl-label-medium;
-    text-transform: capitalize;
+  .mat-mdc-form-field-suffix {
+    // Ensure the suffix (arrow) is properly positioned
+    padding-left: var(--size-spacing-xs);
+    // Align suffix with the form field structure
+    align-self: center;
+  }
+}
+
+.mat-mdc-text-field-wrapper {
+  margin-bottom: var(--size-spacing-2xs); //4px;
+}
+
+div.mat-mdc-select-panel {
+  padding-top: var(--size-spacing-s);
+  padding-bottom: var(--size-spacing-s);
+  // list panel in a select should have rounded bottom corners and flat top corners...
+  border-top-left-radius: var(--size-radius-none);
+  border-top-right-radius: var(--size-radius-none);
+  border-bottom-left-radius: var(--size-radius-s);
+  border-bottom-right-radius: var(--size-radius-s);
+  // ..and ideally, this panel should have a specular border, but since that is not really
+  // working right now, we'll make a solid border:
+  border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-select};
+
+  // blur the background behind overlay
+  @include composition.composition-dark-ui-glass-background-blur;
+
+  .theme-light & {
+    @include composition.composition-light-ui-glass-background-blur;
+    border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-select};
   }
 
-  .mat-mdc-select-value {
-    padding-right: var(--size-spacing-xs);
-  }
-
-  // Ensure proper form field structure alignment
-  .mat-mdc-form-field-type-mat-select {
-    .mat-mdc-form-field-infix {
-      // Ensure proper alignment with the arrow
-      padding-right: 0;
-    }
-
-    .mat-mdc-form-field-suffix {
-      // Ensure the suffix (arrow) is properly positioned
-      padding-left: var(--size-spacing-xs);
-      // Align suffix with the form field structure
-      align-self: center;
+  .mat-mdc-option {
+    span {
+      @include typography.typography-xl-body-low-default;
+      text-transform: capitalize;
     }
   }
 
-  .mat-mdc-text-field-wrapper {
-    margin-bottom: var(--size-spacing-2xs); //4px;
+  // Styles for the non-selected options...
+  .mat-mdc-option:not(.mdc-list-item--disabled) {
+
+    // default option text dcolor
+    .mdc-list-item__primary-text {
+      color: var(--foundation-interactive-primary-textandicon-primary-default);
+    }
   }
 
-  div.mat-mdc-select-panel {
-    padding-top: var(--size-spacing-s);
-    padding-bottom: var(--size-spacing-s);
-    // list panel in a select should have rounded bottom corners and flat top corners...
-    border-top-left-radius: var(--size-radius-none);
-    border-top-right-radius: var(--size-radius-none);
-    border-bottom-left-radius: var(--size-radius-s);
-    border-bottom-right-radius: var(--size-radius-s);
-    // ..and ideally, this panel should have a specular border, but since that is not really
-    // working right now, we'll make a solid border:
-    border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-select};
+  // Styles for the selected option...
+  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
 
-    // blur the background behind overlay
-    @include composition.composition-dark-ui-glass-background-blur;
-
-    .theme-light & {
-      @include composition.composition-light-ui-glass-background-blur;
-      border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-select};
+    // selected option text color
+    .mdc-list-item__primary-text {
+      color: var(--foundation-interactive-primary-textandicon-selected);
     }
 
-    .mat-mdc-option {
-      span {
-        @include typography.typography-xl-body-low-default;
-        text-transform: capitalize;
-      }
-    }
-
-    // Styles for the non-selected options...
-    .mat-mdc-option:not(.mdc-list-item--disabled) {
-
-      // default option text dcolor
-      .mdc-list-item__primary-text {
-        color: var(--foundation-interactive-primary-textandicon-primary-default);
-      }
-    }
-
-    // Styles for the selected option...
-    .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
-
-      // selected option text color
-      .mdc-list-item__primary-text {
-        color: var(--foundation-interactive-primary-textandicon-selected);
-      }
-
-      // turn off the default checkbox on the selected option
-      .mat-pseudo-checkbox {
-        display: none;
-      }
+    // turn off the default checkbox on the selected option
+    .mat-pseudo-checkbox {
+      display: none;
     }
   }
 }
@@ -224,4 +215,5 @@ html .theme-dark {
   --mat-select-disabled-arrow-color: var(--foundation-interactive-primary-textandicon-disabled);
   --mat-select-focused-arrow-color: var(--foundation-interactive-primary-textandicon-selected);
   --mat-select-invalid-arrow-color: var(--foundation-semantic-textandicon-error);
+}
 }

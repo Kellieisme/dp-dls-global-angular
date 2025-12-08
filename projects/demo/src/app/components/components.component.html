@@ -24,7 +24,7 @@
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
         <mat-card-content>
-          <ba-badge></ba-badge>
+          <app-badge></app-badge>
         </mat-card-content>
       </mat-card>
     </div>
@@ -44,14 +44,7 @@
         <mat-divider inset="true" style="margin-right: 16px;" />
 
         <mat-card-content>
-          <div class="d-flex align-items-center alert alert-warning" role="alert">
-            <mat-icon class="me-2" svgIcon="icon-warning-filled"></mat-icon>
-            Should these be text links vs buttons?
-          </div>
-          <p>Breadcrumb short menu</p>
-          <ba-breadcrumb [breadcrumbs]="breadcrumbsShort" />
-          <p>Breadcrumb long menu</p>
-          <ba-breadcrumb [breadcrumbs]="breadcrumbsLong" />
+          <breadcrumb-page></breadcrumb-page>
         </mat-card-content>
       </mat-card>
     </div>
@@ -198,7 +191,7 @@
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
         <mat-card-content>
-          <app-list></app-list>
+          <list-page></list-page>
         </mat-card-content>
       </mat-card>
     </div>
@@ -289,7 +282,7 @@
         </div>
         <mat-divider inset="true" style="margin-right: 16px;" />
         <mat-card-content>
-          <app-snackbar></app-snackbar>
+          <snackbar-page></snackbar-page>
         </mat-card-content>
       </mat-card>
     </div>
@@ -313,22 +306,22 @@
     </div>
 
     <div class="col">
-  <mat-card appearance="outlined">
-    <div style="padding: 12px 16px;">
-      <mat-card-title>Table</mat-card-title>
-      <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
-        <a mat-button href="#" color="accent">
-          <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
-        </a>
-        <a mat-button color="accent" href="/table">page</a>
-      </div>
+      <mat-card appearance="outlined">
+        <div style="padding: 12px 16px;">
+          <mat-card-title>Table</mat-card-title>
+          <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+            <a mat-button href="#" color="accent">
+              <mat-icon iconPositionEnd svgIcon="icon-call-made"></mat-icon>Figma asset
+            </a>
+            <a mat-button color="accent" href="/table">page</a>
+          </div>
+        </div>
+        <mat-divider inset="true" style="margin-right: 16px;" />
+        <mat-card-content>
+          <table-page></table-page>
+        </mat-card-content>
+      </mat-card>
     </div>
-    <mat-divider inset="true" style="margin-right: 16px;" />
-    <mat-card-content>
-      <table-page></table-page>
-    </mat-card-content>
-  </mat-card>
-  </div>  
   </div>
   <hr>
 
