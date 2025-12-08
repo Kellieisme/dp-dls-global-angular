@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/foundation' as foundation;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 @use '../m3-theme.scss' as m3;
@@ -314,9 +313,13 @@ a {
 }
 
 html,
-html .theme-condensed {
-  --mat-card-elevated-container-shape: var(--size-radius-l);
-  --mat-card-outlined-container-shape: var(--size-radius-l);
+html .theme-light,
+html .theme-dark {
+  &.theme-condensed,
+  .theme-condensed {
+    --mat-card-elevated-container-shape: var(--size-radius-l);
+    --mat-card-outlined-container-shape: var(--size-radius-l);
+  }
 }
 
 html,

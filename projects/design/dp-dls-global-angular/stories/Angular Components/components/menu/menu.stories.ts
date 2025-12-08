@@ -27,7 +27,7 @@ export default {
 
 const templateOne =
   `
-<button mat-flat-button color="primary" [matMenuTriggerFor]="menuOne">Text Menu
+<button mat-flat-button color="primary" [matMenuTriggerFor]="menuOne">Button
   <mat-icon svgIcon="icon-keyboard-arrow-down" iconPositionEnd></mat-icon>
 </button>
 <mat-menu #menuOne="matMenu">
@@ -109,7 +109,7 @@ export const StoryOne: StoryObj = {
     props: {},
     template: templateOne
   }),
-  name: 'Text Only',
+  name: 'Button',
 };
 
 export const StoryTwo: StoryObj = {

@@ -1,7 +1,7 @@
 @use "@angular/material" as mat;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
 @use "../m3-theme" as m3;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins" as typographymixin;
+@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins" as typography;
 
 :root {
   // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
@@ -25,7 +25,7 @@
   }
 
   .mdc-label {
-    @include typographymixin.typography-xl-body-low-default;
+    @include typography.typography-xl-body-low-default;
 
     &:hover:not(:disabled) {
       cursor: pointer
@@ -33,11 +33,47 @@
   }
 }
 
-html .theme-condensed {
+// Density-aware sizing using design tokens
+body.theme-relaxed,
+body:not(.theme-condensed) {
   .mat-mdc-radio-touch-target {
+    height: var(--size-sizing-5xl);
+    width: var(--size-sizing-5xl);
+  }
 
-    // height: 40px; 
-    // width: 40px;
+  .mat-mdc-radio-button .mdc-radio {
+    max-height: var(--size-sizing-4xl);
+    max-width: var(--size-sizing-4xl);
+    padding: var(--size-spacing-s);
+  }
+
+  .mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before {
+    max-height: var(--size-sizing-4xl);
+    max-width: var(--size-sizing-4xl);
+    margin: var(--size-spacing-s);
+  }
+
+  .mat-mdc-radio-button .mdc-radio .mdc-radio__background::before {
+    max-height: var(--size-sizing-4xl);
+    max-width: var(--size-sizing-4xl);
+    margin: var(--size-spacing-s);
+  }
+
+  .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control {
+    max-height: var(--size-sizing-4xl);
+    max-width: var(--size-sizing-4xl);
+    margin: var(--size-spacing-s);
+  }
+
+  .mat-radio-ripple {
+    height: var(--size-sizing-4xl);
+    width: var(--size-sizing-4xl);
+    margin: var(--size-spacing-xs);
+  }
+}
+
+body.theme-condensed {
+  .mat-mdc-radio-touch-target {
     height: var(--size-sizing-4xl);
     width: var(--size-sizing-4xl);
   }

@@ -1,5 +1,4 @@
 @use "@angular/material" as mat;
-@use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss" as typography;
 @use "../m3-theme" as m3;
 
@@ -14,11 +13,6 @@
   @include mat.list-color(m3.$light-theme);
 }
 
-// Apply density for condensed mode
-.theme-condensed {
-  @include mat.list-density(-2);
-}
-
 // Global override for navigation drawer list items
 mat-sidenav {
   .mat-mdc-nav-list {
@@ -26,18 +20,77 @@ mat-sidenav {
   }
 
   .mat-mdc-list-item.mdc-list-item {
-    height: auto !important;
-    min-height: 48px !important;
+     height: auto !important;
+    // min-height: 48px !important;
     padding: var(--size-spacing-s) var(--size-spacing-m) !important;
     margin-bottom: 0 !important;
   }
 }
 
-// Navigation rail specific overrides (narrower, centered layout)
+// Navigation rail narrow variant - center icons when labels hidden
 mat-sidenav-container:not(.labels-visible) mat-sidenav {
-  .mat-mdc-list-item.mdc-list-item {
-    padding: var(--size-spacing-s) var(--size-spacing-xs) !important;
-    justify-content: center;
+  mat-list-item.mat-mdc-list-item {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+    .mat-icon {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+    
+    .mdc-list-item__content {
+      display: flex !important;
+      justify-content: center !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      width: auto !important;
+      flex: 0 0 auto !important;
+    }
+    
+    .mdc-list-item__start {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+}
+
+// Navigation rail with labels - stack icon and text vertically
+mat-sidenav-container.labels-visible mat-sidenav {
+  mat-list-item.mat-mdc-list-item {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+    .mat-icon {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      margin-bottom: var(--size-spacing-2xs) !important;
+    }
+    
+    .mdc-list-item__content {
+      width: 100% !important;
+      flex: 1 1 auto !important;
+      justify-content: center !important;
+      text-align: center !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    
+    .mdc-list-item__primary-text,
+    .mat-mdc-list-item-unscoped-content {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
   }
 }
 
@@ -96,7 +149,7 @@ mat-list-option.mat-mdc-list-option {
 }
 
 .mat-mdc-list-option {
-  border-radius: var(--size-spacing-none) !important;
+  border-radius: var(--size-spacing-none);
 
   .overline {
     @include typography.typography-s-label-low;
@@ -127,9 +180,13 @@ html .theme-dark {
 }
 
 html,
-html .theme-condensed {
-  --mat-checkbox-state-layer-size: var(--size-spacing-4xl);
-  --mat-radio-state-layer-size: var(--size-spacing-4xl);
-  --mat-list-list-item-leading-icon-size: var(--size-spacing-xl);
-  --mat-list-list-item-leading-icon-end-space: var(--size-spacing-s);
+html .theme-light,
+html .theme-dark {
+  &.theme-condensed,
+  .theme-condensed {
+    --mat-checkbox-state-layer-size: var(--size-spacing-4xl);
+    --mat-radio-state-layer-size: var(--size-spacing-4xl);
+    --mat-list-list-item-leading-icon-size: var(--size-spacing-xl);
+    --mat-list-list-item-leading-icon-end-space: var(--size-spacing-s);
+  }
 }

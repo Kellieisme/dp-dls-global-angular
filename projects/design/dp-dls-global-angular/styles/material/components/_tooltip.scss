@@ -24,7 +24,11 @@ html .theme-dark {
 }
 
 html,
-html .theme-condensed {
-  --mat-tooltip-container-shape: var(--size-radius-xs);
-  --mat-tooltip-supporting-text-line-height: var(--size-sizing-m);
+html .theme-light,
+html .theme-dark {
+  &.theme-condensed,
+  .theme-condensed {
+    --mat-tooltip-container-shape: var(--size-radius-xs);
+    --mat-tooltip-supporting-text-line-height: var(--size-sizing-m);
+  }
 }

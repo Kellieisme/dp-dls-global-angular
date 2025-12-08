@@ -1,9 +1,6 @@
 // Import Angular Material library with an alias for convenience
 @use '@angular/material' as mat;
 
-// Import custom design system variables and mixins for styling consistency
-@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss'; // Custom mixins for layout and style composition
-
 // Import theme configurations for the application
 @use '../m3-theme.scss' as m3; // Imports user-defined themes, e.g., light and dark theme settings
 
