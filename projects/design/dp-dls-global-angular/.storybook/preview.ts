@@ -82,9 +82,6 @@ const preview: Preview = {
             'Setting global styles and fonts',
           ],
 
-          'Production',
-          ['Local Pipeline'],
-
           'Foundations',
           [
             'Color Sytem',
