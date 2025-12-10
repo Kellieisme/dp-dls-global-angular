@@ -144,36 +144,13 @@ export class AppComponent {
   title = 'my-atmosphere-angular-app';
 }
 
-```
-
-In your `app.component.ts` , you will need to import the hello world component.
-
-```ts
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-// Import Hello World Component
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HelloWorldComponent], // Import Hello World Component
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
-})
-export class AppComponent {
-  title = 'my-atmosphere-angular-app';
-}
-
-```
-
 ## Edit hello-world.component.html
 
 Add a message to your new component:
 
 ```html
 <h1>Hello, Angular World! 🎉</h1>
-<p>I am yet to set up Atmophere</p>
+<p>I have yet to set up Atmosphere</p>
 ```
 
 ## Step 6: Run the Application
