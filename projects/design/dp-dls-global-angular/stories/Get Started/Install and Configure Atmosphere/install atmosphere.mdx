@@ -52,13 +52,8 @@ Please be connected to your Boeing VPN.
     </p>
 
     ```json
-    registry=https://sres.web.boeing.com/artifactory/api/npm/npm-remote/
-    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:_password=JFROG_PASSWORD
-    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:username=JFROG_USERNAME
-    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:email=EMAIL
-    //sres.web.boeing.com/artifactory/api/npm/npm-remote/:always-auth=true
-    @dasdigitalplatform:registry=https://git.web.boeing.com/api/v4/packages/npm/
-    //git.web.boeing.com/api/v4/packages/npm/:_authToken=GITLAB_AUTH_TOKEN
+    @jeppesen-foreflight:registry=https://npm.pkg.github.com/
+    //npm.pkg.github.com/:_authToken=GITHUB_AUTH_TOKEN
 
     ```
 
@@ -68,9 +63,6 @@ Please be connected to your Boeing VPN.
   {`
 | Value             | Description                                                                                  |
 | ----------------- | -------------------------------------------------------------------------------------------- |
-| JFROG_PASSWORD    | Login to [Artifactory](https://sres.web.boeing.com/ui/admin/artifactory/user_profile) using your Boeing email and Windows password. Go to User Profile and create a new Identity Token. Save in a safe place. Encode the Identity Token in [Base64](https://www.base64encode.org/) and use that string as the JFROG_PASSWORD. |
-| JFROG_USERNAME    |On [Artifactory](https://sres.web.boeing.com/ui/packages) in the top right you will see your username, a 7-digit number (your BEMS ID).|
-| EMAIL             | Your Boeing email id.|
 | GITLAB_AUTH_TOKEN |Create a [Github Personal Access Token](https://git.web.boeing.com/-/user_settings/personal_access_tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.|
 `}
 </Markdown>
@@ -117,38 +109,6 @@ Find the packages below:
 
 <div style={{background:"var(--foundation-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
 <details>
-
-<summary style={{ fontSize: "17px", cursor: "pointer" }}>
-  > #### Packages for Angular 17
-</summary>
-To install the packages for Angular 17, run the following command:
-
-```cmd
-npm install @jeppesen-foreflight/dp-dls-global-angular@1.0.1 --legacy-peer-deps
-npm install @jeppesen-foreflight/dls-global-assets@1.0.0 --legacy-peer-deps
-```
-
-</details>
-</div>
-
-<div style={{background:"var(--foundation-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
-<details>
-
-<summary style={{ fontSize: "17px", cursor: "pointer" }}>
-  > #### Packages for Angular 18
-</summary>
-
-To install the packages for Angular 18, run the following command:
-
-  ```cmd
-  npm install @jeppesen-foreflight/dp-dls-global-angular@2.7.1 --legacy-peer-deps
-  npm install @jeppesen-foreflight/dls-global-assets@2.1.2-beta --legacy-peer-deps
-  ```
-
-</details>
-</div>
-<div style={{background:"var(--foundation-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
-<details>
     <summary style={{ fontSize: "17px", cursor: "pointer" }}>
       > #### Packages for Angular 19
     </summary>
@@ -156,8 +116,24 @@ To install the packages for Angular 18, run the following command:
     To install the packages for Angular 19, run the following command:
 
     ```cmd
-    npm install @jeppesen-foreflight/dp-dls-global-angular@3.2.3 --legacy-peer-deps
-    npm install @jeppesen-foreflight/dls-global-assets@2.0.0 --legacy-peer-deps
+    npm install @jeppesen-foreflight/dp-dls-global-angular@3.4.1 --legacy-peer-deps
+    npm install @jeppesen-foreflight/dls-global-assets@2.1.4 --legacy-peer-deps
+    ```
+
+</details>
+</div>
+
+<div style={{background:"var(--color-ui-background-high)",padding:'8px', borderRadius: '8px',margin:'8px'}}>
+<details>
+    <summary style={{ fontSize: "17px", cursor: "pointer" }}>
+      > #### Packages for Angular 20
+    </summary>
+
+    To install the packages for Angular 20, run the following command:
+
+    ```cmd
+    npm install @jeppesen-foreflight/dp-dls-global-angular@3.5.1-pre.20288a2 --legacy-peer-deps
+    npm install @jeppesen-foreflight/dls-global-assets@2.1.5 --legacy-peer-deps
     ```
 
 </details>
@@ -170,7 +146,7 @@ To install the packages for Angular 18, run the following command:
 > ```
 
 <Info_Blue_text>
-After the installation you should find a `@dasdigitalplatform` folder in your `node_modules` folder with both `dls-angular` and `dls-global-assets`
+After the installation you should find a `@jeppesen-foreflight` folder in your `node_modules` folder with both `dp-dls-global-angular` and `dls-global-assets`
 </Info_Blue_text>
 
 Almost done just a few more steps ...
