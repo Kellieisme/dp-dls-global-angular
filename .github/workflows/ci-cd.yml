@@ -35,7 +35,7 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'angular-19')
+    if: github.event_name == 'push' && (github.ref_name == 'angular-v20-release' || github.ref_name == 'angular-v19-release')
     outputs:
       v-version: ${{ steps.version.outputs.v-version }}
       version: ${{ steps.version.outputs.version }}
@@ -50,7 +50,7 @@ jobs:
         with:
           scheme: conventional_commits
           token: ${{ secrets.GITHUB_TOKEN }}
-          release_branch: main
+          release_branch: ${{ github.ref_name }}
   codeql-scan:
     name: Run CodeQL scan
     permissions:
@@ -107,8 +107,6 @@ jobs:
       branch-name-slug: ${{ github.ref_name }} 
       deploy-sub-directory: >
         ${{ 
-          (github.ref_name == 'main' && 'main') || 
-          (github.ref_name == 'angular-19' && 'angular-19') || 
           github.ref_name 
         }}
     secrets:
