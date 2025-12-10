@@ -1,0 +1,85 @@
+import { Meta, Markdown } from "@storybook/addon-docs/blocks";
+import {
+  Highlight_yellow,
+  Blue_text,
+  Red_text,
+  Deprecated,
+  Inprogress,
+  Info_Blue_text,
+  Info_Section,
+} from "../../mdx_styles.mdx";
+
+<Meta title="GET STARTED/Install Atmosphere" />
+
+<div style={{padding:'8px 15px', borderRadius: '8px', backgroundColor: 'var(--foundation-ui-background-low)'}}>
+
+# Installation
+
+<Red_text> **NOTE**: Atmosphere supports Angular versions 19 and later, with separate global Angular packages for each version. If you use an earlier version of Angular, it might not be supported.</Red_text>
+
+## 1. Create/configure Angular project
+
+- If you don't have an Angular project, [set one up](?path=/docs/get-started-create-an-angular-project--overview)
+- If you have an existing Angular project, update to v19+ for compatibility with Atmosphere.
+
+## 2. Add Angular Material
+
+Atmosphere's angular component library is based on [Angular Material](https://material.angular.dev), and must be added to your project to use Atmosphere.
+
+If you do not have Angular Material installed, run the below code in your terminal.
+
+```cmd
+ng add @angular/material
+```
+
+## 3. Create .npmrc file
+
+Connect to the Jeppesen Foreflight VPN.
+
+If you don't already have a .npmrc file, create one in the root of your angular project (same level as package.json).
+The contents of the .npmrc should include:
+
+```json
+registry=https://registry.npmjs.org/
+@jeppesen-foreflight:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=TOKENHERE
+```
+
+## 4. Install your packages
+
+<Blue_text> After you set up your .npmrc file, you can install the Atmosphere packages.</Blue_text>
+
+Atmosphere has two main NPM packages that contain the Atmophere assets and the Angular components.
+
+#### For Angular v20, run the following command:
+
+```cmd
+npm install @jeppesen-foreflight/dp-dls-global-angular@3.5.13
+npm install @jeppesen-foreflight/dls-global-assets@4.0.2
+```
+
+#### For Angular v19, run the following command:
+
+```cmd
+npm install @jeppesen-foreflight/dp-dls-global-angular@3.2.3 --legacy-peer-deps
+npm install @jeppesen-foreflight/dls-global-assets@2.0.0 --legacy-peer-deps
+```
+
+**Note**: If NPM can't connect to Artifactory and the install fails, try the following command:
+
+```cmd
+npm config set strict-ssl false
+```
+
+<Info_Blue_text>
+After the installation you should find a `@jeppesen-foreflight` folder in your `node_modules` folder with both `dp-dls-global-angular` and `dp-dls-global-assets`
+</Info_Blue_text>
+
+
+
+## Up Next: Configurations for Atmosphere
+
+Now we need to [Set Global Styles and Fonts](?path=/docs/get-started-setting-global-styles-and-fonts--overview)
+
+</div>
+

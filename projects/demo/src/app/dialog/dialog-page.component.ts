@@ -1,27 +1,27 @@
-import { Component, inject } from '@angular/core';
-import { MatDialog } from "@angular/material/dialog";
-import { MatButton } from "@angular/material/button";
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { BasicDialogComponent } from './dialog.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-    selector: "dialog-page",
-    imports: [MatButton, MatTooltipModule],
-    template: `
-  <h6>Dialogs</h6>
-  <div>
-    <button matButton="outlined" color="primary" (click)="openBasicDialog()">Open Dialog</button>
-  </div>
+  selector: 'app-dialog-page',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  template: `
+    <button mat-flat-button color="primary" (click)="openDialog()">
+      Open Dialog
+    </button>
   `,
-    styleUrl: './dialog-page.component.scss'
+  styleUrl: './dialog-page.component.scss'
 })
-
 export class DialogPageComponent {
-  #dialog = inject(MatDialog);
+  constructor(public dialog: MatDialog) {}
 
-  openBasicDialog() {
-    this.#dialog.open(BasicDialogComponent, {
-      width: "var(--dialog-width, 400px)"
+  openDialog() {
+    // Get current theme from body class
+    const currentTheme = document.body.classList.contains('theme-light') ? 'theme-light' : 'theme-dark';
+    this.dialog.open(BasicDialogComponent, {
+      panelClass: currentTheme
     });
   }
 }

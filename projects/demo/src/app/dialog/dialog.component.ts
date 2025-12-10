@@ -1,55 +1,18 @@
 import { Component } from '@angular/core';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 import { MatButtonModule } from '@angular/material/button';
+import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 
 @Component({
-    selector: 'app-basic-dialog',
-    imports: [
-        MatDialogModule,
-        MatDialogActions,
-        MatIconModule,
-        MatDialogContent,
-        MatButtonModule,
-        MatDialogClose,
-        MatDialogTitle,
-        IconRegistryModule,
-    ],
-    template: `
-     <div style="position: absolute; top: 0; left: 0; right: 0; height: 0; z-index: 1;">
-      <div style="position: absolute; top: calc(var(--size-spacing-m) + 16px); left: var(--size-spacing-xl);">
-        <mat-icon svgIcon="icon-warning"></mat-icon>
-      </div>
-      <div style="position: absolute; top: calc(var(--size-spacing-2xs) + 2px); right: var(--size-spacing-2xs);">
-        <button matIconButton mat-dialog-close="true">
-          <mat-icon svgIcon="icon-close"></mat-icon>
-        </button>
-      </div>
-    </div>
-
-    <h2 mat-dialog-title style="padding-top: calc(var(--base-dimension-dynamic-s12) - 4px); margin-top: var(--size-spacing-none);">Dialog Title</h2>
-
-    <mat-dialog-content>
-      <p>
-        A dialog is a type of modal window that appears in front of app
-        content to provide critical information, or prompt for a decision to
-        be made.
-      </p>
-    </mat-dialog-content>
-
-    <mat-dialog-actions style="display: flex; gap: var(--size-spacing-xs);">
-      <button matButton="outlined" mat-dialog-close>Cancel</button>
-      <button
-        matButton="filled"
-        color="primary"
-        mat-dialog-close
-        cdkFocusInitial
-        >
-        Accept
-      </button>
-    </mat-dialog-actions>
-  `,
-    styleUrl: './dialog-page.component.scss'
+  selector: 'app-basic-dialog',
+  imports: [
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    IconRegistryModule,
+  ],
+  templateUrl: './dialog.component.html',
+  styleUrl: './dialog.component.scss'
 })
 export class BasicDialogComponent {}

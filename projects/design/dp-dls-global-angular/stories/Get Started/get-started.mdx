@@ -2,82 +2,35 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="GET STARTED/ Introduction to Atmosphere" />
 
-<div style={{backgroundColor:'var(--foundation-ui-background-low)',padding:'8px 15px', borderRadius: '8px'}}>
-  <div>
-    # Get started
+<div style={{padding:'8px 15px', borderRadius: '8px', backgroundColor: 'var(--foundation-ui-background-low)'}}>
 
-    This Storybook aligns to the current release of the Boeing DLS Global Angular library.
-    - [Github - code repository](https://git.web.boeing.com/design/design-system/dls-angular)
+# Get started
 
-    ## Components
+This Storybook aligns to the current release of the Atmosphere Global Angular library.
+- [Github - code repository](https://github.com/jeppesen-foreflight/dp-dls-global-angular)
 
-    The library contains both custom components (each with their own entry point) and a style package that themes a
-    number of Angular Material components.
+## Components
 
-    ### Custom
+The library contains both custom components (each with their own entry point) and a style package that themes a
+number of Angular Material components.
 
-    Components in the Custom folder each have their own documentation page generated with Compodoc.
+## Custom
 
-    ### Material
+Components in the Custom folder each have their own documentation page generated with Compodoc.
 
-    Components in the Material folder are direct implementations of Angular Material components. Custom styles are applied using the Angular Material theming API and additional CSS rules.
+## Material
 
-    The documentation page for each Material component will describe any special use cases, such as available custom classes.
+Components in the Material folder are direct implementations of Angular Material components. Custom styles are applied using the Angular Material theming API and additional CSS rules.
 
-    For API reference, the documentation page will link to the corresponding Angular Material documentation page.
+The documentation page for each Material component will describe any special use cases, such as available custom classes.
 
-    ## Patterns
+For API reference, the documentation page will link to the corresponding Angular Material documentation page.
 
-    Patterns are Storybook stories that demonstrate additional usage patterns combining multiple components to construct a layout.
+## Patterns
 
-  </div>
+Patterns are Storybook stories that demonstrate additional usage patterns combining multiple components to construct a layout.
+
 </div>
 
-<style>
-  {`
-    .sb-show-main{
-      overflow-y: scroll;
-    }
-    .sb-show-main.sb-main-fullscreen {
-      height: max-content;
-    }
-    .sbdocs{
-      background: var(--foundation-ui-background-lowest);
-      color: var(--foundation-ui-textandicon-high);
-    }
-    .css-x28zkw :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-    .css-x28zkw :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)),
-    .css-1xcvvxl :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-    .css-1xcvvxl :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-      color: var(--color-ui-textandicon-medium) !important;
-    }
 
-    .css-x28zkw :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
-    .css-x28zkw :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-    .css-x28zkw :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-    .css-x28zkw :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)),
-    .css-1xcvvxl :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
-    .css-1xcvvxl :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-    .css-1xcvvxl :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-    .css-1xcvvxl :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)){
-      color: var(--color-ui-textandicon-high) !important;
-    }
-    .css-x28zkw :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th,
-    .css-1xcvvxl :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr th{
-      color: var(--color-ui-textandicon-high);
-      background: var(--color-ui-background-medium);
-      border: 1px solid var(--color-ui-divider-flat-high);
-      
-    }
-    .css-x28zkw :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
-    .css-x28zkw :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td,
-    .css-1xcvvxl :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
-    .css-1xcvvxl :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr td {
-      color: var(--color-ui-textandicon-medium);
-      background: var(--color-ui-background-low);
-      border: 1px solid var(--color-ui-divider-flat-high);
-
-    }
-  `}
-</style>
 

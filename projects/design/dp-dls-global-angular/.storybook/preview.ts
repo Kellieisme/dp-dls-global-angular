@@ -69,11 +69,8 @@ const preview: Preview = {
         order: [
           'GET STARTED',
           [
-            'Introduction to Atmosphere',
-            'Guides for non-Angular apps',
+            'Introduction to Atmosphere'
           ],
-
-          'Installation',
           [
             'Get Node',
             'Create an Angular project',
@@ -81,9 +78,6 @@ const preview: Preview = {
             'Install Atmosphere',
             'Setting global styles and fonts',
           ],
-
-          'Production',
-          ['Local Pipeline'],
 
           'Foundations',
           [

@@ -1,17 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ThemeToggleService } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.service';
 import { Subscription } from 'rxjs';
-import { OnDestroy } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { Theme } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.model';
 import { MainNavComponent } from "./main-nav/main-nav.component";
+import { Theme } from '../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.model';
 
 @Component({
   selector: 'app-root',
-    standalone: true,
-    imports: [MainNavComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [MainNavComponent],
+  providers: [ThemeToggleService],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 
 export class AppComponent implements OnInit, OnDestroy {
@@ -22,9 +21,6 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private themeToggleService: ThemeToggleService) {}
 
   ngOnInit() {
-    // Get the current theme when the component initializes
-    this.currentTheme = this.themeToggleService.getCurrentTheme();
-
     // Subscribe to theme changes
     this.themeSubscription = this.themeToggleService.themeChanged$.subscribe((theme: any) => {
       this.currentTheme = theme;

@@ -2,18 +2,12 @@
 
 <div class="example-button-row">
         <button matButton>Primary</button>
-
-        <button matButton>Primary
-                <mat-icon svgIcon="icon-add"></mat-icon>
-        </button>
-
+        <button mat-button color="primary">Primary</button>
+        <button matButton>Primary<mat-icon svgIcon="icon-add"></mat-icon></button>
         <button matButton>Primary<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
         <button matButton color="accent">Accent</button>
         <button matButton color="accent">Accent<mat-icon svgIcon="icon-add"></mat-icon></button>
         <button matButton color="accent">Accent<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-        <button matButton color="warn">Warn</button>
-        <button matButton color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
         <button matButton disabled>Disabled</button>
         <button matButton disabled>Disabled<mat-icon svgIcon="icon-add"></mat-icon></button>
         <button matButton disabled>Disabled<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
@@ -22,44 +16,28 @@
 <h6>Stroked/outlined buttons</h6>
 <div class="example-button-row">
         <button matButton="outlined">Primary</button>
-        <button matButton="outlined" color="primary">Primary
-                <mat-icon svgIcon="icon-add"></mat-icon>
-        </button>
-        <button matButton="outlined" color="primary">Primary
-                <mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon>
-        </button>
-
+        <button mat-stroked-button color="primary">mat-stroked</button>
+        <button matButton="outlined" color="primary">Primary<mat-icon svgIcon="icon-add"></mat-icon></button>
+        <button matButton="outlined" color="primary">Primary<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>   
         <button matButton="outlined" color="accent">Accent</button>
-        <button matButton="outlined" color="accent">Accent
-                <mat-icon svgIcon="icon-add"></mat-icon>
-        </button>
-        <button matButton="outlined" color="accent">Accent<mat-icon svgIcon="icon-add"
-                        iconPositionEnd></mat-icon></button>
-
-        <button matButton="outlined" color="warn">Warn</button>
-        <button matButton="outlined" color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="outlined" color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
-
+        <button mat-stroked-button color="accent">mat-stroked</button>
+        <button matButton="outlined" color="accent">Accent<mat-icon svgIcon="icon-add"></mat-icon></button>
+        <button matButton="outlined" color="accent">Accent<mat-icon svgIcon="icon-add"iconPositionEnd></mat-icon></button>
         <button matButton="outlined" disabled>Disabled</button>
-
-        <button matButton="outlined" disabled>
-                <mat-icon svgIcon="icon-add"></mat-icon>Disabled
-        </button>
-
-        <button matButton="outlined" disabled>
-                <mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon>Disabled</button>
+        <button matButton="outlined" disabled><mat-icon svgIcon="icon-add"></mat-icon>Disabled</button>
+        <button matButton="outlined" disabled><mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon>Disabled</button>
 </div>
 
 <h6>Flat/filled buttons</h6>
 <div class="example-button-row">
-        <button matButton="filled">default</button>
+        <button matButton="filled">matButton</button>
+        <button mat-flat-button color="primary">mat-flat</button>
         <button matButton="filled" color="primary">Primary<mat-icon svgIcon="icon-add"></mat-icon></button>
         <button matButton="filled" color="accent">Accent</button>
+        <button mat-flat-button color="accent">mat-flat</button>
+
         <button matButton="filled" color="accent">Accent<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="filled" color="accent">Accent<mat-icon svgIcon="icon-add"iconPositionEnd></mat-icon></button>
-        <button matButton="filled" color="warn">Warn</button>
-        <button matButton="filled" color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
-        <button matButton="filled" color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
+        <button matButton="filled" color="accent">Accent<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
         <button matButton="filled" disabled>Disabled</button>
         <button matButton="filled" disabled>Disabled<mat-icon svgIcon="icon-add"></mat-icon></button>
         <button matButton="filled" disabled>Disabled<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
@@ -81,9 +59,6 @@
                 <mat-icon svgIcon="icon-favorite-filled"></mat-icon>
         </button>
 
-             <button matIconButton color="warn" aria-label="Example icon-button with a favorite filled icon">
-                <mat-icon svgIcon="icon-favorite-filled"></mat-icon>
-        </button>
 
         <button matIconButton disabled aria-label="Example icon-button with a home icon">
                 <mat-icon svgIcon="icon-home-filled"></mat-icon>
@@ -96,3 +71,21 @@
                 <mat-icon svgIcon="icon-more-vert"></mat-icon>
         </button>
 </div>
+<!-- Warn/error color not yet prioritized in design system -->
+<!-- <div class="example-button-row">
+        <button matButton color="warn">Warn</button>
+        <button matButton color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
+        <button matButton color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
+
+        <button matButton="outlined" color="warn">Warn</button>
+        <button matButton="outlined" color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
+        <button matButton="outlined" color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
+
+        <button matButton="filled" color="warn">Warn</button>
+        <button matButton="filled" color="warn">Warn<mat-icon svgIcon="icon-add"></mat-icon></button>
+        <button matButton="filled" color="warn">Warn<mat-icon svgIcon="icon-add" iconPositionEnd></mat-icon></button>
+
+        <button matIconButton color="warn" aria-label="Example icon-button with a favorite filled icon">
+        <mat-icon svgIcon="icon-favorite-filled"></mat-icon>
+        </button>
+</div> -->

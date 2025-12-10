@@ -18,6 +18,15 @@ export default {
     }),
   ],
   argTypes: {
+    variant: {
+      description: 'Button variant',
+      control: 'select',
+      options: ['text', 'outlined', 'filled'],
+      defaultValue: 'text',
+      table: {
+        defaultValue: { summary: 'text' },
+      },
+    },
     color: {
       description: 'Color',
       control: 'select',
@@ -25,73 +34,90 @@ export default {
       table: {
         defaultValue: { summary: 'primary' },
       },
-      options: ['primary', 'accent', 'warn'],
+      options: ['primary', 'accent'],
     },
-    disabled: { control: 'boolean' },
+    disabled: { 
+      description: 'Disabled state',
+      control: 'boolean',
+      defaultValue: false,
+    },
+    withIcon: {
+      description: 'Include icon',
+      control: 'select',
+      options: ['none', 'leading', 'trailing'],
+      defaultValue: 'none',
+    },
   },
 } as Meta;
 
-const getTemplate = (type: string): string => `
-  <div style="background:var(--foundation-ui-background-low); padding: var(--foundation-spacing-m)">
-    <button ${type} [disabled]="disabled" [color]="color">
-      {{ text | titlecase }}
-    </button>
+const getButtonDirective = (variant: string): string => {
+  switch (variant) {
+    case 'outlined':
+      return 'matButton="outlined"';
+    case 'filled':
+      return 'matButton="filled"';
+    case 'text':
+    default:
+      return 'matButton';
+  }
+};
 
-    <button ${type} [disabled]="disabled" [color]="color">
-      {{ text | titlecase }}
-      <mat-icon svgIcon="icon-favorite"></mat-icon> 
-    </button>
+const getIconMarkup = (iconPosition: string): string => {
+  if (iconPosition === 'leading') {
+    return '<mat-icon svgIcon="icon-favorite"></mat-icon>';
+  } else if (iconPosition === 'trailing') {
+    return '<mat-icon svgIcon="icon-favorite" iconPositionEnd></mat-icon>';
+  }
+  return '';
+};
 
-    <button ${type} [disabled]="disabled" [color]="color">
-      {{ text | titlecase }}
-      <mat-icon svgIcon="icon-favorite" iconPositionEnd></mat-icon>
-    </button>
-    
-  </div>
-  <style>
-    button {
-      margin: var(--foundation-spacing-xs);
-    }
-  </style>
-`;
-
-// what is the filled button for warn? Does the hover in filled icon button look okay?
-const ButtonTemplate: StoryObj = {
+export const Button: StoryObj = {
   args: {
+    variant: 'text',
     color: 'primary',
     text: 'Click Me',
     disabled: false,
+    withIcon: 'none',
   },
+  render: ({ variant, color, text, disabled, withIcon }) => {
+    const directive = getButtonDirective(variant);
+    const iconMarkup = getIconMarkup(withIcon);
+    
+    return {
+      props: { color, text, disabled },
+      template: `
+        <div style="background:var(--foundation-ui-background-low); padding: var(--foundation-spacing-m)">
+          <button ${directive} [disabled]="disabled" [color]="color">
+            ${withIcon === 'leading' ? iconMarkup : ''}
+            {{ text | titlecase }}
+            ${withIcon === 'trailing' ? iconMarkup : ''}
+          </button>
+        </div>
+        <style>
+          button {
+            margin: var(--foundation-spacing-xs);
+          }
+        </style>
+      `,
+    };
+  },
+  name: 'Button',
 };
 
-export const Text: StoryObj = {
-  ...ButtonTemplate,
-  render: ({ color, text, disabled }) => ({
-    props: { color, text, disabled },
-    template: getTemplate('matButton'),
-  }),
-  name: 'Text',
-};
-
-export const Outlined: StoryObj = {
-  ...ButtonTemplate,
-  render: ({ color, text, disabled }) => ({
-    props: { color, text, disabled },
-    template: getTemplate('matButton="outlined"'),
-  }),
-  name: 'Outlined',
-};
-
-export const Filled: StoryObj = {
-  ...ButtonTemplate,
-  render: ({ color, text, disabled }) => ({
-    props: { color, text, disabled },
-    template: getTemplate('matButton="filled"'),
-  }),
-  name: 'Filled',
-};
-
-const ButtonIconTemplate: StoryObj = {
+export const IconButton: StoryObj = {
+  argTypes: {
+    color: {
+      description: 'Color',
+      control: 'select',
+      options: ['primary', 'accent', 'warn'],
+      defaultValue: 'primary',
+    },
+    disabled: {
+      description: 'Disabled state',
+      control: 'boolean',
+      defaultValue: false,
+    },
+  },
   args: {
     color: 'primary',
     disabled: false,
@@ -110,12 +136,88 @@ const ButtonIconTemplate: StoryObj = {
     </div>
     `,
   }),
+  name: 'Icon Button',
 };
 
-export const IconButton: StoryObj = {
-  ...ButtonIconTemplate,
+// Legacy Material Directive Support
+export const FlatButton: StoryObj = {
   args: {
-    ...ButtonIconTemplate.args,
+    color: 'primary',
+    text: 'Click Me',
+    disabled: false,
   },
-  name: 'Icon',
+  render: ({ color, text, disabled }) => ({
+    props: { color, text, disabled },
+    template: `
+      <div style="background:var(--foundation-ui-background-low); padding: var(--foundation-spacing-m)">
+        <button mat-flat-button [disabled]="disabled" [color]="color">
+          {{ text | titlecase }}
+        </button>
+
+        <button mat-flat-button [disabled]="disabled" [color]="color">
+          <mat-icon svgIcon="icon-favorite"></mat-icon>
+          {{ text | titlecase }}
+        </button>
+
+        <button mat-flat-button [disabled]="disabled" [color]="color">
+          {{ text | titlecase }}
+          <mat-icon svgIcon="icon-favorite" iconPositionEnd></mat-icon>
+        </button>
+      </div>
+      <style>
+        button {
+          margin: var(--foundation-spacing-xs);
+        }
+      </style>
+    `,
+  }),
+  name: 'Flat (Legacy)',
+  parameters: {
+    docs: {
+      description: {
+        story: 'Legacy `mat-flat-button` directive. Use `matButton="filled"` for new implementations.',
+      },
+    },
+  },
+};
+
+export const StrokedButton: StoryObj = {
+  args: {
+    color: 'primary',
+    text: 'Click Me',
+    disabled: false,
+  },
+  render: ({ color, text, disabled }) => ({
+    props: { color, text, disabled },
+    template: `
+      <div style="background:var(--foundation-ui-background-low); padding: var(--foundation-spacing-m)">
+        <button mat-stroked-button [disabled]="disabled" [color]="color">
+          {{ text | titlecase }}
+        </button>
+
+        <button mat-stroked-button [disabled]="disabled" [color]="color">
+          <mat-icon svgIcon="icon-favorite"></mat-icon>
+          {{ text | titlecase }}
+        </button>
+
+        <button mat-stroked-button [disabled]="disabled" [color]="color">
+          {{ text | titlecase }}
+          <mat-icon svgIcon="icon-favorite" iconPositionEnd></mat-icon>
+        </button>
+      </div>
+      <style>
+        button {
+          margin: var(--foundation-spacing-xs);
+        }
+      </style>
+    `,
+  }),
+  name: 'Stroked (Legacy)',
+  parameters: {
+    docs: {
+      description: {
+        story: 'Legacy `mat-stroked-button` directive. Use `matButton="outlined"` for new implementations.',
+      },
+    },
+  },
 };

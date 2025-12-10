@@ -1,0 +1,102 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import {
+  Highlight_yellow,
+  Blue_text,
+  Red_text,
+  Deprecated,
+  Inprogress,
+  Info_Blue_text,
+  Info_Section,
+} from "../../mdx_styles.mdx";
+
+<Meta title="GET STARTED/Setting Global Styles and Fonts" />
+
+<div style={{padding:'8px 15px', borderRadius: '8px', backgroundColor: 'var(--foundation-ui-background-low)'}}>
+
+# Setting Global Styles and Fonts
+
+## Updating Angular.json
+
+To include the global styles, fonts, icons, and Angular Material theme, your angular.json file should look like this:
+
+```json
+"projects": {
+    "project-name": {
+      "architect": {
+        "build": {
+          "options": {
+            {...},
+            "assets": [
+              {...},
+              { "glob": "svgSet.svg", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/icons/", "output": "./assets" },
+              { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/fonts", "output": "./assets/fonts"}
+            ],
+            "styles": [
+              "./node_modules/@jeppesen-foreflight/dp-dls-global-angular/styles/global.scss",
+              "./node_modules/@jeppesen-foreflight/dp-dls-global-angular/styles/material.scss",
+              "src/styles.scss"
+            ],
+            {...}
+          },
+        },
+
+      }
+    }
+  },
+
+```
+
+> <Red_text>If your project's SASS compiler cannot resolve the aliased path to the fonts
+> in the above fonts.scss and throws errors, the recommendation is to create your own fonts.scss and
+> update the base path to a value your compiler can resolve.</Red_text>
+
+# Configurations for Atmosphere Icons
+
+To register the custom SvgIconSet edit the app.component.ts and add the IconRegistryModule as an import:
+
+```typescript
+import { Component } from "@angular/core";
+import { IconRegistryModule } from "@jeppesen-foreflight/dp-dls-global-angular/icon-registry";
+
+@Component({
+  selector: "app-root",
+  standalone: true,
+  imports: [IconRegistryModule],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.scss",
+})
+export class AppComponent {}
+```
+
+> <Red_text> Important: Add provideHttpClient() to the ApplicationConfig in app.config.ts. </Red_text>
+
+```typescript
+import { ApplicationConfig } from "@angular/core";
+import { provideRouter } from "@angular/router";
+import { routes } from "./app.routes";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
+import { provideHttpClient } from "@angular/common/http";
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes),
+    provideAnimationsAsync(),
+    provideHttpClient(),
+  ],
+};
+```
+
+<Blue_text> We are all set to use Atmosphere! 🎉</Blue_text>
+Learn How to Use Atmophere Components [here](?path=/docs/components).
+
+Atmosphere has two types of components:
+
+- Angular Material-based
+- Custom
+
+You can go to <Info_Blue_text>Angular Components</Info_Blue_text> to see examples of components provided in this library.
+
+</div>
+
+
+

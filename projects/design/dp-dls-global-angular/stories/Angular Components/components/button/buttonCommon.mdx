@@ -19,9 +19,12 @@ The Button (Common) is a direct implementation of the Angular Material Button co
 
 ### Selectors
 
-`button[mat-button]` `button[mat-flat-button]` `button[mat-stroked-button]` `button[mat-icon-button]`
+**Recommended:** `button[matButton]` `button[matButton="outlined"]` `button[matButton="filled"]` `button[matIconButton]`
 
-<Red_text>Note: fab button and tonal button is not supported by Atmosphere </Red_text>
+**Legacy (for backward compatibility):** `button[mat-button]` `button[mat-stroked-button]` `button[mat-flat-button]` `button[mat-icon-button]`
+
+<Red_text>NOTE: The fab and tonal buttons are not supported. </Red_text>
+
 ### Usage
 
 In your typescript file.
@@ -48,32 +51,43 @@ Make sure your `angular.json` has the path to `svgSet.svg`. You can find the ste
 {`
 | Name                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------| -------------------------------------------------------------------------------------------- |
-| {type} mat-button, mat-raised-button , mat-flat-button, mat-stroked-button,mat-icon-button | Determines the type of button.|
-| @Input() disabled: boolean                                               | Disables button. Defaults to true. |
-| @Input() color                                                           | Sets color to "primary" , "accent" or "warn". Default is "primary" |
+| matButton, matButton="outlined", matButton="filled", matIconButton      | Determines the type of button. Use these directives for new implementations.                 |
+| mat-button, mat-stroked-button, mat-flat-button, mat-icon-button        | Legacy directives. Supported for backward compatibility.                                     |
+| @Input() disabled: boolean                                               | Disables button. Defaults to false.                                                          |
+| @Input() color                                                           | Sets color to "primary" or "accent" for common buttons; "primary", "accent", or "warn" for icon buttons. Default is "primary" |
 `}
 
 </Markdown>
 
 ### Examples
 
-You can see how the different inputs work in the individual component stories.
+You can see how the different inputs work in the Button story using the controls panel.
 
-#### Button Text/Basic
+#### Button
 
-<Canvas of={ButtonCommonStories.Text} />
+<Canvas of={ButtonCommonStories.Button} />
 
-#### Button Outlined/Stroked
-
-<Canvas of={ButtonCommonStories.Outlined} />
-
-#### Button Filled/Flat
-
-<Canvas of={ButtonCommonStories.Filled} />
+Use the controls above to switch between variants (text, outlined, filled) and colors (primary, accent).
 
 #### Icon Button
 
 <Canvas of={ButtonCommonStories.IconButton} />
+
+### Legacy Directives
+
+For backward compatibility, the legacy Material directives are still supported:
+
+#### Flat Button (Legacy)
+
+<Canvas of={ButtonCommonStories.FlatButton} />
+
+#### Stroked Button (Legacy)
+
+<Canvas of={ButtonCommonStories.StrokedButton} />
+
+<Info_Blue_text>
+For new implementations, use `matButton="filled"` instead of `mat-flat-button` and `matButton="outlined"` instead of `mat-stroked-button`.
+</Info_Blue_text>
 
 ### Additional documentation and References
 
@@ -87,9 +101,8 @@ You can find the usage guidelines on [Doc Hub](https://design.pages.boeing.com/d
   {`
 | Boeing DLS Global Angular Library Version    | Angular Material Version  | API Reference                                                              |
 | -------------------------------------------- | ------------------------- | -------------------------------------------------------------------------- |
-| 1.x.x                                        | 17.x.x                    | [Button](https://v17.material.angular.io/components/button/api)            |
-| 2.x.x                                        | 18.x.x                    | [Button](https://v18.material.angular.io/components/button/api)            |
 | 3.x.x                                        | 19.x.x                    | [Button](https://v19.material.angular.io/components/button/api)            |
+| 4.x.x                                        | 20.x.x                    | [Button](https://v20.material.angular.io/components/button/api)            |
 `}
 </Markdown>
 
