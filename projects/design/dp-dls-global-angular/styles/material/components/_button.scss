@@ -55,16 +55,38 @@
 .mat-mdc-unelevated-button,
 button[mat-flat-button],
 [matButton="filled"] {
+  color: var(--foundation-interactive-primary-textandicon-inverse);
+  
+  .mdc-button__label {
+    color: var(--foundation-interactive-primary-textandicon-inverse);
+  }
+  
   .mat-icon {
     color: var(--foundation-interactive-primary-textandicon-inverse);
   }
   
-  &.mat-primary .mat-icon {
+  &.mat-primary {
     color: var(--foundation-interactive-primary-textandicon-inverse);
+    
+    .mdc-button__label {
+      color: var(--foundation-interactive-primary-textandicon-inverse);
+    }
+    
+    .mat-icon {
+      color: var(--foundation-interactive-primary-textandicon-inverse);
+    }
   }
   
-  &.mat-accent .mat-icon {
+  &.mat-accent {
     color: var(--foundation-interactive-accent-textandicon-inverse);
+    
+    .mdc-button__label {
+      color: var(--foundation-interactive-accent-textandicon-inverse);
+    }
+    
+    .mat-icon {
+      color: var(--foundation-interactive-accent-textandicon-inverse);
+    }
   }
   
   &.mat-warn .mat-icon {
@@ -137,8 +159,10 @@ button[mat-flat-button]:focus:not([disabled]),
 [matButton="filled"]:focus:not([disabled]) {
   // Use high-emphasis text color (light in dark mode, dark in light mode)
   --mat-button-filled-label-text-color: var(--foundation-ui-textandicon-high);
+  color: var(--foundation-ui-textandicon-high);
   
   .mdc-button__label {
+    color: var(--foundation-ui-textandicon-high);
     text-shadow: none;
   }
   
@@ -158,6 +182,11 @@ button[mat-flat-button].mat-primary:focus:not([disabled]),
 [matButton="filled"].mat-primary:hover:not([disabled]),
 [matButton="filled"].mat-primary:focus:not([disabled]) {
   --mat-button-filled-label-text-color: var(--foundation-ui-textandicon-high);
+  color: var(--foundation-ui-textandicon-high);
+  
+  .mdc-button__label {
+    color: var(--foundation-ui-textandicon-high);
+  }
   
   .mat-icon {
     color: var(--foundation-ui-textandicon-high);
@@ -171,6 +200,11 @@ button[mat-flat-button].mat-accent:focus:not([disabled]),
 [matButton="filled"].mat-accent:hover:not([disabled]),
 [matButton="filled"].mat-accent:focus:not([disabled]) {
   --mat-button-filled-label-text-color: var(--foundation-ui-textandicon-high);
+  color: var(--foundation-ui-textandicon-high);
+  
+  .mdc-button__label {
+    color: var(--foundation-ui-textandicon-high);
+  }
   
   .mat-icon {
     color: var(--foundation-ui-textandicon-high);

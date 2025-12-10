@@ -19,80 +19,53 @@ export interface LabelExample {
 @Component({
     selector: 'storybook-chips-page',
     template: `
-    @if (variant === 'InputChips') {
-      <mat-form-field class="example-chip-list">
-        <mat-chip-grid #chipGrid aria-label="Enter labels">
-          @for (labelExample of labelExamples(); track labelExample) {
-            <mat-chip-row
-              (removed)="remove(labelExample)"
-              [editable]="true"
-              (edited)="edit(labelExample, $event)"
-              [aria-description]="'press enter to edit ' + labelExample.name"
-              >
-              @if (withIcon) {
-                <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
-              }
-              @if (withIcon && iconType === 'favicon') {
-                <mat-icon svgIcon="icon-favorite" matChipAvatar></mat-icon>
-              }
-              {{labelExample.name}}
-              <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
-                <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
-              </button>
-            </mat-chip-row>
-          }
-          <input
-            placeholder="Add item ..."
-            [matChipInputFor]="chipGrid"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)"
-            />
-        </mat-chip-grid>
-      </mat-form-field>
-    }
-    
-    @if (variant === 'AvatarInputChips') {
-      <mat-form-field class="example-chip-list">
-        <mat-chip-grid #chipGridAvatar aria-label="Enter chips">
-          @for (labelExample of labelExamples(); track labelExample.name) {
-            <mat-chip-row
-              (removed)="remove(labelExample)"
-              [editable]="true"
-              (edited)="edit(labelExample, $event)"
-              [aria-description]="'press enter to edit ' + labelExample.name"
-              class="avatar-chip"
-              >
+    @if (type === 'input') {
+      <mat-chip-grid #chipGrid aria-label="Enter labels" class="example-chip-list">
+        @for (labelExample of labelExamples(); track labelExample) {
+          <mat-chip-row
+            (removed)="remove(labelExample)"
+            [editable]="true"
+            (edited)="edit(labelExample, $event)"
+            [aria-description]="'press enter to edit ' + labelExample.name"
+            [class.avatar-chip]="withAvatar"
+            >
+            @if (withAvatar) {
               <ba-user-profile matChipAvatar userFirstName="William" [small]="true" userAvatarSource="./assets/card-img-1.png" />
-              {{labelExample.name}}
-              <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
-                <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
-              </button>
-            </mat-chip-row>
-          }
-          <input
-            placeholder="New thing..."
-            [matChipInputFor]="chipGridAvatar"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)"
-            />
-        </mat-chip-grid>
-      </mat-form-field>
+            }
+            @if (withIcon && !withAvatar && iconType === 'leading') {
+              <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
+            }
+            @if (withIcon && !withAvatar && iconType === 'favicon') {
+              <mat-icon svgIcon="icon-favorite" matChipAvatar></mat-icon>
+            }
+            {{labelExample.name}}
+            <button matChipRemove [attr.aria-label]="'remove ' + labelExample.name">
+              <mat-icon svgIcon="icon-cancel-filled"></mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+        <input
+          placeholder="Add item ..."
+          [matChipInputFor]="chipGrid"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)"
+          />
+      </mat-chip-grid>
     }
     
-    @if (variant === 'AssistiveChips') {
+    @if (type === 'basic') {
       <mat-chip-set
         class="example-chip"
-        cdkDropList
-        cdkDropListOrientation="horizontal"
-        (cdkDropListDropped)="drop($event)"
+        [cdkDropList]="draggable ? '' : null"
+        [cdkDropListOrientation]="draggable ? 'horizontal' : null"
+        (cdkDropListDropped)="draggable ? drop($event) : null"
         >
         @for (labelExample of labelExamples(); track labelExample.name) {
           <mat-chip
             class="example-box assistive"
             [class.elevated]="style === 'elevated'"
-            cdkDrag>
+            [cdkDrag]="draggable ? '' : null">
             @if (withIcon && iconType === 'leading') {
               <mat-icon svgIcon="icon-folder" matChipAvatar></mat-icon>
             }
@@ -109,7 +82,7 @@ export interface LabelExample {
       </mat-chip-set>
     }
     
-    @if (variant === 'FilterAndSuggestionChips') {
+    @if (type === 'filter') {
       <mat-chip-listbox aria-label="Labels examples">
         @for (labelExample of labelExamples(); track labelExample.name) {
           <mat-chip-option [class.elevated]="style === 'elevated'">
@@ -128,14 +101,29 @@ export interface LabelExample {
     styles: [`
     .example-chip-list {
       width: 100%;
+      padding-bottom: 40px;
+    }
+    .example-chip-list input {
+      border: none;
+      outline: none;
+      padding: 8px 0;
+      font-family: inherit;
+      font-size: inherit;
+      background: transparent;
+      color: var(--foundation-ui-textandicon-high);
+    }
+    .example-chip-list input::placeholder {
+      color: var(--foundation-ui-textandicon-medium);
     }
   `],
     standalone: false
 })
 class StorybookChipsPageComponent {
-  @Input() variant: 'InputChips' | 'AvatarInputChips' | 'AssistiveChips' | 'FilterAndSuggestionChips' = 'InputChips';
+  @Input() type: 'input' | 'basic' | 'filter' = 'input';
   @Input() withIcon = false;
   @Input() iconType: 'leading' | 'favicon' = 'leading';
+  @Input() withAvatar = false;
+  @Input() draggable = false;
   @Input() withTrailingIcon = false;
   @Input() style: 'outlined' | 'elevated' = 'outlined';
 
@@ -220,90 +208,83 @@ export default {
     }),
   ],
   argTypes: {
-    variant: {
-      table: { disable: true },
+    type: {
+      description: 'Chip type: **Input** (editable tags), **Basic** (read-only display), **Filter** (selectable options)',
+      control: 'select',
+      options: ['input', 'basic', 'filter'],
+      defaultValue: 'input',
+      table: {
+        type: { summary: 'input | basic | filter' },
+        defaultValue: { summary: 'input' },
+      },
     },
     withIcon: {
+      description: 'Show icon in chips',
       control: 'boolean',
       defaultValue: false,
+      if: { arg: 'type', neq: 'input' },
     },
     iconType: {
       description: 'Icon Type',
       control: 'select',
       defaultValue: 'leading',
       options: ['leading', 'favicon'],
+      if: { arg: 'withIcon', eq: true },
     },
-    withTrailingIcon: {
+    withAvatar: {
+      description: 'Show avatar instead of icon (Input chips only)',
       control: 'boolean',
       defaultValue: false,
+      if: { arg: 'type', eq: 'input' },
+    },
+    draggable: {
+      description: 'Enable drag-and-drop reordering (Basic chips only)',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'type', eq: 'basic' },
+    },
+    withTrailingIcon: {
+      description: 'Show trailing icon (Filter chips only)',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'type', eq: 'filter' },
     },
     style: {
-      description: 'Chip style',
+      description: 'Chip style (Basic and Filter chips only)',
       control: 'select',
       defaultValue: 'outlined',
       options: ['outlined', 'elevated'],
+      if: { arg: 'type', neq: 'input' },
     },
   },
 } as Meta;
 
-
-const ChipsTemplate: StoryObj = {
-  render: (args) => ({
-    props: args,
-    template: `<storybook-chips-page [variant]="variant" [withIcon]="withIcon" [iconType]="iconType" [style]="style" [withTrailingIcon]="withTrailingIcon"></storybook-chips-page>`,
-  }),
-};
-
-export const InputChips: StoryObj = {
-  ...ChipsTemplate,
+export const Chips: StoryObj = {
   args: {
-    variant: 'InputChips',
-    withIcon: true,
-    iconType: 'none',
-  },
-  argTypes: {
-    iconType: { table: { disable: true } },
-    withTrailingIcon: { table: { disable: true } },
-    style: { table: { disable: true } },
-  },
-};
-
-export const AvatarInputChips: StoryObj = {
-  ...ChipsTemplate,
-  args: {
-    variant: 'AvatarInputChips',
-  },
-  argTypes: {
-    withIcon: { table: { disable: true } },
-    iconType: { table: { disable: true } },
-    withTrailingIcon: { table: { disable: true } },
-    style: { table: { disable: true } },
-  },
-};
-
-export const AssistiveChips: StoryObj = {
-  ...ChipsTemplate,
-  args: {
-    variant: 'AssistiveChips',
+    type: 'input',
     withIcon: false,
     iconType: 'leading',
-    style: 'outlined',
-  },
-  argTypes: {
-    withTrailingIcon: { table: { disable: true } },
-  },
-};
-
-export const FilterAndSuggestionChips: StoryObj = {
-  ...ChipsTemplate,
-  args: {
-    variant: 'FilterAndSuggestionChips',
-    withIcon: true,
-    iconType: 'leading',
+    withAvatar: false,
+    draggable: false,
     withTrailingIcon: false,
     style: 'outlined',
   },
-  argTypes: {
-    iconType: { table: { disable: true } },
+  render: (args) => ({
+    props: args,
+    template: `<div style="padding-bottom: 60px;"><storybook-chips-page [type]="type" [withIcon]="withIcon" [iconType]="iconType" [withAvatar]="withAvatar" [draggable]="draggable" [style]="style" [withTrailingIcon]="withTrailingIcon"></storybook-chips-page></div>`,
+  }),
+  name: 'Chips',
+  parameters: {
+    docs: {
+      description: {
+        story: `Interactive chip component with three types:
+        
+- **Input**: Editable chips where users can add, edit, and remove items (like tags/labels). Supports icons and avatars.
+- **Basic**: Read-only display chips for showing information. Supports drag-and-drop reordering and can be styled as outlined or elevated.
+- **Filter**: Selectable chips for filtering or choosing options. Users can click to toggle selection. Supports trailing icons and can be styled as outlined or elevated.`,
+      },
+    },
+    layout: 'padded',
+    chromatic: { viewports: [320, 1200] },
   },
 };

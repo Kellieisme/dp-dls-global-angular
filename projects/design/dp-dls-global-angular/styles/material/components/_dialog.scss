@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '../m3-theme.scss' as m3;
+@use '../m3-theme' as m3;
 
 :root {
   @include mat.dialog-theme(m3.$dark-theme);
@@ -51,7 +51,7 @@ html .theme-dark {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-dialog-container-color: var(--foundation-ui-background-high);
+  --mat-dialog-container-color: var(--foundation-ui-background-medium);
   --mat-dialog-subhead-color: var(--foundation-ui-textandicon-medium);
   --mat-dialog-supporting-text-color: var(--foundation-ui-textandicon-medium);
 }

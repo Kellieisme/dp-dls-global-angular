@@ -95,6 +95,7 @@ export class ThemeToggleService {
   toggleTheme() {
     this.document.body.classList.toggle(Theme.LIGHT);
     this.document.body.classList.toggle(Theme.DARK);
+    
     if (this.currentTheme === Theme.LIGHT) {
       this.updateCurrentTheme(Theme.DARK);
     } else {

@@ -15,6 +15,21 @@ const mockActivatedRoute = {
   }
 };
 
+const generateBreadcrumbs = (levels: number) => {
+  const breadcrumbs = [{ label: 'Home', path: './' }];
+  let path = '.';
+  
+  for (let i = 1; i < levels; i++) {
+    path += `/level-${i}`;
+    breadcrumbs.push({ 
+      label: `Level ${i}`, 
+      path: path 
+    });
+  }
+  
+  return breadcrumbs;
+};
+
 export default {
   title: 'COMPONENTS/Breadcrumb',
   component: BreadcrumbComponent,
@@ -32,33 +47,33 @@ export default {
       ]
     }),
   ],
+  argTypes: {
+    breadcrumbs: {
+      description: 'Breadcrumb items',
+      control: false,
+    },
+    levels: {
+      description: 'Number of breadcrumb levels',
+      control: { type: 'number', min: 2, max: 10, step: 1 },
+      table: {
+        category: 'Story Controls',
+      },
+    },
+  },
 } as Meta;
 
-type BreadcrumbsStory = StoryObj<BreadcrumbComponent>;
+type BreadcrumbsStory = StoryObj<BreadcrumbComponent & { levels: number }>;
 
-export const Default: BreadcrumbsStory = {
-  name: 'Three Levels',
+export const Breadcrumb: BreadcrumbsStory = {
   args: {
-    breadcrumbs: [
-      { label: 'Home', path: './' },
-      { label: 'Level 1', path: './level-1' },
-      { label: 'Level 2', path: './level-1/level-2' },
-      { label: 'Level 3', path: './level-3/level-3' },
-    ],
+    levels: 3,
   },
-};
-
-export const FiveLevels: BreadcrumbsStory = {
-  name: 'Five Levels',
-  args: {
-    breadcrumbs: [
-      { label: 'Home', path: './' },
-      { label: 'Level 1', path: './level-1' },
-      { label: 'Level 2', path: './level-1/level-2' },
-      { label: 'Level 3', path: './level-1/level-2/level-3' },
-      { label: 'Level 4', path: './level-1/level-2/level-3/level-4' },
-      { label: 'Level 5', path: './level-1/level-2/level-3/level-4/level-5' },
-    ],
-  },
+  render: (args) => ({
+    props: {
+      breadcrumbs: generateBreadcrumbs(args.levels),
+    },
+    template: `<ba-breadcrumb [breadcrumbs]="breadcrumbs"></ba-breadcrumb>`,
+  }),
+  name: 'Breadcrumb',
 };
 

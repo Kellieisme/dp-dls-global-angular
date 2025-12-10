@@ -14,7 +14,7 @@
 .mat-mdc-standard-chip {
 	&.avatar-chip {
 		--mat-chip-container-shape-radius: var(--foundation-radius-full);
-		// Avatar chips need to accommodate the 32px avatar (--foundation-sizing-2xl-fixed)
+		// Avatar chips need to accommodate the 32px avatar:
 		--mat-chip-container-height: var(--foundation-sizing-2xl-fixed);
 
 		.mdc-evolution-chip__action {
@@ -23,17 +23,41 @@
 	}
 
 	&.elevated {
-		--mat-chip-elevated-container-color: var(--foundation-ui-background-medium);
-		--mat-chip-outline-width: 0;
-		--mat-chip-outline-color: transparent;
-		box-shadow: var(--box-shadow-elevation-1);
+		--mat-chip-outline-width: 0 !important;
+		--mat-chip-outline-color: transparent !important;
+		--mat-chip-disabled-outline-color: transparent !important;
+		--mat-chip-focus-outline-color: transparent !important;
+		border: none !important;
 	}
 
 	&.assistive {
+		cursor: move;
+		
 		.mdc-evolution-chip__action {
-			cursor: pointer;
+			cursor: move;
+		}
+		
+		&.cdk-drag-preview {
+			box-shadow: var(--box-shadow-elevation-2);
+			opacity: 0.8;
+		}
+		
+		&.cdk-drag-animating {
+			transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 		}
 	}
+}
+
+.theme-light .mat-mdc-standard-chip.elevated {
+	--mat-chip-elevated-container-color: var(--foundation-ui-background-high);
+	--mat-chip-flat-container-color: var(--foundation-ui-background-low);
+	box-shadow: var(--box-shadow-elevation-1);
+}
+
+.theme-dark .mat-mdc-standard-chip.elevated {
+	--mat-chip-elevated-container-color: var(--foundation-ui-background-medium);
+	--mat-chip-flat-container-color: var(--foundation-ui-background-medium);
+	box-shadow: var(--box-shadow-elevation-1);
 }
 
 .mdc-evolution-chip__text-label {
@@ -113,7 +137,13 @@ html .theme-dark {
 	}
 }
 
-// Add padding to chip grids to prevent chips from being cut off
-.mat-mdc-chip-grid {
-	padding: var(--foundation-spacing-2xs) 0;
+.theme-dark {
+	.mat-mdc-standard-chip {
+		&:hover:not(.mat-mdc-chip-disabled):not(.mat-mdc-chip-selected) {
+			.mdc-evolution-chip__text-label,
+			.mat-icon {
+				color: var(--foundation-ui-textandicon-high);
+			}
+		}
+	}
 }
