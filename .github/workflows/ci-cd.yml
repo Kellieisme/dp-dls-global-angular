@@ -14,12 +14,93 @@ on:
     branches:
       - 'main'
       - 'angular-*'
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
       - '*upgrade'
 
 jobs:
   lint:
     name: Run linters
     permissions:
+      contents: write # Allow the workflow to write to the repository
+      packages: write # Allow the workflow to publish packages
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" # Best practice for automated commits
+          git config --global user.name "github-actions[bot]"                       # Best practice for automated commits
+          git checkout ${{ github.ref }}
+
+      - name: Check for automated release commit
+        run: |
+          if git log -2 --pretty=%B | grep -q "chore(release):"; then
+            echo "Skipping pipeline for automated release commit."
+            exit 0
+          fi
+
+      - name: Setup .npmrc
+        run: |
+          if [ -z "${{ secrets.GN_GITHUB_TOKEN }}" ]; then
+            echo "ERROR: GN_GITHUB_TOKEN is not set."
+            exit 1
+          fi
+          echo "@dasdigitalplatform:registry=https://npm.pkg.github.com/" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
+          cat .npmrc
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Determine if version bump is needed and run release
+        id: version_logic
+        run: |
+          if git log -1 --pretty=%B | grep -Eiq "^(feat|fix|BREAKING CHANGE)"; then
+          echo "Version bump needed. Running version-release."
+          npm run version-release
+
+          # Get the new version from the root package.json after standard-version has run
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "::set-output name=version_bumped::true"
+          else
+          echo "No version bump needed. Keeping the same version."
+          echo "NEW_VERSION=" >> $GITHUB_ENV
+          echo "::set-output name=version_bumped::false"
+          fi
+
+      - name: Commit and push version changes (if any)
+        if: steps.version_logic.outputs.version_bumped == 'true'
+        run: |
+          if git diff --exit-code projects/design/dls-global-angular/package.json &>/dev/null; then
+            echo "Subfolder package.json is already committed or no changes."
+          else
+            echo "Committing subfolder package.json changes."
+            git add projects/design/dls-global-angular/package.json
+            # || true to prevent failure if nothing to commit (unlikely here)
+            git commit -m "[skip ci] Sync subfolder version to ${{ env.NEW_VERSION }}" || true
+          fi
+
+          echo "Pushing all committed changes and tags..."
+          git push --follow-tags origin HEAD:${{ github.ref }}
+
+      - name: Build the library
+        run: npm run release
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  build-storybook:
       attestations: write
       statuses: write
       id-token: write
