@@ -73,7 +73,7 @@
     "@types/hammerjs": "^2.0.46",
     "@types/jasmine": "^5.1.13",
     "@types/node": "^24.10.1",
-    "angular-eslint": "^20.6.0",
+    "angular-eslint": "^21.1.0",
     "conventional-changelog-cli": "^5.0.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsdoc": "^61.4.1",
