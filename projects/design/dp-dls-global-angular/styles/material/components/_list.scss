@@ -34,8 +34,8 @@ mat-sidenav-container:not(.labels-visible) mat-sidenav {
     padding-right: 0 !important;
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
+    justify-content: left;
+    align-items: center;
     
     .mat-icon {
       margin-right: 0 !important;
@@ -44,11 +44,42 @@ mat-sidenav-container:not(.labels-visible) mat-sidenav {
     
     .mdc-list-item__content {
       display: flex !important;
-      justify-content: center !important;
+      justify-content: left !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
       width: auto !important;
       flex: 0 0 auto !important;
+    }
+    
+    .mdc-list-item__start {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+}
+
+// Level-2 navigation list - left aligned instead of centered
+mat-nav-list.level2-nav {
+  mat-list-item.mat-mdc-list-item {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+    .mat-icon {
+      margin-right: var(--size-spacing-m) !important;
+      margin-left: 0 !important;
+    }
+    
+    .mdc-list-item__content {
+      display: flex !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      width: auto !important;
     }
     
     .mdc-list-item__start {
@@ -79,6 +110,42 @@ mat-sidenav-container.labels-visible mat-sidenav {
       flex: 1 1 auto !important;
       justify-content: center !important;
       text-align: center !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    
+    .mdc-list-item__primary-text,
+    .mat-mdc-list-item-unscoped-content {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}
+
+// Level-2 sidenav should be left-aligned, not centered
+.app-sidenav--level-2 mat-sidenav {
+  mat-list-item.mat-mdc-list-item {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+    .mat-icon {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      margin-bottom: var(--size-spacing-2xs) !important;
+    }
+    
+    .mdc-list-item__content {
+      width: 100% !important;
+      flex: 1 1 auto !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
       word-wrap: break-word !important;
       overflow-wrap: break-word !important;
       hyphens: auto !important;
@@ -141,16 +208,12 @@ mat-list-option.mat-mdc-list-option {
     align-self: flex-end;
   }
 }
-
-
 .trailing-icon {
   position: absolute;
   right: var(--size-spacing-m);
 }
-
 .mat-mdc-list-option {
   border-radius: var(--size-spacing-none);
-
   .overline {
     @include typography.typography-s-label-low;
     color: var(--foundation-ui-textandicon-low);
