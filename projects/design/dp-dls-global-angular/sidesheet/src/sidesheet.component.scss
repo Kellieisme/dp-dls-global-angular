@@ -1,20 +1,22 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/_vars-sidesheet' as *;
+
 :host {
   mat-sidenav-container {
     height: 100vh;
   }
 
   mat-sidenav {
-    background-color: var(--foundation-ui-background-page);
+    background-color: $ui-background-page;
     display: flex;
     flex-direction: column;
 
     mat-toolbar {
       justify-content: space-between;
-      background-color: var(--foundation-ui-background-page);
-      padding-top: var(--size-spacing-s);
-      padding-right: var(--size-spacing-s);
-      padding-bottom: var(--size-relaxed-spacing-s);
-      padding-left: var(--size-relaxed-spacing-xl);
+      background-color: $ui-background-page;
+      padding-top: $component-sidesheet-padding-top;
+      padding-right: $component-sidesheet-padding-top;
+      padding-bottom: $component-sidesheet-padding-top;
+      padding-left: $spacing-xl;
     }
 
     .sidesheet-content {
@@ -22,26 +24,26 @@
     }
 
     &.mat-drawer-over {
-      background-color: var(--foundation-ui-glass-surface-thick);
+      background-color: $component-sidesheet-floating-background;
 
       mat-toolbar {
-        background-color: var(--foundation-ui-glass-surface-thick);
+        background-color: $component-sidesheet-floating-background;
       }
     }
   }
 
   .sidesheet-footer {
     position: absolute;
-    padding: var(--size-relaxed-spacing-m) var(--size-relaxed-spacing-xl);
-    bottom: var(--size-relaxed-spacing-none);
-    right: var(--size-relaxed-spacing-none);
+    padding: $component-sidesheet-footer-padding-top $component-sidesheet-padding-horizontal;
+    bottom: $spacing-none;
+    right: $spacing-none;
     width: 100%;
 
     .footer-actions {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: var(--size-relaxed-spacing-xs);
+      gap: $component-sidesheet-footer-gap;
     }
   }
 }

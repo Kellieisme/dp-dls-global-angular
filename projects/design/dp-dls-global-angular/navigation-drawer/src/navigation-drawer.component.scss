@@ -1,3 +1,4 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/_vars-navigation' as *;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 // Constants
@@ -5,7 +6,6 @@ $section-label-max-width: 82%;
 $side-nav-width: 360px;
 
 mat-sidenav-container {
-  // height: calc(100vh - 64px);
   height: 100vh;
 }
 
@@ -26,7 +26,7 @@ mat-sidenav-container {
   mat-sidenav:not(.mat-drawer-opened) {
     transform: translate3d(0, 0, 0) !important;
     visibility: visible !important;
-    width: var(--size-relaxed-spacing-8xl) !important;
+    width: $spacing-8xl !important;
     overflow: hidden;
   }
 
@@ -46,12 +46,12 @@ mat-sidenav {
   flex-direction: column;
   height: 100%;
   width: $side-nav-width;
-  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
+  backdrop-filter: blur($effect-glass-background-blur);
   box-shadow: none;
   border-right-color: var(--mat-sidenav-container-divider-color, transparent);
   border-right-width: 1px;
   border-right-style: solid;
-  
+
   ba-user-profile {
     display: flex;
     justify-content: center;
@@ -60,14 +60,14 @@ mat-sidenav {
 }
 
 ::ng-deep .mat-sidenav-content {
-  padding: var(--size-relaxed-spacing-xl) !important;
+  padding: $spacing-xl !important;
   overflow-y: auto;
 }
 
 // Apply padding to the inner container using ::ng-deep
 ::ng-deep mat-sidenav .mat-drawer-inner-container {
-  padding: var(--size-relaxed-spacing-l) var(--size-relaxed-spacing-s) !important;
-  
+  padding: $component-navdrawer-gap $component-navdrawer-padding-horizontal !important;
+
   // Override Material's CSS custom properties at the container level
   --mat-list-list-item-leading-icon-start-space: 0px;
   --mat-list-list-item-leading-icon-end-space: 16px;
@@ -98,16 +98,16 @@ mat-sidenav {
   }
 
   &:focus {
-    background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+    background-color: $component-navitem-background-selected;
   }
 
   &:active {
-    background-color: var(--foundation-interactive-primary-background-selected);
+    background-color: $component-navitem-pressed-background;
   }
 
-  &:hover:not(:disabled), 
+  &:hover:not(:disabled),
   &.mat-list-item--toggle-on {
-    background-color: var(--foundation-interactive-primary-background-hovered);
+    background-color: $component-navitem-hovered-background;
 
     .mdc-list-item__primary-text {
       text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
@@ -120,9 +120,9 @@ mat-sidenav {
 }
 
 html .theme-condensed {
-    .mat-sidenav {
-      padding: var(--size-relaxed-spacing-m) var(--size-relaxed-spacing-s);
-    }
+  .mat-sidenav {
+    padding: $spacing-m $component-navdrawer-padding-horizontal;
+  }
 }
 
 html {
@@ -130,16 +130,16 @@ html {
     --mat-sidenav-container-width: #{$side-nav-width};
 
     .mdc-list-item--with-leading-icon.mdc-list-item {
-      padding-left: var(--size-relaxed-spacing-none);
-      padding-right: var(--size-relaxed-spacing-none);
+      padding-left: $spacing-none;
+      padding-right: $spacing-none;
     }
     .level2-nav,
     .level3-nav {
-        .mat-list-item.mat-mdc-list-item,
-        .mdc-list-item--with-leading-icon.mdc-list-item {
-          padding-left: var(--size-relaxed-spacing-2xl);
-        }
+      .mat-list-item.mat-mdc-list-item,
+      .mdc-list-item--with-leading-icon.mdc-list-item {
+        padding-left: $spacing-2xl;
       }
+    }
   }
 }
 
@@ -149,8 +149,8 @@ html {
 
   .divider {
     transform: rotate(36deg);
-    margin-left: var(--size-relaxed-sizing-m);
-    margin-right: var(--size-relaxed-sizing-m);
+    margin-left: $sizing-m;
+    margin-right: $sizing-m;
   }
 
   .app-home-link {
@@ -164,7 +164,7 @@ html {
 }
 
 .app-name {
-  color: var(--foundation-ui-textandicon-high);
+  color: $ui-textandicon-high;
   display: flex;
   align-items: center;
 }
@@ -182,14 +182,14 @@ html {
 .navigation__app-icon--dark {
   display: block;
   &.letter-mark {
-    padding-left: var(--size-relaxed-sizing-m);
+    padding-left: $sizing-m;
   }
 }
 
 .theme-light .navigation__app-icon--light {
   display: block;
   &.letter-mark {
-    padding-left: var(--size-relaxed-sizing-m);
+    padding-left: $sizing-m;
   }
 }
 
@@ -204,8 +204,8 @@ html {
 
   .section-header-label {
     @include typography.typography-m-label-medium;
-    padding-left: var(--size-relaxed-spacing-m);
-    color: var(--foundation-ui-textandicon-low);
+    padding-left: $spacing-m;
+    color: $ui-textandicon-low;
     text-align: left;
   }
 }
@@ -214,11 +214,11 @@ html {
   display: flex;
   flex-shrink: 0;
   position: absolute;
-  bottom: var(--size-relaxed-spacing-s);
+  bottom: $spacing-s;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 var(--size-relaxed-spacing-xs) !important;
+  padding: 0 $spacing-xs !important;
 }
 
 .dropdown-icon {
@@ -229,21 +229,19 @@ html {
 
 mat-nav-list {
   flex: 1 1 auto;
-  // padding: 0;
 }
 
 .dropdown-icon.expanded {
   transform: rotate(180deg);
 }
 
-
 .section-label {
   max-width: $section-label-max-width;
 }
 
 .mat-sidenav .mat-divider {
-  margin-top: var(--size-relaxed-spacing-s);
-  margin-bottom: var(--size-relaxed-spacing-s);
+  margin-top: $spacing-s;
+  margin-bottom: $spacing-s;
   &.sidenav-drag-handle {
     position: absolute;
     height: 100%;
@@ -251,7 +249,7 @@ mat-nav-list {
     right: 0;
     bottom: 0;
     margin: 0;
-    padding-left: var(--size-relaxed-sizing-s);
+    padding-left: $sizing-s;
 
     &.enabled {
       cursor: ew-resize;
@@ -259,19 +257,19 @@ mat-nav-list {
       &:hover,
       &:focus,
       &:active {
-        border-right-width: var(--size-relaxed-spacing-2xs);
+        border-right-width: $spacing-2xs;
       }
 
       &:hover {
-        border-color: var(--foundation-interactive-accent-border-hovered);
+        border-color: $interactive-accent-border-hovered;
       }
 
       &:focus {
-        border-color: var(--foundation-interactive-accent-border-selected);
+        border-color: $interactive-accent-border-selected;
       }
 
       &:active {
-        border-color: var(--foundation-interactive-accent-border-enabled);
+        border-color: $interactive-accent-border-enabled;
       }
     }
   }
