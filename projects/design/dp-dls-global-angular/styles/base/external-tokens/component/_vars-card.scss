@@ -1,0 +1,31 @@
+
+// Do not edit directly, this file was auto-generated.
+
+@forward '../global';
+@use '../global' as *;
+
+$component-card-corner-radius: $radius-l;
+$component-card-hovered: $interactive-primary-background-hovered;
+$component-card-focused: $interactive-primary-background-selected;
+$component-card-pressed: $interactive-primary-background-selected;
+$component-card-dragged: $interactive-primary-background-selected;
+$component-card-disabled: $interactive-primary-background-disabled;
+$component-card-flat-medium: $ui-background-medium;
+$component-card-flat-high: $ui-background-high;
+$component-card-glass-borders-color: $ui-glass-specular-border;
+$component-card-glass-borders-stroke: $border-regular-width;
+$component-card-glass-specular: $ui-glass-specular-surface;
+$component-card-glass-medium: $ui-glass-surface-regular;
+$component-card-glass-high: $ui-glass-surface-thick;
+$component-card-padding: $spacing-m;
+$component-card-media-corner-radius: $radius-s;
+$component-cardmedia-padding: $inverted-xs;
+@mixin component-card-glass-border ($direction) {
+  @include utils.border($direction, $component-card-glass-borders-stroke, $border-regular-style, $component-card-glass-borders-color);;
+}
+@mixin component-card-elevation-dragged () {
+  @include elevation-3();
+}
+@mixin component-card-elevation-hovered () {
+  @include elevation-2();
+}

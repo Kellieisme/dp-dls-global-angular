@@ -1,0 +1,166 @@
+
+// Do not edit directly, this file was auto-generated.
+
+@forward '../global';
+@use '../global' as *;
+
+$component-textfield-background: $ui-glass-surface-thick;
+$component-textfield-enabeld-label: $interactive-primary-textandicon-secondary-default;
+$component-textfield-enabeld-icon: $interactive-primary-textandicon-primary-default;
+$component-textfield-enabeld-value: $interactive-primary-textandicon-primary-default;
+$component-textfield-enabeld-prefix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-enabeld-suffix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-enabeld-supporting-text: $interactive-primary-textandicon-secondary-default;
+$component-textfield-hovered-label: $interactive-primary-textandicon-secondary-default;
+$component-textfield-hovered-icon: $interactive-primary-textandicon-primary-default;
+$component-textfield-hovered-value: $interactive-primary-textandicon-primary-default;
+$component-textfield-hovered-prefix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-hovered-suffix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-hovered-supporting-text: $interactive-primary-textandicon-secondary-default;
+$component-textfield-hovered-background: $interactive-primary-background-hovered;
+$component-textfield-hovered-background-glow: $interactive-primary-glow-surface-medium;
+$component-textfield-hovered-border-color: $ui-glass-specular-border;
+$component-textfield-hovered-border-width: $border-regular-width;
+$component-textfield-focused-label: $interactive-accent-textandicon-default;
+$component-textfield-focused-icon: $interactive-primary-textandicon-primary-default;
+$component-textfield-focused-value: $interactive-primary-textandicon-primary-default;
+$component-textfield-focused-prefix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-focused-suffix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-focused-supporting-text: $interactive-primary-textandicon-secondary-default;
+$component-textfield-focused-background: $interactive-primary-background-selected;
+$component-textfield-focused-border-color: $interactive-primary-border-focused;
+$component-textfield-focused-caret: $interactive-accent-textandicon-default;
+$component-textfield-focused-border-width: $border-regular-width;
+$component-textfield-error-label: $semantic-textandicon-error;
+$component-textfield-error-icon: $interactive-primary-textandicon-primary-default;
+$component-textfield-error-value: $interactive-primary-textandicon-primary-default;
+$component-textfield-error-prefix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-error-suffix: $interactive-primary-textandicon-secondary-default;
+$component-textfield-error-supporting-text: $semantic-textandicon-error;
+$component-textfield-error-border-color: $semantic-border-error;
+$component-textfield-error-border-width: $border-regular-width;
+$component-textfield-disabled-label: $interactive-primary-textandicon-disabled;
+$component-textfield-disabled-icon: $interactive-primary-textandicon-disabled;
+$component-textfield-disabled-value: $interactive-primary-textandicon-disabled;
+$component-textfield-disabled-prefix: $interactive-primary-textandicon-disabled;
+$component-textfield-disabled-suffix: $interactive-primary-textandicon-disabled;
+$component-textfield-disabled-supporting-text: $interactive-primary-textandicon-disabled;
+$component-textfield-disabled-background: $interactive-primary-background-disabled;
+$component-textfield-placeholder-textcolor: $interactive-primary-textandicon-disabled;
+$component-textfield-padding-horizontal: $spacing-s;
+$component-textfield-padding-vertical: $spacing-xs;
+$component-textfield-corner-radius: $radius-s;
+$component-textfield-top-label-maxheight: $sizing-s;
+$component-textfield-top-label-padding-top: $spacing-3xs;
+$component-textfield-leading-icon-margin-right: $spacing-xs;
+$component-textfield-leading-icon-size: $icon-md;
+$component-textfield-content-margin-horizontal: $spacing-2xs;
+$component-textfield-content-gap-vertical: $spacing-3xs;
+$component-textfield-content-gap-horizontal: $spacing-2xs; // Defines the spacing between prefix, value and suffix
+$component-textfield-content-minheight: $sizing-2xl;
+$component-textfield-trailing-item-margin-left: $spacing-xs;
+$component-textfield-trailing-item-size: $icon-md;
+$component-textfield-supporting-text-padding-horizontal: $spacing-m;
+$component-textfield-supporting-text-padding-vertical: $spacing-2xs;
+$component-textfield-supporting-text-gap: $spacing-m;
+$component-textfield-minwidth: $sizing-10xl;
+$component-textfield-background-blur: $ui-glass-background-blur;
+$component-textarea-padding-horizontal: $spacing-m;
+$component-textarea-padding-vertical: $spacing-2xs;
+$component-textarea-gap-vertical: $spacing-3xs;
+$component-textarea-top-label-padding-top: $spacing-3xs;
+$component-textarea-top-label-maxheight: $sizing-s;
+$component-textarea-label-only-padding-top: $spacing-xs;
+$component-textarea-background: $ui-glass-surface-thick;
+$component-textarea-enabeld-label: $interactive-primary-textandicon-secondary-default;
+$component-textarea-enabeld-icon: $interactive-primary-textandicon-primary-default;
+$component-textarea-enabeld-value: $interactive-primary-textandicon-primary-default;
+$component-textarea-enabeld-supporting-text: $interactive-primary-textandicon-secondary-default;
+$component-textarea-hovered-label: $interactive-primary-textandicon-secondary-default;
+$component-textarea-hovered-icon: $interactive-primary-textandicon-primary-default;
+$component-textarea-hovered-value: $interactive-primary-textandicon-primary-default;
+$component-textarea-hovered-supporting-text: $interactive-primary-textandicon-secondary-default;
+$component-textarea-hovered-background: $interactive-primary-background-hovered;
+$component-textarea-hovered-background-glow: $interactive-primary-glow-surface-medium;
+$component-textarea-hovered-border-color: $ui-glass-specular-border;
+$component-textarea-hovered-border-width: $border-regular-width;
+$component-textarea-focused-label: $interactive-accent-textandicon-default;
+$component-textarea-focused-icon: $interactive-primary-textandicon-primary-default;
+$component-textarea-focused-value: $interactive-primary-textandicon-primary-default;
+$component-textarea-focused-supporting-text: $interactive-primary-textandicon-secondary-default;
+$component-textarea-focused-background: $interactive-primary-background-selected;
+$component-textarea-focused-border-color: $interactive-primary-border-focused;
+$component-textarea-focused-caret: $interactive-accent-textandicon-default;
+$component-textarea-focused-border-width: $border-regular-width;
+$component-textarea-error-label: $semantic-textandicon-error;
+$component-textarea-error-icon: $interactive-primary-textandicon-primary-default;
+$component-textarea-error-value: $interactive-primary-textandicon-primary-default;
+$component-textarea-error-supporting-text: $semantic-textandicon-error;
+$component-textarea-error-border-color: $semantic-border-error;
+$component-textarea-error-border-width: $border-regular-width;
+$component-textarea-disabled-label: $interactive-primary-textandicon-disabled;
+$component-textarea-disabled-icon: $interactive-primary-textandicon-disabled;
+$component-textarea-disabled-value: $interactive-primary-textandicon-disabled;
+$component-textarea-disabled-supporting-text: $interactive-primary-textandicon-disabled;
+$component-textarea-disabled-background: $interactive-primary-background-disabled;
+$component-textarea-placeholder-textcolor: $interactive-primary-textandicon-disabled;
+$component-textarea-supporting-text-padding-horizontal: $spacing-m;
+$component-textarea-supporting-text-padding-vertical: $spacing-2xs;
+$component-textarea-supporting-text-gap: $spacing-m;
+$component-textarea-corner-radius: $radius-s;
+$component-textarea-background-blur: $ui-glass-background-blur;
+$component-select-content-minheight: $sizing-2xl;
+@mixin component-textfield-hovered-border ($direction) {
+  @include utils.border($direction, $component-textfield-hovered-border-width, $border-regular-style, $component-textfield-hovered-border-color);;
+}
+@mixin component-textfield-focused-border ($direction) {
+  @include utils.border($direction, $component-textfield-focused-border-width, $border-regular-style, $component-textfield-focused-border-color);;
+}
+@mixin component-textfield-error-border ($direction) {
+  @include utils.border($direction, $component-textfield-error-border-width, $border-regular-style, $component-textfield-error-border-color);;
+}
+@mixin component-textfield-placeholder-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textfield-label-top () {
+  @include typography.typography-label-lowest2();
+}
+@mixin component-textfield-label-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textfield-value-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textfield-messages-content () {
+  @include typography.typography-label-low();
+}
+@mixin component-textfield-prefix-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textfield-suffix-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textarea-hovered-border ($direction) {
+  @include utils.border($direction, $component-textarea-hovered-border-width, $border-regular-style, $component-textarea-hovered-border-color);;
+}
+@mixin component-textarea-focused-border ($direction) {
+  @include utils.border($direction, $component-textarea-focused-border-width, $border-regular-style, $component-textarea-focused-border-color);;
+}
+@mixin component-textarea-error-border ($direction) {
+  @include utils.border($direction, $component-textarea-error-border-width, $border-regular-style, $component-textarea-error-border-color);;
+}
+@mixin component-textarea-placeholder-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textarea-label-top () {
+  @include typography.typography-label-lowest2();
+}
+@mixin component-textarea-label-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textarea-value-content () {
+  @include typography.typography-label-medium();
+}
+@mixin component-textarea-messages-content () {
+  @include typography.typography-label-low();
+}

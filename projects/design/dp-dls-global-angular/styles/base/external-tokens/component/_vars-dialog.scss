@@ -1,0 +1,33 @@
+
+// Do not edit directly, this file was auto-generated.
+
+@forward '../global';
+@use '../global' as *;
+
+$component-dialog-padding: $spacing-xl;
+$component-dialog-gap: $spacing-xl;
+$component-dialog-corner-radius: $radius-l;
+$component-dialog-portrait-header-gap: $spacing-xs;
+$component-dialog-portrait-actions-gap: $spacing-s;
+$component-dialog-portrait-min-width: 280px;
+$component-dialog-portrait-max-width: 560px;
+$component-dialog-portrait-dismiss-height: $icon-md;
+$component-dialog-portrait-dismiss-width: $sizing-none;
+$component-dialog-portrait-dismiss-padding-right: $spacing-s;
+$component-dialog-landscape-header-gap: $spacing-m;
+$component-dialog-landscape-actions-gap: $spacing-xs;
+$component-dialog-landscape-min-width: 260px;
+$component-dialog-landscape-max-width: 560px;
+$component-dialog-landscape-dismiss-right: $spacing-2xs;
+$component-dialog-landscape-dismiss-top: $spacing-2xs;
+$component-dialog-header-textandicon: $ui-textandicon-high;
+$component-dialog-header-icon-size: $icon-md;
+$component-dialog-content-gap: $spacing-m;
+$component-dialog-content-textandicon: $ui-textandicon-medium;
+$component-dialog-background: $ui-background-high;
+@mixin component-dialog-header-textstyle () {
+  @include typography.typography-title-medium();
+}
+@mixin component-dialog-content-textstyle () {
+  @include typography.typography-body-low-default();
+}

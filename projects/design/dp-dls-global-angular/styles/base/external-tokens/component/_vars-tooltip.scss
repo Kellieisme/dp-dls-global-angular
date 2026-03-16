@@ -1,0 +1,25 @@
+
+// Do not edit directly, this file was auto-generated.
+
+@forward '../global';
+@use '../global' as *;
+
+$component-tooltip-title-textcolor: $ui-textandicon-high;
+$component-tooltip-description-textcolor: $ui-textandicon-medium;
+$component-tooltip-background-color: $ui-glass-surface-thick;
+$component-tooltip-background-effect: $ui-glass-background-blur;
+$component-tooltip-padding-horizontal: $spacing-xs;
+$component-tooltip-padding-vertical: $spacing-2xs;
+$component-tooltip-corner-radius: $radius-xs;
+$component-tooltip-width-min: $sizing-3xl;
+$component-tooltip-width-max: 496px;
+$component-tooltip-height-min: $sizing-xl;
+@mixin component-tooltip-title-textstyle () {
+  @include typography.typography-label-lowest2();
+}
+@mixin component-tooltip-description-textstyle () {
+  @include typography.typography-label-lowest2();
+}
+@mixin component-tooltip-elevation () {
+  @include elevation-2();
+}
