@@ -13,12 +13,12 @@
 
 .mat-mdc-standard-chip {
 	&.avatar-chip {
-		--mat-chip-container-shape-radius: var(--radius-full);
+		--mat-chip-container-shape-radius: var(--foundation-radius-full);
 		// Avatar chips need to accommodate the 32px avatar:
-		--mat-chip-container-height: var(--sizing-2xl-fixed);
+		--mat-chip-container-height: var(--foundation-sizing-2xl-fixed);
 
 		.mdc-evolution-chip__action {
-			padding-left: var(--spacing-2xs);
+			padding-left: var(--foundation-spacing-2xs);
 		}
 	}
 
@@ -63,7 +63,7 @@
 .mdc-evolution-chip__text-label {
 	display: flex;
 	align-items: center;
-	gap: var(--spacing-xs);
+	gap: var(--foundation-spacing-xs);
 }
 
 html,
@@ -71,8 +71,8 @@ html .theme-light,
 html .theme-dark {
 	.mat-mdc-standard-chip {
 		// Shape and borders
-		--mat-chip-container-shape-radius: var(--radius-s);
-		--mat-chip-outline-width: var(--border-regular-width, 1px);
+		--mat-chip-container-shape-radius: var(--foundation-radius-s);
+		--mat-chip-outline-width: var(--foundation-border-regular-width, 1px);
 		--mat-chip-outline-color: var(--interactive-primary-border-enabled);
 		--mat-chip-disabled-outline-color: var(--interactive-primary-border-disabled);
 		--mat-chip-focus-outline-color: var(--interactive-primary-border-focused);
@@ -80,9 +80,9 @@ html .theme-dark {
 		// Chip height should be consistent regardless of density
 		// Only the form field container adjusts for density
 		--mat-chip-container-height: 32px;
-		--mat-chip-leading-icon-size: var(--sizing-l);
-		--mat-chip-trailing-icon-size: var(--sizing-l);
-		--mat-chip-with-avatar-leading-icon-size: var(--sizing-3xl);
+		--mat-chip-leading-icon-size: var(--foundation-sizing-l);
+		--mat-chip-trailing-icon-size: var(--foundation-sizing-l);
+		--mat-chip-with-avatar-leading-icon-size: var(--foundation-sizing-3xl);
 		
 		// Container colors
 		--mat-chip-elevated-container-color: transparent;

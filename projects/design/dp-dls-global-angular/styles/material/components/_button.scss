@@ -324,7 +324,7 @@ button[mat-flat-button],
 [mat-stroked-button]>.mat-icon {
   font-size: inherit !important;
   position: relative;
-  top: var(--spacing-3xs);
+  top: var(--foundation-spacing-3xs);
 }
 
 // ===========================
@@ -332,10 +332,10 @@ button[mat-flat-button],
 // ===========================
 
 :root {
-  --mat-button-text-container-shape: var(--radius-full);
-  --mat-button-filled-container-shape: var(--radius-full);
-  --mat-button-protected-container-shape: var(--radius-full);
-  --mat-button-outlined-container-shape: var(--radius-full);
+  --mat-button-text-container-shape: var(--foundation-radius-full);
+  --mat-button-filled-container-shape: var(--foundation-radius-full);
+  --mat-button-protected-container-shape: var(--foundation-radius-full);
+  --mat-button-outlined-container-shape: var(--foundation-radius-full);
   --mat-button-text-container-height: var(--base-dimension-dynamic-s09);
   --mat-button-filled-container-height: var(--base-dimension-dynamic-s09);
   --mat-button-outlined-container-height: var(--base-dimension-dynamic-s09);

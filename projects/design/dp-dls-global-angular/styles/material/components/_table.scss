@@ -26,14 +26,14 @@
     }
 
     border-spacing: 0;
-    border-radius: var(--radius-l);
+    border-radius: var(--foundation-radius-l);
 
     .mdc-data-table__cell,
     .mdc-data-table__header-cell {
-      padding: 0 var(--spacing-xs) 0 var(--spacing-xs);
+      padding: 0 var(--foundation-spacing-xs) 0 var(--foundation-spacing-xs);
 
       &:first-child {
-        padding-left: var(--spacing-m);
+        padding-left: var(--foundation-spacing-m);
       }
     }
 
@@ -47,19 +47,19 @@
     }
 
     th:first-of-type {
-      border-top-left-radius: var(--radius-l);
+      border-top-left-radius: var(--foundation-radius-l);
     }
 
     th:last-of-type {
-      border-top-right-radius: var(--radius-l);
+      border-top-right-radius: var(--foundation-radius-l);
     }
 
     tr:last-of-type td:first-of-type {
-      border-bottom-left-radius: var(--radius-l);
+      border-bottom-left-radius: var(--foundation-radius-l);
     }
 
     tr:last-of-type td:last-of-type {
-      border-bottom-right-radius: var(--radius-l);
+      border-bottom-right-radius: var(--foundation-radius-l);
     }
 
     .mdc-data-table__row:last-child {
@@ -97,15 +97,15 @@ html .theme-dark {
   &.theme-relaxed,
   .theme-relaxed,
   &:not(.theme-condensed):not(.theme-condensed *) {
-    --mat-table-header-container-height: var(--spacing-5xl);
-    --mat-table-footer-container-height: var(--spacing-4xl);
-    --mat-table-row-item-container-height: var(--spacing-4xl);
+    --mat-table-header-container-height: var(--foundation-spacing-5xl);
+    --mat-table-footer-container-height: var(--foundation-spacing-4xl);
+    --mat-table-row-item-container-height: var(--foundation-spacing-4xl);
   }
 
   &.theme-condensed,
   .theme-condensed {
-    --mat-table-header-container-height: var(--spacing-4xl);
-    --mat-table-footer-container-height: var(--spacing-3xl);
-    --mat-table-row-item-container-height: var(--spacing-3xl);
+    --mat-table-header-container-height: var(--foundation-spacing-4xl);
+    --mat-table-footer-container-height: var(--foundation-spacing-3xl);
+    --mat-table-row-item-container-height: var(--foundation-spacing-3xl);
   }
 }

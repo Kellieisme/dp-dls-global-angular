@@ -79,8 +79,8 @@ $composition-dark-ui-glass-border-specular-menu: rgba(255, 255, 255, 0.17);
       flex-shrink: 0;
       margin-right: var(--size-spacing-s);
       display: inline-block;
-      width: var(--sizing-4xl-fixed);
-      height: var(--sizing-4xl-fixed);
+      width: var(--foundation-sizing-4xl-fixed);
+      height: var(--foundation-sizing-4xl-fixed);
     }
 
     .user-info {
@@ -89,7 +89,7 @@ $composition-dark-ui-glass-border-specular-menu: rgba(255, 255, 255, 0.17);
       justify-content: center;
 
       .user-name {
-        font-size: var(--icon-xs, 18px);
+        font-size: var(--foundation-icon-xs, 18px);
         font-weight: var(--content-base-font-weight-medium);
       }
 

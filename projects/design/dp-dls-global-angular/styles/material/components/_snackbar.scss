@@ -16,12 +16,12 @@
   height: var(--base-dimension-dynamic-s09);
   
   .mdc-snackbar__label {
-    padding: var(--spacing-xs) var(--spacing-s) var(--spacing-xs) var(--spacing-m);
+    padding: var(--foundation-spacing-xs) var(--foundation-spacing-s) var(--foundation-spacing-xs) var(--foundation-spacing-m);
   }
 }
 
 .mdc-snackbar__surface {
-  padding: var(--spacing-none);
+  padding: var(--foundation-spacing-none);
 }
 
 .ba-snackbar__content {
@@ -32,7 +32,7 @@
 
 .ba-snackbar__message {
   white-space: pre-line;
-  padding-right: var(--spacing-m);
+  padding-right: var(--foundation-spacing-m);
 }
 
 .ba-snackbar__actions {
@@ -44,7 +44,7 @@
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-snackbar-container-shape: var(--radius-xs);
+  --mat-snackbar-container-shape: var(--foundation-radius-xs);
   --mat-snackbar-container-color: var(--ui-glass-surface-thickest);
   --mat-snackbar-supporting-text-color: var(--ui-textandicon-high);
   --mat-snack-bar-button-color: var(--interactive-accent-textandicon-default);
