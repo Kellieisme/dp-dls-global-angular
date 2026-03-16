@@ -26,11 +26,11 @@
 .mat-card-wrapper {
   display: block;
   height: 100%;
-  background-color: var(--foundation-ui-background-high);
+  background-color: var(--ui-background-high);
   text-decoration: none;
 
   &.mat-card-wrapper--outlined {
-    background-color: var(--foundation-ui-glass-surface-thick);
+    background-color: var(--ui-glass-surface-thick);
     @include composition.composition-dark-ui-glass-background-blur;
     .theme-light & {
       @include composition.composition-light-ui-glass-background-blur;
@@ -39,10 +39,10 @@
     &:hover {
       .mat-mdc-card-outlined {
         @include composition.composition-dark-ui-glass-surface-specular;
-        background-color: var(--foundation-interactive-primary-background-hovered);
+        background-color: var(--interactive-primary-background-hovered);
         .theme-light & {
           @include composition.composition-light-ui-glass-surface-specular;
-          background-color: var(--foundation-interactive-primary-background-hovered);
+          background-color: var(--interactive-primary-background-hovered);
         }
       }
     }
@@ -52,21 +52,21 @@
     &.mat-card-wrapper--dragged {
       .mat-mdc-card-outlined {
         @include composition.composition-dark-ui-glass-surface-specular;
-        background-color: var(--foundation-interactive-primary-background-selected);
+        background-color: var(--interactive-primary-background-selected);
         .theme-light & {
           @include composition.composition-light-ui-glass-surface-specular;
-          background-color: var(--foundation-interactive-primary-background-selected);
+          background-color: var(--interactive-primary-background-selected);
         }
       }
     }
 
     &.mat-card-wrapper--disabled {
       @include composition.composition-dark-ui-glass-surface-specular;
-      background-color: var(--foundation-interactive-primary-background-disabled);
+      background-color: var(--interactive-primary-background-disabled);
 
       .theme-light & {
         @include composition.composition-light-ui-glass-surface-specular;
-        background-color: var(--foundation-interactive-primary-background-disabled);
+        background-color: var(--interactive-primary-background-disabled);
       }
     }
   }
@@ -74,16 +74,16 @@
   border-radius: var(--size-radius-l);
 
   &:hover {
-    --mat-card-elevated-container-color: var(--foundation-interactive-primary-background-hovered);
-    --mat-card-outlined-container-color: var(--foundation-interactive-primary-background-hovered);
+    --mat-card-elevated-container-color: var(--interactive-primary-background-hovered);
+    --mat-card-outlined-container-color: var(--interactive-primary-background-hovered);
     box-shadow: var(--box-shadow-elevation-2);
   }
 
   &:focus,
   &:active,
   &.mat-card-wrapper--dragged {
-    --mat-card-elevated-container-color: var(--foundation-interactive-primary-background-selected);
-    --mat-card-outlined-container-color: var(--foundation-interactive-primary-background-selected);
+    --mat-card-elevated-container-color: var(--interactive-primary-background-selected);
+    --mat-card-outlined-container-color: var(--interactive-primary-background-selected);
   }
 
   &:focus,
@@ -100,8 +100,8 @@
   }
 
   &.mat-card-wrapper--disabled {
-    --mat-card-elevated-container-color: var(--foundation-interactive-primary-background-disabled);
-    --mat-card-outlined-container-color: var(--foundation-interactive-primary-background-disabled);
+    --mat-card-elevated-container-color: var(--interactive-primary-background-disabled);
+    --mat-card-outlined-container-color: var(--interactive-primary-background-disabled);
   }
 }
 
@@ -215,60 +215,60 @@ mat-card-content {
     // Default typography for paragraph content
     p {
       @include typography.typography-xl-body-low-default; 
-      color: var(--foundation-ui-textandicon-medium);
+      color: var(--ui-textandicon-medium);
     }
 
     // Support for different typography styles via classes
     .body-high {
       @include typography.typography-xl-body-high-default;
-      color: var(--foundation-ui-textandicon-high);
+      color: var(--ui-textandicon-high);
     }
 
     .body-medium {
       @include typography.typography-xl-body-medium-default;
-      color: var(--foundation-ui-textandicon-medium);
+      color: var(--ui-textandicon-medium);
     }
 
     .body-low {
       @include typography.typography-xl-body-low-default;
-      color: var(--foundation-ui-textandicon-medium);
+      color: var(--ui-textandicon-medium);
     }
 
     .body-lowest {
       @include typography.typography-xl-body-lowest-default;
-      color: var(--foundation-ui-textandicon-low);
+      color: var(--ui-textandicon-low);
     }
 
     // Title styles for card content sections
     .title-high {
       @include typography.typography-xl-title-high;
-      color: var(--foundation-ui-textandicon-high);
+      color: var(--ui-textandicon-high);
     }
 
     .title-medium {
       @include typography.typography-xl-title-medium;
-      color: var(--foundation-ui-textandicon-high);
+      color: var(--ui-textandicon-high);
     }
 
     .title-low {
       @include typography.typography-xl-title-low;
-      color: var(--foundation-ui-textandicon-medium);
+      color: var(--ui-textandicon-medium);
     }
 
     // Label styles for metadata or secondary info
     .label-high {
       @include typography.typography-xl-label-high;
-      color: var(--foundation-ui-textandicon-medium);
+      color: var(--ui-textandicon-medium);
     }
 
     .label-medium {
       @include typography.typography-xl-label-medium;
-      color: var(--foundation-ui-textandicon-medium);
+      color: var(--ui-textandicon-medium);
     }
 
     .label-low {
       @include typography.typography-xl-label-low;
-      color: var(--foundation-ui-textandicon-low);
+      color: var(--ui-textandicon-low);
     }
   }
 }
@@ -283,12 +283,12 @@ mat-card-actions {
 }
 
 .mat-mdc-card-title {
-  color: var(--foundation-ui-textandicon-high);
+  color: var(--ui-textandicon-high);
 }
 
 .mat-mdc-card-subtitle {
   text-transform: uppercase;
-  color: var(--foundation-ui-textandicon-medium);
+  color: var(--ui-textandicon-medium);
 }
 
 .mat-mdc-card-image,
@@ -304,10 +304,10 @@ mat-card-actions {
 
 a {
   .mat-mdc-card-content {
-    color: var(--foundation-ui-textandicon-high);
+    color: var(--ui-textandicon-high);
 
     p {
-      color: var(--foundation-ui-textandicon-medium);
+      color: var(--ui-textandicon-medium);
     }
   }
 }
@@ -325,16 +325,16 @@ html .theme-dark {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-card-outlined-outline-color: var(--foundation-gradient-glass-specular-border-89);
+  --mat-card-outlined-outline-color: var(--gradient-glass-specular-border-89);
   .theme-light {
-    --mat-card-outlined-outline-color: var(--foundation-gradient-glass-specular-border-89);
+    --mat-card-outlined-outline-color: var(--gradient-glass-specular-border-89);
   }
 }
 
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-card-elevated-container-color: var(--foundation-ui-background-high);
-  --mat-card-outlined-container-color: var(--foundation-ui-background-high);
-  --mat-card-subtitle-text-color: var(--foundation-ui-textandicon-medium);
+  --mat-card-elevated-container-color: var(--ui-background-high);
+  --mat-card-outlined-container-color: var(--ui-background-high);
+  --mat-card-subtitle-text-color: var(--ui-textandicon-medium);
 }

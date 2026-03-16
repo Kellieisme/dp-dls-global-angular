@@ -13,9 +13,9 @@ html,
 html .theme-light,
 html .theme-dark {
   --mat-sidenav-container-shape: 0;
-  --mat-sidenav-container-background-color: var(--foundation-ui-glass-surface-thinnest);
-  --mat-sidenav-scrim-color: var(--foundation-ui-background-low);
-  --mat-sidenav-container-text-color: var(--foundation-ui-textandicon-high);
-  --mat-sidenav-container-divider-color: var(--foundation-ui-divider-flat-high);
-  --mat-sidenav-content-background-color: var(--foundation-ui-background-medium);
+  --mat-sidenav-container-background-color: var(--ui-glass-surface-thinnest);
+  --mat-sidenav-scrim-color: var(--ui-background-low);
+  --mat-sidenav-container-text-color: var(--ui-textandicon-high);
+  --mat-sidenav-container-divider-color: var(--ui-divider-flat-high);
+  --mat-sidenav-content-background-color: var(--ui-background-medium);
 }

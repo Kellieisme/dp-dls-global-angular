@@ -131,14 +131,14 @@ html {
 html, body { height: 100%; }
 
 body {
-  background-color: var(--foundation-ui-background-page);
-  color: var(--foundation-ui-textandicon-high);
+  background-color: var(--ui-background-page);
+  color: var(--ui-textandicon-high);
   font-family: 'Boeing Meso', sans-serif;
-  font-size: var(--foundation-font-size-base);
+  font-size: 14px;
   margin: 0;
 }
 
-h1 { color: var(--foundation-ui-textandicon-medium); }
+h1 { color: var(--ui-textandicon-medium); }
 
 // Density-aware line-height adjustments
 // Apply tighter line-height in condensed mode for better vertical spacing

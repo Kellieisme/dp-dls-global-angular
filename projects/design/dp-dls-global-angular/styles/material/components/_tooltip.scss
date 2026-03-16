@@ -14,8 +14,8 @@
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-tooltip-container-color: var(--foundation-ui-glass-surface-thick);
-  --mat-tooltip-supporting-text-color: var(--foundation-ui-textandicon-medium);
+  --mat-tooltip-container-color: var(--ui-glass-surface-thick);
+  --mat-tooltip-supporting-text-color: var(--ui-textandicon-medium);
 
   .mdc-tooltip__surface {
     white-space: pre-line;

@@ -17,21 +17,21 @@
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-progress-bar-active-indicator-color: var(--foundation-semantic-background-info-filled); //info is by default when no class is selected
+  --mat-progress-bar-active-indicator-color: var(--semantic-background-info-filled); //info is by default when no class is selected
 
   .progress-error {
-    --mat-progress-bar-active-indicator-color: var(--foundation-semantic-background-error-filled);
+    --mat-progress-bar-active-indicator-color: var(--semantic-background-error-filled);
   }
   
   .progress-warning {
-    --mat-progress-bar-active-indicator-color: var(--foundation-semantic-background-warning-filled);
+    --mat-progress-bar-active-indicator-color: var(--semantic-background-warning-filled);
   }
   
   .progress-success {
-    --mat-progress-bar-active-indicator-color: var(--foundation-semantic-background-success-filled);
+    --mat-progress-bar-active-indicator-color: var(--semantic-background-success-filled);
   }
 
   .progress-info {
-    --mat-progress-bar-active-indicator-color: var(--foundation-semantic-background-info-filled);
+    --mat-progress-bar-active-indicator-color: var(--semantic-background-info-filled);
   }
 }

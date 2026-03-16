@@ -5,7 +5,7 @@ mat-slide-toggle:not(.mat-warn) {
   .mdc-switch--checked:not(.mdc-switch--disabled) {
     .mdc-switch__track::after,
     .mdc-switch__track::before {
-      border-color: var(--foundation-interactive-accent-background-enabled-filled);
+      border-color: var(--interactive-accent-background-enabled-filled);
     }
   }
 }
@@ -13,7 +13,7 @@ mat-slide-toggle:not(.mat-warn) {
 .mdc-switch--disabled.mdc-switch--checked {
   .mdc-switch__track::after,
   .mdc-switch__track::before {
-    border-color: var(--foundation-interactive-primary-border-disabled);
+    border-color: var(--interactive-primary-border-disabled);
   }
 }
 
@@ -40,44 +40,44 @@ html .theme-dark {
   --mat-slide-toggle-track-outline-width: var(--size-border-width-s);
   --mat-slide-toggle-selected-track-outline-width: var(--size-sizing-3xs);
   --mat-slide-toggle-disabled-unselected-track-outline-width: var(--size-border-width-s);
-  --mat-slide-toggle-track-outline-color: var(--foundation-interactive-primary-textandicon-secondary-default);
+  --mat-slide-toggle-track-outline-color: var(--interactive-primary-textandicon-secondary-default);
   
-  --mat-slide-toggle-label-text-color: var(--foundation-ui-textandicon-medium);
-  --mat-slide-toggle-selected-focus-state-layer-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-hover-state-layer-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-pressed-state-layer-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-focus-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-hover-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-pressed-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-focus-track-color: var(--foundation-interactive-accent-background-enabled-filled);
-  --mat-slide-toggle-selected-hover-track-color: var(--foundation-interactive-accent-background-enabled-filled);
-  --mat-slide-toggle-selected-pressed-track-color: var(--foundation-interactive-accent-background-enabled-filled);
-  --mat-slide-toggle-selected-track-color: var(--foundation-interactive-accent-background-enabled-filled);
-  --mat-slide-toggle-selected-icon-color: var(--foundation-interactive-accent-textandicon-selected);
+  --mat-slide-toggle-label-text-color: var(--ui-textandicon-medium);
+  --mat-slide-toggle-selected-focus-state-layer-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-hover-state-layer-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-pressed-state-layer-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-focus-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-hover-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-pressed-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-focus-track-color: var(--interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-hover-track-color: var(--interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-pressed-track-color: var(--interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-track-color: var(--interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-icon-color: var(--interactive-accent-textandicon-selected);
 
-  --mat-slide-toggle-disabled-selected-handle-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-slide-toggle-disabled-selected-icon-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-disabled-selected-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-slide-toggle-unselected-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-disabled-unselected-icon-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-disabled-unselected-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-slide-toggle-handle-surface-color: var(--foundation-interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-disabled-selected-handle-color: var(--interactive-primary-textandicon-disabled);
+  --mat-slide-toggle-disabled-selected-icon-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-disabled-selected-track-color: var(--interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-unselected-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-disabled-unselected-icon-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-disabled-unselected-track-color: var(--interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-handle-surface-color: var(--interactive-primary-textandicon-inverse);
   
-  --mat-slide-toggle-unselected-focus-handle-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-slide-toggle-unselected-focus-state-layer-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-slide-toggle-unselected-focus-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-slide-toggle-unselected-handle-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-slide-toggle-unselected-hover-handle-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-slide-toggle-unselected-hover-state-layer-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-slide-toggle-unselected-hover-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-slide-toggle-unselected-icon-color: var(--foundation-ui-background-medium);
-  --mat-slide-toggle-unselected-pressed-handle-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-slide-toggle-unselected-pressed-state-layer-color: var(--foundation-ui-background-medium);
-  --mat-slide-toggle-unselected-pressed-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-slide-toggle-unselected-track-color: var(--foundation-interactive-primary-background-enabled-tonal);
-  --mat-slide-toggle-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-slide-toggle-disabled-unselected-track-outline-color: var(--foundation-interactive-primary-border-disabled);
+  --mat-slide-toggle-unselected-focus-handle-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-slide-toggle-unselected-focus-state-layer-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-slide-toggle-unselected-focus-track-color: var(--interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-unselected-handle-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-slide-toggle-unselected-hover-handle-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-slide-toggle-unselected-hover-state-layer-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-slide-toggle-unselected-hover-track-color: var(--interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-unselected-icon-color: var(--ui-background-medium);
+  --mat-slide-toggle-unselected-pressed-handle-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-slide-toggle-unselected-pressed-state-layer-color: var(--ui-background-medium);
+  --mat-slide-toggle-unselected-pressed-track-color: var(--interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-unselected-track-color: var(--interactive-primary-background-enabled-tonal);
+  --mat-slide-toggle-disabled-label-text-color: var(--interactive-primary-textandicon-disabled);
+  --mat-slide-toggle-disabled-unselected-track-outline-color: var(--interactive-primary-border-disabled);
 }
 
 // Density-aware horizontal margins
@@ -103,7 +103,7 @@ body.theme-condensed {
   .mdc-switch:not(.mdc-switch--selected) {
     .mdc-switch__track::before,
     .mdc-switch__track::after {
-      border-color: var(--foundation-interactive-primary-textandicon-secondary-default) !important;
+      border-color: var(--interactive-primary-textandicon-secondary-default) !important;
       border-width: var(--size-border-width-s) !important;
     }
   }
@@ -111,45 +111,45 @@ body.theme-condensed {
 
 html .mat-mdc-slide-toggle,
 html .theme-light .mat-mdc-slide-toggle {
-  --mat-form-field-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-form-field-label-text-color: var(--interactive-primary-textandicon-primary-default);
 }
 
 html .mat-mdc-slide-toggle.mat-accent {
-  --mat-slide-toggle-selected-focus-state-layer-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-hover-state-layer-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-pressed-state-layer-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-focus-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-hover-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-pressed-handle-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-slide-toggle-selected-focus-track-color: var(--foundation-interactive-accent-background-enabled-filled);
-  --mat-slide-toggle-selected-hover-track-color: var(--foundation-interactive-accent-background-enabled-filled);
-  --mat-slide-toggle-selected-pressed-track-color: var(--foundation-interactive-accent-background-enabled-filled);
-  --mat-slide-toggle-selected-track-color: var(--foundation-interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-focus-state-layer-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-hover-state-layer-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-pressed-state-layer-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-focus-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-hover-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-pressed-handle-color: var(--interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-selected-focus-track-color: var(--interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-hover-track-color: var(--interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-pressed-track-color: var(--interactive-accent-background-enabled-filled);
+  --mat-slide-toggle-selected-track-color: var(--interactive-accent-background-enabled-filled);
 }
 
 html .mat-mdc-slide-toggle.mat-warn {
-  --mat-slide-toggle-handle-surface-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-selected-track-color: var(--foundation-semantic-border-error);
-  --mat-slide-toggle-selected-track-outline-color: var(--foundation-semantic-border-error);
-  --mat-slide-toggle-selected-icon-color: var(--foundation-interactive-primary-textandicon-selected);
-  --mat-slide-toggle-selected-focus-state-layer-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-selected-handle-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-selected-hover-state-layer-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-selected-pressed-state-layer-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-disabled-selected-handle-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-slide-toggle-selected-focus-handle-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-selected-hover-handle-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-selected-pressed-handle-color: var(--foundation-semantic-background-error-filled);
-  --mat-slide-toggle-selected-focus-track-color: var(--foundation-semantic-border-error);
-  --mat-slide-toggle-selected-hover-track-color: var(--foundation-semantic-border-error);
-  --mat-slide-toggle-selected-pressed-track-color: var(--foundation-semantic-border-error);
-  --mat-slide-toggle-selected-track-color: var(--foundation-semantic-border-error);
-  --mat-slide-toggle-selected-icon-color: var(--foundation-interactive-primary-textandicon-inverse);
+  --mat-slide-toggle-handle-surface-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-selected-track-color: var(--semantic-border-error);
+  --mat-slide-toggle-selected-track-outline-color: var(--semantic-border-error);
+  --mat-slide-toggle-selected-icon-color: var(--interactive-primary-textandicon-selected);
+  --mat-slide-toggle-selected-focus-state-layer-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-selected-handle-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-selected-hover-state-layer-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-selected-pressed-state-layer-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-disabled-selected-handle-color: var(--interactive-primary-textandicon-disabled);
+  --mat-slide-toggle-selected-focus-handle-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-selected-hover-handle-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-selected-pressed-handle-color: var(--semantic-background-error-filled);
+  --mat-slide-toggle-selected-focus-track-color: var(--semantic-border-error);
+  --mat-slide-toggle-selected-hover-track-color: var(--semantic-border-error);
+  --mat-slide-toggle-selected-pressed-track-color: var(--semantic-border-error);
+  --mat-slide-toggle-selected-track-color: var(--semantic-border-error);
+  --mat-slide-toggle-selected-icon-color: var(--interactive-primary-textandicon-inverse);
 
   .mdc-switch--disabled {
     .mdc-switch__handle::before {
-      background: var(--foundation-interactive-primary-textandicon-disabled);
+      background: var(--interactive-primary-textandicon-disabled);
     }
   }
 

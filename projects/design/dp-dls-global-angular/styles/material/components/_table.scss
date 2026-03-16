@@ -26,40 +26,40 @@
     }
 
     border-spacing: 0;
-    border-radius: var(--foundation-radius-l);
+    border-radius: var(--radius-l);
 
     .mdc-data-table__cell,
     .mdc-data-table__header-cell {
-      padding: 0 var(--foundation-spacing-xs) 0 var(--foundation-spacing-xs);
+      padding: 0 var(--spacing-xs) 0 var(--spacing-xs);
 
       &:first-child {
-        padding-left: var(--foundation-spacing-m);
+        padding-left: var(--spacing-m);
       }
     }
 
     th,
     .mat-mdc-header-cell {
-      background-color: var(--mat-table-header-background, var(--foundation-ui-background-high));
+      background-color: var(--mat-table-header-background, var(--ui-background-high));
     }
 
     td {
-      background-color: var(--mat-table-row-background, var(--foundation-ui-background-medium));
+      background-color: var(--mat-table-row-background, var(--ui-background-medium));
     }
 
     th:first-of-type {
-      border-top-left-radius: var(--foundation-radius-l);
+      border-top-left-radius: var(--radius-l);
     }
 
     th:last-of-type {
-      border-top-right-radius: var(--foundation-radius-l);
+      border-top-right-radius: var(--radius-l);
     }
 
     tr:last-of-type td:first-of-type {
-      border-bottom-left-radius: var(--foundation-radius-l);
+      border-bottom-left-radius: var(--radius-l);
     }
 
     tr:last-of-type td:last-of-type {
-      border-bottom-right-radius: var(--foundation-radius-l);
+      border-bottom-right-radius: var(--radius-l);
     }
 
     .mdc-data-table__row:last-child {
@@ -76,18 +76,18 @@ html,
 html .theme-light,
 html .theme-dark {
   --mat-table-background-color: transparent;
-  --mat-table-row-item-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-table-row-item-outline-color: var(--foundation-ui-divider-flat-high);
+  --mat-table-row-item-label-text-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-table-row-item-outline-color: var(--ui-divider-flat-high);
 }
 
 html .theme-light {
-  --mat-table-header-background: var(--foundation-ui-background-low);
-  --mat-table-row-background: var(--foundation-ui-background-medium);
+  --mat-table-header-background: var(--ui-background-low);
+  --mat-table-row-background: var(--ui-background-medium);
 }
 
 html .theme-dark {
-  --mat-table-header-background: var(--foundation-ui-background-high);
-  --mat-table-row-background: var(--foundation-ui-background-medium);
+  --mat-table-header-background: var(--ui-background-high);
+  --mat-table-row-background: var(--ui-background-medium);
 }
 
 // Density-aware sizing using design tokens
@@ -97,15 +97,15 @@ html .theme-dark {
   &.theme-relaxed,
   .theme-relaxed,
   &:not(.theme-condensed):not(.theme-condensed *) {
-    --mat-table-header-container-height: var(--foundation-spacing-5xl);
-    --mat-table-footer-container-height: var(--foundation-spacing-4xl);
-    --mat-table-row-item-container-height: var(--foundation-spacing-4xl);
+    --mat-table-header-container-height: var(--spacing-5xl);
+    --mat-table-footer-container-height: var(--spacing-4xl);
+    --mat-table-row-item-container-height: var(--spacing-4xl);
   }
 
   &.theme-condensed,
   .theme-condensed {
-    --mat-table-header-container-height: var(--foundation-spacing-4xl);
-    --mat-table-footer-container-height: var(--foundation-spacing-3xl);
-    --mat-table-row-item-container-height: var(--foundation-spacing-3xl);
+    --mat-table-header-container-height: var(--spacing-4xl);
+    --mat-table-footer-container-height: var(--spacing-3xl);
+    --mat-table-row-item-container-height: var(--spacing-3xl);
   }
 }

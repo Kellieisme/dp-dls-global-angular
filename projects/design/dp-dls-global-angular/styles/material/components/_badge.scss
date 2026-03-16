@@ -10,6 +10,6 @@
 
 // Badge color overrides using semantic error tokens
 .mat-badge-content {
-  background-color: var(--foundation-semantic-background-error-filled) !important;
-  color: var(--foundation-interactive-primary-textandicon-inverse) !important;
+  background-color: var(--semantic-background-error-filled) !important;
+  color: var(--interactive-primary-textandicon-inverse) !important;
 }

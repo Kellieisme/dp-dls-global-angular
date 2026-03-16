@@ -12,14 +12,14 @@
 mat-divider {
   &.mat-divider {
     &.specular {
-      border-top-color: var(--foundation-ui-glass-divider-specular-44);
-      border-right-color: var(--foundation-ui-glass-divider-specular-44);
+      border-top-color: var(--ui-glass-divider-specular-44);
+      border-right-color: var(--ui-glass-divider-specular-44);
     }
 
     &.mat-divider-inset {
       margin-left: var(--size-spacing-m);
       margin-right: var(--size-spacing-none);
-      border-top-color: var(--foundation-ui-divider-flat-low);
+      border-top-color: var(--ui-divider-flat-low);
 
       &.middle-inset {
         margin-left: var(--size-spacing-m);
@@ -32,6 +32,6 @@ mat-divider {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-divider-color: var(--foundation-ui-divider-flat-high);
+  --mat-divider-color: var(--ui-divider-flat-high);
   --mat-divider-width: 1px;
 }
