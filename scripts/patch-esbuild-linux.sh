@@ -41,3 +41,24 @@ if [ ! -e "$ESBUILD_PKG/linux-arm64" ]; then
 else
   echo "[patch-esbuild] $ESBUILD_PKG/linux-arm64 already exists, skipping"
 fi
+
+# 3. Create @rollup/rollup-linux-arm64-gnu shim pointing to @rollup/wasm-node
+ROLLUP_SHIM="node_modules/@rollup/rollup-linux-arm64-gnu"
+if [ ! -f "$ROLLUP_SHIM/index.js" ]; then
+  mkdir -p "$ROLLUP_SHIM"
+  cat > "$ROLLUP_SHIM/package.json" << 'PKGJSON'
+{
+  "name": "@rollup/rollup-linux-arm64-gnu",
+  "version": "4.59.0",
+  "description": "Linux arm64 shim - delegates to @rollup/wasm-node for VM compatibility",
+  "main": "index.js"
+}
+PKGJSON
+  cat > "$ROLLUP_SHIM/index.js" << 'INDEXJS'
+// Linux arm64 shim: delegates to @rollup/wasm-node when native binary is unavailable
+module.exports = require('@rollup/wasm-node/dist/native.js');
+INDEXJS
+  echo "[patch-esbuild] Created rollup linux-arm64-gnu shim -> @rollup/wasm-node"
+else
+  echo "[patch-esbuild] rollup linux-arm64-gnu shim already exists, skipping"
+fi
