@@ -26,6 +26,7 @@
     "demo:watch": "ng build demo --watch --configuration development",
     "demo:test": "ng test demo",
     "demo:ci_test": "ng test demo --browsers=ChromeHeadless --watch=false",
+    "postinstall": "sh scripts/patch-esbuild-linux.sh",
     "clean": "rimraf dist",
     "storybook": "ng run @jeppesen-foreflight/dp-dls-global-angular:storybook",
     "build-storybook": "ng run @jeppesen-foreflight/dp-dls-global-angular:build-storybook",
