@@ -39,11 +39,11 @@
 
     th,
     .mat-mdc-header-cell {
-      background-color: var(--mat-table-header-background, var(--foundation-ui-background-high));
+      background-color: var(--mat-table-header-background, var(--ui-background-high));
     }
 
     td {
-      background-color: var(--mat-table-row-background, var(--foundation-ui-background-medium));
+      background-color: var(--mat-table-row-background, var(--ui-background-medium));
     }
 
     th:first-of-type {
@@ -76,18 +76,18 @@ html,
 html .theme-light,
 html .theme-dark {
   --mat-table-background-color: transparent;
-  --mat-table-row-item-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-table-row-item-outline-color: var(--foundation-ui-divider-flat-high);
+  --mat-table-row-item-label-text-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-table-row-item-outline-color: var(--ui-divider-flat-high);
 }
 
 html .theme-light {
-  --mat-table-header-background: var(--foundation-ui-background-low);
-  --mat-table-row-background: var(--foundation-ui-background-medium);
+  --mat-table-header-background: var(--ui-background-low);
+  --mat-table-row-background: var(--ui-background-medium);
 }
 
 html .theme-dark {
-  --mat-table-header-background: var(--foundation-ui-background-high);
-  --mat-table-row-background: var(--foundation-ui-background-medium);
+  --mat-table-header-background: var(--ui-background-high);
+  --mat-table-row-background: var(--ui-background-medium);
 }
 
 // Density-aware sizing using design tokens

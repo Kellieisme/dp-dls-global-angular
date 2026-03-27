@@ -49,14 +49,14 @@
 }
 
 .theme-light .mat-mdc-standard-chip.elevated {
-	--mat-chip-elevated-container-color: var(--foundation-ui-background-high);
-	--mat-chip-flat-container-color: var(--foundation-ui-background-low);
+	--mat-chip-elevated-container-color: var(--ui-background-high);
+	--mat-chip-flat-container-color: var(--ui-background-low);
 	box-shadow: var(--box-shadow-elevation-1);
 }
 
 .theme-dark .mat-mdc-standard-chip.elevated {
-	--mat-chip-elevated-container-color: var(--foundation-ui-background-medium);
-	--mat-chip-flat-container-color: var(--foundation-ui-background-medium);
+	--mat-chip-elevated-container-color: var(--ui-background-medium);
+	--mat-chip-flat-container-color: var(--ui-background-medium);
 	box-shadow: var(--box-shadow-elevation-1);
 }
 
@@ -73,9 +73,9 @@ html .theme-dark {
 		// Shape and borders
 		--mat-chip-container-shape-radius: var(--foundation-radius-s);
 		--mat-chip-outline-width: var(--foundation-border-regular-width, 1px);
-		--mat-chip-outline-color: var(--foundation-interactive-primary-border-enabled);
-		--mat-chip-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
-		--mat-chip-focus-outline-color: var(--foundation-interactive-primary-border-focused);
+		--mat-chip-outline-color: var(--interactive-primary-border-enabled);
+		--mat-chip-disabled-outline-color: var(--interactive-primary-border-disabled);
+		--mat-chip-focus-outline-color: var(--interactive-primary-border-focused);
 		
 		// Chip height should be consistent regardless of density
 		// Only the form field container adjusts for density
@@ -86,27 +86,27 @@ html .theme-dark {
 		
 		// Container colors
 		--mat-chip-elevated-container-color: transparent;
-		--mat-chip-flat-container-color: var(--foundation-interactive-primary-background-enabled-tonal);
-		--mat-chip-disabled-container-color: var(--foundation-interactive-primary-background-disabled);
+		--mat-chip-flat-container-color: var(--interactive-primary-background-enabled-tonal);
+		--mat-chip-disabled-container-color: var(--interactive-primary-background-disabled);
 		
 		// Text colors - default state
-		--mat-chip-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-		--mat-chip-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
+		--mat-chip-label-text-color: var(--interactive-primary-textandicon-primary-default);
+		--mat-chip-disabled-label-text-color: var(--interactive-primary-textandicon-disabled);
 		
 		// Text colors - selected state
-		--mat-chip-selected-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
+		--mat-chip-selected-label-text-color: var(--interactive-primary-textandicon-inverse);
 		
 		// Icon colors - default state
-		--mat-chip-with-icon-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-		--mat-chip-with-icon-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+		--mat-chip-with-icon-icon-color: var(--interactive-primary-textandicon-primary-default);
+		--mat-chip-with-icon-disabled-icon-color: var(--interactive-primary-textandicon-disabled);
 		
 		// Icon colors - selected state
-		--mat-chip-with-icon-selected-icon-color: var(--foundation-interactive-primary-textandicon-inverse);
+		--mat-chip-with-icon-selected-icon-color: var(--interactive-primary-textandicon-inverse);
 		
 		// Trailing icon (remove button) colors
-		--mat-chip-with-trailing-icon-trailing-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-		--mat-chip-with-trailing-icon-disabled-trailing-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
-		--mat-chip-selected-trailing-icon-color: var(--foundation-interactive-primary-textandicon-inverse);
+		--mat-chip-with-trailing-icon-trailing-icon-color: var(--interactive-primary-textandicon-primary-default);
+		--mat-chip-with-trailing-icon-disabled-trailing-icon-color: var(--interactive-primary-textandicon-disabled);
+		--mat-chip-selected-trailing-icon-color: var(--interactive-primary-textandicon-inverse);
 	}
 }
 
@@ -116,8 +116,8 @@ html .theme-dark {
 	// Primary selected chips
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
-		--mat-chip-elevated-selected-container-color: var(--foundation-interactive-primary-background-enabled-filled);
-		--mat-chip-flat-selected-container-color: var(--foundation-interactive-primary-background-enabled-filled);
+		--mat-chip-elevated-selected-container-color: var(--interactive-primary-background-enabled-filled);
+		--mat-chip-flat-selected-container-color: var(--interactive-primary-background-enabled-filled);
 	}
 }
 
@@ -127,13 +127,13 @@ html .theme-dark {
 	// Accent selected chips
 	.mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent,
 	.mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
-		--mat-chip-elevated-selected-container-color: var(--foundation-interactive-accent-background-enabled-filled);
-		--mat-chip-flat-selected-container-color: var(--foundation-interactive-accent-background-enabled-filled);
+		--mat-chip-elevated-selected-container-color: var(--interactive-accent-background-enabled-filled);
+		--mat-chip-flat-selected-container-color: var(--interactive-accent-background-enabled-filled);
 		
 		// Accent uses different text tokens for selected state
-		--mat-chip-selected-label-text-color: var(--foundation-interactive-accent-textandicon-inverse);
-		--mat-chip-with-icon-selected-icon-color: var(--foundation-interactive-accent-textandicon-inverse);
-		--mat-chip-selected-trailing-icon-color: var(--foundation-interactive-accent-textandicon-inverse);
+		--mat-chip-selected-label-text-color: var(--interactive-accent-textandicon-inverse);
+		--mat-chip-with-icon-selected-icon-color: var(--interactive-accent-textandicon-inverse);
+		--mat-chip-selected-trailing-icon-color: var(--interactive-accent-textandicon-inverse);
 	}
 }
 
@@ -142,7 +142,7 @@ html .theme-dark {
 		&:hover:not(.mat-mdc-chip-disabled):not(.mat-mdc-chip-selected) {
 			.mdc-evolution-chip__text-label,
 			.mat-icon {
-				color: var(--foundation-ui-textandicon-high);
+				color: var(--ui-textandicon-high);
 			}
 		}
 	}

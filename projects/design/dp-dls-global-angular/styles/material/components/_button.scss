@@ -18,7 +18,7 @@
 // ===========================
 
 :root {
-  --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+  --mat-icon-button-icon-color: var(--interactive-primary-textandicon-primary-default);
 }
 
 // ===========================
@@ -35,19 +35,19 @@
   }
   
   &.mat-primary .mat-icon {
-    color: var(--foundation-interactive-primary-textandicon-primary-default);
+    color: var(--interactive-primary-textandicon-primary-default);
   }
   
   &.mat-accent .mat-icon {
-    color: var(--foundation-interactive-accent-textandicon-default);
+    color: var(--interactive-accent-textandicon-default);
   }
   
   &.mat-warn .mat-icon {
-    color: var(--foundation-semantic-textandicon-error);
+    color: var(--semantic-textandicon-error);
   }
   
   &[disabled] .mat-icon {
-    color: var(--foundation-interactive-primary-textandicon-disabled);
+    color: var(--interactive-primary-textandicon-disabled);
   }
 }
 
@@ -55,42 +55,42 @@
 .mat-mdc-unelevated-button,
 button[mat-flat-button],
 [matButton="filled"] {
-  color: var(--foundation-interactive-primary-textandicon-inverse);
+  color: var(--interactive-primary-textandicon-inverse);
   
   .mdc-button__label {
-    color: var(--foundation-interactive-primary-textandicon-inverse);
+    color: var(--interactive-primary-textandicon-inverse);
   }
   
   .mat-icon {
-    color: var(--foundation-interactive-primary-textandicon-inverse);
+    color: var(--interactive-primary-textandicon-inverse);
   }
   
   &.mat-primary {
-    color: var(--foundation-interactive-primary-textandicon-inverse);
+    color: var(--interactive-primary-textandicon-inverse);
     
     .mdc-button__label {
-      color: var(--foundation-interactive-primary-textandicon-inverse);
+      color: var(--interactive-primary-textandicon-inverse);
     }
     
     .mat-icon {
-      color: var(--foundation-interactive-primary-textandicon-inverse);
+      color: var(--interactive-primary-textandicon-inverse);
     }
   }
   
   &.mat-accent {
-    color: var(--foundation-interactive-accent-textandicon-inverse);
+    color: var(--interactive-accent-textandicon-inverse);
     
     .mdc-button__label {
-      color: var(--foundation-interactive-accent-textandicon-inverse);
+      color: var(--interactive-accent-textandicon-inverse);
     }
     
     .mat-icon {
-      color: var(--foundation-interactive-accent-textandicon-inverse);
+      color: var(--interactive-accent-textandicon-inverse);
     }
   }
   
   &.mat-warn .mat-icon {
-    color: var(--foundation-interactive-primary-textandicon-inverse);
+    color: var(--interactive-primary-textandicon-inverse);
   }
 }
 
@@ -105,8 +105,8 @@ button[mat-flat-button],
 [mat-stroked-button] {
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
-    --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
-    --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+    --mat-button-text-label-text-color: var(--interactive-primary-textandicon-selected);
+    --mat-button-outlined-label-text-color: var(--interactive-primary-textandicon-selected);
 
     .mdc-button__label {
       text-shadow: var(--box-shadow-interactive-primary-glow-backlit);
@@ -121,18 +121,18 @@ button[mat-flat-button],
     }
     
     .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--foundation-interactive-primary-background-hovered);
+      background-color: var(--interactive-primary-background-hovered);
       opacity: 1;
     }
 
     &.mat-primary {
-      --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
-      --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
+      --mat-button-text-label-text-color: var(--interactive-primary-textandicon-selected);
+      --mat-button-outlined-label-text-color: var(--interactive-primary-textandicon-selected);
     }
 
     &.mat-accent {
-      --mat-button-text-label-text-color: var(--foundation-interactive-accent-textandicon-selected);
-      --mat-button-outlined-label-text-color: var(--foundation-interactive-accent-textandicon-selected);
+      --mat-button-text-label-text-color: var(--interactive-accent-textandicon-selected);
+      --mat-button-outlined-label-text-color: var(--interactive-accent-textandicon-selected);
 
       .mdc-button__label {
         text-shadow: var(--box-shadow-interactive-accent-glow-backlit);
@@ -158,16 +158,16 @@ button[mat-flat-button]:focus:not([disabled]),
 [matButton="filled"]:hover:not([disabled]),
 [matButton="filled"]:focus:not([disabled]) {
   // Use high-emphasis text color (light in dark mode, dark in light mode)
-  --mat-button-filled-label-text-color: var(--foundation-ui-textandicon-high);
-  color: var(--foundation-ui-textandicon-high);
+  --mat-button-filled-label-text-color: var(--ui-textandicon-high);
+  color: var(--ui-textandicon-high);
   
   .mdc-button__label {
-    color: var(--foundation-ui-textandicon-high);
+    color: var(--ui-textandicon-high);
     text-shadow: none;
   }
   
   .mat-icon {
-    color: var(--foundation-ui-textandicon-high);
+    color: var(--ui-textandicon-high);
     
     svg {
       filter: none;
@@ -181,15 +181,15 @@ button[mat-flat-button].mat-primary:hover:not([disabled]),
 button[mat-flat-button].mat-primary:focus:not([disabled]),
 [matButton="filled"].mat-primary:hover:not([disabled]),
 [matButton="filled"].mat-primary:focus:not([disabled]) {
-  --mat-button-filled-label-text-color: var(--foundation-ui-textandicon-high);
-  color: var(--foundation-ui-textandicon-high);
+  --mat-button-filled-label-text-color: var(--ui-textandicon-high);
+  color: var(--ui-textandicon-high);
   
   .mdc-button__label {
-    color: var(--foundation-ui-textandicon-high);
+    color: var(--ui-textandicon-high);
   }
   
   .mat-icon {
-    color: var(--foundation-ui-textandicon-high);
+    color: var(--ui-textandicon-high);
   }
 }
 
@@ -199,15 +199,15 @@ button[mat-flat-button].mat-accent:hover:not([disabled]),
 button[mat-flat-button].mat-accent:focus:not([disabled]),
 [matButton="filled"].mat-accent:hover:not([disabled]),
 [matButton="filled"].mat-accent:focus:not([disabled]) {
-  --mat-button-filled-label-text-color: var(--foundation-ui-textandicon-high);
-  color: var(--foundation-ui-textandicon-high);
+  --mat-button-filled-label-text-color: var(--ui-textandicon-high);
+  color: var(--ui-textandicon-high);
   
   .mdc-button__label {
-    color: var(--foundation-ui-textandicon-high);
+    color: var(--ui-textandicon-high);
   }
   
   .mat-icon {
-    color: var(--foundation-ui-textandicon-high);
+    color: var(--ui-textandicon-high);
   }
 }
 
@@ -227,15 +227,15 @@ button[mat-flat-button]:active,
 button[mat-flat-button],
 [matButton]:not([mat-icon-button]) {
   &:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-primary-background-hovered);
+    background-color: var(--interactive-primary-background-hovered);
   }
   
   &.mat-primary:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-primary-background-hovered);
+    background-color: var(--interactive-primary-background-hovered);
   }
   
   &.mat-accent:hover:not([disabled]) {
-    background-color: var(--foundation-interactive-accent-background-hovered);
+    background-color: var(--interactive-accent-background-hovered);
   }
 }
 
@@ -244,20 +244,20 @@ button[mat-flat-button],
 [mat-stroked-button] {
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
-    border-color: var(--foundation-interactive-primary-border-hovered-flat);
-    background-color: var(--foundation-interactive-primary-background-hovered);
+    border-color: var(--interactive-primary-border-hovered-flat);
+    background-color: var(--interactive-primary-background-hovered);
 
     &.mat-accent {
-      border-color: var(--foundation-interactive-accent-border-hovered);
-      background-color: var(--foundation-interactive-accent-background-hovered);
+      border-color: var(--interactive-accent-border-hovered);
+      background-color: var(--interactive-accent-background-hovered);
     }
   }
 
   &:active {
-    border-color: var(--foundation-interactive-primary-border-selected);
+    border-color: var(--interactive-primary-border-selected);
 
     &.mat-accent {
-      border-color: var(--foundation-interactive-accent-border-selected);
+      border-color: var(--interactive-accent-border-selected);
     }
   }
 }
@@ -269,7 +269,7 @@ button[mat-flat-button],
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+      background-color: var(--interactive-primary-background-enabled-tonal);
       opacity: 1;
     }
   }
@@ -277,7 +277,7 @@ button[mat-flat-button],
   &.mat-primary:hover:not([disabled]),
   &.mat-primary:focus:not([disabled]) {
     .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+      background-color: var(--interactive-primary-background-enabled-tonal);
       opacity: 1;
     }
   }
@@ -285,7 +285,7 @@ button[mat-flat-button],
   &.mat-accent:hover:not([disabled]),
   &.mat-accent:focus:not([disabled]) {
     .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--foundation-interactive-accent-background-hovered);
+      background-color: var(--interactive-accent-background-hovered);
       opacity: 1;
     }
   }
@@ -297,14 +297,14 @@ button[mat-flat-button],
 
 [mat-icon-button].mat-mdc-icon-button--toggle-on {
   .mat-mdc-button-persistent-ripple::before {
-    background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+    background-color: var(--interactive-primary-background-enabled-tonal);
     opacity: 1;
   }
 
   &:focus,
   &:active {
     .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--foundation-interactive-primary-background-selected);
+      background-color: var(--interactive-primary-background-selected);
       opacity: 1;
     }
   }
@@ -364,86 +364,86 @@ button[mat-flat-button],
 // ===========================
 .theme-light,
 .theme-dark {
-  --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-button-text-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-hovered);
-  --mat-button-text-disabled-state-layer-color: var(--foundation-interactive-primary-textandicon-disabled);
+  --mat-button-text-label-text-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-button-text-disabled-label-text-color: var(--interactive-primary-textandicon-disabled);
+  --mat-button-text-state-layer-color: var(--interactive-primary-background-hovered);
+  --mat-button-text-disabled-state-layer-color: var(--interactive-primary-textandicon-disabled);
   
-  --mat-button-filled-container-color: var(--foundation-interactive-primary-background-enabled-filled);
-  --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
-  --mat-button-filled-disabled-container-color: var(--foundation-interactive-primary-background-disabled);
-  --mat-button-filled-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-hovered);
-  --mat-button-filled-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-button-filled-container-color: var(--interactive-primary-background-enabled-filled);
+  --mat-button-filled-label-text-color: var(--interactive-primary-textandicon-inverse);
+  --mat-button-filled-disabled-container-color: var(--interactive-primary-background-disabled);
+  --mat-button-filled-disabled-label-text-color: var(--interactive-primary-textandicon-disabled);
+  --mat-button-filled-state-layer-color: var(--interactive-primary-background-hovered);
+  --mat-button-filled-disabled-state-layer-color: var(--interactive-primary-background-enabled-tonal);
   
-  --mat-button-outlined-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
-  --mat-button-outlined-disabled-label-text-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
-  --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-hovered);
-  --mat-button-outlined-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-button-outlined-disabled-outline-color: var(--interactive-primary-border-disabled);
+  --mat-button-outlined-disabled-label-text-color: var(--interactive-primary-textandicon-disabled);
+  --mat-button-outlined-label-text-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-button-outlined-outline-color: var(--interactive-primary-border-enabled);
+  --mat-button-outlined-state-layer-color: var(--interactive-primary-background-hovered);
+  --mat-button-outlined-disabled-state-layer-color: var(--interactive-primary-background-enabled-tonal);
   
   // Primary button colors (same as default)
   .mat-mdc-button.mat-primary {
-    --mat-button-text-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-    --mat-button-text-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+    --mat-button-text-label-text-color: var(--interactive-primary-textandicon-primary-default);
+    --mat-button-text-state-layer-color: var(--interactive-primary-background-enabled-tonal);
   }
 
   .mat-mdc-unelevated-button.mat-primary {
-    --mat-button-filled-container-color: var(--foundation-interactive-primary-background-enabled-filled);
-    --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
-    --mat-button-filled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+    --mat-button-filled-container-color: var(--interactive-primary-background-enabled-filled);
+    --mat-button-filled-label-text-color: var(--interactive-primary-textandicon-inverse);
+    --mat-button-filled-state-layer-color: var(--interactive-primary-background-enabled-tonal);
   }
 
   .mat-mdc-outlined-button.mat-primary {
-    --mat-button-outlined-label-text-color: var(--foundation-interactive-primary-textandicon-primary-default);
-    --mat-button-outlined-outline-color: var(--foundation-interactive-primary-border-enabled);
-    --mat-button-outlined-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+    --mat-button-outlined-label-text-color: var(--interactive-primary-textandicon-primary-default);
+    --mat-button-outlined-outline-color: var(--interactive-primary-border-enabled);
+    --mat-button-outlined-state-layer-color: var(--interactive-primary-background-enabled-tonal);
   }
 
   // Accent button colors
   .mat-mdc-button.mat-accent {
-    --mat-button-text-label-text-color: var(--foundation-interactive-accent-textandicon-default);
-    --mat-button-text-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+    --mat-button-text-label-text-color: var(--interactive-accent-textandicon-default);
+    --mat-button-text-state-layer-color: var(--interactive-accent-background-hovered);
   }
 
   .mat-mdc-unelevated-button.mat-accent {
-    --mat-button-filled-container-color: var(--foundation-interactive-accent-background-enabled-filled);
-    --mat-button-filled-label-text-color: var(--foundation-interactive-accent-textandicon-inverse);
-    --mat-button-filled-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+    --mat-button-filled-container-color: var(--interactive-accent-background-enabled-filled);
+    --mat-button-filled-label-text-color: var(--interactive-accent-textandicon-inverse);
+    --mat-button-filled-state-layer-color: var(--interactive-accent-background-hovered);
   }
 
   .mat-mdc-outlined-button.mat-accent {
-    --mat-button-outlined-label-text-color: var(--foundation-interactive-accent-textandicon-default);
-    --mat-button-outlined-outline-color: var(--foundation-interactive-accent-border-enabled);
-    --mat-button-outlined-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+    --mat-button-outlined-label-text-color: var(--interactive-accent-textandicon-default);
+    --mat-button-outlined-outline-color: var(--interactive-accent-border-enabled);
+    --mat-button-outlined-state-layer-color: var(--interactive-accent-background-hovered);
   }
 }
 
 // Warn button colors - not yet prioritized in design system
 // .mat-mdc-button.mat-warn {
-//   --mat-button-text-label-text-color: var(--foundation-semantic-textandicon-error);
-//   --mat-button-text-state-layer-color: var(--foundation-semantic-background-error-tonal);
-//   --mat-button-text-ripple-color: var(--foundation-semantic-background-error-tonal);
+//   --mat-button-text-label-text-color: var(--semantic-textandicon-error);
+//   --mat-button-text-state-layer-color: var(--semantic-background-error-tonal);
+//   --mat-button-text-ripple-color: var(--semantic-background-error-tonal);
 // }
 
 // .mat-mdc-unelevated-button.mat-warn {
-//   --mat-button-filled-container-color: var(--foundation-semantic-background-error-filled);
-//   --mat-button-filled-state-layer-color: var(--foundation-semantic-background-error-tonal);
-//   --mat-button-filled-label-text-color: var(--foundation-interactive-primary-textandicon-inverse);
+//   --mat-button-filled-container-color: var(--semantic-background-error-filled);
+//   --mat-button-filled-state-layer-color: var(--semantic-background-error-tonal);
+//   --mat-button-filled-label-text-color: var(--interactive-primary-textandicon-inverse);
 // }
 
 // .mat-mdc-raised-button.mat-warn {
-//   --mat-button-protected-container-color: var(--foundation-semantic-background-error-filled);
-//   --mat-button-protected-label-text-color: var(--foundation-semantic-textandicon-error);
-//   --mat-button-protected-state-layer-color: var(--foundation-semantic-textandicon-error);
-//   --mat-button-protected-ripple-color: var(--foundation-semantic-background-error-tonal);
+//   --mat-button-protected-container-color: var(--semantic-background-error-filled);
+//   --mat-button-protected-label-text-color: var(--semantic-textandicon-error);
+//   --mat-button-protected-state-layer-color: var(--semantic-textandicon-error);
+//   --mat-button-protected-ripple-color: var(--semantic-background-error-tonal);
 // }
 
 // .mat-mdc-outlined-button.mat-warn {
-//   --mat-button-outlined-label-text-color: var(--foundation-semantic-textandicon-error);
-//   --mat-button-outlined-outline-color: var(--foundation-semantic-background-error-filled);
-//   --mat-button-outlined-state-layer-color: var(--foundation-semantic-background-error-tonal);
+//   --mat-button-outlined-label-text-color: var(--semantic-textandicon-error);
+//   --mat-button-outlined-outline-color: var(--semantic-background-error-filled);
+//   --mat-button-outlined-state-layer-color: var(--semantic-background-error-tonal);
 // }
 
 // ===========================
@@ -467,7 +467,7 @@ button[mat-flat-button],
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     .mat-mdc-button-persistent-ripple::before {
-      background-color: var(--foundation-interactive-primary-background-hovered);
+      background-color: var(--interactive-primary-background-hovered);
       opacity: 1;
     }
   }
@@ -476,22 +476,22 @@ button[mat-flat-button],
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-icon-button-color: var(--foundation-interactive-primary-textandicon-primary-default);
-  --mat-icon-button-disabled-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
-  --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-hovered);
-  --mat-icon-button-disabled-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
+  --mat-icon-button-color: var(--interactive-primary-textandicon-primary-default);
+  --mat-icon-button-disabled-icon-color: var(--interactive-primary-textandicon-disabled);
+  --mat-icon-button-state-layer-color: var(--interactive-primary-background-hovered);
+  --mat-icon-button-disabled-state-layer-color: var(--interactive-primary-background-enabled-tonal);
   
   // Icon button without color attribute or with mat-unthemed class
   .mat-mdc-icon-button.mat-unthemed,
   .mat-mdc-icon-button:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
-    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
+    --mat-icon-button-icon-color: var(--interactive-primary-textandicon-primary-default);
     
     .mat-icon {
-      color: var(--foundation-interactive-primary-textandicon-primary-default);
+      color: var(--interactive-primary-textandicon-primary-default);
     }
     
     &:hover:not([disabled]) {
-      background-color: var(--foundation-interactive-primary-background-hovered);
+      background-color: var(--interactive-primary-background-hovered);
       
       .mat-icon svg {
         filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
@@ -499,26 +499,26 @@ html .theme-dark {
     }
     
     &[disabled] {
-      --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+      --mat-icon-button-icon-color: var(--interactive-primary-textandicon-disabled);
       
       .mat-icon {
-        color: var(--foundation-interactive-primary-textandicon-disabled);
+        color: var(--interactive-primary-textandicon-disabled);
       }
     }
   }
 
   // Primary icon buttons
   .mat-mdc-icon-button.mat-primary {
-    --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-    --mat-icon-button-state-layer-color: var(--foundation-interactive-primary-background-enabled-tonal);
-    --mat-icon-button-ripple-color: var(--foundation-interactive-primary-background-ripple);
+    --mat-icon-button-icon-color: var(--interactive-primary-textandicon-primary-default);
+    --mat-icon-button-state-layer-color: var(--interactive-primary-background-enabled-tonal);
+    --mat-icon-button-ripple-color: var(--interactive-primary-background-ripple);
     
     .mat-icon {
-      color: var(--foundation-interactive-primary-textandicon-primary-default);
+      color: var(--interactive-primary-textandicon-primary-default);
     }
     
     &:hover:not([disabled]) {
-      background-color: var(--foundation-interactive-primary-background-hovered);
+      background-color: var(--interactive-primary-background-hovered);
       
       .mat-icon svg {
         filter: drop-shadow(var(--box-shadow-interactive-primary-glow-backlit));
@@ -526,25 +526,25 @@ html .theme-dark {
     }
     
     &[disabled] {
-      --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+      --mat-icon-button-icon-color: var(--interactive-primary-textandicon-disabled);
       
       .mat-icon {
-        color: var(--foundation-interactive-primary-textandicon-disabled);
+        color: var(--interactive-primary-textandicon-disabled);
       }
     }
   }
 
   // Accent icon buttons
   .mat-mdc-icon-button.mat-accent {
-    --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-default);
-    --mat-icon-button-state-layer-color: var(--foundation-interactive-accent-background-hovered);
+    --mat-icon-button-icon-color: var(--interactive-accent-textandicon-default);
+    --mat-icon-button-state-layer-color: var(--interactive-accent-background-hovered);
     
     .mat-icon {
-      color: var(--foundation-interactive-accent-textandicon-default);
+      color: var(--interactive-accent-textandicon-default);
     }
     
     &:hover:not([disabled]) {
-      background-color: var(--foundation-interactive-accent-background-hovered);
+      background-color: var(--interactive-accent-background-hovered);
       
       .mat-icon svg {
         filter: drop-shadow(var(--box-shadow-interactive-accent-glow-backlit));
@@ -552,37 +552,37 @@ html .theme-dark {
     }
     
     &[disabled] {
-      --mat-icon-button-icon-color: var(--foundation-interactive-accent-textandicon-disabled);
+      --mat-icon-button-icon-color: var(--interactive-accent-textandicon-disabled);
       
       .mat-icon {
-        color: var(--foundation-interactive-accent-textandicon-disabled);
+        color: var(--interactive-accent-textandicon-disabled);
       }
     }
   }
 
   // Warn icon buttons
   .mat-mdc-icon-button.mat-warn {
-    --mat-icon-button-icon-color: var(--foundation-semantic-textandicon-error);
-    --mat-icon-button-state-layer-color: var(--foundation-semantic-background-error-tonal);
-    --mat-icon-button-ripple-color: var(--foundation-semantic-background-error-tonal);
+    --mat-icon-button-icon-color: var(--semantic-textandicon-error);
+    --mat-icon-button-state-layer-color: var(--semantic-background-error-tonal);
+    --mat-icon-button-ripple-color: var(--semantic-background-error-tonal);
     
     .mat-icon {
-      color: var(--foundation-semantic-textandicon-error);
+      color: var(--semantic-textandicon-error);
     }
     
     &:hover:not([disabled]) {
-      background-color: var(--foundation-semantic-background-error-tonal);
+      background-color: var(--semantic-background-error-tonal);
       
       .mat-icon svg {
-        filter: drop-shadow(0 0 10px var(--foundation-semantic-textandicon-error));
+        filter: drop-shadow(0 0 10px var(--semantic-textandicon-error));
       }
     }
     
     &[disabled] {
-      --mat-icon-button-icon-color: var(--foundation-interactive-primary-textandicon-disabled);
+      --mat-icon-button-icon-color: var(--interactive-primary-textandicon-disabled);
       
       .mat-icon {
-        color: var(--foundation-interactive-primary-textandicon-disabled);
+        color: var(--interactive-primary-textandicon-disabled);
       }
     }
   }

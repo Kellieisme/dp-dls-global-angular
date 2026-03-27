@@ -1,4 +1,6 @@
+ @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/_vars-breadcrumb' as *;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
+
 
 .ba-breadcrumb__list {
   display: flex;
@@ -6,8 +8,8 @@
 
   li:not(:last-child)::after {
     content: '/';
-    padding: 0 var(--size-spacing-2xs);
+    padding: 0 $component-breadcrumb-gap;
     @include typography.typography-s-body-medium-default;
-    color: var(--foundation-ui-divider-flat-high);
+    color: $component-breadcrumb-slash-textandicon;
   }
 }

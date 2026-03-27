@@ -1,15 +1,16 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/_vars-navigation' as *;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
 
 :host {
   mat-sidenav {
     .mat-icon {
-      width: var(--foundation-sizing-xl) !important;
-      height: var(--foundation-sizing-xl) !important;
-      font-size: var(--foundation-sizing-xl) !important;
-      
+      width: $component-navitem-rail-icon-size !important;
+      height: $component-navitem-rail-icon-size !important;
+      font-size: $component-navitem-rail-icon-size !important;
+
       svg {
-        width: var(--foundation-sizing-xl) !important;
-        height: var(--foundation-sizing-xl) !important;
+        width: $component-navitem-rail-icon-size !important;
+        height: $component-navitem-rail-icon-size !important;
       }
     }
   }
@@ -29,12 +30,12 @@ mat-sidenav-container {
   mat-sidenav {
     width: 80px;
     overflow-y: auto;
-    --mdc-list-list-item-leading-icon-size: var(--foundation-sizing-xl);
+    --mdc-list-list-item-leading-icon-size: #{$component-navitem-rail-icon-size};
   }
 
   mat-sidenav-content {
-    padding: var(--foundation-spacing-m);
-    padding-bottom: var(--foundation-spacing-5xl);
+    padding: $spacing-m;
+    padding-bottom: $spacing-5xl;
     overflow-y: auto;
     box-sizing: border-box;
     height: 100%;
@@ -54,24 +55,24 @@ mat-sidenav-container {
 
   &.labels-visible {
     mat-sidenav {
-      --mdc-list-list-item-leading-space: var(--size-sizing-s);
-      --mdc-list-list-item-trailing-space: var(--size-sizing-s);
-      
+      --mdc-list-list-item-leading-space: #{$sizing-s};
+      --mdc-list-list-item-trailing-space: #{$sizing-s};
+
       mat-list-item {
         overflow: visible;
-        margin-bottom: var(--foundation-spacing-2xl);
-        padding-top: var(--foundation-spacing-none);
-        padding-left: var(--foundation-spacing-2xs) !important;
-        padding-right: var(--foundation-spacing-2xs) !important;
-        height: var(--foundation-sizing-2xl);
-        
+        margin-bottom: $spacing-2xl;
+        padding-top: $spacing-none;
+        padding-left: $component-navitem-rail-label-padding-horizontal !important;
+        padding-right: $component-navitem-rail-label-padding-horizontal !important;
+        height: $sizing-2xl;
+
         .mdc-list-item__start {
-          margin-left: var(--foundation-spacing-none) !important;
-          margin-right: var(--foundation-spacing-none) !important;
+          margin-left: $spacing-none !important;
+          margin-right: $spacing-none !important;
         }
-        
+
         &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
-          height: var(--foundation-sizing-2xl);
+          height: $sizing-2xl;
         }
       }
     }
@@ -89,37 +90,37 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  -webkit-backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
-  backdrop-filter: blur(var(--foundation-effect-glass-background-blur, 100px));
-  border-right: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
-  padding: var(--foundation-spacing-m) var(--foundation-spacing-none);
+  -webkit-backdrop-filter: blur($effect-glass-background-blur);
+  backdrop-filter: blur($effect-glass-background-blur);
+  border-right: $border-regular-width solid $ui-divider-flat-high;
+  padding: $component-navitem-rail-padding $spacing-none;
 
   .theme-relaxed & {
-    padding-left: var(--foundation-spacing-none);
-    padding-right: var(--foundation-spacing-none);
+    padding-left: $spacing-none;
+    padding-right: $spacing-none;
   }
 
   mat-list-item {
     &.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
-      height: var(--foundation-spacing-5xl);
+      height: $component-navitem-minheight;
     }
 
     &.mat-mdc-list-item {
       background-color: transparent;
-      padding-left: var(--foundation-spacing-none);
-      padding-right: var(--foundation-spacing-none);
+      padding-left: $spacing-none;
+      padding-right: $spacing-none;
 
       &:focus {
-        background-color: var(--foundation-interactive-primary-background-enabled-tonal);
+        background-color: $component-navitem-background-selected;
       }
 
       &:active {
-        background-color: var(--foundation-interactive-primary-background-selected);
+        background-color: $component-navitem-pressed-background;
       }
 
       &:hover:not(:disabled),
       &.mat-list-item--toggle-on {
-        background-color: var(--foundation-interactive-primary-background-hovered);
+        background-color: $component-navitem-hovered-background;
 
         .mat-icon {
           svg {
@@ -130,11 +131,11 @@ mat-sidenav {
 
       .mdc-list-item__primary-text {
         @include typography.typography-m-label-low;
-        padding-left: var(--foundation-spacing-none);
-        padding-right: var(--foundation-spacing-none);
+        padding-left: $spacing-none;
+        padding-right: $spacing-none;
         white-space: normal;
         word-break: break-word;
-        line-height: var(--foundation-line-height-tight);
+
         max-width: 100%;
         text-align: center;
         margin-left: auto;
@@ -172,17 +173,17 @@ mat-sidenav {
 
 mat-list-item.narrow {
   .mat-mdc-list-item-icon {
-    margin-left: var(--foundation-spacing-2xs);
-    margin-right: var(--foundation-spacing-2xs);
+    margin-left: $component-navitem-rail-label-padding-horizontal;
+    margin-right: $component-navitem-rail-label-padding-horizontal;
   }
 }
 
 mat-list-item {
   text-align: center;
-  padding-right: var(--foundation-spacing-none);
-  margin-top: var(--foundation-spacing-2xs);
+  padding-right: $spacing-none;
+  margin-top: $spacing-2xs;
   .mat-mdc-list-item-icon {
-    margin: var(--foundation-spacing-none);
+    margin: $spacing-none;
   }
 }
 
@@ -192,7 +193,7 @@ mat-list-item {
 
 .bottom-icons {
   display: flex;
-  bottom: var(--foundation-spacing-none);
+  bottom: $spacing-none;
   flex-direction: column;
   text-align: center;
   align-items: center;

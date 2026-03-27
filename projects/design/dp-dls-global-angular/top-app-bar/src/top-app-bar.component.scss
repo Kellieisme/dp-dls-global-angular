@@ -1,12 +1,12 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/_vars-topappbar' as *;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins' as typography;
 @use '../../styles/material/media-breakpointMixins' as breakpointMixin;
 
 
 .top-app-bar {
   align-items: center;
-  border-bottom: 1px solid var(--foundation-ui-divider-flat-high);
-  background: var(--foundation-ui-glass-surface-thin);
-
+  border-bottom: 1px solid $ui-divider-flat-high;
+  background: $component-top-app-bar-surface;
 }
 
 
@@ -100,7 +100,7 @@ mat-toolbar h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--size-relaxed-spacing-s);
+  gap: $spacing-s;
   position: relative;
   z-index: 1;
 }
@@ -110,21 +110,21 @@ mat-toolbar h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--size-relaxed-spacing-xs);
+    gap: $spacing-xs;
     text-decoration: none;
 
     &:focus {
       outline: none;
     }
 
-    color: var(--foundation-ui-textandicon-high);
+    color: $component-top-app-bar-app-name-text-color;
   }
 }
 
 .top-app-bar__app-icon {
-  margin-left: var(--size-relaxed-spacing-l);
-  height: var(--size-relaxed-sizing-xl);
-  width: var(--size-relaxed-sizing-2xl);
+  margin-left: $spacing-l;
+  height: $sizing-xl;
+  width: $sizing-2xl;
   color: white;
 }
 
@@ -137,7 +137,7 @@ mat-toolbar h1 {
 }
 
 .app-icon-padding-left{
-  padding-left: var(--size-relaxed-spacing-s);
+  padding-left: $spacing-s;
 }
 
 ::ng-deep .theme-light .top-app-bar__app-icon--light {
@@ -199,15 +199,15 @@ mat-toolbar h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--size-relaxed-spacing-s);
+  gap: $component-top-app-bar-icons-gap;
   height: 100%;
-  padding-left: var(--size-relaxed-spacing-m);
+  padding-left: $component-top-app-bar-expanded-padding-horizontal;
 }
 
 ::ng-deep .actions {
   display: flex;
   flex-direction: row;
-  gap: var(--size-spacing-xs);
+  gap: $spacing-xs;
 }
 
 ::ng-deep .actions.small-screen {
@@ -228,16 +228,16 @@ mat-toolbar h1 {
 ::ng-deep .divider-parent {
   position: relative;
   height: 40%;
-  padding-left: var(--size-spacing-s);
-  padding-right: var(--size-spacing-s);
+  padding-left: $component-top-app-bar-profile-divider-padding-left;
+  padding-right: $component-top-app-bar-profile-divider-padding-left;
 }
 
 ::ng-deep .mat-toolbar {
   .divider-parent .mat-divider {
-    right: var(--size-spacing-s);
-    top: var(--size-spacing-s);
-    bottom: var(--size-spacing-s);
-    border-left: var(--foundation-border-regular-width, 1px) solid var(--foundation-ui-divider-flat-high);
+    right: $spacing-s;
+    top: $spacing-s;
+    bottom: $spacing-s;
+    border-left: $border-regular-width solid $ui-divider-flat-high;
     height: 100%;
   }
 }
@@ -252,7 +252,7 @@ mat-toolbar h1 {
   display: flex;
   align-items: center;
   z-index: 1;
-  padding: 0 var(--size-relaxed-spacing-xs);
+  padding: 0 $component-top-app-bar-profile-user-profile-padding-right;
 }
 
 @include breakpointMixin.media-down(md) {

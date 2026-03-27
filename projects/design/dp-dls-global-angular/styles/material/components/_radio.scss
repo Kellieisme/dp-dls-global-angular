@@ -126,14 +126,14 @@ html .theme-dark {
     // --mat-radio-disabled-selected-icon-color: black;
     // --mat-radio-disabled-unselected-icon-color: black;
     // --mat-radio-unselected-hover-icon-color: #212121;
-    --mat-radio-unselected-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-    --mat-radio-unselected-pressed-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-    --mat-radio-selected-focus-icon-color: var(--foundation-interactive-accent-textandicon-selected);
-    --mat-radio-selected-hover-icon-color: var(--foundation-interactive-accent-textandicon-selected);
-    --mat-radio-selected-icon-color: var(--foundation-interactive-accent-textandicon-default);
-    --mat-radio-selected-pressed-icon-color: var(--foundation-interactive-accent-textandicon-selected);
-    // --mat-radio-ripple-color: var(--foundation-interactive-accent-textandicon-selected};
-    --mat-radio-checked-ripple-color: var(--foundation-interactive-accent-textandicon-selected);
+    --mat-radio-unselected-icon-color: var(--interactive-primary-textandicon-primary-default);
+    --mat-radio-unselected-pressed-icon-color: var(--interactive-primary-textandicon-primary-default);
+    --mat-radio-selected-focus-icon-color: var(--interactive-accent-textandicon-selected);
+    --mat-radio-selected-hover-icon-color: var(--interactive-accent-textandicon-selected);
+    --mat-radio-selected-icon-color: var(--interactive-accent-textandicon-default);
+    --mat-radio-selected-pressed-icon-color: var(--interactive-accent-textandicon-selected);
+    // --mat-radio-ripple-color: var(--interactive-accent-textandicon-selected};
+    --mat-radio-checked-ripple-color: var(--interactive-accent-textandicon-selected);
     // --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38)
   }
 
@@ -141,14 +141,14 @@ html .theme-dark {
     //   --mat-radio-disabled-selected-icon-color: black;
     //   --mat-radio-disabled-unselected-icon-color: black;
     //   --mat-radio-unselected-hover-icon-color: #212121;
-    --mat-radio-unselected-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-    --mat-radio-unselected-pressed-icon-color: var(--foundation-interactive-primary-textandicon-primary-default);
-    --mat-radio-selected-focus-icon-color: var(--foundation-interactive-accent-textandicon-selected);
-    --mat-radio-selected-hover-icon-color: var(--foundation-interactive-accent-textandicon-selected);
-    --mat-radio-selected-icon-color: var(--foundation-interactive-accent-textandicon-default);
-    --mat-radio-selected-pressed-icon-color: var(--foundation-interactive-accent-textandicon-selected);
-    // --mat-radio-ripple-color: var(--foundation-interactive-accent-textandicon-selected};
-    --mat-radio-checked-ripple-color: var(--foundation-interactive-accent-textandicon-selected);
+    --mat-radio-unselected-icon-color: var(--interactive-primary-textandicon-primary-default);
+    --mat-radio-unselected-pressed-icon-color: var(--interactive-primary-textandicon-primary-default);
+    --mat-radio-selected-focus-icon-color: var(--interactive-accent-textandicon-selected);
+    --mat-radio-selected-hover-icon-color: var(--interactive-accent-textandicon-selected);
+    --mat-radio-selected-icon-color: var(--interactive-accent-textandicon-default);
+    --mat-radio-selected-pressed-icon-color: var(--interactive-accent-textandicon-selected);
+    // --mat-radio-ripple-color: var(--interactive-accent-textandicon-selected};
+    --mat-radio-checked-ripple-color: var(--interactive-accent-textandicon-selected);
     // --mat-radio-disabled-label-color: #00000000;
   }
 }

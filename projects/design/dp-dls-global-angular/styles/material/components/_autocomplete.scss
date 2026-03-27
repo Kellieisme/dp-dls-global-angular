@@ -30,9 +30,9 @@ html .theme-light,
 html .theme-dark {
   div.mat-mdc-autocomplete-panel {
     // overall autocomplete panel color
-    --mat-autocomplete-background-color: var(--foundation-ui-glass-surface-regular);
+    --mat-autocomplete-background-color: var(--ui-glass-surface-regular);
     // selected item background color
-    --mat-option-selected-state-layer-color: var(--foundation-interactive-primary-background-selected);
+    --mat-option-selected-state-layer-color: var(--interactive-primary-background-selected);
   }
 }
 
@@ -83,7 +83,7 @@ html .theme-dark {
 
       // default option text dcolor
       .mdc-list-item__primary-text {
-        color: var(--foundation-interactive-primary-textandicon-primary-default);
+        color: var(--interactive-primary-textandicon-primary-default);
       }
     }
 
@@ -92,7 +92,7 @@ html .theme-dark {
 
       // selected option text color
       .mdc-list-item__primary-text {
-        color: var(--foundation-interactive-primary-textandicon-selected);
+        color: var(--interactive-primary-textandicon-selected);
       }
 
       // turn off the default checkbox on the selected option
@@ -116,5 +116,5 @@ html .theme-dark {
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-autocomplete-background-color: var(--foundation-ui-glass-surface-regular);
+  --mat-autocomplete-background-color: var(--ui-glass-surface-regular);
 }

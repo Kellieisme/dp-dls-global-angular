@@ -172,11 +172,11 @@ mat-list-option.mat-mdc-list-option {
   }
 
   &.interactive:hover {
-    background-color: var(--foundation-interactive-primary-background-hovered);
+    background-color: var(--interactive-primary-background-hovered);
   }
 
   &.enableEmphasis {
-    background-color: var(--foundation-ui-background-high);
+    background-color: var(--ui-background-high);
   }
 
   &.mdc-list-item--with-trailing-meta .mdc-list-item__end {
@@ -200,7 +200,7 @@ mat-list-option.mat-mdc-list-option {
 
   .overline {
     @include typography.typography-s-label-low;
-    color: var(--foundation-ui-textandicon-low);
+    color: var(--ui-textandicon-low);
     display: flex;
   }
 
@@ -216,28 +216,28 @@ mat-list-option.mat-mdc-list-option {
   border-radius: var(--size-spacing-none);
   .overline {
     @include typography.typography-s-label-low;
-    color: var(--foundation-ui-textandicon-low);
+    color: var(--ui-textandicon-low);
   }
 }
 
 html,
 html .theme-light,
 html .theme-dark {
-  --mat-list-list-item-label-text-color: var(--foundation-ui-textandicon-high);
-  --mat-list-list-item-hover-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
-  --mat-list-list-item-focus-label-text-color: var(--foundation-interactive-primary-textandicon-selected);
-  --mat-list-list-item-container-color: var(--foundation-ui-background-medium);
-  --mat-list-list-item-hover-state-layer-color: var(--foundation-interactive-primary-background-hovered);
+  --mat-list-list-item-label-text-color: var(--ui-textandicon-high);
+  --mat-list-list-item-hover-label-text-color: var(--interactive-primary-textandicon-selected);
+  --mat-list-list-item-focus-label-text-color: var(--interactive-primary-textandicon-selected);
+  --mat-list-list-item-container-color: var(--ui-background-medium);
+  --mat-list-list-item-hover-state-layer-color: var(--interactive-primary-background-hovered);
   --mat-list-list-item-hover-state-layer-opacity: 0.05;
-  --mat-list-list-item-focus-state-layer-color: var(--foundation-interactive-primary-background-selected);
+  --mat-list-list-item-focus-state-layer-color: var(--interactive-primary-background-selected);
   --mat-list-list-item-focus-state-layer-opacity: 0.12;
   --mat-list-active-indicator-shape: #{var(--size-relaxed-radius-full)};
-  --mat-list-list-item-leading-icon-color: var(--foundation-interactive-primary-textandicon-secondary-default);
+  --mat-list-list-item-leading-icon-color: var(--interactive-primary-textandicon-secondary-default);
   // --mat-list-list-item-leading-icon-end-space: var(--size-spacing-m);
   // --mat-list-list-item-leading-icon-start-space: var(--size-spacing-none);
   --mat-list-list-item-hover-leading-icon-color: var(--box-shadow-interactive-primary-glow-backlit);
-  --mat-list-list-item-selected-container-color: var(--foundation-interactive-primary-background-selected);
-  --mat-list-list-item-supporting-text-color: var(--foundation-ui-textandicon-medium);
+  --mat-list-list-item-selected-container-color: var(--interactive-primary-background-selected);
+  --mat-list-list-item-supporting-text-color: var(--ui-textandicon-medium);
   --mat-radio-state-layer-size: var(--size-spacing-5xl);
   --mat-checkbox-state-layer-size: var(--size-spacing-5xl);
 }
