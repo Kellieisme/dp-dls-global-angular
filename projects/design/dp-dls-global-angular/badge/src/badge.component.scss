@@ -1,3 +1,5 @@
+@use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/external-tokens/component/_vars-badge' as *;
+
 :host {
   display: flex;
   flex-direction: column;
@@ -5,5 +7,5 @@
 }
 
 .demo-section + .demo-section {
-  margin-top: var(--foundation-spacing-m);
+  margin-top: $foundation-spacing-m;
 }
