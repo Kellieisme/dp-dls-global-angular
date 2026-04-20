@@ -2,16 +2,6 @@
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_themeMixins.scss' as theme;
 @use './m3-theme' as m3;
 
-:root {
-  @include mat.elevation-classes();
-  @include mat.app-background();
-
-  // Apply the dark theme by default
-  // The core-theme Sass mixin emits prerequisite styles for common features used by multiple components, such as ripples. 
-  // This mixin must be included once per theme.
-  @include mat.all-component-themes(m3.$dark-theme);
-}
-
 html {
   @include theme.theme-dark-color(); // By default, define CSS custom property tokens to "dark" versions
   @include theme.theme-dark-box-shadow();
@@ -19,9 +9,6 @@ html {
 }
 
 .theme-light {
-  @include mat.elevation-classes();
-  @include mat.app-background();
-  @include mat.all-component-typographies(m3.$light-theme);
   @include theme.theme-light-color(); // Define CSS custom property tokens to "light" versions
   @include theme.theme-light-box-shadow();
 }
