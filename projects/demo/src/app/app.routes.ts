@@ -25,7 +25,6 @@ import { TypographyComponent } from './typography/typography.component';
 import { GlassExamplesComponent } from './glass-examples/glass-examples.component';
 import { Template3Component } from './template-3/template-3.component';
 import { Template2Component } from './template-2/template-2.component';
-import { Template4Component } from './template-4/template-4.component';
 import { BadgeComponent } from './badge/badge.component';
 import { SnackbarPageComponent } from './snackbar/snackbar.component';    
 import { ComponentsComponent } from './components/components.component';
@@ -56,7 +55,6 @@ export const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent},
   { path: 'template-2', component: Template2Component},
   { path: 'template-3', component: Template3Component},
-  { path: 'template-4', component: Template4Component},
   { path: 'badge', component: BadgeComponent},
   { path: 'snackbar', component: SnackbarPageComponent},
   { path: 'typography', component: TypographyComponent},
