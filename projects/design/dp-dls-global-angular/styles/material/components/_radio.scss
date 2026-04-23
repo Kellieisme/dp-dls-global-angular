@@ -1,17 +1,5 @@
-@use "@angular/material" as mat;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
-@use "../m3-theme" as m3;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins" as typography;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.radio-theme(m3.$dark-theme);
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.radio-color(m3.$light-theme);
-}
 
 .mat-mdc-radio-button {
   .mdc-form-field {
@@ -119,9 +107,7 @@ body.theme-condensed {
 //   --mat-form-field-label-text-color: rgba(0, 0, 0, 0.87)
 // }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   .mat-mdc-radio-button.mat-primary {
     // --mat-radio-disabled-selected-icon-color: black;
     // --mat-radio-disabled-unselected-icon-color: black;

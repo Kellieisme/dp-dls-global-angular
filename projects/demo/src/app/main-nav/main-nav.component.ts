@@ -1,22 +1,21 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { Router, RouterModule } from '@angular/router';
-import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
+import { IconRegistryModule } from '../../../../design/dp-dls-global-angular/icon-registry/src/icon-registry.module';
 import { MatIconModule } from '@angular/material/icon';
-import { ThemeToggleModule } from '@jeppesen-foreflight/dp-dls-global-angular/theme-toggle';
+import { ThemeToggleModule } from '../../../../design/dp-dls-global-angular/theme-toggle/src/theme-toggle.module';
 import { DensityToggleModule } from '../../../../design/dp-dls-global-angular/density-toggle/src/density-toggle.module';
 import { MatDividerModule } from '@angular/material/divider';
-import { UserProfileComponent } from '@jeppesen-foreflight/dp-dls-global-angular/user-profile';
+import { UserProfileComponent } from '../../../../design/dp-dls-global-angular/user-profile/src/user-profile.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { NavigationRailComponent } from '@jeppesen-foreflight/dp-dls-global-angular/navigation-rail';
-import { TopAppBarComponent } from '@jeppesen-foreflight/dp-dls-global-angular/top-app-bar';
+import { TopAppBarComponent } from '../../../../design/dp-dls-global-angular/top-app-bar/src/top-app-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { Template2Component } from '../template-2/template-2.component';
 import { Template3Component } from '../template-3/template-3.component';
-import { Template4Component } from '../template-4/template-4.component';
 
 @Component({
   selector: 'app-main-nav',
@@ -151,17 +150,7 @@ export class MainNavComponent {
         label: 'template-3',
         icon: 'verified',
         route: '/template-3',
-      },
-      { 
-        label: 'template-4',
-        icon: 'verified',
-        route: '/template-4',
-      },
-    {
-      label: 'landing pg',
-      icon: 'verified',
-      route: '/landing-page',
-    }
+      }
   ];
 
   isSidenavOpen = false;

@@ -1,17 +1,4 @@
-@use "@angular/material" as mat;
-@use "../m3-theme" as m3;
-
 :root {
-  @include mat.sidenav-theme(m3.$dark-theme);
-}
-
-.theme-light {
-  @include mat.sidenav-color(m3.$light-theme);
-}
-
-html,
-html .theme-light,
-html .theme-dark {
   --mat-sidenav-container-shape: 0;
   --mat-sidenav-container-background-color: var(--ui-glass-surface-thinnest);
   --mat-sidenav-scrim-color: var(--ui-background-low);

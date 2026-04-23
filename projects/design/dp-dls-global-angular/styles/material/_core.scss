@@ -1,6 +1,4 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_themeMixins.scss' as theme;
-@use './m3-theme' as m3;
 
 html {
   @include theme.theme-dark-color(); // By default, define CSS custom property tokens to "dark" versions

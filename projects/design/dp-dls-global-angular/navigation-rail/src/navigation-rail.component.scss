@@ -150,6 +150,15 @@ mat-sidenav {
   flex-direction: column;
 }
 
+::ng-deep mat-sidenav mat-list-item .mdc-list-item__primary-text {
+  color: var(--foundation-interactive-primary-textandicon-secondary-default);
+}
+
+::ng-deep mat-sidenav mat-list-item .mat-icon,
+::ng-deep mat-sidenav mat-list-item .mat-mdc-list-item-icon {
+  color: var(--foundation-interactive-primary-textandicon-secondary-default);
+}
+
 .sidenav-header {
   justify-content: center;
   display: flex;

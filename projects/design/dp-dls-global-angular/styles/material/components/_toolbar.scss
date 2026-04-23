@@ -1,24 +1,9 @@
-@use '@angular/material' as mat;
-@use '../m3-theme.scss' as m3;
-
 :root {
-	@include mat.toolbar-theme(m3.$dark-theme);
-}
-
-.theme-light {
-	@include mat.toolbar-color(m3.$light-theme);
-}
-
-html,
-html .theme-light,
-html .theme-dark {
 	--mat-toolbar-container-background-color: var(--ui-glass-surface-thinnest);
 	--mat-toolbar-container-text-color: var(--ui-textandicon-high);
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
 	--mat-toolbar-standard-height: var(--base-dimension-dynamic-s12);
 	--mat-toolbar-mobile-height: var(--base-dimension-dynamic-s11);
 }
@@ -31,9 +16,7 @@ mat-toolbar,
 }
 
 // Override toolbar height for condensed density
-html,
-html .theme-light,
-html .theme-dark {
+:root {
 	&.theme-condensed,
 	.theme-condensed {
 		--mat-toolbar-standard-height: var(--base-dimension-dynamic-s12);
@@ -41,9 +24,7 @@ html .theme-dark {
 	}
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
 	// --mat-toolbar-title-text-font: inherit;
 	--mat-toolbar-title-text-line-height: inherit;
 	--mat-toolbar-title-text-size: inherit;

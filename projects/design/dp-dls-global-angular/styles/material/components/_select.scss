@@ -1,17 +1,5 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.select-theme(m3.$dark-theme);
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.select-color(m3.$light-theme);
-}
 
 // Scaling/Density:
 // Note that, due to the interdependency of form components on each other, any
@@ -56,14 +44,12 @@ body.theme-condensed {
 $composition-dark-interactive-primary-border-hovered-specular-select: rgba(255, 255, 255, 0.40);
 $composition-light-interactive-primary-border-hovered-specular-select: rgba(255, 255, 255, 0.40);
 
-// we want to be careful here to not override styles for either the `input`, `form field`, or `list` 
+// we want to be careful here to not override styles for either the `input`, `form field`, or `list`
 // components, as the select component is a composite of those. Directly overriding variables here
 // can be tricky. Use caution and check the various components for collisions.
 
 // DARK MODE
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   div.mat-mdc-select-panel {
     // overall select panel color
     --mat-select-panel-background-color: var(--ui-glass-surface-regular);
@@ -72,14 +58,12 @@ html .theme-dark {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
 
-  // the select is designed to have the same border radius as other form fields, but the bottom 
-  // corner radii are removed when expanded. Due to MaterialUI's DOM structure and available 
+  // the select is designed to have the same border radius as other form fields, but the bottom
+  // corner radii are removed when expanded. Due to MaterialUI's DOM structure and available
   // classes, the most stable way to accomodate this is to listen for the aria-expanded data
-  // attribute on the mat-select element itself. 
+  // attribute on the mat-select element itself.
   .mat-mdc-form-field-type-mat-select {
     .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused:has(mat-select[aria-expanded="true"]) {
       border-bottom-left-radius: var(--size-radius-none);
@@ -106,89 +90,90 @@ html .theme-dark {
     position: relative;
   }
 
-.mat-mdc-select-arrow svg {
-  // Ensure the SVG fills the container properly
-  width: 100%;
-  height: 100%;
-  // Center the actual icon
-  display: block;
-}
-
-.mat-mdc-select-value-text {
-  @include typography.typography-xl-label-medium;
-  text-transform: capitalize;
-}
-
-.mat-mdc-select-value {
-  padding-right: var(--size-spacing-xs);
-}
-
-// Ensure proper form field structure alignment
-.mat-mdc-form-field-type-mat-select {
-  .mat-mdc-form-field-infix {
-    // Ensure proper alignment with the arrow
-    padding-right: 0;
+  .mat-mdc-select-arrow svg {
+    // Ensure the SVG fills the container properly
+    width: 100%;
+    height: 100%;
+    // Center the actual icon
+    display: block;
   }
 
-  .mat-mdc-form-field-suffix {
-    // Ensure the suffix (arrow) is properly positioned
-    padding-left: var(--size-spacing-xs);
-    // Align suffix with the form field structure
-    align-self: center;
-  }
-}
-
-.mat-mdc-text-field-wrapper {
-  margin-bottom: var(--size-spacing-2xs); //4px;
-}
-
-div.mat-mdc-select-panel {
-  padding-top: var(--size-spacing-s);
-  padding-bottom: var(--size-spacing-s);
-  // list panel in a select should have rounded bottom corners and flat top corners...
-  border-top-left-radius: var(--size-radius-none);
-  border-top-right-radius: var(--size-radius-none);
-  border-bottom-left-radius: var(--size-radius-s);
-  border-bottom-right-radius: var(--size-radius-s);
-  // ..and ideally, this panel should have a specular border, but since that is not really
-  // working right now, we'll make a solid border:
-  border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-select};
-
-  // blur the background behind overlay
-  @include composition.composition-dark-ui-glass-background-blur;
-
-  .theme-light & {
-    @include composition.composition-light-ui-glass-background-blur;
-    border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-select};
+  .mat-mdc-select-value-text {
+    @include typography.typography-xl-label-medium;
+    text-transform: capitalize;
   }
 
-  .mat-mdc-option {
-    span {
-      @include typography.typography-xl-body-low-default;
-      text-transform: capitalize;
+  .mat-mdc-select-value {
+    padding-right: var(--size-spacing-xs);
+  }
+
+  // Ensure proper form field structure alignment
+  .mat-mdc-form-field-type-mat-select {
+    .mat-mdc-form-field-infix {
+      // Ensure proper alignment with the arrow
+      padding-right: 0;
+    }
+
+    .mat-mdc-form-field-suffix {
+      // Ensure the suffix (arrow) is properly positioned
+      padding-left: var(--size-spacing-xs);
+      // Align suffix with the form field structure
+      align-self: center;
     }
   }
 
-  // Styles for the non-selected options...
-  .mat-mdc-option:not(.mdc-list-item--disabled) {
-
-    // default option text dcolor
-    .mdc-list-item__primary-text {
-      color: var(--interactive-primary-textandicon-primary-default);
-    }
+  .mat-mdc-text-field-wrapper {
+    margin-bottom: var(--size-spacing-2xs); //4px;
   }
 
-  // Styles for the selected option...
-  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+  div.mat-mdc-select-panel {
+    padding-top: var(--size-spacing-s);
+    padding-bottom: var(--size-spacing-s);
+    // list panel in a select should have rounded bottom corners and flat top corners...
+    border-top-left-radius: var(--size-radius-none);
+    border-top-right-radius: var(--size-radius-none);
+    border-bottom-left-radius: var(--size-radius-s);
+    border-bottom-right-radius: var(--size-radius-s);
+    // ..and ideally, this panel should have a specular border, but since that is not really
+    // working right now, we'll make a solid border:
+    border: 1px solid #{$composition-dark-interactive-primary-border-hovered-specular-select};
 
-    // selected option text color
-    .mdc-list-item__primary-text {
-      color: var(--interactive-primary-textandicon-selected);
+    // blur the background behind overlay
+    @include composition.composition-dark-ui-glass-background-blur;
+
+    .theme-light & {
+      @include composition.composition-light-ui-glass-background-blur;
+      border: 1px solid #{$composition-light-interactive-primary-border-hovered-specular-select};
     }
 
-    // turn off the default checkbox on the selected option
-    .mat-pseudo-checkbox {
-      display: none;
+    .mat-mdc-option {
+      span {
+        @include typography.typography-xl-body-low-default;
+        text-transform: capitalize;
+      }
+    }
+
+    // Styles for the non-selected options...
+    .mat-mdc-option:not(.mdc-list-item--disabled) {
+
+      // default option text dcolor
+      .mdc-list-item__primary-text {
+        color: var(--interactive-primary-textandicon-primary-default);
+      }
+    }
+
+    // Styles for the selected option...
+    .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+
+      // selected option text color
+      .mdc-list-item__primary-text {
+        color: var(--interactive-primary-textandicon-selected);
+      }
+
+      // turn off the default checkbox on the selected option
+      .mat-pseudo-checkbox {
+        display: none;
+      }
     }
   }
 }
@@ -197,17 +182,13 @@ div.mat-mdc-select-panel {
 *   VARIABLE OVERRIDES
 */
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-select-container-elevation-shadow: none;
   // Ensure proper arrow positioning to match Angular Material defaults
   --mat-select-arrow-transform: none;
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-select-panel-background-color: var(--ui-glass-surface-regular);
   //     --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
   //     --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.38);
@@ -216,5 +197,4 @@ html .theme-dark {
   --mat-select-disabled-arrow-color: var(--interactive-primary-textandicon-disabled);
   --mat-select-focused-arrow-color: var(--interactive-primary-textandicon-selected);
   --mat-select-invalid-arrow-color: var(--semantic-textandicon-error);
-}
 }

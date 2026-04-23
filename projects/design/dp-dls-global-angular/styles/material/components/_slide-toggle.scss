@@ -1,6 +1,3 @@
-@use '@angular/material' as mat;
-@use '../m3-theme' as m3;
-
 mat-slide-toggle:not(.mat-warn) {
   .mdc-switch--checked:not(.mdc-switch--disabled) {
     .mdc-switch__track::after,
@@ -17,9 +14,7 @@ mat-slide-toggle:not(.mat-warn) {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-slide-toggle-handle-height: var(--size-sizing-xl);
   --mat-slide-toggle-handle-shape: var(--size-sizing-xl);
   --mat-slide-toggle-handle-width: var(--size-sizing-xl);
@@ -41,7 +36,7 @@ html .theme-dark {
   --mat-slide-toggle-selected-track-outline-width: var(--size-sizing-3xs);
   --mat-slide-toggle-disabled-unselected-track-outline-width: var(--size-border-width-s);
   --mat-slide-toggle-track-outline-color: var(--interactive-primary-textandicon-secondary-default);
-  
+
   --mat-slide-toggle-label-text-color: var(--ui-textandicon-medium);
   --mat-slide-toggle-selected-focus-state-layer-color: var(--interactive-primary-textandicon-inverse);
   --mat-slide-toggle-selected-handle-color: var(--interactive-primary-textandicon-inverse);
@@ -63,7 +58,7 @@ html .theme-dark {
   --mat-slide-toggle-disabled-unselected-icon-color: var(--interactive-primary-textandicon-inverse);
   --mat-slide-toggle-disabled-unselected-track-color: var(--interactive-primary-background-enabled-tonal);
   --mat-slide-toggle-handle-surface-color: var(--interactive-primary-textandicon-inverse);
-  
+
   --mat-slide-toggle-unselected-focus-handle-color: var(--interactive-primary-textandicon-primary-default);
   --mat-slide-toggle-unselected-focus-state-layer-color: var(--interactive-primary-textandicon-primary-default);
   --mat-slide-toggle-unselected-focus-track-color: var(--interactive-primary-background-enabled-tonal);
@@ -98,7 +93,7 @@ body.theme-condensed {
   --mat-slide-toggle-unselected-handle-horizontal-margin: 0 4px;
   --mat-slide-toggle-unselected-with-icon-handle-horizontal-margin: 0 4px;
   --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0 4px;
-  
+
   // Force outline visibility on unselected track in condensed mode
   .mdc-switch:not(.mdc-switch--selected) {
     .mdc-switch__track::before,
@@ -166,4 +161,3 @@ html .mat-mdc-slide-toggle.mat-warn {
 .mdc-switch__track::after {
   border-width: var(--size-sizing-3xs) !important;
 }
-

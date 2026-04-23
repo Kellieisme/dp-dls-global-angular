@@ -1,16 +1,23 @@
-@use "@angular/material" as mat;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss" as typography;
-@use "../m3-theme" as m3;
 
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.list-theme(m3.$dark-theme);
+// ===========================
+// List Color Tokens
+// ===========================
 
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.list-color(m3.$light-theme);
+.theme-light,
+.theme-dark {
+  --mat-list-list-item-label-text-color: var(--ui-textandicon-high);
+  --mat-list-list-item-leading-icon-color: var(--ui-textandicon-high);
+  --mat-list-list-item-trailing-icon-color: var(--ui-textandicon-medium);
+  --mat-list-list-item-hover-label-text-color: var(--interactive-primary-textandicon-selected);
+  --mat-list-list-item-hover-leading-icon-color: var(--interactive-primary-textandicon-selected);
+  --mat-list-list-item-hover-trailing-icon-color: var(--interactive-primary-textandicon-selected);
+  --mat-list-list-item-focus-label-text-color: var(--interactive-primary-textandicon-selected);
+  --mat-list-list-item-focus-leading-icon-color: var(--interactive-primary-textandicon-selected);
+  --mat-list-list-item-disabled-label-text-color: var(--interactive-primary-textandicon-disabled);
+  --mat-list-list-item-disabled-leading-icon-color: var(--interactive-primary-textandicon-disabled);
+  --mat-list-list-item-container-color: transparent;
+  --mat-list-active-indicator-color: var(--interactive-primary-background-selected);
 }
 
 // Global override for navigation drawer list items
@@ -36,12 +43,12 @@ mat-sidenav-container:not(.labels-visible) mat-sidenav {
     flex-direction: row !important;
     justify-content: left;
     align-items: center;
-    
+
     .mat-icon {
       margin-right: 0 !important;
       margin-left: 0 !important;
     }
-    
+
     .mdc-list-item__content {
       display: flex !important;
       justify-content: left !important;
@@ -50,7 +57,7 @@ mat-sidenav-container:not(.labels-visible) mat-sidenav {
       width: auto !important;
       flex: 0 0 auto !important;
     }
-    
+
     .mdc-list-item__start {
       margin-left: 0 !important;
       margin-right: 0 !important;
@@ -67,12 +74,12 @@ mat-nav-list.level2-nav {
     align-items: flex-start !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    
+
     .mat-icon {
       margin-right: var(--size-spacing-m) !important;
       margin-left: 0 !important;
     }
-    
+
     .mdc-list-item__content {
       display: flex !important;
       justify-content: flex-start !important;
@@ -81,7 +88,7 @@ mat-nav-list.level2-nav {
       padding-right: 0 !important;
       width: auto !important;
     }
-    
+
     .mdc-list-item__start {
       margin-left: 0 !important;
       margin-right: 0 !important;
@@ -98,13 +105,13 @@ mat-sidenav-container.labels-visible mat-sidenav {
     align-items: center !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    
+
     .mat-icon {
       margin-right: 0 !important;
       margin-left: 0 !important;
       margin-bottom: var(--size-spacing-2xs) !important;
     }
-    
+
     .mdc-list-item__content {
       width: 100% !important;
       flex: 1 1 auto !important;
@@ -116,7 +123,7 @@ mat-sidenav-container.labels-visible mat-sidenav {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
-    
+
     .mdc-list-item__primary-text,
     .mat-mdc-list-item-unscoped-content {
       padding: 0 !important;
@@ -134,13 +141,13 @@ mat-sidenav-container.labels-visible mat-sidenav {
     align-items: flex-start !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    
+
     .mat-icon {
       margin-right: 0 !important;
       margin-left: 0 !important;
       margin-bottom: var(--size-spacing-2xs) !important;
     }
-    
+
     .mdc-list-item__content {
       width: 100% !important;
       flex: 1 1 auto !important;
@@ -152,7 +159,7 @@ mat-sidenav-container.labels-visible mat-sidenav {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
-    
+
     .mdc-list-item__primary-text,
     .mat-mdc-list-item-unscoped-content {
       padding: 0 !important;
@@ -220,9 +227,7 @@ mat-list-option.mat-mdc-list-option {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-list-list-item-label-text-color: var(--ui-textandicon-high);
   --mat-list-list-item-hover-label-text-color: var(--interactive-primary-textandicon-selected);
   --mat-list-list-item-focus-label-text-color: var(--interactive-primary-textandicon-selected);
@@ -242,9 +247,7 @@ html .theme-dark {
   --mat-checkbox-state-layer-size: var(--size-spacing-5xl);
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   &.theme-condensed,
   .theme-condensed {
     --mat-checkbox-state-layer-size: var(--size-spacing-4xl);

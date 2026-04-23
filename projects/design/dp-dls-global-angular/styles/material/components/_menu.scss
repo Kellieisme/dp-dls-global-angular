@@ -1,19 +1,4 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
-@use '../m3-theme' as m3;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.menu-theme(m3.$dark-theme);
-
-  // If needed use the single dimension mixins to override particular aspects
-  @include mat.menu-typography(m3.$dark-theme);
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.menu-color(m3.$light-theme);
-}
 
 // Specific fix for ba-user-profile when used as menu trigger
 ba-user-profile.mat-mdc-menu-trigger {
@@ -116,9 +101,7 @@ $composition-dark-ui-glass-border-specular-menu: rgba(255, 255, 255, 0.17);
 }
 
 // Density-aware sizing using design tokens
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   &.theme-condensed,
   .theme-condensed {
     --mat-menu-container-shape: var(--size-radius-m);
@@ -133,9 +116,7 @@ html .theme-dark {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-menu-item-label-text-color: var(--interactive-primary-textandicon-primary-default);
   //     --mat-menu-item-icon-color: rgba(0, 0, 0, 0.87);
   --mat-menu-item-hover-state-layer-color: var(--interactive-primary-background-hovered);

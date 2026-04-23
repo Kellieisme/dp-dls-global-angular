@@ -1,20 +1,9 @@
-@use "@angular/material" as mat;
 @use "@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss" as composition;
-@use "../m3-theme.scss" as m3;
 
 // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
 // @include mat.checkbox-theme(m3.$dark-theme);
 // If needed use the single dimension mixins to override particular aspects
 // @include mat.button-base(m3.$dark-theme);
-:root {
-  @include mat.checkbox-theme(m3.$dark-theme);
-}
-
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.checkbox-color(m3.$light-theme);
-}
 
 .mat-mdc-checkbox {
   &:hover:not(:disabled) {
@@ -44,9 +33,7 @@ body.theme-condensed {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-checkbox-disabled-selected-icon-color: var(--interactive-primary-background-disabled);
   --mat-checkbox-disabled-unselected-icon-color: var(--light-interactive-primary-border-disabled);
   --mat-checkbox-selected-checkmark-color: var(--interactive-accent-textandicon-inverse);
@@ -68,9 +55,7 @@ html .theme-dark {
 }
 
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
 
   // gotta get a little hacky for the checkmark and mixedmark...
   .mdc-checkbox .mdc-checkbox__native-control:disabled~.mdc-checkbox__background {

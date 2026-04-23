@@ -1,20 +1,5 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all 
-  //theme dimensions at once
-  @include mat.datepicker-theme(m3.$dark-theme);
-  // If needed use the single dimension mixins to override particular aspects
-  
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.datepicker-color(m3.$light-theme);
-}
 
 // Scaling/Density:
 // Note that, due to the interdependency of form components on each other, any
@@ -36,9 +21,7 @@ $composition-dark-interactive-primary-border-hovered-specular-datepicker: rgba(2
 $composition-light-interactive-primary-border-hovered-specular-datepicker: rgba(255, 255, 255, 0.17);
 
 // Additional Invalid/Error Styles
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   .mat-mdc-form-field.mat-form-field-invalid {
     --mat-datepicker-toggle-icon-color: var(--semantic-textandicon-error);
     --mat-datepicker-toggle-active-state-icon-color: var(--semantic-textandicon-error);
@@ -78,8 +61,7 @@ html .theme-condensed {
 *                   PRIMARY MODE VARIABLES
 */
 
-html,
-html .theme-light {
+:root {
   --mat-datepicker-calendar-date-selected-state-text-color: var(--ui-textandicon-inverse);
   --mat-datepicker-calendar-date-selected-state-background-color: var(--interactive-accent-background-enabled-filled);
   --mat-datepicker-calendar-date-selected-disabled-state-background-color: var(--interactive-primary-background-disabled);

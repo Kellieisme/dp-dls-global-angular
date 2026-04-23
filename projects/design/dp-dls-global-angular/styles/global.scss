@@ -19,80 +19,78 @@
 @include breakpoints.generateBreakpointVariables();
 @include fonts.boeing-meso('/assets/fonts');
 
-// v4 CSS variable aliases: map --color-* → --* (no prefix)
-// Components reference the no-prefix names (e.g. --ui-background-medium).
-// _themeMixins.scss generates --color-* on html (dark) and .theme-light, so these aliases
-// resolve to the correct theme value when the theme class is on body.
+// v4 CSS variable aliases: map --foundation-* → --* (no prefix)
+// generateColorThemeVariables() outputs --foundation-* vars to :root/.theme-dark and .theme-light,
+// so these aliases automatically resolve to the correct theme value when .theme-light is on body.
 :root {
   // UI surface tokens
-  --ui-background-page: var(--color-ui-background-lowest); // --color-ui-background-page doesn't exist; lowest = page level
-  --ui-background-high: var(--color-ui-background-high);
-  --ui-background-medium: var(--color-ui-background-medium);
-  --ui-background-low: var(--color-ui-background-low);
-  --ui-textandicon-high: var(--color-ui-textandicon-high);
-  --ui-textandicon-medium: var(--color-ui-textandicon-medium);
-  --ui-textandicon-low: var(--color-ui-textandicon-low);
-  --ui-textandicon-inverse: var(--color-ui-textandicon-inverse);
-  --ui-divider-flat-high: var(--color-ui-divider-flat-high);
-  --ui-divider-flat-low: var(--color-ui-divider-flat-low);
-  --ui-embellishment: var(--color-ui-embellishment);
-  --ui-glass-surface-regular: var(--color-ui-glass-surface-regular);
-  --ui-glass-surface-thick: var(--color-ui-glass-surface-thick);
-  --ui-glass-surface-thickest: var(--color-ui-glass-surface-thickest);
-  --ui-glass-surface-thin: var(--color-ui-glass-surface-thin);
-  --ui-glass-surface-thinnest: var(--color-ui-glass-surface-thinnest);
-  --ui-glass-divider-specular-44: var(--color-ui-glass-divider-specular-44); // no --foundation-* equivalent; falls back to --color-* from _themeMixins
+  --ui-background-page: var(--foundation-ui-background-page);
+  --ui-background-high: var(--foundation-ui-background-high);
+  --ui-background-medium: var(--foundation-ui-background-medium);
+  --ui-background-low: var(--foundation-ui-background-low);
+  --ui-textandicon-high: var(--foundation-ui-textandicon-high);
+  --ui-textandicon-medium: var(--foundation-ui-textandicon-medium);
+  --ui-textandicon-low: var(--foundation-ui-textandicon-low);
+  --ui-textandicon-inverse: var(--foundation-ui-textandicon-inverse);
+  --ui-divider-flat-high: var(--foundation-ui-divider-flat-high);
+  --ui-divider-flat-low: var(--foundation-ui-divider-flat-low);
+  --ui-embellishment: var(--foundation-ui-embellishment);
+  --ui-glass-surface-regular: var(--foundation-ui-glass-surface-regular);
+  --ui-glass-surface-thick: var(--foundation-ui-glass-surface-thick);
+  --ui-glass-surface-thickest: var(--foundation-ui-glass-surface-thickest);
+  --ui-glass-surface-thin: var(--foundation-ui-glass-surface-thin);
+  --ui-glass-surface-thinnest: var(--foundation-ui-glass-surface-thinnest);
 
   // Interactive primary tokens
-  --interactive-primary-textandicon-selected: var(--color-interactive-primary-textandicon-selected);
-  --interactive-primary-textandicon-primary-default: var(--color-interactive-primary-textandicon-primary-default);
-  --interactive-primary-textandicon-secondary-default: var(--color-interactive-primary-textandicon-secondary-default);
-  --interactive-primary-textandicon-disabled: var(--color-interactive-primary-textandicon-disabled);
-  --interactive-primary-textandicon-inverse: var(--color-interactive-primary-textandicon-inverse);
-  --interactive-primary-background-enabled-filled: var(--color-interactive-primary-background-enabled-filled);
-  --interactive-primary-background-enabled-tonal: var(--color-interactive-primary-background-enabled-tonal);
-  --interactive-primary-background-hovered: var(--color-interactive-primary-background-hovered);
-  --interactive-primary-background-selected: var(--color-interactive-primary-background-selected);
-  --interactive-primary-background-disabled: var(--color-interactive-primary-background-disabled);
-  --interactive-primary-background-ripple: var(--color-interactive-primary-background-ripple);
-  --interactive-primary-background-primary-default: var(--color-interactive-primary-background-enabled-filled);
-  --interactive-primary-border-enabled: var(--color-interactive-primary-border-enabled);
-  --interactive-primary-border-hovered-flat: var(--color-interactive-primary-border-hovered-flat);
-  --interactive-primary-border-selected: var(--color-interactive-primary-border-selected);
-  --interactive-primary-border-focused: var(--color-interactive-primary-border-focused);
-  --interactive-primary-border-disabled: var(--color-interactive-primary-border-disabled);
+  --interactive-primary-textandicon-selected: var(--foundation-interactive-primary-textandicon-selected);
+  --interactive-primary-textandicon-primary-default: var(--foundation-interactive-primary-textandicon-primary-default);
+  --interactive-primary-textandicon-secondary-default: var(--foundation-interactive-primary-textandicon-secondary-default);
+  --interactive-primary-textandicon-disabled: var(--foundation-interactive-primary-textandicon-disabled);
+  --interactive-primary-textandicon-inverse: var(--foundation-interactive-primary-textandicon-inverse);
+  --interactive-primary-background-enabled-filled: var(--foundation-interactive-primary-background-enabled-filled);
+  --interactive-primary-background-enabled-tonal: var(--foundation-interactive-primary-background-enabled-tonal);
+  --interactive-primary-background-hovered: var(--foundation-interactive-primary-background-hovered);
+  --interactive-primary-background-selected: var(--foundation-interactive-primary-background-selected);
+  --interactive-primary-background-disabled: var(--foundation-interactive-primary-background-disabled);
+  --interactive-primary-background-ripple: var(--foundation-interactive-primary-background-ripple);
+  --interactive-primary-background-primary-default: var(--foundation-interactive-primary-background-enabled-filled);
+  --interactive-primary-border-enabled: var(--foundation-interactive-primary-border-enabled);
+  --interactive-primary-border-hovered-flat: var(--foundation-interactive-primary-border-hovered-flat);
+  --interactive-primary-border-selected: var(--foundation-interactive-primary-border-selected);
+  --interactive-primary-border-focused: var(--foundation-interactive-primary-border-focused);
+  --interactive-primary-border-disabled: var(--foundation-interactive-primary-border-disabled);
 
   // Interactive accent tokens
-  --interactive-accent-textandicon-default: var(--color-interactive-accent-textandicon-default);
-  --interactive-accent-textandicon-selected: var(--color-interactive-accent-textandicon-selected);
-  --interactive-accent-textandicon-disabled: var(--color-interactive-accent-textandicon-disabled);
-  --interactive-accent-textandicon-inverse: var(--color-interactive-accent-textandicon-inverse);
-  --interactive-accent-background-enabled-filled: var(--color-interactive-accent-background-enabled-filled);
-  --interactive-accent-background-enabled-tonal: var(--color-interactive-accent-background-enabled-tonal);
-  --interactive-accent-background-hovered: var(--color-interactive-accent-background-hovered);
-  --interactive-accent-background-selected: var(--color-interactive-accent-background-selected);
-  --interactive-accent-background-disabled: var(--color-interactive-accent-background-disabled);
-  --interactive-accent-border-enabled: var(--color-interactive-accent-border-enabled);
-  --interactive-accent-border-hovered: var(--color-interactive-accent-border-hovered);
-  --interactive-accent-border-selected: var(--color-interactive-accent-border-selected);
+  --interactive-accent-textandicon-default: var(--foundation-interactive-accent-textandicon-default);
+  --interactive-accent-textandicon-selected: var(--foundation-interactive-accent-textandicon-selected);
+  --interactive-accent-textandicon-disabled: var(--foundation-interactive-accent-textandicon-disabled);
+  --interactive-accent-textandicon-inverse: var(--foundation-interactive-accent-textandicon-inverse);
+  --interactive-accent-background-enabled-filled: var(--foundation-interactive-accent-background-enabled-filled);
+  --interactive-accent-background-enabled-tonal: var(--foundation-interactive-accent-background-enabled-tonal);
+  --interactive-accent-background-hovered: var(--foundation-interactive-accent-background-hovered);
+  --interactive-accent-background-selected: var(--foundation-interactive-accent-background-selected);
+  --interactive-accent-background-disabled: var(--foundation-interactive-accent-background-disabled);
+  --interactive-accent-border-enabled: var(--foundation-interactive-accent-border-enabled);
+  --interactive-accent-border-hovered: var(--foundation-interactive-accent-border-hovered);
+  --interactive-accent-border-selected: var(--foundation-interactive-accent-border-selected);
 
   // Semantic tokens
-  --semantic-textandicon-error: var(--color-semantic-textandicon-error);
-  --semantic-textandicon-warning: var(--color-semantic-textandicon-warning);
-  --semantic-textandicon-success: var(--color-semantic-textandicon-success);
-  --semantic-textandicon-info: var(--color-semantic-textandicon-info);
-  --semantic-background-error-filled: var(--color-semantic-background-error-filled);
-  --semantic-background-error-tonal: var(--color-semantic-background-error-tonal);
-  --semantic-background-warning-filled: var(--color-semantic-background-warning-filled);
-  --semantic-background-warning-tonal: var(--color-semantic-background-warning-tonal);
-  --semantic-background-success-filled: var(--color-semantic-background-success-filled);
-  --semantic-background-success-tonal: var(--color-semantic-background-success-tonal);
-  --semantic-background-info-filled: var(--color-semantic-background-info-filled);
-  --semantic-background-info-tonal: var(--color-semantic-background-info-tonal);
-  --semantic-border-error: var(--color-semantic-border-error);
-  --semantic-border-warning: var(--color-semantic-border-warning);
-  --semantic-border-success: var(--color-semantic-border-success);
-  --semantic-border-info: var(--color-semantic-border-info);
+  --semantic-textandicon-error: var(--foundation-semantic-textandicon-error);
+  --semantic-textandicon-warning: var(--foundation-semantic-textandicon-warning);
+  --semantic-textandicon-success: var(--foundation-semantic-textandicon-success);
+  --semantic-textandicon-info: var(--foundation-semantic-textandicon-info);
+  --semantic-background-error-filled: var(--foundation-semantic-background-error-filled);
+  --semantic-background-error-tonal: var(--foundation-semantic-background-error-tonal);
+  --semantic-background-warning-filled: var(--foundation-semantic-background-warning-filled);
+  --semantic-background-warning-tonal: var(--foundation-semantic-background-warning-tonal);
+  --semantic-background-success-filled: var(--foundation-semantic-background-success-filled);
+  --semantic-background-success-tonal: var(--foundation-semantic-background-success-tonal);
+  --semantic-background-info-filled: var(--foundation-semantic-background-info-filled);
+  --semantic-background-info-tonal: var(--foundation-semantic-background-info-tonal);
+  --semantic-border-error: var(--foundation-semantic-border-error);
+  --semantic-border-warning: var(--foundation-semantic-border-warning);
+  --semantic-border-success: var(--foundation-semantic-border-success);
+  --semantic-border-info: var(--foundation-semantic-border-info);
 }
 
 // Bridge foundation spacing/sizing tokens to density-aware base dimensions
@@ -215,14 +213,17 @@ html {
 html, body { height: 100%; }
 
 body {
-  background-color: var(--ui-background-page);
-  color: var(--ui-textandicon-high);
+  // Use --foundation-* vars directly so no :root inheritance hop is needed.
+  // generateColorThemeVariables() puts these on body via .theme-light / .theme-dark,
+  // so they respond to theme changes without relying on the :root alias chain.
+  background-color: var(--foundation-ui-background-page);
+  color: var(--foundation-ui-textandicon-high);
   font-family: 'Boeing Meso', sans-serif;
   font-size: 14px;
   margin: 0;
 }
 
-h1 { color: var(--ui-textandicon-medium); }
+h1 { color: var(--foundation-ui-textandicon-medium); }
 
 // Density-aware line-height adjustments
 // Apply tighter line-height in condensed mode for better vertical spacing

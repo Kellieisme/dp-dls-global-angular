@@ -1,22 +1,5 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.form-field-theme(m3.$dark-theme);
-  // If needed use the single dimension mixins to override particular aspects
-  // @include mat.button-base(m3.$dark-theme);
-  // @include mat.button-color(m3.$dark-theme);
-  // @include mat.button-typography(m3.$dark-theme);
-  // @include mat.button-density(m3.$dark-theme);
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.form-field-color(m3.$light-theme);
-}
 
 // Density-aware form field container height using design tokens
 html,
@@ -61,9 +44,7 @@ html .theme-condensed {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   .mat-mdc-form-field {
     --mat-mdc-form-field-floating-label-scale: 1;
 
@@ -114,9 +95,7 @@ html .theme-dark {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   //   --mat-form-field-focus-select-arrow-color: rgba(103, 58, 183, 0.87);
   //   --mat-form-field-disabled-input-text-placeholder-color: rgba(0, 0, 0, 0.38);
   //   --mat-form-field-state-layer-color: rgba(0, 0, 0, 0.87);

@@ -1,32 +1,18 @@
 // Import Angular Material library with an alias for convenience
-@use '@angular/material' as mat;
 
 // Import theme configurations for the application
-@use '../m3-theme.scss' as m3; // Imports user-defined themes, e.g., light and dark theme settings
 
 :root {
-  // Apply a dark theme to the Angular Material progress bar
-  @include mat.progress-bar-theme(m3.$dark-theme);
-}
-
-// Define a light theme for the progress bar in the `.theme-light` class
-.theme-light {
-  @include mat.progress-bar-color(m3.$light-theme);
-}
-
-html,
-html .theme-light,
-html .theme-dark {
   --mat-progress-bar-active-indicator-color: var(--semantic-background-info-filled); //info is by default when no class is selected
 
   .progress-error {
     --mat-progress-bar-active-indicator-color: var(--semantic-background-error-filled);
   }
-  
+
   .progress-warning {
     --mat-progress-bar-active-indicator-color: var(--semantic-background-warning-filled);
   }
-  
+
   .progress-success {
     --mat-progress-bar-active-indicator-color: var(--semantic-background-success-filled);
   }

@@ -1,19 +1,5 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme' as m3;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.input-theme(m3.$dark-theme);
-  // If needed use the single dimension mixins to override particular aspects
-
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.input-color(m3.$light-theme);
-}
 
 // Scaling/Density:
 // Note that, due to the interdependency of form components on each other, any
@@ -79,9 +65,7 @@ body.theme-condensed {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-floating-label {
     display: inline;
   }
@@ -185,9 +169,7 @@ html .theme-dark {
 //   --mat-form-field-filled-container-shape: var(--size-radius-s);
 // }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-form-field-filled-caret-color: var(--interactive-accent-textandicon-default);
   // --mat-form-field-filled-focus-active-indicator-color: green; // underline below input
   --mat-form-field-filled-focus-label-text-color: var(--interactive-accent-textandicon-default);

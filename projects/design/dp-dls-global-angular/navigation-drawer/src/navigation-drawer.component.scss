@@ -81,6 +81,7 @@ mat-sidenav {
 // Use the actual MDC class that Material renders
 ::ng-deep mat-sidenav .mat-mdc-list-item.mdc-list-item {
   background-color: transparent;
+  color: var(--foundation-interactive-primary-textandicon-secondary-default);
   height: auto !important;
   min-height: 48px !important;
   padding-top: 8px !important;
@@ -95,6 +96,12 @@ mat-sidenav {
 
   .mdc-list-item__primary-text {
     @include typography.typography-m-label-low;
+    color: var(--foundation-interactive-primary-textandicon-secondary-default);
+  }
+
+  .mat-icon,
+  .mat-mdc-list-item-icon {
+    color: var(--foundation-interactive-primary-textandicon-secondary-default);
   }
 
   &:focus {

@@ -1,16 +1,4 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme' as m3;
-
-:root {
-  // Material 3 theme includes typography configuration from m3-theme.scss
-  @include mat.table-theme(m3.$dark-theme);
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.table-color(m3.$light-theme);
-}
 
 [mat-table] {
   &.mat-mdc-table {
@@ -72,28 +60,24 @@
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-table-background-color: transparent;
   --mat-table-row-item-label-text-color: var(--interactive-primary-textandicon-primary-default);
   --mat-table-row-item-outline-color: var(--ui-divider-flat-high);
 }
 
-html .theme-light {
+:root {
   --mat-table-header-background: var(--ui-background-low);
   --mat-table-row-background: var(--ui-background-medium);
 }
 
-html .theme-dark {
+:root {
   --mat-table-header-background: var(--ui-background-high);
   --mat-table-row-background: var(--ui-background-medium);
 }
 
 // Density-aware sizing using design tokens
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   &.theme-relaxed,
   .theme-relaxed,
   &:not(.theme-condensed):not(.theme-condensed *) {

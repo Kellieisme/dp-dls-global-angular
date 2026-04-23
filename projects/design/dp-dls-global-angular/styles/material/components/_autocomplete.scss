@@ -1,18 +1,5 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
-
-// The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-:root{
-  @include mat.autocomplete-theme(m3.$dark-theme);
-}
-
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.autocomplete-color(m3.$light-theme);
-}
 
 // TODO: autocompleteorary specular border values until we can fix the mixin
 // The mixin uses border-image-source to create a gradient border but
@@ -25,9 +12,7 @@ $composition-light-interactive-primary-border-hovered-specular-autocomplete: rgb
 // can be tricky. Use caution and check the various components for collisions.
 
 // DARK MODE
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   div.mat-mdc-autocomplete-panel {
     // overall autocomplete panel color
     --mat-autocomplete-background-color: var(--ui-glass-surface-regular);
@@ -36,9 +21,7 @@ html .theme-dark {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
 
   // the autocomplete is designed to have the same border radius as other form fields, but the bottom
   // corner radii are removed when expanded. Due to MaterialUI's DOM structure and available
@@ -107,14 +90,10 @@ html .theme-dark {
 *   VARIABLE OVERRIDES
 */
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-autocomplete-container-elevation-shadow: none;
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-autocomplete-background-color: var(--ui-glass-surface-regular);
 }

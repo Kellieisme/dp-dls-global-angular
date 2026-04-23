@@ -1,14 +1,3 @@
-@use '@angular/material' as mat;
-@use '../m3-theme' as m3;
-
-:root {
-  @include mat.divider-theme(m3.$dark-theme);
-}
-
-.theme-light {
-  @include mat.divider-color(m3.$light-theme);
-}
-
 mat-divider {
   &.mat-divider {
     &.specular {
@@ -29,9 +18,7 @@ mat-divider {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-divider-color: var(--ui-divider-flat-high);
   --mat-divider-width: 1px;
 }

@@ -1,20 +1,7 @@
-@use "@angular/material" as mat;
-@use "../m3-theme" as m3;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.snack-bar-theme(m3.$dark-theme);
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.snack-bar-color(m3.$light-theme);
-}
-
 .mat-mdc-snack-bar-container {
   backdrop-filter: blur(var(--effect-glass-background-blur, 100px));
   height: var(--base-dimension-dynamic-s09);
-  
+
   .mdc-snackbar__label {
     padding: var(--foundation-spacing-xs) var(--foundation-spacing-s) var(--foundation-spacing-xs) var(--foundation-spacing-m);
   }
@@ -41,9 +28,7 @@
   flex-shrink: 0;
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-snackbar-container-shape: var(--foundation-radius-xs);
   --mat-snackbar-container-color: var(--ui-glass-surface-thickest);
   --mat-snackbar-supporting-text-color: var(--ui-textandicon-high);
@@ -51,9 +36,8 @@ html .theme-dark {
 }
 
 // html {
-//   
+//
 //   --mat-snackbar-supporting-text-line-height: 20px;
 //   --mat-snackbar-supporting-text-size: 14px;
 //   --mat-snackbar-supporting-text-weight: 400
 // }
-

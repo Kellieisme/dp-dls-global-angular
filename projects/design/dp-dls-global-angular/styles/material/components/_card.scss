@@ -1,18 +1,6 @@
-@use '@angular/material' as mat;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_compositionMixins.scss' as composition;
 @use '@jeppesen-foreflight/dls-global-assets/dist/scss/base/_typographyMixins.scss' as typography;
-@use '../m3-theme.scss' as m3;
 @use '../media-breakpointMixins' as breakpointMixin;
-
-:root {
-  // The `-theme` mixin can be used to include the component's styles for all theme dimensions at once
-  @include mat.card-theme(m3.$dark-theme);
-}
-
-// Apply the light theme only when the user prefers light themes.
-.theme-light {
-  @include mat.card-color(m3.$light-theme);
-}
 
 @mixin card-landscape {
   flex-direction: row;
@@ -214,7 +202,7 @@ mat-card-content {
 
     // Default typography for paragraph content
     p {
-      @include typography.typography-xl-body-low-default; 
+      @include typography.typography-xl-body-low-default;
       color: var(--ui-textandicon-medium);
     }
 
@@ -312,9 +300,7 @@ a {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   &.theme-condensed,
   .theme-condensed {
     --mat-card-elevated-container-shape: var(--size-radius-l);
@@ -322,18 +308,14 @@ html .theme-dark {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-card-outlined-outline-color: var(--gradient-glass-specular-border-89);
   .theme-light {
     --mat-card-outlined-outline-color: var(--gradient-glass-specular-border-89);
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
+:root {
   --mat-card-elevated-container-color: var(--ui-background-high);
   --mat-card-outlined-container-color: var(--ui-background-high);
   --mat-card-subtitle-text-color: var(--ui-textandicon-medium);
