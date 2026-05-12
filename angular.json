@@ -5,8 +5,8 @@
   "projects": {
     "@jeppesen-foreflight/dp-dls-global-angular": {
       "projectType": "library",
-  "root": "projects/design/dp-dls-global-angular",
-  "sourceRoot": "projects/design/dp-dls-global-angular",
+      "root": "projects/design/dp-dls-global-angular",
+      "sourceRoot": "projects/design/dp-dls-global-angular",
       "prefix": "lib",
       "architect": {
         "build": {
@@ -120,8 +120,8 @@
               { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/fonts/", "output": "./assets/fonts" }
             ],
             "styles": [
-              "projects/design/dp-dls-global-angular/styles/global.scss",
-              "projects/design/dp-dls-global-angular/styles/material.scss",
+              "dist/design/dp-dls-global-angular/styles/global.scss",
+              "dist/design/dp-dls-global-angular/styles/material.scss",
               "projects/demo/src/styles.scss"
             ],
             "scripts": [],
@@ -190,8 +190,8 @@
               { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
-              "projects/design/dp-dls-global-angular/styles/global.scss",
-              "projects/design/dp-dls-global-angular/styles/material.scss",
+              "dist/dp-dls-global-angular/global.css",
+              "dist/dp-dls-global-angular/material.css",
               "projects/demo/src/styles.scss"
             ],
             "scripts": []

@@ -35,7 +35,7 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
       </div>
     
     
-      <h2 mat-dialog-title style="padding-top: calc(var(--base-dimension-dynamic-s12) - 4px); margin-top: var(--foundation-spacing-none);">Dialog Title</h2>
+      <h2 mat-dialog-title style="padding-top: calc(var(--base-dimension-dynamic-s12) - 4px); padding-left: var(--foundation-spacing-l); margin-top: var(--foundation-spacing-none);">Dialog Title</h2>
       <mat-dialog-content>
 
       <button matButton="filled" color="accent">Filled button</button>

@@ -11,8 +11,7 @@ import { BasicDialogComponent } from './dialog.component';
     <button mat-flat-button color="primary" (click)="openDialog()">
       Open Dialog
     </button>
-  `,
-  styleUrl: './dialog-page.component.scss'
+  `
 })
 export class DialogPageComponent {
   constructor(public dialog: MatDialog) {}
@@ -21,6 +20,7 @@ export class DialogPageComponent {
     // Get current theme from body class
     const currentTheme = document.body.classList.contains('theme-light') ? 'theme-light' : 'theme-dark';
     this.dialog.open(BasicDialogComponent, {
+      width: '400px',
       panelClass: currentTheme
     });
   }
