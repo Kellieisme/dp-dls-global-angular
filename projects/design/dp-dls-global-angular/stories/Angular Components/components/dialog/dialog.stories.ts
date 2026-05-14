@@ -19,13 +19,14 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
     <ng-template #basicDialog let-data="data">
     
       <div style="position: absolute; top: 0; left: 0; right: 0; height: 0; z-index: 1;">
-        <div style="position: absolute; top: calc(var(--foundation-spacing-m) + 16px); left: var(--foundation-spacing-xl);">
+        <div style="position: absolute; top: calc(var(--size-spacing-m) + 16px); left: var(--size-spacing-xl);">
           @if (args.withIcon) {
             <mat-icon svgIcon="icon-warning"></mat-icon>
           }
         </div>
 
-        <div style="position: absolute; top: calc(var(--foundation-spacing-2xs) + 2px); right: var(--foundation-spacing-2xs);">
+                <div style="position: absolute; top: calc(var(--size-spacing-s) + 2px); right: var(--size-spacing-s);">
+
           @if (args.closeButton) {
             <button matIconButton mat-dialog-close="true">
               <mat-icon svgIcon="icon-close"></mat-icon>
@@ -35,7 +36,7 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
       </div>
     
     
-      <h2 mat-dialog-title style="padding-top: calc(var(--base-dimension-dynamic-s12) - 4px); padding-left: var(--foundation-spacing-l); margin-top: var(--foundation-spacing-none);">Dialog Title</h2>
+      <h2 mat-dialog-title style="padding-top: calc(var(--base-dimension-dynamic-s12) - 4px); padding-left: var(--size-spacing-l); margin-top: var(--size-spacing-none);">Dialog Title</h2>
       <mat-dialog-content>
 
       <button matButton="filled" color="accent">Filled button</button>
@@ -72,7 +73,7 @@ import { IconRegistryStorybookModule } from '@jeppesen-foreflight/dp-dls-global-
         </p>
       </mat-dialog-content>
     
-      <mat-dialog-actions style="display: flex; gap: var(--foundation-spacing-xs);">
+      <mat-dialog-actions style="display: flex; gap: var(--size-spacing-xs);">
         @if (args.tertiaryButton) {
           <button
             [closeButton]="closeButton"

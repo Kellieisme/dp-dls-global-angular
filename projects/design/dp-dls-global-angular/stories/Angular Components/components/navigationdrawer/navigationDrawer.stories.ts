@@ -88,6 +88,7 @@ const basicTemplate = (type: string): string =>
 export default {
   title: 'COMPONENTS/Navigation Drawer',
   component: NavigationDrawerComponent,
+  tags: ['!dev'],
   parameters: { layout: 'fullscreen' },
   decorators: [
     moduleMetadata({
