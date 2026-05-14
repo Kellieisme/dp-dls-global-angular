@@ -120,8 +120,8 @@
               { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/fonts/", "output": "./assets/fonts" }
             ],
             "styles": [
-              "dist/design/dp-dls-global-angular/styles/global.scss",
-              "dist/design/dp-dls-global-angular/styles/material.scss",
+              "projects/design/dp-dls-global-angular/styles/global.scss",
+              "projects/design/dp-dls-global-angular/styles/material.scss",
               "projects/demo/src/styles.scss"
             ],
             "scripts": [],
@@ -190,8 +190,8 @@
               { "glob": "**/*", "input": "./node_modules/@jeppesen-foreflight/dls-global-assets/dist/images/content", "output": "./assets" }
             ],
             "styles": [
-              "dist/dp-dls-global-angular/global.css",
-              "dist/dp-dls-global-angular/material.css",
+              "projects/design/dp-dls-global-angular/styles/global.scss",
+              "projects/design/dp-dls-global-angular/styles/material.scss",
               "projects/demo/src/styles.scss"
             ],
             "scripts": []
