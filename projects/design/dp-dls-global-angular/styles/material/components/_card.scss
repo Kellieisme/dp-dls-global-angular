@@ -296,8 +296,8 @@ mat-card-actions {
 .mat-mdc-card-sm-image,
 .mat-mdc-card-md-image,
 .mat-mdc-card-xl-image {
-  padding: var(--size-spacing-xs);
-  padding-bottom: 0;
+  width: calc(100% - 2 * var(--size-spacing-xs)) !important;
+  margin: var(--size-spacing-xs) !important;
   border-radius: var(--size-radius-l);
   max-height: 312px;
 }
