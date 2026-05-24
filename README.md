@@ -1,115 +1,102 @@
-# Boeing DLS Global Angular Component Library
+# dp-dls-global-angular
 
-## Introduction
+Angular component library for the Atmosphere Design Language System.
 
-This README is for using the Angular libraries in your application.
+## Distribution model
 
-### Using
+This package is **not published to any npm registry**. Consumers clone this repo and build locally. See the [monorepo build pipeline](#monorepo-build-pipeline) section below.
 
-How to consume the library in your Angular application, please refer to the documentation [here](https://github.com/Kellieisme/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#using-the-global-angular-component-library-in-your-angular-project)
+## Branch notes
 
-### Contributing
+- `fix/density-selector-standardization` — **primary working branch**. Use this for all development.
+- `main` — broken, do not use or merge into it. Will be replaced by the density branch when complete.
 
-If you are interested in contributing to the UX Design System, please refer to the [library README](https://github.com/Kellieisme/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#contributing-to-the-global-angular-component-library) for more in-depth instruction on contributing to the library.
+## Fresh clone — quick start
 
-## Installation
-
-Install the Angular CLI. For more details on prerequisites see the [Angular documentation](https://angular.io/guide/setup-local#prerequisites).
-
-```sh
-npm install -g @angular/cli
-```
-
-### Install packages
+Assets must be built first (it is a `file:` dependency of this repo).
 
 ```sh
+# 1. Build assets
+cd dp-dls-global-assets && npm install && npm run build
+
+# 2. Register assets as a global symlink
+npm link
+
+# 3. Install and link in this repo
+cd dp-dls-global-angular
 npm install
+npm link @jeppesen-foreflight/dls-global-assets
+
+# 4. Build the library
+npx ng build "@jeppesen-foreflight/dp-dls-global-angular"
 ```
 
-> If npm install fails, it may help to first run `npm config set strict-ssl false`
+> Re-run `npm link @jeppesen-foreflight/dls-global-assets` after any `npm install` in this repo. The symlink is needed so consuming project builds (docs, starterkit) resolve assets correctly when building from their own context.
 
-## Local development
+## Monorepo build pipeline
 
-The Atmosphere DLS Global Angular Component Library has a dependency on the Atmosphere DLS Global Assets Library (`@jeppesen-foreflight/dls-global-assets`), which is consumed via a local `npm link` symlink rather than a registry.
-
-To link local changes in `dls-global-assets` so they reflect immediately in this project:
-
-1. In the `dls-global-assets` directory, run `npm link`. This creates a global symlink to the package.
-2. In the `dp-dls-global-angular` directory, run `npm link @jeppesen-foreflight/dls-global-assets`.
-
-Note: If you run `npm install` after creating the symlink, you need to recreate it by doing step 2 above.
-
-## Monorepo build pipeline (local dev from source)
-
-If you are working across the full set of sibling repos rather than pulling packages from the registry, the repos must be built in this order:
+These repos must be built in order — each depends on the dist of the previous:
 
 ```text
-dp-dls-global-tokens  →  dp-dls-global-assets  →  dp-dls-global-angular  →  dp-dls-global-docs / dp-dls-global-starterkit
+dp-dls-global-tokens  →  dp-dls-global-assets  →  dp-dls-global-angular  →  dp-dls-global-docs
+                                                                           →  dp-dls-global-starterkit
 ```
 
-### Step 1 — Build tokens
+For a fresh clone, start at **assets** (step 2). Only go back to tokens if token values changed.
+
+### Step 1 — Tokens (only if token values changed)
 
 ```sh
 cd dp-dls-global-tokens/packages/tokens
 npm install && npm run compile
+
+rsync -av --delete --exclude '_breakpoints.scss' \
+  packages/tokens/dist/scss/ \
+  ../dp-dls-global-assets/src/scss/base/external-tokens/
 ```
 
-### Step 2 — Sync tokens into assets and build assets
+### Step 2 — Assets
 
 ```sh
 cd dp-dls-global-assets
+npm install && npm run build && npm link
+```
+
+### Step 3 — This library
+
+```sh
 npm install
-./token-service/scripts/sync-external-tokens.sh ../dp-dls-global-tokens
-npm run build
-```
-
-> The sync script preserves `src/scss/base/external-tokens/_breakpoints.scss` — do not overwrite it manually from the tokens dist.
-
-### Step 3 — Link assets locally, then build this library
-
-```sh
-# In dp-dls-global-assets:
-npm link
-
-# In dp-dls-global-angular:
 npm link @jeppesen-foreflight/dls-global-assets
-npx ng build dp-dls-global-angular
+npx ng build "@jeppesen-foreflight/dp-dls-global-angular"
 ```
 
-### Step 4 — Serve consumers
+### Step 4 — Serve demo app
 
 ```sh
-# Docs (port 4200)
-cd dp-dls-global-docs && npm install && npm start
-
-# DAS site (port 4201)
-cd dp-dls-global-docs && npm run start:das
-
-# Starterkit (port 4202)
-cd dp-dls-global-starterkit && npm install && npm start
+npx ng serve demo
 ```
 
-Whenever token source files change, re-run steps 1 → 2 → 3 before serving.
+### Step 5 — Docs / Starterkit
 
-## Development server
+```sh
+cd dp-dls-global-docs && npm install && npm start        # port 4200
+cd dp-dls-global-starterkit && npm install && npm start  # port 4202
+```
 
-Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The @jeppesen-foreflight/dp-dls-global-angular library will rebuild and the demo application will automatically reload if you change any of the source files.
+## Development
 
-## Storybook server
+### Demo app
 
-Run `npm run storybook` to start Storybook. Storybook will automatically reload if you change any of the source files.
+```sh
+npx ng serve demo
+```
 
-## Build
+### Storybook
 
-Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```sh
+npm run storybook
+```
 
-## Security Analysis
+## CI
 
-This project uses GitHub CodeQL for automated security vulnerability detection and code quality analysis. CodeQL runs automatically on pushes, pull requests, and on a weekly schedule.
-
-For detailed information about the CodeQL setup, configuration, and how to interpret results, see the [CodeQL Setup Documentation](./docs/CODEQL_SETUP.md).
-
-To view security scan results:
-
-1. Go to the **Security** tab in the GitHub repository
-2. Click on **Code scanning** to see any detected issues
+The GitHub Actions workflow checks out `dp-dls-global-assets` as a sibling repo, builds it, then builds this library. No registry access is required.
