@@ -125,11 +125,7 @@
               "projects/demo/src/styles.scss"
             ],
             "scripts": [],
-            "server": "projects/demo/src/main.server.ts",
-            "prerender": false,
-            "ssr": {
-              "entry": "projects/demo/server.ts"
-            }
+            "ssr": false
           },
           "configurations": {
             "production": {
