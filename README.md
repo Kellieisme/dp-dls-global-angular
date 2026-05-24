@@ -6,11 +6,11 @@ This README is for using the Angular libraries in your application.
 
 ### Using
 
-How to consume the library in your Angular application, please refer to the documentation [here](https://github.com/jeppesen-foreflight/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#using-the-global-angular-component-library-in-your-angular-project)
+How to consume the library in your Angular application, please refer to the documentation [here](https://github.com/Kellieisme/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#using-the-global-angular-component-library-in-your-angular-project)
 
 ### Contributing
 
-If you are interested in contributing to the UX Design System, please refer to the [library README](https://github.com/jeppesen-foreflight/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#contributing-to-the-global-angular-component-library) for more in-depth instruction on contributing to the library.
+If you are interested in contributing to the UX Design System, please refer to the [library README](https://github.com/Kellieisme/dp-dls-global-angular/tree/main/projects/design/dp-dls-global-angular#contributing-to-the-global-angular-component-library) for more in-depth instruction on contributing to the library.
 
 ## Installation
 
