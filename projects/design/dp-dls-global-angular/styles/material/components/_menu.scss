@@ -116,21 +116,11 @@ $composition-dark-ui-glass-border-specular-menu: rgba(255, 255, 255, 0.17);
 }
 
 // Density-aware sizing using design tokens
-html,
-html .theme-light,
-html .theme-dark {
-  &.theme-condensed,
-  .theme-condensed {
-    --mat-menu-container-shape: var(--size-radius-m);
-    //     --mat-menu-divider-bottom-spacing: 0;
-    //     --mat-menu-divider-top-spacing: 0;
-    //     --mat-menu-item-spacing: 16px;
-    --mat-menu-item-icon-size: var(--size-sizing-l);
-    --mat-menu-item-leading-spacing: var(--size-spacing-m);
-    --mat-menu-item-trailing-spacing: var(--size-spacing-m);
-    //     --mat-menu-item-with-icon-leading-spacing: 16px;
-    //     --mat-menu-item-with-icon-trailing-spacing: 16px
-  }
+body.theme-condensed {
+  --mat-menu-container-shape: var(--size-radius-m);
+  --mat-menu-item-icon-size: var(--size-sizing-l);
+  --mat-menu-item-leading-spacing: var(--size-spacing-m);
+  --mat-menu-item-trailing-spacing: var(--size-spacing-m);
 }
 
 html,

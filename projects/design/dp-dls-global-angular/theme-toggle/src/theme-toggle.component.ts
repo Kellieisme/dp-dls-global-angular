@@ -4,14 +4,6 @@ import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatIcon } from '@angular/material/icon';
 
-/**
- * Angular component to switch the Theme.
- * Also developers can create their own components with the use of `ThemeToggleService`
- * @example
- * ```
- * <ba-theme-toggle></ba-theme-toggle>
- * ```
- */
 @Component({
   selector: "ba-theme-toggle",
   standalone: true,

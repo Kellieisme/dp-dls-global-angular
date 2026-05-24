@@ -18,101 +18,91 @@ on:
     secrets:
       token:
         description: 'The GitHub Access Token'
-        required: true 
+        required: true
 
 jobs:
   build-and-deploy:
     name: Build and Deploy Storybook
     runs-on: ubuntu-latest
-    
+
     permissions:
-      contents: write # Required to push to the gh-pages branch
-      packages: read
+      contents: write
       pages: write
       id-token: write
-      
+
     steps:
-      - name: Checkout code
+      - name: Checkout dp-dls-global-angular
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          path: dp-dls-global-angular
+
+      - name: Checkout dp-dls-global-assets
+        uses: actions/checkout@v4
+        with:
+          repository: Kellieisme/dp-dls-global-assets
+          path: dp-dls-global-assets
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
           cache: 'npm'
-      
-      - name: Create .npmrc
+
+      - name: Install and build dp-dls-global-assets
+        working-directory: dp-dls-global-assets
         run: |
-          echo "@jeppesen-foreflight:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
-          echo "Created the following .npmrc:"; cat .npmrc
+          npm install
+          npm run build
 
       - name: Install Dependencies
+        working-directory: dp-dls-global-angular
         run: npm install
 
       - name: Compute Storybook output
         id: storybook-path
+        working-directory: dp-dls-global-angular
         run: |
           BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's/\//-/g')
           OUTPUT="storybook/${BRANCH}"
-          echo "OUTPUT = $OUTPUT"
           echo "output=$OUTPUT" >> "$GITHUB_OUTPUT"
 
       - name: Replace in angular.json
+        working-directory: dp-dls-global-angular
         run: sed -i "s|STORYBOOK_PLACEHOLDER|${{ steps.storybook-path.outputs.output }}|g" angular.json
-        
+
       - name: Build Storybook
-        # We keep the --public-path argument so the Storybook knows it is in a subdirectory.
+        working-directory: dp-dls-global-angular
         run: npm run build-storybook
-      
+
       - name: Set Direct Publish Directory
         id: set_publish_dir
+        working-directory: dp-dls-global-angular
         run: |
-          # CRITICAL FIX: Sanitize the input variable to remove any accidental leading/trailing 
-          # whitespace or newlines that are causing the 'No such file or directory' errors.
-          # 'xargs' is used here specifically for robust string trimming.
           CLEAN_SUBDIR=$(echo "${{ inputs.deploy-sub-directory }}" | xargs)
-          
-          # Use the cleaned variable to define the final path.
           BUILD_OUTPUT_PATH="dist/storybook/${CLEAN_SUBDIR}"
-          
           echo "Using direct build path for deployment: ${BUILD_OUTPUT_PATH}"
-          
-          # The deployment action requires a .nojekyll file in the root of the content it publishes.
-          # The double quotes ensure the path is treated as a single, clean string.
           touch "${BUILD_OUTPUT_PATH}/.nojekyll"
-          
-          # Output the path for the next step to use.
           echo "publish_path=${BUILD_OUTPUT_PATH}" >> $GITHUB_OUTPUT
 
-      # Deploy using the Git-based action (which supports multiple branches simultaneously)
       - name: Deploy to GitHub Pages
-        uses: jeppesen-foreflight/dp-actions-gh-pages@v1.1
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.token }}
-          # Source: Now uses the direct build output path
-          publish_dir: ${{ steps.set_publish_dir.outputs.publish_path }}
-          # Destination: The subdirectory for this specific branch (e.g. /angular-19)
+          publish_dir: dp-dls-global-angular/${{ steps.set_publish_dir.outputs.publish_path }}
           destination_dir: ${{ inputs.deploy-sub-directory }}
-          # CRITICAL: This ensures we don't delete other branches' folders
-          keep_files: true 
+          keep_files: true
 
-      # Print the Live URL manually since this action doesn't output it
       - name: Print Live Storybook URL
         run: |
           REPO_NAME="${{ github.event.repository.name }}"
           ORG_NAME="${{ github.repository_owner }}"
           SUBDIR="${{ inputs.deploy-sub-directory }}"
-          
           LIVE_URL="https://$ORG_NAME.github.io/$REPO_NAME/$SUBDIR/"
-          
-          echo "=========================================================="
-          echo "✅ Storybook Deployment Complete!"
+          echo "========================================="
+          echo "Storybook Deployment Complete!"
           echo "Live URL: $LIVE_URL"
-          echo "=========================================================="
-          
-          echo "### Storybook Live URL 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "========================================="
+          echo "### Storybook Live URL" >> $GITHUB_STEP_SUMMARY
           echo "View the Storybook for **${{ inputs.branch-name-slug }}** at:" >> $GITHUB_STEP_SUMMARY
-          echo "👉 $LIVE_URL" >> $GITHUB_STEP_SUMMARY
+          echo "$LIVE_URL" >> $GITHUB_STEP_SUMMARY

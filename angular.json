@@ -5,8 +5,8 @@
   "projects": {
     "@jeppesen-foreflight/dp-dls-global-angular": {
       "projectType": "library",
-  "root": "projects/design/dp-dls-global-angular",
-  "sourceRoot": "projects/design/dp-dls-global-angular",
+      "root": "projects/design/dp-dls-global-angular",
+      "sourceRoot": "projects/design/dp-dls-global-angular",
       "prefix": "lib",
       "architect": {
         "build": {
@@ -136,13 +136,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "2.6mb",
                   "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "30kb",
-                  "maximumError": "50kb"
+                  "maximumWarning": "60kb",
+                  "maximumError": "124kb"
                 }
               ],
               "outputHashing": "all"

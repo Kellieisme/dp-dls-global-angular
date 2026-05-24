@@ -8,20 +8,17 @@ import { BasicDialogComponent } from './dialog.component';
   standalone: true,
   imports: [MatDialogModule, MatButtonModule],
   template: `
-    <button mat-flat-button color="primary" (click)="openDialog()">
+    <button mat-button="outlined" color="primary" (click)="openDialog()">
       Open Dialog
     </button>
-  `,
-  styleUrl: './dialog-page.component.scss'
+  `
 })
 export class DialogPageComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
-    // Get current theme from body class
-    const currentTheme = document.body.classList.contains('theme-light') ? 'theme-light' : 'theme-dark';
     this.dialog.open(BasicDialogComponent, {
-      panelClass: currentTheme
+      width: 'var(--dialog-width, 420px)',
     });
   }
 }

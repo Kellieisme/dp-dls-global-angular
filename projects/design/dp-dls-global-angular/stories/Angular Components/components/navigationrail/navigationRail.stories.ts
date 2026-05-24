@@ -84,17 +84,17 @@ const baseArgs = {
   menuItems: MockSideRailMenuData
 };
 
-export const Narrow: SidenavStory = {
-  name: 'Narrow',
-  args: {
-    ...baseArgs,
-    hideLabels: true
-  },
-  render: ({ hideLabels, wide, appLogo, menuItems, homeRoute }) => ({
-    props: { hideLabels, wide, appLogo, menuItems, homeRoute },
-    template: navRailTemplate
-  }),
-};
+// export const Narrow: SidenavStory = {
+//   name: 'Narrow',
+//   args: {
+//     ...baseArgs,
+//     hideLabels: true
+//   },
+//   render: ({ hideLabels, wide, appLogo, menuItems, homeRoute }) => ({
+//     props: { hideLabels, wide, appLogo, menuItems, homeRoute },
+//     template: navRailTemplate
+//   }),
+// };
 
 export const narrowWithLabel: SidenavStory = {
   name: 'Narrow with Label',

@@ -151,17 +151,7 @@ export class MainNavComponent {
         label: 'template-3',
         icon: 'verified',
         route: '/template-3',
-      },
-      { 
-        label: 'template-4',
-        icon: 'verified',
-        route: '/template-4',
-      },
-    {
-      label: 'landing pg',
-      icon: 'verified',
-      route: '/landing-page',
-    }
+      }
   ];
 
   isSidenavOpen = false;

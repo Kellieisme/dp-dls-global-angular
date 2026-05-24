@@ -4,20 +4,19 @@ The Global Angular Component Library provides the following to accelerate develo
 
 1. A set of global styles and utility classes for typography, with font files and @font-face rules included
 2. A customized Bootstrap build that includes the responsive grid and all utility classes
-3. A core Angular Material theme that defines the color palette (dark and light), typography config, and density. The theme uses the [Material 2 theme API](https://material.angular.io/guide/material-2-theming).
+3. A core Angular Material theme that defines the color palette (dark and light), typography config, and density. The theme uses the Material 3 theme API.
 4. Additional theme customizations for individual Angular Material components
 5. Custom icons and and Angular module that loads the icon set as an SvgIconSet for use by the `<mat-icon>` component
 6. Custom Angular components
 
 ## Angular version compatibility
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+This library targets Angular 20+.
 
 - Items 1 & 2 above can be used with any Angular version.
-- Items 3, 4 & 5 above can be used with Angular 15-17
-- Item 6 can be used with Angular 17.
+- Items 3–6 require Angular 20+.
 
-> If you choose to use items 3-6 with older versions of Angular, support is not guaranteed.
+> Use with older versions of Angular is not supported.
 
 This README covers two developer roles, contributing and consuming:
 
@@ -26,25 +25,18 @@ This README covers two developer roles, contributing and consuming:
 
 # Using the Global Angular Component Library in your Angular project
 
-## Using the NPM package
+## Using the library locally
 
-The Global Angular Component Library is deployed as an NPM package to the Boeing Github package registry. To tell NPM where to download the package, use an `.npmrc` file.
+This library is consumed via a local build — clone the sibling repos and build them in order. See the [root README](../../README.md) for the full build pipeline.
 
-The contents of the `.npmrc` should include:
+Once built, link it into your project:
 
-@jeppesen-foreflight:registry=https://npm.pkg.github.com/
-//npm.pkg.github.com/:_authToken=GITLAB_AUTH_TOKEN
+```sh
+# In dp-dls-global-angular:
+npm link
 
-Replace the folowing values:
-- GITLAB_AUTH_TOKEN: Create a [Github Personal Access Token](https://github.com/settings/tokens) with all permissions. Save in a safe place. Use that string as the GITLAB_AUTH_TOKEN.
-
-### Add dependency to package.json
-
-Run the following command to install the package and save it as a dependency:
-
-```
-```
-npm install @jeppesen-foreflight/dp-dls-global-angular
+# In your project:
+npm link @jeppesen-foreflight/dp-dls-global-angular
 ```
 
 ### Update angular.json
@@ -81,6 +73,7 @@ To include the global styles, fonts, icons, and Angular Material theme, add the 
  If your project's SASS compiler cannot resolve the aliased path to the fonts in the above `fonts.scss` and throws errors, the recommendation is to create your own `fonts.scss` and update the base path to a value your compiler can resolve.
 
 For applications using `@angular-devkit/build-angular:application` create a file with:
+
 ```typescript
 @import '@jeppesen-foreflight/dls-global-assets/dist/scss/base/fonts';
 @include boeing-meso("@jeppesen-foreflight/dls-global-assets/dist/fonts");

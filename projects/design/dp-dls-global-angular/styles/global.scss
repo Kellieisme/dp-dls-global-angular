@@ -60,47 +60,47 @@ $foundation-dynamic-map: (
 );
 
 $foundation-fixed-map: (
-  foundation-spacing-3xs-fixed: foundationTokens.$spacing-3xs-fixed,
-  foundation-spacing-2xs-fixed: foundationTokens.$spacing-2xs-fixed,
-  foundation-spacing-xs-fixed: foundationTokens.$spacing-xs-fixed,
-  foundation-spacing-s-fixed: foundationTokens.$spacing-s-fixed,
-  foundation-spacing-m-fixed: foundationTokens.$spacing-m-fixed,
-  foundation-spacing-l-fixed: foundationTokens.$spacing-l-fixed,
-  foundation-spacing-xl-fixed: foundationTokens.$spacing-xl-fixed,
-  foundation-spacing-2xl-fixed: foundationTokens.$spacing-2xl-fixed,
-  foundation-spacing-3xl-fixed: foundationTokens.$spacing-3xl-fixed,
-  foundation-spacing-4xl-fixed: foundationTokens.$spacing-4xl-fixed,
-  foundation-spacing-5xl-fixed: foundationTokens.$spacing-5xl-fixed,
-  foundation-spacing-6xl-fixed: foundationTokens.$spacing-6xl-fixed,
-  foundation-spacing-7xl-fixed: foundationTokens.$spacing-7xl-fixed,
-  foundation-spacing-8xl-fixed: foundationTokens.$spacing-8xl-fixed,
-  foundation-spacing-9xl-fixed: foundationTokens.$spacing-9xl-fixed,
-  foundation-spacing-10xl-fixed: foundationTokens.$spacing-10xl-fixed,
-  foundation-spacing-11xl-fixed: foundationTokens.$spacing-11xl-fixed,
-  foundation-sizing-3xs-fixed: foundationTokens.$sizing-3xs-fixed,
-  foundation-sizing-2xs-fixed: foundationTokens.$sizing-2xs-fixed,
-  foundation-sizing-xs-fixed: foundationTokens.$sizing-xs-fixed,
-  foundation-sizing-s-fixed: foundationTokens.$sizing-s-fixed,
-  foundation-sizing-m-fixed: foundationTokens.$sizing-m-fixed,
-  foundation-sizing-l-fixed: foundationTokens.$sizing-l-fixed,
-  foundation-sizing-xl-fixed: foundationTokens.$sizing-xl-fixed,
-  foundation-sizing-2xl-fixed: foundationTokens.$sizing-2xl-fixed,
-  foundation-sizing-3xl-fixed: foundationTokens.$sizing-3xl-fixed,
-  foundation-sizing-4xl-fixed: foundationTokens.$sizing-4xl-fixed,
-  foundation-sizing-5xl-fixed: foundationTokens.$sizing-5xl-fixed,
-  foundation-sizing-6xl-fixed: foundationTokens.$sizing-6xl-fixed,
-  foundation-sizing-7xl-fixed: foundationTokens.$sizing-7xl-fixed,
-  foundation-sizing-8xl-fixed: foundationTokens.$sizing-8xl-fixed,
-  foundation-sizing-9xl-fixed: foundationTokens.$sizing-9xl-fixed,
-  foundation-sizing-10xl-fixed: foundationTokens.$sizing-10xl-fixed,
-  foundation-sizing-11xl-fixed: foundationTokens.$sizing-11xl-fixed,
-  foundation-radius-none: foundationTokens.$radius-none,
-  foundation-radius-xs: foundationTokens.$radius-xs,
-  foundation-radius-s: foundationTokens.$radius-s,
-  foundation-radius-m: foundationTokens.$radius-m,
-  foundation-radius-l: foundationTokens.$radius-l,
-  foundation-radius-xl: foundationTokens.$radius-xl,
-  foundation-radius-full: foundationTokens.$radius-full
+  foundation-spacing-3xs-fixed: foundationTokens.$foundation-spacing-3xs-fixed,
+  foundation-spacing-2xs-fixed: foundationTokens.$foundation-spacing-2xs-fixed,
+  foundation-spacing-xs-fixed: foundationTokens.$foundation-spacing-xs-fixed,
+  foundation-spacing-s-fixed: foundationTokens.$foundation-spacing-s-fixed,
+  foundation-spacing-m-fixed: foundationTokens.$foundation-spacing-m-fixed,
+  foundation-spacing-l-fixed: foundationTokens.$foundation-spacing-l-fixed,
+  foundation-spacing-xl-fixed: foundationTokens.$foundation-spacing-xl-fixed,
+  foundation-spacing-2xl-fixed: foundationTokens.$foundation-spacing-2xl-fixed,
+  foundation-spacing-3xl-fixed: foundationTokens.$foundation-spacing-3xl-fixed,
+  foundation-spacing-4xl-fixed: foundationTokens.$foundation-spacing-4xl-fixed,
+  foundation-spacing-5xl-fixed: foundationTokens.$foundation-spacing-5xl-fixed,
+  foundation-spacing-6xl-fixed: foundationTokens.$foundation-spacing-6xl-fixed,
+  foundation-spacing-7xl-fixed: foundationTokens.$foundation-spacing-7xl-fixed,
+  foundation-spacing-8xl-fixed: foundationTokens.$foundation-spacing-8xl-fixed,
+  foundation-spacing-9xl-fixed: foundationTokens.$foundation-spacing-9xl-fixed,
+  foundation-spacing-10xl-fixed: foundationTokens.$foundation-spacing-10xl-fixed,
+  foundation-spacing-11xl-fixed: foundationTokens.$foundation-spacing-11xl-fixed,
+  foundation-sizing-3xs-fixed: foundationTokens.$foundation-sizing-3xs-fixed,
+  foundation-sizing-2xs-fixed: foundationTokens.$foundation-sizing-2xs-fixed,
+  foundation-sizing-xs-fixed: foundationTokens.$foundation-sizing-xs-fixed,
+  foundation-sizing-s-fixed: foundationTokens.$foundation-sizing-s-fixed,
+  foundation-sizing-m-fixed: foundationTokens.$foundation-sizing-m-fixed,
+  foundation-sizing-l-fixed: foundationTokens.$foundation-sizing-l-fixed,
+  foundation-sizing-xl-fixed: foundationTokens.$foundation-sizing-xl-fixed,
+  foundation-sizing-2xl-fixed: foundationTokens.$foundation-sizing-2xl-fixed,
+  foundation-sizing-3xl-fixed: foundationTokens.$foundation-sizing-3xl-fixed,
+  foundation-sizing-4xl-fixed: foundationTokens.$foundation-sizing-4xl-fixed,
+  foundation-sizing-5xl-fixed: foundationTokens.$foundation-sizing-5xl-fixed,
+  foundation-sizing-6xl-fixed: foundationTokens.$foundation-sizing-6xl-fixed,
+  foundation-sizing-7xl-fixed: foundationTokens.$foundation-sizing-7xl-fixed,
+  foundation-sizing-8xl-fixed: foundationTokens.$foundation-sizing-8xl-fixed,
+  foundation-sizing-9xl-fixed: foundationTokens.$foundation-sizing-9xl-fixed,
+  foundation-sizing-10xl-fixed: foundationTokens.$foundation-sizing-10xl-fixed,
+  foundation-sizing-11xl-fixed: foundationTokens.$foundation-sizing-11xl-fixed,
+  foundation-radius-none: foundationTokens.$foundation-radius-none,
+  foundation-radius-xs: foundationTokens.$foundation-radius-xs,
+  foundation-radius-s: foundationTokens.$foundation-radius-s,
+  foundation-radius-m: foundationTokens.$foundation-radius-m,
+  foundation-radius-l: foundationTokens.$foundation-radius-l,
+  foundation-radius-xl: foundationTokens.$foundation-radius-xl,
+  foundation-radius-full: foundationTokens.$foundation-radius-full
 );
 
 :root {
@@ -140,13 +140,6 @@ body {
 
 h1 { color: var(--ui-textandicon-medium); }
 
-// Density-aware line-height adjustments
-// Apply tighter line-height in condensed mode for better vertical spacing
-.theme-condensed {
-  h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
-  p, div, span, li { line-height: 1.4; }
-  label, button { line-height: 1.3; }
-}
 
 // Move all Angular Material floating labels up by 4px
 // Only move floating label up when label is floating, not when placeholder is shown
