@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, ViewChild, TemplateRef, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -92,8 +91,7 @@ type SideNavigationModeType = `${SideNavMode}`;
         MatNavList,
         MatDividerModule,
         MatMenuModule,
-        MatSidenavModule,
-        IconRegistryModule
+        MatSidenavModule
     ],
     templateUrl: './navigation-drawer.component.html',
     styleUrls: ['./navigation-drawer.component.scss'],

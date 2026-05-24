@@ -10,7 +10,6 @@ import {
   AtmosphereSidesheetButtonsArray
 } from './sidesheet.types';
 
-import { IconRegistryModule } from "@jeppesen-foreflight/dp-dls-global-angular/icon-registry";
 
 export enum SidesheetVariant {
   STANDARD = 'standard',
@@ -39,8 +38,7 @@ export enum SidesheetContentMode {
         MatSidenavModule,
         MatButtonModule,
         MatIconModule,
-        MatDividerModule,
-        IconRegistryModule
+        MatDividerModule
     ],
     templateUrl: './sidesheet.component.html',
     styleUrls: ['./sidesheet.component.scss']

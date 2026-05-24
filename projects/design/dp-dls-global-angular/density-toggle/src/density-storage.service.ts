@@ -1,4 +1,4 @@
-import { InjectionToken } from "@angular/core";
+import { InjectionToken, Injectable } from "@angular/core";
 import { Density } from "./density-toggle.model";
 
 export const DENSITY_STORAGE_SERVICE = new InjectionToken<DensityStorage>(
@@ -10,6 +10,7 @@ export interface DensityStorage {
   save(density: Density): void;
 }
 
+@Injectable()
 export class LocalStorageDensityStorage implements DensityStorage {
   private static readonly storageKey = "user-density";
 

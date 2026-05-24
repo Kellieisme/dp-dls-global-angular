@@ -7,7 +7,6 @@ import {
   TemplateRef
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -40,7 +39,6 @@ import { MatMenuModule } from '@angular/material/menu';
         MatListModule,
         MatNavList,
         MatDividerModule,
-        IconRegistryModule,
         MatMenuModule
     ],
     templateUrl: './navigation-rail.component.html',

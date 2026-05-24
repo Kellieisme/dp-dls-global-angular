@@ -3,14 +3,13 @@ import { Component, Inject, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {  MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
-import { IconRegistryModule } from '@jeppesen-foreflight/dp-dls-global-angular/icon-registry';
 
 /**
  * Snackbar is a service for displaying snack-bar notifications.*/
 
 @Component({
     selector: 'ba-snackbar',
-    imports: [MatButtonModule, MatIconModule, IconRegistryModule],
+    imports: [MatButtonModule, MatIconModule],
     templateUrl: './snackbar.component.html',
     styleUrls: ['./snackbar.component.scss'],
     standalone: true,
