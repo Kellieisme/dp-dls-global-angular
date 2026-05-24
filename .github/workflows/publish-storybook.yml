@@ -43,11 +43,17 @@ jobs:
           node-version: ${{ inputs.node-version }}
           cache: 'npm'
       
-      - name: Create .npmrc
+      - name: Checkout dp-dls-global-assets
+        uses: actions/checkout@v4
+        with:
+          repository: Kellieisme/dp-dls-global-assets
+          path: ../dp-dls-global-assets
+
+      - name: Install and build dp-dls-global-assets
+        working-directory: ../dp-dls-global-assets
         run: |
-          echo "@jeppesen-foreflight:registry=https://${{ vars.NPM_REGISTRY_URL }}/" >> .npmrc
-          echo "//${{ vars.NPM_REGISTRY_URL }}/:_authToken=${{ secrets.GN_GITHUB_TOKEN }}" >> .npmrc
-          echo "Created the following .npmrc:"; cat .npmrc
+          npm install
+          npm run build
 
       - name: Install Dependencies
         run: npm install
