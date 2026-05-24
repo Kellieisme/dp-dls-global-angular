@@ -91,21 +91,15 @@ html .theme-dark {
 }
 
 // Density-aware sizing using design tokens
-html,
-html .theme-light,
-html .theme-dark {
-  &.theme-relaxed,
-  .theme-relaxed,
-  &:not(.theme-condensed):not(.theme-condensed *) {
-    --mat-table-header-container-height: var(--foundation-spacing-5xl);
-    --mat-table-footer-container-height: var(--foundation-spacing-4xl);
-    --mat-table-row-item-container-height: var(--foundation-spacing-4xl);
-  }
+body.theme-relaxed,
+body:not(.theme-condensed) {
+  --mat-table-header-container-height: var(--foundation-spacing-5xl);
+  --mat-table-footer-container-height: var(--foundation-spacing-4xl);
+  --mat-table-row-item-container-height: var(--foundation-spacing-4xl);
+}
 
-  &.theme-condensed,
-  .theme-condensed {
-    --mat-table-header-container-height: var(--foundation-spacing-4xl);
-    --mat-table-footer-container-height: var(--foundation-spacing-3xl);
-    --mat-table-row-item-container-height: var(--foundation-spacing-3xl);
-  }
+body.theme-condensed {
+  --mat-table-header-container-height: var(--foundation-spacing-4xl);
+  --mat-table-footer-container-height: var(--foundation-spacing-3xl);
+  --mat-table-row-item-container-height: var(--foundation-spacing-3xl);
 }

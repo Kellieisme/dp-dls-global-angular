@@ -67,9 +67,9 @@ mat-datepicker-content {
 */
 
 html,
-html .theme-condensed {
+html .theme-light,
+html .theme-dark {
   --mat-datepicker-calendar-container-shape: var(--size-radius-s);
-  //   --mat-datepicker-calendar-container-touch-shape: 4px;
   --mat-datepicker-calendar-container-elevation-shadow: none;
   --mat-datepicker-calendar-container-touch-elevation-shadow: none;
 }

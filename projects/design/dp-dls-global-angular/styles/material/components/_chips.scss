@@ -77,11 +77,9 @@ html .theme-dark {
 		--mat-chip-disabled-outline-color: var(--foundation-interactive-primary-border-disabled);
 		--mat-chip-focus-outline-color: var(--foundation-interactive-primary-border-focused);
 		
-		// Chip height should be consistent regardless of density
-		// Only the form field container adjusts for density
-		--mat-chip-container-height: 32px;
-		--mat-chip-leading-icon-size: var(--foundation-sizing-l);
-		--mat-chip-trailing-icon-size: var(--foundation-sizing-l);
+		--mat-chip-container-height: var(--size-sizing-2xl);
+		--mat-chip-leading-icon-size: var(--size-sizing-l);
+		--mat-chip-trailing-icon-size: var(--size-sizing-l);
 		--mat-chip-with-avatar-leading-icon-size: var(--foundation-sizing-3xl);
 		
 		// Container colors

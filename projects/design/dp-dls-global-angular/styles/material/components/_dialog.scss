@@ -27,21 +27,16 @@ html mat-dialog-container.mat-mdc-dialog-container {
 // Dialog Shape & Sizing
 // ===========================
 
-html,
-html .theme-light,
-html .theme-dark {
-  &.theme-condensed,
-  .theme-condensed {
-    --mat-dialog-container-shape: var(--size-radius-m);
-    --mat-dialog-container-max-width: 80vw;
-    --mat-dialog-container-small-max-width: 80vw;
-    --mat-dialog-container-min-width: 0;
-    --mat-dialog-actions-alignment: end;
-    --mat-dialog-actions-padding: var(--size-spacing-xl);
-    --mat-dialog-content-padding: var(--size-spacing-xl);
-    --mat-dialog-with-actions-content-padding: 0 var(--size-spacing-xl);
-    --mat-dialog-headline-padding: var(--size-spacing-m) var(--size-spacing-xl) var(--size-spacing-xl) var(--size-relaxed-spacing-xl);
-  }
+body.theme-condensed {
+  --mat-dialog-container-shape: var(--size-radius-m);
+  --mat-dialog-container-max-width: 80vw;
+  --mat-dialog-container-small-max-width: 80vw;
+  --mat-dialog-container-min-width: 0;
+  --mat-dialog-actions-alignment: end;
+  --mat-dialog-actions-padding: var(--size-spacing-xl);
+  --mat-dialog-content-padding: var(--size-spacing-xl);
+  --mat-dialog-with-actions-content-padding: 0 var(--size-spacing-xl);
+  --mat-dialog-headline-padding: var(--size-spacing-m) var(--size-spacing-xl) var(--size-spacing-xl) var(--size-relaxed-spacing-xl);
 }
 
 // ===========================
