@@ -25,23 +25,40 @@
   .label-lowest { @include typography.typography-m-label-lowest; }
   .label-lowest2 { @include typography.typography-m-label-lowest2; }
 
-  // Density-specific line-height adjustments
-  // Condensed mode reduces line-height by ~15% for tighter vertical spacing
-  .theme-condensed {
-    .display-high, h1 { line-height: 1.15; }
-    .display-medium { line-height: 1.15; }
-    
+  // Density-aware line-height adjustments using unitless ratios (scale with font-size)
+  .theme-relaxed,
+  :not(.theme-condensed) {
+    .display-high, .display-medium, h1 { line-height: 1.15; }
+
     .heading-high, h2 { line-height: 1.2; }
     .heading-medium, h3 { line-height: 1.2; }
     .heading-low, h4 { line-height: 1.2; }
-    
-    .title-high, h5 { line-height: 1.25; }
-    .title-medium, h6 { line-height: 1.25; }
-    .title-low { line-height: 1.25; }
-    
-    .body-high-default, .body-medium-default, .body-low-default, p { line-height: 1.4; }
-    
-    .label-high, .label-medium, .label-low, .label-lowest, .label-lowest2 { line-height: 1.3; }
+
+    .title-high, h5 { line-height: 1.2; }
+    .title-medium, h6 { line-height: 1.2; }
+    .title-low { line-height: 1.2; }
+
+    .body-high-default, .body-medium-default, .body-low-default, p, li { line-height: 1.5; }
+
+    .label-high, .label-medium, .label-low, .label-lowest, .label-lowest2,
+    label, button { line-height: 1.4; }
+  }
+
+  .theme-condensed {
+    .display-high, .display-medium, h1 { line-height: 1.1; }
+
+    .heading-high, h2 { line-height: 1.15; }
+    .heading-medium, h3 { line-height: 1.15; }
+    .heading-low, h4 { line-height: 1.15; }
+
+    .title-high, h5 { line-height: 1.15; }
+    .title-medium, h6 { line-height: 1.15; }
+    .title-low { line-height: 1.15; }
+
+    .body-high-default, .body-medium-default, .body-low-default, p, li { line-height: 1.4; }
+
+    .label-high, .label-medium, .label-low, .label-lowest, .label-lowest2,
+    label, button { line-height: 1.3; }
   }
 }
 

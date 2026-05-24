@@ -312,14 +312,9 @@ a {
   }
 }
 
-html,
-html .theme-light,
-html .theme-dark {
-  &.theme-condensed,
-  .theme-condensed {
-    --mat-card-elevated-container-shape: var(--size-radius-l);
-    --mat-card-outlined-container-shape: var(--size-radius-l);
-  }
+body.theme-condensed {
+  --mat-card-elevated-container-shape: var(--size-radius-l);
+  --mat-card-outlined-container-shape: var(--size-radius-l);
 }
 
 html,

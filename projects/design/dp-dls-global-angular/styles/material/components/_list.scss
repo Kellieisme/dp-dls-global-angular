@@ -242,14 +242,9 @@ html .theme-dark {
   --mat-checkbox-state-layer-size: var(--size-spacing-5xl);
 }
 
-html,
-html .theme-light,
-html .theme-dark {
-  &.theme-condensed,
-  .theme-condensed {
-    --mat-checkbox-state-layer-size: var(--size-spacing-4xl);
-    --mat-radio-state-layer-size: var(--size-spacing-4xl);
-    --mat-list-list-item-leading-icon-size: var(--size-spacing-xl);
-    --mat-list-list-item-leading-icon-end-space: var(--size-spacing-s);
-  }
+body.theme-condensed {
+  --mat-checkbox-state-layer-size: var(--size-spacing-4xl);
+  --mat-radio-state-layer-size: var(--size-spacing-4xl);
+  --mat-list-list-item-leading-icon-size: var(--size-spacing-xl);
+  --mat-list-list-item-leading-icon-end-space: var(--size-spacing-s);
 }
