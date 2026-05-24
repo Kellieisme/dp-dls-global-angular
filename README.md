@@ -53,6 +53,58 @@ During ongoing development, it may be useful to have local changes made to the `
 
 *Note:* If you run `npm install` after creating the symlink, you need to recreate it by doing step 2 above.
 
+## Monorepo build pipeline (local dev from source)
+
+If you are working across the full set of sibling repos rather than pulling packages from the registry, the repos must be built in this order:
+
+```
+dp-dls-global-tokens  →  dp-dls-global-assets  →  dp-dls-global-angular  →  dp-dls-global-docs / dp-dls-global-starterkit
+```
+
+### Step 1 — Build tokens
+
+```sh
+cd dp-dls-global-tokens/packages/tokens
+npm install && npm run compile
+```
+
+### Step 2 — Sync tokens into assets and build assets
+
+```sh
+cd dp-dls-global-assets
+npm install
+./token-service/scripts/sync-external-tokens.sh ../dp-dls-global-tokens
+npm run build
+```
+
+> The sync script preserves `src/scss/base/external-tokens/_breakpoints.scss` — do not overwrite it manually from the tokens dist.
+
+### Step 3 — Link assets locally, then build this library
+
+```sh
+# In dp-dls-global-assets:
+npm link
+
+# In dp-dls-global-angular:
+npm link @jeppesen-foreflight/dls-global-assets
+npx ng build dp-dls-global-angular
+```
+
+### Step 4 — Serve consumers
+
+```sh
+# Docs (port 4200)
+cd dp-dls-global-docs && npm install && npm start
+
+# DAS site (port 4201)
+cd dp-dls-global-docs && npm run start:das
+
+# Starterkit (port 4202)
+cd dp-dls-global-starterkit && npm install && npm start
+```
+
+Whenever token source files change, re-run steps 1 → 2 → 3 before serving.
+
 ## Development server
 
 Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The @jeppesen-foreflight/dp-dls-global-angular library will rebuild and the demo application will automatically reload if you change any of the source files.
