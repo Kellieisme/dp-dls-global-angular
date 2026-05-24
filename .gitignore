@@ -50,3 +50,4 @@ Thumbs.db
 *storybook.log
 projects/design/dp-dls-global-angular/node_modules
 projects/design/dp-dls-global-angular/documentation.json
+storybook-static/
