@@ -8,8 +8,7 @@ This package is **not published to any npm registry**. Consumers clone this repo
 
 ## Branch notes
 
-- `fix/density-selector-standardization` — **primary working branch**. Use this for all development.
-- `main` — broken, do not use or merge into it. Will be replaced by the density branch when complete.
+- `main` — current working branch. All development happens here.
 
 ## Fresh clone — quick start
 
